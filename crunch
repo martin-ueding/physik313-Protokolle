@@ -1,0 +1,45 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+# Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+import jinja2
+import math
+
+def main():
+    # Setting up Jinja
+    env = jinja2.Environment(
+        "%<", ">%",
+        "<<", ">>",
+        "[§", "§]",
+        loader=jinja2.FileSystemLoader(".")
+    )
+    template = env.get_template("Template.tex")
+
+    # Measurements.
+    u_val = 6.3
+    u_err = 0.1
+
+    i_val = 2.0
+    i_err = 0.1
+
+    data = [
+        (3, 4),
+        (1, 4.0),
+        (5, 1),
+        (7, 4),
+    ]
+
+    # Calculations
+    r_val = u_val / i_val
+    r_err = math.sqrt(
+        (1/i_val * u_err)**2
+        + (u_val/i_val**2 * i_err)**2
+    )
+
+    # Rendering LaTeX document with values.
+    with open("physik313-0-Ueding_Lemmer.tex", "w") as f:
+        f.write(template.render(**locals()))
+
+if __name__ == "__main__":
+    main()
