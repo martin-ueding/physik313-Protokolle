@@ -1,0 +1,30 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+# Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+# Licensed under The GNU Public License Version 2 (or later)
+
+import jinja2
+import math
+import matplotlib.pyplot as pl
+import numpy as np
+import scipy.optimize as op
+
+def main():
+    # Setting up Jinja
+    env = jinja2.Environment(
+        "%<", ">%",
+        "<<", ">>",
+        "[§", "§]",
+        loader=jinja2.FileSystemLoader(".")
+    )
+    template = env.get_template("Template.tex")
+
+    # Programm hier hin.
+
+    # Rendering LaTeX document with values.
+    with open("physik313-0-Ueding_Lemmer.tex", "w") as f:
+        f.write(template.render(**locals()))
+
+if __name__ == "__main__":
+    main()
