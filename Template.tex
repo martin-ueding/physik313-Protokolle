@@ -29,6 +29,38 @@
 
 \section{Aufgaben}
 
+\subsection{Aufgabe A}
+
+\begin{align*}
+	U_\text{SS}=&2U_0\\
+	U_\text{S}=&U_0\\
+	U_\text{eff}=&\frac{U_0}{\sqrt{2}}
+\end{align*}
+
+\subsection{Aufgabe B}
+
+\[U_\text{S}=\SI{10}{V}\]
+
+\subsection{Aufgabe C}
+
+Aus
+\begin{align}
+	U_1=&U_0\frac{R_1}{R_1+R_i}\notag
+	\intertext{folgt}
+	R_i=&\frac{\del{U_0-U_1}R_1}{U_1}\notag\\
+	=&\frac{U_0-U_1}{I_1}\label{eq:R_i}
+	\intertext{und aus}
+	U_2=&U_0\frac{R_2}{R_2+R_i}\notag
+	\intertext{folgt}
+	U_0=&\frac{\del{R_2+R_i}U_2}{R_2}\notag\\
+	=&\del{R_2+R_i}I_2\label{eq:U_0}
+	\intertext{Setzt man nun \eqref{eq:U_0} ind \eqref{eq:R_i} ein erhält man}
+	R_i=&\frac{\del{R_2+R_i}I_2}{I_1}-\frac{U_1}{I_1}\notag\\
+	\iff\qquad \del{\frac{I_1-I_2}{I_1}}R_i=&\frac{U_2-U_1}{I_1}\notag\\
+	\iff\qquad R_i=&\frac{U_2-U_1}{I_1-U_2}\notag
+\end{align}
+Dies ist die gesuchte Gleichung.
+
 \section{Versuchsaufbau und -durchführung}
 
 \section{Messung}
