@@ -9,7 +9,10 @@ import matplotlib.pyplot as pl
 import numpy as np
 import scipy.optimize as op
 
-def main():
+def aufgabe_B(T):
+    T["B_U_eff"] = round(10 / np.sqrt(2), 2)
+
+def render_template(T):
     # Setting up Jinja
     env = jinja2.Environment(
         "%<", ">%",
@@ -19,11 +22,14 @@ def main():
     )
     template = env.get_template("Template.tex")
 
-    B_U_eff = round(10 / np.sqrt(2), 2)
-
     # Rendering LaTeX document with values.
     with open("physik313-0-Ueding_Lemmer.tex", "w") as f:
-        f.write(template.render(**locals()))
+        f.write(template.render(**T))
+
+def main():
+    T = {}
+    aufgabe_B(T)
+    render_template(T)
 
 if __name__ == "__main__":
     main()
