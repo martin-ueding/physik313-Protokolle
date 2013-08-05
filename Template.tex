@@ -113,6 +113,12 @@ Die Näherungsformel für Ansteigszeit $\Deltaup t$ und Bandbreite $B$ ist gegeb
 	B \Deltaup t = \num{0.35}
 \end{equation}
 
+Die Ansteigszeit, die wir mit dem Oszilloskop bestimmen können, ist noch einmal um die Anstiegszeit des Oszilloskops selbst verfälscht. In guter Näherung setzt sich diese quadratisch zusammen. Also gilt:
+\begin{equation}
+	\label{eq:0.5}
+	\Deltaup t_\text{gemessen}^2 = \Deltaup t_\text{Signal}^2 + \Deltaup t_\text{Oszi}^2
+\end{equation}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Aufgaben                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -219,7 +225,8 @@ dieser wird mit $B = \SI{<< B >>}\hertz$ angegeben. Daraus folgt nach
 Delta_t_Oszi >>}\second$.
 
 Mit unserer gemessenen Anstiegszeit von $\Deltaup t_\text{gemessen} = \SI{<<
-Delta_t_gemessen >>}\second$ können wir die des Signalgenerators errechnen:
+Delta_t_gemessen >>}\second$ können wir die des Signalgenerators nach
+\eqref{eq:0.5} errechnen:
 \[
 	\Deltaup t_\text{Signal}
 	= \sqrt{\Deltaup t_\text{gemessen} - \Deltaup t_\text{Signal}}
