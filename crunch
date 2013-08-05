@@ -18,10 +18,22 @@ def aufgabe_B(T):
 def aufgabe_b(T):
     # Aus der Anleitung. B ist Frequenzbereich in Hz.
     B = 100e6
-    Delta_t = 0.35 / B
+    Delta_t_Oszi = 0.35 / B
+
+    Delta_t_Signal_val = np.sqrt(
+        Delta_t_gemessen_val**2 - Delta_t_Oszi**2)
+
+    Delta_t_Signal_err = Delta_t_gemessen_val * Delta_t_gemessen_err / Delta_t_Signal_val
 
     T["B"] = g(B)
-    T["Delta_t"] = g(Delta_t)
+    T["Delta_t_Oszi"] = g(Delta_t_Oszi)
+
+    T["Delta_t_gemessen_val"] = g(10)
+    T["Delta_t_gemessen_err"] = g(1)
+
+    T["Delta_t_Signal_val"] = g(10)
+    T["Delta_t_Signal_err"] = g(1)
+
 
 def render_template(T):
     # Setting up Jinja

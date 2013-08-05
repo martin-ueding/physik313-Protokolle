@@ -4,7 +4,8 @@
 all: physik313-0-Ueding_Lemmer.pdf
 
 %.pdf: %.tex
-	latexmk -pdf $<
+	#latexmk -pdf $<
+	pdflatex -batchmode $<
 
 physik313-0-Ueding_Lemmer.tex: crunch Template.tex
 	chmod +w $@

@@ -104,7 +104,14 @@ Aus der
 Anleitung\footnote{\url{http://www.hameg.com/manuals.0.html?&no_cache=1&L=1&tx_hmdownloads_pi1[mode]=download&tx_hmdownloads_pi1[uid]=987}}
 haben wir den Frequenzbereich entnommen, dieser wird mit $B = \SI{<< B
 >>}\hertz$ angegeben. Daraus folgt, nach der Formal (0.4) aus der Anleitung für
-die Anstiegszeit: $\Deltaup t_\text{Oszi} = \SI{<< Delta_t >>}\second$.
+die Anstiegszeit: $\Deltaup t_\text{Oszi} = \SI{<< Delta_t_Oszi >>}\second$.
+
+Mit unserer gemessenen Anstiegszeit von $\Deltaup t_\text{gemessen} = \SI{<< Delta_t_gemessen_val >> +- << Delta_t_gemessen_err >>}\second$ können wir die des Signalgenerators errechnen:
+\[
+	\Deltaup t_\text{Signal}
+	= \sqrt{\Deltaup t_\text{Signal} - \Deltaup t_\text{Signal}}
+	= \SI{<< Delta_t_Signal_val >> +- << Delta_t_Signal_err >>}\second
+\]
 
 \section{Ergebnis}
 
