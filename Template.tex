@@ -52,7 +52,21 @@ Somit folgt:
 
 \subsection{Aufgabe B}
 
-\[U_\text{S}=\SI{10}{V}\]
+Bei der Rechteckspannung müssen wir genauso vorgehen und über eine ganze Periode mitteln. Die Periode sei $T$ und die Maximalspannung $U_0$.
+\begin{align*}
+	U_\text{eff}^2
+	&= \frac 1T U_0^2 \int_0^T \dif T \, \Theta^2\del{t - \frac T2} \\
+	&= \frac 1T U_0^2 \int_{T/2}^T \dif T \\
+	&= \frac 1T U_0^2 \frac T/2 \\
+	&= \frac{U_0^2}2
+\end{align*}
+
+Somit folgt:
+\[
+	U_\text{eff} = \frac{U_0}{\sqrt{2}}
+\]
+
+Bei einer Eingangsspannung von $U_0 = \SI{10}\volt$ ist der Effektivwert \SI{<< B_U_eff >>}\volt.
 
 \subsection{Aufgabe C}
 
