@@ -9,8 +9,19 @@ import matplotlib.pyplot as pl
 import numpy as np
 import scipy.optimize as op
 
+def g(number):
+    return "{:.3g}".format(number)
+
 def aufgabe_B(T):
     T["B_U_eff"] = round(10 / np.sqrt(2), 2)
+
+def aufgabe_b(T):
+    # Aus der Anleitung. B ist Frequenzbereich in Hz.
+    B = 100e6
+    Delta_t = 0.35 / B
+
+    T["B"] = g(B)
+    T["Delta_t"] = g(Delta_t)
 
 def render_template(T):
     # Setting up Jinja
@@ -28,7 +39,10 @@ def render_template(T):
 
 def main():
     T = {}
+
     aufgabe_B(T)
+    aufgabe_b(T)
+
     render_template(T)
 
 if __name__ == "__main__":
