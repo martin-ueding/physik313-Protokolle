@@ -166,6 +166,25 @@ Aus
 \end{align}
 Dies ist die gesuchte Gleichung.
 
+\subsection{Aufgabe E}
+
+Es soll $B \Deltaup t \approx \num{0.35}$ hergeleitet werden.
+
+$B$ ist gegeben als $1/(2 \piup \tau)$. In einer normalen $RC$-Schaltung ist $\tau$ gerade die Zeit, nach der der Kondensator auf $1/\eup$ entladen ist. Die Funktion für die Entladung ist:
+\[
+	U(t) = U_0 \exp\del{- \frac t\tau}
+\]
+
+Interessant ist die Zeit, in der Kondesator von \num{0.9} auf \num{0.1} entlädt. Diese Zeit ist gegeben durch:
+\[
+	\frac{\num{0.1}}{\num{0.9}} = \exp\del{- \frac t\tau}
+\]
+
+Umstellen nach $t$ liefert: $t = \num{2.19722} \cdot \tau$. Dies ist nun das $\Deltaup t$, in der die Flanke abfällt. Das $\tau$ können wir nun in die Formel für das $B$ einsetzen und eliminieren. Nach etwas umstellen erhalten wir dann:
+\[
+	B \Deltaup t = \frac{\num{2.19722}}{2 \piup} = \num{0.349699}
+\]
+
 \section{Versuchsaufbau und -durchführung}
 
 \subsection{Aufgabe a}
