@@ -48,10 +48,14 @@ def aufgabe_b(T):
 
     Delta_t_Signal_err = Delta_t_gemessen_val * Delta_t_gemessen_err / Delta_t_Signal_val
 
+    B_Signal_val = 0.35 / Delta_t_Signal_val
+    B_Signal_err = 0.35 / Delta_t_Signal_val**2 * Delta_t_Signal_err
+
     T["B"] = g(B)
     T["Delta_t_Oszi"] = g(Delta_t_Oszi)
     T["Delta_t_gemessen"] = g(Delta_t_gemessen_val, Delta_t_gemessen_err)
     T["Delta_t_Signal"] = g(Delta_t_Signal_val, Delta_t_Signal_err)
+    T["B_Signal"] = g(B_Signal_val, B_Signal_err)
 
 def render_template(T):
     # Setting up Jinja
