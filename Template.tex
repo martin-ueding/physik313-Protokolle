@@ -4,6 +4,9 @@
 
 \usepackage{cleveref}
 
+\ihead{physik313 – Versuch 0}
+\ifoot{Ueding, Lemmer}
+
 \hypersetup{
 	pdftitle={Einführung und Vorversuch}
 }
@@ -22,8 +25,8 @@
 \maketitle
 
 %\newpage
-%\tableofcontents
-%\newpage
+\tableofcontents
+\newpage
 
 \section{Einleitung}
 
@@ -49,7 +52,45 @@ Der Effektivwert:
 	U_\text{eff} = \sqrt{\braket{U^2(t)}}
 \]
 
+\subsection{Messgeräte}
+
+Messgeräte bestehen immer aus einer Messeinheit und einer Anzeigeeinheit. Die
+Messeinheit besteht wiederum aus einem Verstärker, der kleine Messgrößen
+verstärkt, bis es im Arbeitsbereich des Messwandlers ist. Dazwischen gibt es
+noch ein Bereichswahlnetzwerk, mit dem die Messgröße auf den Arbeitsbereich des
+Messwandlers einstellen kann.
+
+Ein einfaches Strommessgerät ist das Drehspulmessgerät. Bei diesem wird eine
+Spule in einem isotropen Magnetfeld an einer Feder positioniert. Der zu
+messende Strom geht durch die Spule und lenkt die Feder aus. Ein Zeiger zeigt
+diese, zum Strom proportionale, Auslenkung dann an.
+
+Digitalmultimeter sind etwas kompilierter aufgebaut, haben allerdings auch
+wieder ein Bereichswahlnetzwerk und einen Wandler. Hier wandelt der Wandler die
+gemessene Spannung in eine Zeit. Die Spannung lädt einen Kondensator auf, der
+anschließend mit einem festen Strom wieder entladen werden. Die Entladungszeit
+ist proportional zur Ladung und somit proportional zur Spannung. Dies nennt man
+einen \emph{Dual-Slope-Wandler}.
+
 \subsection{Oszilloskop}
+
+Ein Oszilloskop ist ein Spannungsmesser für höhere Frequenzen. Ein
+Elektronenstahl wird durch zwei orthogonale Plattenkondensatoren abgelenkt. Die
+$x$-Ablenkung wird in der Regel als Zeitachse benutzt. Auf die $y$-Achse kommt
+dann die eigentliche Messgröße. So kann der zeitliche Verlauf des Vorgangs
+angezeigt werden.
+
+Das Eingangssignal wird wie bei den einfacheren Messgeräten auch verstärkt und durch ein Bereichswahlnetzwerk entsprechend an den Anzeigebereich angepasst. Im Oszilloskop gibt es entsprechende Drehknöpfe.
+
+Für die Darstellung der Zeit auf der $x$-Achse braucht es die Kippschaltung und
+sinnvollerweise auch den Trigger. Die Kippschaltung sorgt dafür, dass der
+Elektronenstahl wieder auf die linke Seite gebracht wird, nachdem er
+durchgelaufen ist. Damit das Bild eines periodischen Vorgangs statisch ist,
+muss die Periode des Vorgangs ein ganzzahliges Vielfaches der Anzeigeperiode
+sein. Der Elektronenstahl wartet links auf ein bestimmtes Triggerevent, zum
+Beispiel eine aufsteigende Flanke, und läuft erst dann los. So kommen alle
+aufsteigenden Flanken an den gleichen Ort des Schirms, es entsteht ein
+statisches Bild.
 
 Die Bandbreite des Tiefpasses ist gegeben durch die Formel aus der Anleitung:
 \begin{equation}
