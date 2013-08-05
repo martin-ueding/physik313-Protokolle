@@ -33,9 +33,22 @@
 
 \begin{align*}
 	U_\text{SS}&=2U_0\\
-	U_\text{S}&=U_0\\
-	U_\text{eff}&=\frac{U_0}{\sqrt{2}}
+	U_\text{S}&=U_0
 \end{align*}
+
+Für die effektive Spannung:
+\begin{align*}
+	U_\text{eff}^2
+	&= U_0^2 \frac{\omega}{2\piup/\omega} \int_0^{2\piup} \dif t \, \sin^2(\omega t) \\
+	&= U_0^2 \frac{\omega}{2\piup/\omega} \int_0^{2\piup} \dif t \, \half \del{1- \cos(2\omega t)} \\
+	&= \half U_0^2 \frac{\omega}{2\piup} \eval{\del{1- \frac{1}{2\omega} \sin(2\omega t)}}_0^{2\piup/\omega}  \\
+	&= \half U_0^2
+\end{align*}
+
+Somit folgt:
+\[
+	U_\text{eff} = \frac{U_0}{\sqrt{2}}
+\]
 
 \subsection{Aufgabe B}
 
