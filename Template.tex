@@ -40,6 +40,9 @@ Impulsdeformation.
 %                                   Theorie                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newcommand\Uh{U_\text h}
+\newcommand\Ur{U_\text r}
+
 \section{Theorie}
 
 \subsection{Phasengeschwindigkeit}
@@ -53,8 +56,8 @@ Formel (1.6) aus der Anleitung:
 Formel (1.7) aus der Anleitung:
 \begin{equation}
 	\label{eq:1.7}
-	U_\text h(l) + U_\text r(l)
-	= \del{U_\text h(0) \eup^{-\Upsilon x} + U_\text r(0) \eup^{\Upsilon x}} \eup^{\iup \omega t}
+	\Uh(l) + \Ur(l)
+	= \del{\Uh(0) \eup^{-\Upsilon x} + \Ur(0) \eup^{\Upsilon x}} \eup^{\iup \omega t}
 \end{equation}
 
 Formel (1.13) aus der Anleitung:
@@ -66,7 +69,7 @@ Formel (1.13) aus der Anleitung:
 Formel (1.14) aus der Anleitung:
 \begin{equation}
 	\label{eq:1.14}
-	Z = \frac{U_\text h (x)}{I_\text h (x)}
+	Z = \frac{\Uh (x)}{I_\text h (x)}
 \end{equation}
 
 Formel (1.15) aus der Anleitung:
@@ -79,7 +82,7 @@ Formel (1.17) aus der Anleitung:
 \begin{equation}
 	\label{eq:1.17}
 	R_\text A
-	= \frac{U_\text h (l) + U_\text r (l)}{I_\text h (l) + I_\text r (l)}
+	= \frac{\Uh (l) + \Ur (l)}{I_\text h (l) + I_\text r (l)}
 	= Z \frac{U_{\text h l} + U_{\text r l}}{U_{\text h l} + I_{\text r l}}
 	= Z \frac{1+r}{1-r}
 \end{equation}
@@ -137,7 +140,7 @@ auch mehr Material und somit mehr Gewicht und Kosten.
 \end{quote}
 
 Der Eingangswiderstand ist der Widerstand, den der Signalgenerator am Kabel
-erfährt, also das Verhältnis von $U_\text h(0)$ und $I_\text h(0)$. Der
+erfährt, also das Verhältnis von $\Uh(0)$ und $I_\text h(0)$. Der
 Wellenwiderstand $Z$ ist ebenfalls dieses Verhältnis, wenn es keine rücklaufende Welle gibt, siehe \eqref{eq:1.14}.
 
 Bei einer Länge $l$ hat es die spezifische Impedanz von $Z' = Z/l$. Die
@@ -159,14 +162,14 @@ Längenabhängigkeit erhalten wir also:
 Nach \eqref{eq:1.14} ist der Wellenwiderstand:
 \begin{equation}
 	\label{eq:D1}
-	Z := \frac{U_\text h(x)}{I_\text h(x)}
+	Z := \frac{\Uh(x)}{I_\text h(x)}
 \end{equation}
 
 Wäre nicht die rücklaufende Welle, wäre hier einfach $Z_\text{in} = Z$. In dieser Aufgabe habe ich zwar schon $Z$, allerdings reicht das nicht aus. Ich brauche:
 \begin{equation}
 	\label{eq:D2}
 	Z_\text{in}
-	= \frac{U_\text h (l) + U_\text r (l)}{I_\text h (l) + I_\text r (l)}
+	= \frac{\Uh (l) + \Ur (l)}{I_\text h (l) + I_\text r (l)}
 \end{equation}
 
 In der Anleitung steht für die offene Leitung
@@ -175,22 +178,22 @@ In der Anleitung steht für die offene Leitung
 \]
 sowie
 \[
-	U_\text r(l) - U_\text h(l) = 0.
+	\Ur(l) - \Uh(l) = 0.
 \]
 
 Mit \eqref{eq:1.7} können wir herleiten:
 \begin{align*}
-	U_\text r(l) &= U_\text h(l) \\
-	U_\text h(0) \eup^{-\Upsilon x} \eup^{\iup \omega t} &= U_\text r(0) \eup^{\Upsilon x}) \eup^{\iup \omega t} \\
-	U_\text h(0) \eup^{-\Upsilon x} &= U_\text r(0) \eup^{\Upsilon x}) \\
-	U_\text h(0) \eup^{-2 \Upsilon x} &= U_\text r(0) \\
+	\Ur(l) &= \Uh(l) \\
+	\Uh(0) \eup^{-\Upsilon x} \eup^{\iup \omega t} &= \Ur(0) \eup^{\Upsilon x}) \eup^{\iup \omega t} \\
+	\Uh(0) \eup^{-\Upsilon x} &= \Ur(0) \eup^{\Upsilon x}) \\
+	\Uh(0) \eup^{-2 \Upsilon x} &= \Ur(0) \\
 \end{align*}
 
 Für den Strom geht dies analog und führt auf die gleiche Phase zwischen ein-
 und ausgehender Welle. Damit können wir \eqref{eq:D2} umschreiben und erhalten:
 \[
 	Z_\text{in}
-	= \frac{U_\text h (l)}{I_\text h (l)} (1 + \eup^{-2 \Upsilon x}
+	= \frac{\Uh (l)}{I_\text h (l)} (1 + \eup^{-2 \Upsilon x}
 \]
 
 In diese Relation setzen wir wiederum \eqref{eq:D1} ein und vereinfachen so zu:
