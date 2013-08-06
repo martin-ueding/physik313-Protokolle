@@ -44,6 +44,19 @@ Impulsdeformation.
 
 \subsection{Phasengeschwindigkeit}
 
+Formel (1.6) aus der Anleitung:
+\begin{equation}
+	\label{eq:1.6}
+	\Upsilon^2 = Z' Y'
+\end{equation}
+
+Formel (1.7) aus der Anleitung:
+\begin{equation}
+	\label{eq:1.7}
+	U_\text h(l) + U_\text r(l)
+	= (U_\text h(0) \eup^{-\Upsilon x} + U_\text r(0) \eup^{\Upsilon x}) \eup^{\iup \omega t}
+\end{equation}
+
 Formel (1.13) aus der Anleitung:
 \begin{equation}
 	\label{eq:1.13}
@@ -149,10 +162,34 @@ Für die Längenabhängigkeit erhalten wir also:
 
 \begin{quote}
 	Wie groß ist die Eingangsimpedanz $Z$ eines verlustfreien Kabels mit
-	Wellenwiederstand $Z = \SI{50}\ohm$ und einem offenen Leitungsende für eine
-	Sinussopannung der Frequenz $\omega$ und der Wellenlänge auf dem Kabel
+	Wellenwiderstand $Z = \SI{50}\ohm$ und einem offenen Leitungsende für eine
+	Sinusspannung der Frequenz $\omega$ und der Wellenlänge auf dem Kabel
 	$\lambda$ in Abhängigkeit der Länge $l$ des Kabels ($0 < l < \lambda$)?
 \end{quote}
+
+Nach \eqref{eq:1.14} ist der Wellenwiderstand:
+\begin{equation}
+	\label{eq:}
+	Z := \frac{U_\text h(x)}{I_\text h(x)}
+\end{equation}
+
+Wäre nicht die rücklaufende Welle, wäre hier einfach $Z_\text{in} = Z$. In dieser Aufgabe habe ich zwar schon $Z$, allerdings reicht das nicht aus. Ich brauche:
+\begin{equation}
+	\label{eq:}
+	Z_\text{in}
+	= \frac{U_\text h (l) + U_\text r (l)}{I_\text h (l) + I_\text r (l)}
+\end{equation}
+
+In der Anleitung steht für die offene Leitung
+\[
+	I_\text r(l) + I_\text h(l) = 0
+\]
+sowie
+\[
+	U_\text r(l) - U_\text h(l) = 0.
+\]
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                      Versuchsaufbau und -durchführung                      %
