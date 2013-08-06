@@ -7,7 +7,9 @@ all: physik313-1-Ueding_Lemmer.pdf
 	latexmk -pdf $<
 
 physik313-1-Ueding_Lemmer.tex: crunch Template.tex
+	chmod +w $@
 	./$^
+	chmod -w $@
 
 .PHONY: clean
 clean:
