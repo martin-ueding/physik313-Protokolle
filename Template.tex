@@ -56,6 +56,15 @@ Formel (1.15) aus der Anleitung:
 	Z = \sqrt{\frac{\mu_r \mu_0}{\varepsilon_r \varepsilon_0}} \frac{\ln(R_\text a/R_\text i)}{2\piup}
 \end{equation}
 
+Formel (1.17) aus der Anleitung:
+\begin{equation}
+	\label{eq:1.17}
+	R_\text A
+	= \frac{U_\text h (l) + U_\text r (l)}{I_\text h (l) + I_\text r (l)}
+	= Z \frac{U_{\text h l} + U_{\text r l}}{U_{\text h l} + I_{\text r l}}
+	= Z \frac{1+r}{1-r}
+\end{equation}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Aufgaben                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -100,6 +109,24 @@ werden.
 
 Ein längeres Kabel bedeutet auch erhöhte normale Ohm'sche Verluste. Es braucht
 auch mehr Material und somit mehr Gewicht und Kosten.
+
+\subsection{Aufgabe C}
+
+\begin{quote}
+	Sei ein Kabel abgeschlossen mit $R_A = Z$. Wie hängt der Eingangswiderstand
+	$R_\text{in}$ des Kabels von seiner Länge ab?
+\end{quote}
+
+Der Eingangswiderstand ist der Widerstand, den der Signalgenerator am Kabel
+erfährt, also das Verhältnis von $U_\text h$ und $I_\text h$. Das Kabel wirkt
+durch den Abschlusswiderstand unendlich lang, so dass $R_\text{in} = Z$ gilt.
+
+Dies ist aus Formel \eqref{eq:1.17} zu sehen. Dort ist das Kabelende ($x = l$)
+beschrieben. Wir setzen dort die rücklaufende Welle gleich null, sowie $r = 0$
+ein, und erhalten:
+\[
+	R_\text A = \frac{U_\text h}{I_\text h}
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                      Versuchsaufbau und -durchführung                      %
