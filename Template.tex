@@ -138,30 +138,13 @@ auch mehr Material und somit mehr Gewicht und Kosten.
 
 Der Eingangswiderstand ist der Widerstand, den der Signalgenerator am Kabel
 erfährt, also das Verhältnis von $U_\text h(0)$ und $I_\text h(0)$. Der
-Wellenwiderstand $Z$ ist ebenfalls dieses Verhältnis. Wenn $Z$ durch ein $R$
-kompensiert werden kann, muss $Z$ rein reell sein, es sich also um ein
-verlustfreies Kabel handeln.
+Wellenwiderstand $Z$ ist ebenfalls dieses Verhältnis, wenn es keine rücklaufende Welle gibt, siehe \eqref{eq:1.14}.
 
 Bei einer Länge $l$ hat es die spezifische Impedanz von $Z' = Z/l$. Die
-Impedanz bei einer Länge $l$ ist somit $Z(l) = Z' l$. In Abbildung
-\ref{fig:1.5} ist zu sehen, dass die Spannung $U_0$, die der Funktionsgenerator
-liefert, über dem Innenwiderstand, dem Kabel und dem Abschlusswiderstand
-abfällt. In dieser Aufgabe addieren sich die Impedanz des Kabels und der
-Abschlusswiderstand einfach auf.
-
-\begin{figure}[h]
-	\centering
-	\caption{%
-		Abbildung 1.5 aus der Versuchsanleitung \cite[Seite
-		19]{physik313-Anleitung}
-	}
-	\label{fig:1.5}
-	\includegraphics[width=.8\textwidth]{abb-1-5.png}
-\end{figure}
-
-Für die Längenabhängigkeit erhalten wir also:
+Impedanz bei einer Länge $l$ ist somit $Z(l) = Z' l$. Für die
+Längenabhängigkeit erhalten wir also:
 \[
-	R_\text{in}(l) = Z' l + R_\text A
+	R_\text{in}(l) = Z' l = Z
 \]
 
 \subsection{Aufgabe D}
