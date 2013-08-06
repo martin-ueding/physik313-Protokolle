@@ -169,13 +169,13 @@ Für die Längenabhängigkeit erhalten wir also:
 
 Nach \eqref{eq:1.14} ist der Wellenwiderstand:
 \begin{equation}
-	\label{eq:}
+	\label{eq:D1}
 	Z := \frac{U_\text h(x)}{I_\text h(x)}
 \end{equation}
 
 Wäre nicht die rücklaufende Welle, wäre hier einfach $Z_\text{in} = Z$. In dieser Aufgabe habe ich zwar schon $Z$, allerdings reicht das nicht aus. Ich brauche:
 \begin{equation}
-	\label{eq:}
+	\label{eq:D2}
 	Z_\text{in}
 	= \frac{U_\text h (l) + U_\text r (l)}{I_\text h (l) + I_\text r (l)}
 \end{equation}
@@ -189,7 +189,35 @@ sowie
 	U_\text r(l) - U_\text h(l) = 0.
 \]
 
+Mit \eqref{eq:1.7} können wir herleiten:
+\begin{align*}
+	U_\text r(l) &= U_\text h(l) \\
+	U_\text h(0) \eup^{-\Upsilon x} \eup^{\iup \omega t} &= U_\text r(0) \eup^{\Upsilon x}) \eup^{\iup \omega t} \\
+	U_\text h(0) \eup^{-\Upsilon x} &= U_\text r(0) \eup^{\Upsilon x}) \\
+	U_\text h(0) \eup^{-2 \Upsilon x} &= U_\text r(0) \\
+\end{align*}
 
+Für den Strom geht dies analog und führt auf die gleiche Phase zwischen ein-
+und ausgehender Welle. Damit können wir \eqref{eq:D2} umschreiben und erhalten:
+\[
+	Z_\text{in}
+	= \frac{U_\text h (l)}{I_\text h (l)} (1 + \eup^{-2 \Upsilon x}
+\]
+
+In diese Relation setzen wir wiederum \eqref{eq:D1} ein und vereinfachen so zu:
+\[
+	Z_\text{in}
+	= Z (1 + \eup^{-2 \Upsilon x}
+\]
+
+Das Kabel war als verlustfrei vorgegeben, es gibt also keinen Strom zwischen Leiter und Masse. Damit ist $Y = Y' = 0$ Aus \eqref{eq:1.6} folgt damit, dass $\Upsilon = 0$ ist. Dadurch ist der Phasenfaktor in der obigen Formel einfach eins.
+
+Wir erhalten das Ergebnis:
+\[
+	Z_\text{in} = 2 Z
+\]
+
+Dies ist unabhängig von der Länge und der Wellenlänge sowie der Frequenz.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                      Versuchsaufbau und -durchführung                      %
