@@ -45,40 +45,60 @@ Impulsdeformation.
 
 \section{Theorie}
 
-\subsection{Phasengeschwindigkeit}
+In diesem Versuch werden die BNC-Kabel eingeführt. Diese bestehen aus einem Leiter in der Mitte und einer geerdeten Abschrimung in einem großeren Radius. Die beiden Leiter sind konzentrisch.
 
-Formel (1.6) aus der Anleitung:
+Widerstand $R$, Induktivität $L$, Verlustleitwert $G$ und Kapazität $C$ sind alle proportional zur Kabellänge, so dass die Leitungskonstanten eingeführt werden. Diese sind $R' = R/l$ und analog für die Anderen.
+
+\subsection{Wellengleichung}
+
+Eine vereinfachte Herleitung zerlegt das lange Kabel in viele $LC$-Glieder. Für jedes differentielle Glied sind die Leitungskonstanten entscheidend. Aus den Strom- und Spannungsgleichungen an den vier Polen kann eine Wellengleichung hergeleitet werden. Dazu beginnt man mit:
+\[
+	U(x) = I(x) \Deltaup Z + U(x + \Deltaup x)
+	\eqnsep
+	I(x) = I(x + \Deltaup x) + U(x + \Deltaup x) \Deltaup Y
+\]
+
+Es folgen einige Umformungsschritte, Teilen durch $\Deltaup x$ und der Grenzübergang $\Deltaup x \to 0$. Es entstehen zwei Differentialgleichungen, die ineinander eingesetzt werden können und die Wellengleichung ergibt:
+\[
+	\dod[2] Ux = \Upsilon^2 U = 0
+\]
+
+Das $\Upsilon$ ist wie folgt definiert:
 \begin{equation}
 	\label{eq:1.6}
 	\Upsilon^2 = Z' Y'
 \end{equation}
 
-Formel (1.7) aus der Anleitung:
+Lösungen dieser Differentialgleichung sind ebene Wellen:
 \begin{equation}
 	\label{eq:1.7}
 	\Uh(l) + \Ur(l)
 	= \del{\Uh(0) \eup^{-\Upsilon x} + \Ur(0) \eup^{\Upsilon x}} \eup^{\iup \omega t}
 \end{equation}
 
-Formel (1.13) aus der Anleitung:
+\subsection{Phasengeschwindigkeit}
+
+Die Phasengeschwindigkeit kann hergeleitet werden zu:
 \begin{equation}
 	\label{eq:1.13}
 	v_\text{ph} = c_0 \frac{1}{\sqrt{\varepsilon_0 \mu_0}}
 \end{equation}
 
-Formel (1.14) aus der Anleitung:
+Der Wellenwiderstand ist in der Anleitung definiert als:
 \begin{equation}
 	\label{eq:1.14}
 	Z = \frac{\Uh (x)}{I_\text h (x)}
 \end{equation}
 
-Formel (1.15) aus der Anleitung:
-\begin{equation}
-	\label{eq:1.15}
-	Z = \sqrt{\frac{\mu_r \mu_0}{\varepsilon_r \varepsilon_0}} \frac{\ln(R_\text a/R_\text i)}{2\piup}
-\end{equation}
+\subsection{Anpassung}
 
-Formel (1.17) aus der Anleitung:
+Die rücklaufende Welle ist in der Regel nicht erwünscht und sollte am Ende
+absorbiert werden. Die nennt man \emph{Anpassung}. Durch einen Widerstand am
+Ende, der genauso groß wie der Wellenwiderstand des Kabels ist, kann die Welle
+komplett absorbiert werden. Für den Funktionsgenerator sieht das Kabel dann
+aus, wie ein unendlich langes, von dem keine Reflexion zu erwarten ist. 
+
+Der richtige Abschlusswiderstand ist durch folgende Relation gegeben:
 \begin{equation}
 	\label{eq:1.17}
 	R_\text A
@@ -86,6 +106,11 @@ Formel (1.17) aus der Anleitung:
 	= Z \frac{U_{\text h l} + U_{\text r l}}{U_{\text h l} + I_{\text r l}}
 	= Z \frac{1+r}{1-r}
 \end{equation}
+
+Dabei können drei Spezialfälle unterschieden werden, der angepasste Abschluss,
+die offene Leitung und der Kurzschluss. Wie bei einer normalen Welle, die an
+einem losen oder festen Ende reflektiert wird, nimmt der Reflexionsfaktor den
+Wert \num{+1} bzw. \num{-1} an.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Aufgaben                                   %
