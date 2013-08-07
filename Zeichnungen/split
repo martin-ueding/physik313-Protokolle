@@ -19,5 +19,7 @@ pdfseparate Zeichnungen.pdf split-%d.pdf
 
 for (( i = 0; i < ${#namen[@]}; i++ ))
 do
-	mv "split-$(( i + 1 )).pdf" "${namen[$i]}.pdf"
+	pdfcrop "split-$(( i + 1 )).pdf" "${namen[$i]}.pdf"
 done
+
+rm -f split-*.pdf
