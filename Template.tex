@@ -2,13 +2,16 @@
 
 \input{header.tex}
 
+\ihead{physik313 – Versuch 2}
+\ifoot{Ueding, Lemmer}
+
 \hypersetup{
-	pdftitle={Einführung und Vorversuch}
+	pdftitle={Diodenkennlinien}
 }
 
 \subject{Praktikumsprotokoll}
-\title{Einführung und Vorversuch}
-\subtitle{physik313 – Versuch 0}
+\title{Diodenkennlinien}
+\subtitle{physik313 – Versuch 2}
 \author{
 	Martin Ueding \footnote{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
 	\and
@@ -20,24 +23,147 @@
 \maketitle
 
 %\newpage
-%\tableofcontents
-%\newpage
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Einleitung                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Einleitung}
 
-\section{Theorie}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                   Theorie                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Aufgaben                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Aufgaben}
+
+\subsection{Aufgabe F}
+
+\subsubsection{Einfacher Widerstand}
+
+Beim einfachen Widerstand $R$ gilt:
+\[
+	I = \frac 1R U
+\]
+
+Dies ist in Abbildung \ref{fig:F-Widerstand} skizziert.
+
+\begin{figure}[h]
+	\centering
+	\caption{%
+		Kennlinie des Ohm'schen Widerstands
+	}
+	\label{fig:F-Widerstand}
+	\includegraphics{Zeichnungen/F-Widerstand.pdf}
+\end{figure}
+
+\subsubsection{Einfache Diode}
+
+Für die Diode gilt die in Abbildung 2.2 der Aufgabenstellung gezeichnete
+Kennlinie, ich habe sie in Abbildung \ref{fig:F-Diode} selbst gemalt.
+
+\begin{figure}[h]
+	\centering
+	\caption{%
+	}
+	\label{fig:F-Diode}
+	\includegraphics{Zeichnungen/F-Diode.pdf}
+\end{figure}
+
+\subsubsection{Diode und Widerstand seriell}
+
+Hier gibt die Diode den Stromverlauf vor. Der Widerstand verschlingt jedoch
+noch Spannung, wenn Strom fließt. Somit hat die Diode weniger Spannung, es
+fließt weniger Strom. Darauf fällt weniger Spannung über dem Widerstand ab, die
+Diode hat mehr spannung zur Verfügung. Wir haben versucht, die analytisch zu
+lösen, sind jedoch nur anschaulich weitergekommen.
+
+So haben wir uns überlegt, dass der Durchlass erst bei höherer Spannung
+einsetzt und dann flacher einsteigt. Dies ist in Abbildung \ref{fig:F-seriell}
+skizziert.
+
+\begin{figure}[h]
+	\centering
+	\caption{%
+	}
+	\label{fig:F-seriell}
+	\includegraphics{Zeichnungen/F-seriell.pdf}
+\end{figure}
+
+\subsubsection{Diode und Widerstand parallel}
+
+Hier liegt die gleiche Spannung an Diode und Widerstand an. Die Leitfähigkeiten
+addieren sich:
+\begin{align*}
+	Y_\text{ext} &= Y_\text D + Y_R \\
+	I_\text{ext} &= (Y_\text D + Y_R) U \\
+	&= \del{\frac{f_\text D(U)}U + \frac 1R} U \\
+	&= f_\text D (U) + \frac UR
+\end{align*}
+
+Somit summieren sich beide Kennlinien auf, siehe Abbildung
+\ref{fig:F-parallel}.
+
+\begin{figure}[h]
+	\centering
+	\caption{%
+	}
+	\label{fig:F-parallel}
+	\includegraphics{Zeichnungen/F-parallel.pdf}
+\end{figure}
+
+\subsubsection{Ideale Stromquelle}
+
+Abbildung \ref{fig:F-Spannungsquelle}
+
+\begin{figure}[h]
+	\centering
+	\caption{%
+	}
+	\label{fig:F-Stromquelle}
+	%\includegraphics{Zeichnungen/F-Stromquelle.pdf}
+\end{figure}
+
+\subsubsection{Ideale Spannungsquelle}
+
+Abbildung \ref{fig:F-Stromquelle}
+
+\begin{figure}[h]
+	\centering
+	\caption{%
+	}
+	\label{fig:F-Spannungsquelle}
+	%\includegraphics{Zeichnungen/F-Diode.pdf}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      Versuchsaufbau und -durchführung                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau und -durchführung}
 
-\section{Messung}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Auswertung                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Auswertung}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Ergebnis                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Ergebnis}
 
-%\IfFileExists{\bibliographyfile}{
-%	\bibliography{\bibliographyfile}
-%}{}
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+}{}
 
 \end{document}
 
