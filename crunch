@@ -37,7 +37,7 @@ def render_template(T):
     env = jinja2.Environment(
         "%<", ">%",
         "<<", ">>",
-        "[§", "§]",
+        "%§", "§%",
         loader=jinja2.FileSystemLoader(".")
     )
     template = env.get_template("Template.tex")

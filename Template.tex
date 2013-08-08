@@ -329,7 +329,47 @@ Die Extremwerte sind $I = U/R$, wenn $\RL = 0$ sowie $U' = U_0$ wenn $\RL \to
 
 \subsection{Aufgabe O}
 
-\fehlt
+\newcommand\IZmax{I_\text{Z,max}}
+\newcommand\IZmin{I_\text{Z,min}}
+\newcommand\IZ{I_\text Z}
+\newcommand\UZ{U_\text Z}
+
+Der Strom $\IZmax$ darf nicht überschritten werden. Mit dem Ansatz aus 
+\cite[§~15.1.3]{beuth/elementare_elektronik} betrachte ich zuerst $\RL =
+\infty$. Dann fällt an der Zenerdiode gerade $\UZ$ ab, über $R$ fällt $U - \UZ$
+ab. Damit der Strom nicht überschritten wird, muss gelten:
+\[
+	R > \frac{U - \UZ}\IZmax
+\]
+
+Diese Bedingung ist erfüllt:
+%\[
+	%\SI{200}\ohm > \frac{\SI{8.2}\volt}{\SI{100}{\milli\ampere}} = \SI{82}\ohm
+%\]
+
+Der extremste Fall tritt ein, wenn $U$ maximal wird. Also ist die untere
+Schranke für $R$:
+\[
+	R > \frac{\SI{22}\volt - \SI{8.2}\volt}{\SI{100}{\milli\ampere}}
+	= \SI{138}\ohm
+\]
+
+Dies ist die untere Grenze. Wenn weniger als $\IZmin$ durch die Zenerdiode
+fließen, ist die STabilisierung auch weg. Also im unbelasteten Fall:
+\[
+	\frac U\IZmin > R
+\]
+
+Nehme minimales $U$ für Extremwert:
+\[
+	R < \SI{8}{\kilo\ohm}
+\]
+
+Wenn jetzt die Last dazukommt, wird der Zenerstrom allerdings kleiner. Sobald
+dann jedoch die Spannung wieder ansteigt, sollte der Zenerstrom wieder groß
+genug werden.
+
+Somit ist der Bereich \SIrange{138}{8000}{\ohm}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                      Versuchsaufbau und -durchführung                      %
