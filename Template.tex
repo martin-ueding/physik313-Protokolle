@@ -266,7 +266,10 @@ der Anleitung anschaut.
 
 \subsection{Aufgabe K}
 
-Der maximale Durchlassstrom ist \SI{1000}{\milli\ampere}. Wenn $C$ zu groß ist, zieht $C$ zu viel Strom. In $\Deltaup t := \SI{100}{\micro\second}$ geht die Spannung um $\Deltaup U := \SI1\volt$ hoch. Die Ladungszunahme ist $\Deltaup Q = C \Deltaup U$.
+Der maximale Durchlassstrom ist \SI{1000}{\milli\ampere}. Wenn $C$ zu groß ist,
+zieht $C$ zu viel Strom. In $\Deltaup t := \SI{100}{\micro\second}$ geht die
+Spannung um $\Deltaup U := \SI1\volt$ hoch. Die Ladungszunahme ist $\Deltaup Q
+= C \Deltaup U$.
 
 Der Strom ist:
 \[
@@ -309,6 +312,20 @@ Die Spannung $U'$ ist:
 	&= \frac{U_0 \RL}{R + \RL} \\
 	&+ \frac{U_0}{1 + \frac R\RL}
 \end{align*}
+
+Die Funktion ist in Abbildung \ref{fig:N-Plot} skizziert.
+
+\begin{figure}[h]
+	\centering
+	\caption{%
+		Lastspannung in Abhängigkeit vom Lastwiderstand
+	}
+	\label{fig:N-Plot}
+	\includegraphics{Zeichnungen/N-Plot.pdf}
+\end{figure}
+
+Die Extremwerte sind $I = U/R$, wenn $\RL = 0$ sowie $U' = U_0$ wenn $\RL \to
+\infty$.
 
 \subsection{Aufgabe O}
 
