@@ -246,7 +246,20 @@ der Anleitung anschaut.
 
 \subsection{Aufgabe K}
 
-\fehlt
+Der maximale Durchlassstrom ist \SI{1000}{\milli\ampere}. Wenn $C$ zu groß ist, zieht $C$ zu viel Strom. In $\Deltaup t := \SI{100}{\micro\second}$ geht die Spannung um $\Deltaup U := \SI1\volt$ hoch. Die Ladungszunahme ist $\Deltaup Q = C \Deltaup U$.
+
+Der Strom ist:
+\[
+	I = \frac{\Deltaup Q}{\Deltaup t}
+	= C \frac{\Deltaup U}{\Deltaup t}
+\]
+
+Dies muss kleiner als $I_\text{max}$ sein:
+\[
+	I_\text{max} \frac{\Deltaup t}{\Deltaup U} > C
+	\implies
+	C < \SI{100}{\micro\farad}
+\]
 
 \subsection{Aufgabe L}
 
