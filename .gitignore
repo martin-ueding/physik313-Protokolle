@@ -1,3 +1,5 @@
 physik313-*
+*.xoj.pdf
+*.nb.pdf
 Zeichnungen/*.pdf
 !Zeichungen/Zeichungen.pdf
