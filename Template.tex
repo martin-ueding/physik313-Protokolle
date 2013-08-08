@@ -44,7 +44,29 @@ untersuchen wir verschiedene Gleichrichter sowie Spannungsstabilisierung.
 
 \section{Theorie}
 
-\fehlt
+Dioden bestehen meistens aus Silizium oder Germanium. Ein Teil ist n-dotiert,
+der andere p-dotiert. Wenn Plus an die p-Zone gepolt ist, dann ist dieser
+pn-Übergang in Durchlassrichtung gepolt
+\cite[§~14.1]{beuth/elementare_elektronik}. In der anderen Polung ist die
+Diode gesperrt und lässt so gut wie keinen Strom durch.
+
+Bei einer hohen Gegenspannung wird die Diode jedoch durchbrochen, dies ist die
+\emph{Durchbruchspannung}. Jenseits dieser Spannung ist die Diode niederohmig
+und leitet wieder viel Strom, da die Diode dann zerstört ist. Eine Zenerdiode
+wird nicht zerstört und kann so zur Spannungsbegrenzung benutzt werden, siehe
+letzte Voraufgaben.
+
+Den Stromverlauf in Abhängigkeit der Spannung wird \emph{Kennlinie} genannt und
+taucht in den Voraufgaben einige Male auf.
+
+Dioden können zur Gleichrichtung benutzt werden. Dabei kann die untere
+Halbwelle blockiert werden, oder mit einem Zweiwegegleichrichter auch die
+untere Halbwelle zu einer positiven Spannung umgewandelt werden. Mit einem
+Glättungskondensator kann diese $|\sin(\omega t)|$ Spannung, noch zu einer
+besseren Gleichspannung mit weniger Restwelligkeit gemacht werden.
+
+Mit einer Zenerdiode kann ein Stromteiler aufgebaut werden, der die
+Lastspannung stabilisiert. So können stabilisierte Netzteile gebaut werden.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Aufgaben                                   %
@@ -60,7 +82,9 @@ Leitungsband.
 \subsection{Aufgabe B}
 
 Dotierung benutzt man, um freie Ladungsträger zu erhalten. In Halbleitern wäre
-sonst kein Zustand im Leitungsband besetzt.
+sonst kein Zustand im Leitungsband besetzt. Dies erreicht man, in dem man Atome
+mit anderer Wertigkeit an Kristallplätze setzt und Si so ersetzt. Dies ist eine
+gezielte Verunreinigung.
 
 \subsection{Aufgabe C}
 
