@@ -44,14 +44,17 @@ Oszilloskop.
 
 \subsection{Wechselspannungsamplituden}
 
-Amplituden von Wechselspannungen können ganz allgemein durch folgende Spannungen charakterisiert werden: $U_\text{SS}$, $U_\text{S}$ und $U_\text{eff}$. Diese sind wie folgt definiert:
+Amplituden von Wechselspannungen können ganz allgemein durch folgende
+Spannungen charakterisiert werden: $U_\text{SS}$, $U_\text{S}$ und
+$U_\text{eff}$. Diese sind wie folgt definiert:
 
 Spitze-Spitze:
 \[
 	U_\text{SS} = \max_t \{ U(t) \} - \min_t \{ U(t) \}
 \]
 
-Der Scheitelwert $U_\text S(t)$ ist der Maximalwert, dabei ist die Definition nicht ganz klar.
+Der Scheitelwert $U_\text S(t)$ ist der Maximalwert, dabei ist die Definition
+nicht ganz klar.
 
 Der Effektivwert:
 \[
@@ -86,7 +89,9 @@ $x$-Ablenkung wird in der Regel als Zeitachse benutzt. Auf die $y$-Achse kommt
 dann die eigentliche Messgröße. So kann der zeitliche Verlauf des Vorgangs
 angezeigt werden.
 
-Das Eingangssignal wird wie bei den einfacheren Messgeräten auch verstärkt und durch ein Bereichswahlnetzwerk entsprechend an den Anzeigebereich angepasst. Im Oszilloskop gibt es entsprechende Drehknöpfe.
+Das Eingangssignal wird wie bei den einfacheren Messgeräten auch verstärkt und
+durch ein Bereichswahlnetzwerk entsprechend an den Anzeigebereich angepasst. Im
+Oszilloskop gibt es entsprechende Drehknöpfe.
 
 Für die Darstellung der Zeit auf der $x$-Achse braucht es die Kippschaltung und
 sinnvollerweise auch den Trigger. Die Kippschaltung sorgt dafür, dass der
@@ -105,7 +110,8 @@ Die Bandbreite des Tiefpasses ist gegeben durch die Formel aus der Anleitung:
 	= \frac{1}{2\piup \tau}
 \end{equation}
 
-Die Näherungsformel für Ansteigszeit $\Deltaup t$ und Bandbreite $B$ ist gegeben als:
+Die Näherungsformel für Ansteigszeit $\Deltaup t$ und Bandbreite $B$ ist
+gegeben als:
 \begin{equation}
 	\label{eq:0.4}
 	B \Deltaup t = \num{0.35}
@@ -148,7 +154,8 @@ Somit folgt:
 
 \subsection{Aufgabe B}
 
-Bei der Rechteckspannung müssen wir genauso vorgehen und über eine ganze Periode mitteln. Die Periode sei $T$ und die Maximalspannung $U_0$.
+Bei der Rechteckspannung müssen wir genauso vorgehen und über eine ganze
+Periode mitteln. Die Periode sei $T$ und die Maximalspannung $U_0$.
 \begin{align*}
 	U_\text{eff}^2
 	&= \frac 1T U_0^2 \int_0^T \dif T \, \Theta^2\del{t - \frac T2} \\
@@ -162,7 +169,8 @@ Somit folgt:
 	U_\text{eff} = \frac{U_0}{\sqrt{2}}
 \]
 
-Bei einer Eingangsspannung von $U_0 = \SI{10}\volt$ ist der Effektivwert \SI{<< B_U_eff >>}\volt.
+Bei einer Eingangsspannung von $U_0 = \SI{10}\volt$ ist der Effektivwert \SI{<<
+B_U_eff >>}\volt.
 
 \subsection{Aufgabe C}
 
@@ -188,17 +196,23 @@ Dies ist die gesuchte Gleichung.
 
 Es soll $B \Deltaup t \approx \num{0.35}$ hergeleitet werden.
 
-$B$ ist gegeben als $1/(2 \piup \tau)$. In einer normalen $RC$-Schaltung ist $\tau$ gerade die Zeit, nach der der Kondensator auf $1/\eup$ entladen ist. Die Funktion für die Entladung ist:
+$B$ ist gegeben als $1/(2 \piup \tau)$. In einer normalen $RC$-Schaltung ist
+$\tau$ gerade die Zeit, nach der der Kondensator auf $1/\eup$ entladen ist. Die
+Funktion für die Entladung ist:
 \[
 	U(t) = U_0 \exp\del{- \frac t\tau}
 \]
 
-Interessant ist die Zeit, in der Kondesator von \num{0.9} auf \num{0.1} entlädt. Diese Zeit ist gegeben durch:
+Interessant ist die Zeit, in der Kondensator von \num{0.9} auf \num{0.1}
+entlädt. Diese Zeit ist gegeben durch:
 \[
 	\frac{\num{0.1}}{\num{0.9}} = \exp\del{- \frac t\tau}
 \]
 
-Umstellen nach $t$ liefert: $t = \num{2.19722} \cdot \tau$. Dies ist nun das $\Deltaup t$, in der die Flanke abfällt. Das $\tau$ können wir nun in die Formel für das $B$ einsetzen und eliminieren. Nach etwas umstellen erhalten wir dann:
+Umstellen nach $t$ liefert: $t = \num{2.19722} \cdot \tau$. Dies ist nun das
+$\Deltaup t$, in der die Flanke abfällt. Das $\tau$ können wir nun in die
+Formel für das $B$ einsetzen und eliminieren. Nach etwas umstellen erhalten wir
+dann:
 \[
 	B \Deltaup t = \frac{\num{2.19722}}{2 \piup} = \num{0.349699}
 \]
