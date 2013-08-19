@@ -284,7 +284,11 @@ aufgelistet.
 
 \subsection{Versuchsaufgabe 1: Differenzierglied}
 
-Wir schließen den Oszillograph an das Differenzierglied, das vom Funktionsgenerator mit einer Rechteckspannung versorgt wird.
+Wir schließen den Oszillograph an das Differenzierglied ohne Abschluss), das
+vom Funktionsgenerator mit einer Rechteckspannung versorgt wird. Das
+Oszillogramm ist in Abbildung \ref{fig:0752} dargestellt. Mit dem eingebauten
+\SI{2.2}{\kilo\ohm} Widerstand werden die Impulse deutlich kleiner, wie in
+Abbildung \ref{fig:0753} zu sehen.
 
 \begin{figure}
 	\centering
@@ -299,6 +303,40 @@ Wir schließen den Oszillograph an das Differenzierglied, das vom Funktionsgener
 	}
 	\label{fig:0752}
 \end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0753-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis \SI{1}{\milli\second\per\division}, Verstärkung \SI{5}{\volt\per\division}, externe Triggerung
+	}
+	\label{fig:0753}
+\end{figure}
+
+Durch den zusätzlichen Widerstand wird das Signal gedämpft.
+
+Ohne einen Abschlusswiderstand T-Stück am Oszilloskop sind die Peaks weniger deutlich ausgeprägt, siehe Abbildung \ref{fig:0755}.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0755-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis \SI{1}{\milli\second\per\division}, Verstärkung \SI{20}{\volt\per\division}, externe Triggerung
+	}
+	\label{fig:0755}
+\end{figure}
+
+Die Zeit $\Deltaup t$ wird länger, $V_\text{SS}$ nimmt um einen Faktor 5 ab.
 
 \subsection{Versuchsaufgabe 2: Impulse auf Kabeln}
 
