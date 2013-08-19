@@ -425,8 +425,11 @@ Differenzierglied kommen:
 		Oszillograph
 \end{itemize}
 
-In Abbildung \ref{fig:0763} und \ref{fig:0764} sind die Oszillogramme ohne
-Abschlusswiderstand mit verschiedenen Vergrößerungen.
+\FloatBarrier
+\subsubsection{Teil a}
+
+In Abbildung \ref{fig:0763} und \ref{fig:0765} sind die Oszillogramme ohne und
+mit Abschlusswiderstand.
 
 \begin{figure}
 	\centering
@@ -451,23 +454,6 @@ Abschlusswiderstand mit verschiedenen Vergrößerungen.
 	\end{minipage}
 	\hfill
 	\begin{minipage}{.45\linewidth}
-	\includegraphics[width=\linewidth]{Fotos/IMG_0764-1500.jpg}
-	\end{minipage}
-	\caption{%
-		Rechteck, Frequenz \SI{200}{\kilo\hertz},
-		Zeitbasis \SI{.05}{\micro\second\per\division},
-		Verstärkung \SI{50}{\milli\volt\per\division},
-		externe Triggerung
-	}
-	\label{fig:0764}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Fotos/IMG_0765-1500.jpg}
 	\end{minipage}
 	\caption{%
@@ -477,6 +463,29 @@ Abschlusswiderstand mit verschiedenen Vergrößerungen.
 		externe Triggerung
 	}
 	\label{fig:0765}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{Teil b}
+
+In Abbildung \ref{fig:0764} und \ref{fig:0766} sind die Oszillogramme ohne und
+mit Abschlusswiderstand, mit zehnfacher Vergrößerung.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0764-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{.05}{\micro\second\per\division},
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0764}
 \end{figure}
 
 \begin{figure}
@@ -495,6 +504,12 @@ Abschlusswiderstand mit verschiedenen Vergrößerungen.
 	}
 	\label{fig:0766}
 \end{figure}
+
+\FloatBarrier
+\subsubsection{Teil c}
+
+In Abbildung \ref{fig:0767} ist das Oszillogramm ohne Anpassung, in Abbildung
+\ref{fig:0786} mit Anpassung gezeigt.
 
 \begin{figure}
 	\centering
@@ -529,6 +544,13 @@ Abschlusswiderstand mit verschiedenen Vergrößerungen.
 	}
 	\label{fig:0768}
 \end{figure}
+
+\FloatBarrier
+\subsubsection{Teil d}
+
+Ohne Anpassungswiderstand in Abbildung \ref{fig:0769}. Zur Illustration sind
+noch höhere Frequenzen in den Abbildungen \ref{fig:0770} und \ref{fig:0771}
+gezeigt.
 
 \begin{figure}
 	\centering
@@ -580,6 +602,15 @@ Abschlusswiderstand mit verschiedenen Vergrößerungen.
 	}
 	\label{fig:0771}
 \end{figure}
+
+Wir lesen aus dem Oszillogramm ab 12 Peaks auf 4 Kästchen ab. Die
+Zeitauflösung ist auf \SI{.2}{\micro\second\per\division}, eingestellt. Somit
+ergibt sich eine Frequenz von $\nu = \SI{<< nu >>}{\hertz}$ und eine Periode
+von $T = \SI{<< T >>}\second$. Dies ist die Zeit, die das Signal braucht, um
+die \SI{<< kabel_length >>}{\meter} \emph{zweimal} zurückzulegen. Daraus folgt
+eine spezifische Verzögerungszeit von \SI{<< spez_verz >>}{\second\per\meter}.
+Der Literaturwert für RG-58C/U Kabel ist \SI{5}{\nano\second\per\meter}, dies
+passt also gut.
 
 \FloatBarrier
 \subsection{Versuchsaufgabe 4: Klippkabel, Dämpfung}
