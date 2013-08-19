@@ -21,9 +21,13 @@
 }
 \publishers{Gruppe 3 -- A -- Brezina}
 
+\setcounter{tocdepth}{2}
+
 \begin{document}
 
 \maketitle
+
+Der \LaTeX{} Quelltext zu diesem Protokoll kann auf \url{http://martin-ueding.de/de/university/physik313/} eingesehen werden.
 
 %\newpage
 \tableofcontents
@@ -612,8 +616,33 @@ eine spezifische Verzögerungszeit von \SI{<< spez_verz >>}{\second\per\meter}.
 Der Literaturwert für RG-58C/U Kabel ist \SI{5}{\nano\second\per\meter}, dies
 passt also gut.
 
+Bei Kurzschluss des Verzögerungskabels halbiert sich die Anzahl der Peaks, jedoch wird das Signal jetzt symmetrisch. Dies kommt daher, dass die Reflexion jetzt am festen Ende ist, so dass die Amplitude negiert wird. Daher ist jetzt nicht mehr Peak, Null, Peak, sondern Plus, Minus, Plus abzulesen. Siehe Abbildung \ref{fig:0772}.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0772-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{.2}{\micro\second\per\division},
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0772}
+\end{figure}
+
+Bei Abschluss erwarten wir, dass die Reflexionen verschwinden und nur noch der
+eine Peak vom Differenzierer zu sehen ist. So ist es auch.
+
 \FloatBarrier
 \subsection{Versuchsaufgabe 4: Klippkabel, Dämpfung}
+
+\FloatBarrier
+\subsubsection{Teil a}
 
 \begin{figure}
 	\centering
@@ -632,6 +661,11 @@ passt also gut.
 	\label{fig:0773}
 \end{figure}
 
+\FloatBarrier
+\subsubsection{Teil b}
+
+Wir schließen das Klippkabel nun kurz. Das Oszillogramm ist in Abbildung \ref{fig:0774}.
+
 \begin{figure}
 	\centering
 	\begin{minipage}{.45\linewidth}
@@ -649,6 +683,22 @@ passt also gut.
 	\label{fig:0774}
 \end{figure}
 
+\FloatBarrier
+\subsubsection{Teil c}
+
+Wir verändern nun die Frequenz. Die Abstände der einzelnen Pulse verändern
+sich. Die Länge des beschnittenen Pulses bleibt jedoch gleich, da diese Länge
+nur von der Verzögerungszeit des Klippkabels abhängt.
+
+\FloatBarrier
+\subsubsection{Teil d}
+
+Nun verlängern wir das Klippkabel auf \SI{2.1}{\meter}, in dem wir drei der
+vorhandenen zusammenhängen. Das Oszillogramm ist in Abbildung \ref{fig:0775}
+gezeigt. Die Länge der geklippten Impulse wird durch die Verzögerungszeit des
+kominierten Kabels bestimmt. Der Mechanismus ist der im vorigen Aufgabenteil
+beschriebene.
+
 \begin{figure}
 	\centering
 	\begin{minipage}{.45\linewidth}
@@ -665,6 +715,8 @@ passt also gut.
 	}
 	\label{fig:0775}
 \end{figure}
+
+Wir lesen ein Verhältnis von $9 : 2$ ab.
 
 \FloatBarrier
 \subsection{Versuchsaufgabe 5: \SI{50}{\ohm} Kabel RG-58 C/U}
