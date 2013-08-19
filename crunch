@@ -40,8 +40,8 @@ def aufgabe_b(T):
     B = 100e6
     Delta_t_Oszi = 0.35 / B
     
-    Delta_t_gemessen_val = 8.5e-8
-    Delta_t_gemessen_err = 3.4e-9
+    Delta_t_gemessen_val = 0.020e-6
+    Delta_t_gemessen_err = 0.005e-6
 
     Delta_t_Signal_val = np.sqrt(
         Delta_t_gemessen_val**2 - Delta_t_Oszi**2)
