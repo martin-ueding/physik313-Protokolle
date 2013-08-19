@@ -19,6 +19,8 @@
 }
 \publishers{Gruppe 3 -- A -- Brezina}
 
+\DeclareSIUnit{\division}{DIV}
+
 \begin{document}
 
 \maketitle
@@ -229,6 +231,58 @@ dann:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Versuchsaufbau und -durchführung}
+
+\subsection{Bestimmung der Anstiegszeit des Oszillographen}
+
+Wie schließen das Oszilloskop mit einem BNC-Kabel an den Frequenzgenerator an,
+dabei setzen wir an beide Anschlüsse ein T-Stück und schließen es mit einem
+\SI{50}{\ohm} Widerstand ab.
+
+Wir wählen verschiedene Signalformen und betrachten das Bild auf dem Oszilloskop. Den Sinus habe ich in Abbildung \ref{fig:0745} skizziert.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0745-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Sinus, Frequenz \SI{1}{\kilo\hertz}, Zeitbasis \SI{2}{\milli\second\per\division}, Verstärkung \SI{1}{\volt\per\division}
+	}
+	\label{fig:0745}
+\end{figure}
+
+Das Dreiecksignal sieht analog aus, siehe Abbildung \ref{fig:0746}; ebenso das Rechtecksignal in Abbildung \ref{fig:0749}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0746-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Dreieck, Frequenz \SI{1}{\kilo\hertz}, Zeitbasis \SI{.2}{\milli\second\per\division}, Verstärkung \SI{.1}{\volt\per\division}
+	}
+	\label{fig:0746}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0747-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{20}{\mega\hertz}, Zeitbasis \SI{.5}{\milli\second\per\division}, Verstärkung \SI{.1}{\volt\per\division}
+	}
+	\label{fig:0747}
+\end{figure}
 
 \subsection{Aufgabe a}
 
