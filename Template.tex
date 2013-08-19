@@ -318,7 +318,7 @@ Abbildung \ref{fig:0753} zu sehen.
 	\label{fig:0753}
 \end{figure}
 
-Durch den zusätzlichen Widerstand wird das Signal gedämpft.
+Durch den zusätzlichen Widerstand wird das Signal gedämpft. Außerdem kommt es zur Reflexion am offenen Ende, da der Anpasswiderstand im Differenzierglied durch den zusätzlichen Widerstand aufgehoben wird.
 
 Ohne einen Abschlusswiderstand T-Stück am Oszilloskop sind die Peaks weniger deutlich ausgeprägt, siehe Abbildung \ref{fig:0755}.
 
@@ -338,7 +338,22 @@ Ohne einen Abschlusswiderstand T-Stück am Oszilloskop sind die Peaks weniger de
 
 Die Zeit $\Deltaup t$ wird länger, $V_\text{SS}$ nimmt um einen Faktor 5 ab.
 
+\clearpage
 \subsection{Versuchsaufgabe 2: Impulse auf Kabeln}
+
+In diesem Versuchsteil schließen wir das Differenzierglied mit Zusatzwiderstand
+an den Kanal 1 des Oszilloskops an. An den Kanal 2 schließen wir die Mitte der
+beiden \SI{6}{\meter} Kabel an, so dass wir die Schwingung innerhalb des Kabels
+beobachten können. Durch den Abschlusswiderstand im Differenzierglied und den
+fehlenden Abschlusswiderstand am anderen Ende des Verzögerungskabels gehen die
+Wellen im langen Kabel hin uns her und werden reflektiert.
+
+Wir beobachten Wellenpakete (Abbildung \ref{fig:0756} und \ref{fig:0757}), die
+oberhalb und unterhalb der Nulllinie sind. Um das Paket ist eine abfallende
+Einhüllende, es sieht exponentiell aus. Auf Kanal 2 ist das Signal schwächer.
+Da der Differenzierer abwechselnd positive und negative Peaks erzeugt, sind die
+Wellenpakete auch abwechselnd über und unter der Nulllinie. Die Reflexion an
+den beiden Enden kehrt die Amplitude nicht um.
 
 \begin{figure}
 	\centering
@@ -368,6 +383,11 @@ Die Zeit $\Deltaup t$ wird länger, $V_\text{SS}$ nimmt um einen Faktor 5 ab.
 	\label{fig:0757}
 \end{figure}
 
+Bei näherer Betrachtung (Abbildung \ref{fig:0759}) ist zu erkennen, dass die
+obere Linie Zwischenpeaks hat, während die untere dafür richtige Peaks hat. Die
+Untere hat kleine und große Peaks. Dips auf Kanal 1 korrespondieren zu großen
+Peaks auf Kanal 2.
+
 \begin{figure}
 	\centering
 	\begin{minipage}{.45\linewidth}
@@ -387,7 +407,6 @@ Die Zeit $\Deltaup t$ wird länger, $V_\text{SS}$ nimmt um einen Faktor 5 ab.
 \end{figure}
 
 \clearpage
-
 \subsection{Versuchsaufgabe 3: Leitungsabschluss, Verzögerungszeit}
 
 \begin{figure}
@@ -595,7 +614,6 @@ Die Zeit $\Deltaup t$ wird länger, $V_\text{SS}$ nimmt um einen Faktor 5 ab.
 \end{figure}
 
 \clearpage
-
 \subsection{Versuchsaufgabe 4: Klippkabel, Dämpfung}
 
 \begin{figure}
@@ -649,6 +667,7 @@ Die Zeit $\Deltaup t$ wird länger, $V_\text{SS}$ nimmt um einen Faktor 5 ab.
 	\label{fig:0775}
 \end{figure}
 
+\clearpage
 \subsection{Versuchsaufgabe 5: \SI{50}{\ohm} Kabel RG-58 C/U}
 
 \subsubsection{Teil a}
