@@ -2,6 +2,8 @@
 
 \input{header.tex}
 
+\usepackage{placeins}
+
 \ihead{physik313 – Versuch 1}
 \ifoot{Ueding, Lemmer}
 
@@ -338,7 +340,7 @@ Ohne einen Abschlusswiderstand T-Stück am Oszilloskop sind die Peaks weniger de
 
 Die Zeit $\Deltaup t$ wird länger, $V_\text{SS}$ nimmt um einen Faktor 5 ab.
 
-\clearpage
+\FloatBarrier
 \subsection{Versuchsaufgabe 2: Impulse auf Kabeln}
 
 In diesem Versuchsteil schließen wir das Differenzierglied mit Zusatzwiderstand
@@ -406,59 +408,25 @@ Peaks auf Kanal 2.
 	\label{fig:0759}
 \end{figure}
 
-\clearpage
+\FloatBarrier
 \subsection{Versuchsaufgabe 3: Leitungsabschluss, Verzögerungszeit}
 
-\begin{figure}
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{.45\linewidth}
-	\includegraphics[width=\linewidth]{Fotos/IMG_0760-1500.jpg}
-	\end{minipage}
-	\caption{%
-		Rechteck, Frequenz \SI{200}{\kilo\hertz},
-		Zeitbasis \SI{.5}{\micro\second\per\division},
-		Verstärkung \SI{200}{\milli\volt\per\division},
-		externe Triggerung
-	}
-	\label{fig:0760}
-\end{figure}
+Wir schließen das Differenzierglied mit zusätzlichem Widerstand an den
+Funktionsgenerator an, den wir auf Rechteck stehen lassen. An das
+Differenzierglied kommen:
+%
+\begin{itemize}
+	\item
+		Abschlusswiderstand
+	\item
+		Langes BNC-Kabel (Verzögerungskabel), später mit Anpassungswiderstand
+		von $R_\text A = Z$
+	\item
+		Oszillograph
+\end{itemize}
 
-\begin{figure}
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{.45\linewidth}
-	\includegraphics[width=\linewidth]{Fotos/IMG_0761-1500.jpg}
-	\end{minipage}
-	\caption{%
-		Rechteck, Frequenz \SI{200}{\kilo\hertz},
-		Zeitbasis \SI{.5}{\micro\second\per\division},
-		Verstärkung \SI{50}{\milli\volt\per\division},
-		externe Triggerung
-	}
-	\label{fig:0761}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{.45\linewidth}
-	\includegraphics[width=\linewidth]{Fotos/IMG_0762-1500.jpg}
-	\end{minipage}
-	\caption{%
-		Rechteck, Frequenz \SI{200}{\kilo\hertz},
-		Zeitbasis \SI{.05}{\micro\second\per\division},
-		Verstärkung \SI{50}{\milli\volt\per\division},
-		externe Triggerung
-	}
-	\label{fig:0762}
-\end{figure}
+In Abbildung \ref{fig:0763} und \ref{fig:0764} sind die Oszillogramme ohne
+Abschlusswiderstand mit verschiedenen Vergrößerungen.
 
 \begin{figure}
 	\centering
@@ -613,7 +581,7 @@ Peaks auf Kanal 2.
 	\label{fig:0771}
 \end{figure}
 
-\clearpage
+\FloatBarrier
 \subsection{Versuchsaufgabe 4: Klippkabel, Dämpfung}
 
 \begin{figure}
@@ -667,7 +635,7 @@ Peaks auf Kanal 2.
 	\label{fig:0775}
 \end{figure}
 
-\clearpage
+\FloatBarrier
 \subsection{Versuchsaufgabe 5: \SI{50}{\ohm} Kabel RG-58 C/U}
 
 \subsubsection{Teil a}
