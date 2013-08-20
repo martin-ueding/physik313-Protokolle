@@ -727,16 +727,16 @@ eine Peak vom Differenzierer zu sehen ist. So ist es auch.
 \FloatBarrier
 \subsubsection{Teil a}
 
-Wir lassen das Verzögerungskabel zunächst offen. Dadurch werden die Wellen
-offen reflektiert, also mit gleich bleibender Amplitude. Die reflektierte
-Teilwelle verbindet sich einfach additiv mit der normalen Welle, die gerade im
-Funktionsgenerator generiert wird. Der Effekt ist, dass am Anfang und am Ende
-die Amplitude des Signals etwas halb so groß ist. Das passende Oszillogramm ist
-in Abbildung \ref{fig:0773} gezeigt. Wenn man genau hinschaut, ist auch zu
-sehen, dass die Stufe bei vor der positiven Halbwelle etwas höher ist, als vor
-der negativen Halbwelle. Dies liegt daran, dass das Verzögerungskabel eine
-Dämpfung hat und somit die zweite Hälfte des Signals weniger als die halbe
-Amplitude hat.
+Wir lassen das Verzögerungskabel zunächst offen($R_\text{A}=\infty$). Dadurch
+werden die Wellen offen reflektiert, also mit gleich bleibender Amplitude. Die
+reflektierte Teilwelle verbindet sich einfach additiv mit der normalen Welle,
+die gerade im Funktionsgenerator generiert wird. Der Effekt ist, dass am Anfang
+und am Ende die Amplitude des Signals etwas halb so groß ist. Das passende
+Oszillogramm ist in Abbildung \ref{fig:0773} gezeigt. Wenn man genau hinschaut,
+ist auch zu sehen, dass die Stufe bei vor der positiven Halbwelle etwas höher
+ist, als vor der negativen Halbwelle. Dies liegt daran, dass das
+Verzögerungskabel eine Dämpfung hat und somit die zweite Hälfte des Signals
+weniger als die halbe Amplitude hat.
 
 \begin{figure}[htbp]
 	\centering
@@ -817,7 +817,12 @@ beschriebene.
 	\label{fig:0775}
 \end{figure}
 
-Wir lesen ein Verhältnis von $9 : 2$ ab.
+\subsubsection{Teil e}
+
+Wir lesen ein Verhältnis zwischen oberster und zweitoberster Stufe von $9 : 2$
+ab. Daraus können wir mit
+\[\frac{20\log\frac{U_2}{U_1}\SI{}{\deci\bel}}{2l} = \frac{20\log\frac79}{\SI{4.2}{\meter}} = \SI{-0.52}{\deci\bel\per\meter}\]
+die spezifische Dämpfung berechnen.
 
 \FloatBarrier
 \subsection{Versuchsaufgabe 5: \SI{50}{\ohm} Kabel RG-58 C/U}
@@ -846,52 +851,35 @@ kleinen Bandbreite ist allerdings genau dies das Problem: Hohe Frequenzen
 werden abgeschnitten, da sie besonders gedämpft werden. So wird das Rechteck an
 den Ecken etwas abgerundet.
 
+\subsubsection{Teil b}
+
+Der Versuchsaufbau ist in \ref{fig:1-11} zu sehen. Wir beginnen bei einer Frequenz von \SI{1}{\kilo\hertz} und steigern diese bis zur maximalen Frequenz des Generators. Der Verlauf ist dabei in \ref{fig:0776-0778} zu sehen. Einen deutlichen Unterschied erkennt man ab einer Frequenz von \SI{100}{\kilo\hertz}.
+
 \begin{figure}[htbp]
 	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{.45\linewidth}
+	\begin{minipage}{.3\linewidth}
 	\includegraphics[width=\linewidth]{Fotos/IMG_0776-1500.jpg}
 	\end{minipage}
-	\caption{%
-		Rechteck, Frequenz \SI{1}{\kilo\hertz},
-		externe Triggerung
-	}
-	\label{fig:0776}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
 	\hfill
-	\begin{minipage}{.45\linewidth}
+	\begin{minipage}{.3\linewidth}
 	\includegraphics[width=\linewidth]{Fotos/IMG_0777-1500.jpg}
 	\end{minipage}
-	\caption{%
-		Rechteck, Frequenz \SI{10}{\kilo\hertz},
-		externe Triggerung
-	}
-	\label{fig:0777}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
 	\hfill
-	\begin{minipage}{.45\linewidth}
+	\begin{minipage}{.3\linewidth}
 	\includegraphics[width=\linewidth]{Fotos/IMG_0778-1500.jpg}
 	\end{minipage}
+
 	\caption{%
-		Rechteck, Frequenz \SI{100}{\kilo\hertz},
-		externe Triggerung
+		Rechteck, Frequenz (v.l.n.r.) \SI{1}{\kilo\hertz}, \SI{10}{\kilo\hertz},
+		\SI{100}{\kilo\hertz}, externe Triggerung
 	}
-	\label{fig:0778}
+	\label{fig:0776-0778}
 \end{figure}
 
-\subsubsection{Teil b}
+\subsubsection{Teil c}
+
+Die beiden Signale bei einer Frequenz von \SI{500}{\kilo\hertz} sind in 
+\ref{fig:0779} zu sehen. Man erkennt deutlich, dass die Kanten des Dreiecksignals, welches durch das HH 2500 gelaufen ist, verschwinden, der Grund ist in Teil a erklärt. Das RG58 C/U hat anscheinend eine deutlich höhere Bandbreite, da das Signal hier weniger verfälscht wird.
 
 \begin{figure}[htbp]
 	\centering
@@ -908,6 +896,10 @@ den Ecken etwas abgerundet.
 	}
 	\label{fig:0779}
 \end{figure}
+
+\subsubsection{Teil d}
+
+Auch bei den anderen Signalformen ist eine Verzerrung zu erkennen, am geringsten fällt diese beim Sinussignal aus, am stärksten beim Rechtecksignal.
 
 \IfFileExists{\bibliographyfile}{
 	\bibliography{\bibliographyfile}
