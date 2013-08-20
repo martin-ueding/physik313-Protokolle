@@ -118,8 +118,13 @@ Die Phasengeschwindigkeit kann hergeleitet werden zu:
 Der Wellenwiderstand ist in der Anleitung definiert als:
 \begin{equation}
 	\label{eq:1.14}
-	Z = \frac{\Uh (x)}{I_\text h (x)}
+	Z = \frac{\Uh (x)}{I_\text h (x)} = \sqrt{\frac{L'}{C'}}\cdot\sqrt{\frac{1-\ii\frac{R'}{\omega L'}}{1-\ii\frac{G'}{\omega C'}}}
 \end{equation}
+Im Verlustfreien Fall wird dies zu
+\begin{equation}
+	\label{eq:1.15}
+	Z = \sqrt{\frac{L'}{C'}} = \sqrt{\frac{\mu_r\mu_0}{\epsilon_r\epsilon_0}}\cdot\frac{\log\del{\frac{R_a}{R_i}}}{2\piup}
+	\end{equation}
 
 \subsection{Anpassung}
 
