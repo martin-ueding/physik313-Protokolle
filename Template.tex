@@ -27,7 +27,7 @@
 
 \maketitle
 
-Der \LaTeX{} Quelltext zu allen Protokollen in diesem Praktikum kann auf
+Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 \ref{it:mu} eingesehen werden. Die Quellen für dieses Protokoll können auf
 \ref{it:github/alles} eingesehen werden. Die \LaTeX-Datei wird aus
 \ref{it:github/template} generiert.
@@ -118,8 +118,13 @@ Die Phasengeschwindigkeit kann hergeleitet werden zu:
 Der Wellenwiderstand ist in der Anleitung definiert als:
 \begin{equation}
 	\label{eq:1.14}
-	Z = \frac{\Uh (x)}{I_\text h (x)}
+	Z = \frac{\Uh (x)}{I_\text h (x)} = \sqrt{\frac{L'}{C'}}\cdot\sqrt{\frac{1-\ii\frac{R'}{\omega L'}}{1-\ii\frac{G'}{\omega C'}}}
 \end{equation}
+Im Verlustfreien Fall wird dies zu
+\begin{equation}
+	\label{eq:1.15}
+	Z = \sqrt{\frac{L'}{C'}} = \sqrt{\frac{\mu_r\mu_0}{\epsilon_r\epsilon_0}}\cdot\frac{\log\del{\frac{R_a}{R_i}}}{2\piup}
+	\end{equation}
 
 \subsection{Anpassung}
 
@@ -310,7 +315,7 @@ Wir schließen den Oszillograph an das Differenzierglied (ohne Abschluss), das
 vom Funktionsgenerator mit einer Rechteckspannung versorgt wird. Wir benutzen
 die externe Triggerung. Der Aufbau ist in Abbildung \ref{fig:1-6} dargestellt.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Schaltplan/1-6.png}
 	\caption{%
@@ -324,7 +329,7 @@ Oszillogramm ist in Abbildung \ref{fig:0752} dargestellt. Mit dem eingebauten
 \SI{2.2}{\kilo\ohm} Widerstand werden die Impulse deutlich kleiner, wie in
 Abbildung \ref{fig:0753} zu sehen.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0752-1500.jpg}
@@ -339,7 +344,7 @@ Abbildung \ref{fig:0753} zu sehen.
 	\label{fig:0752}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0753-1500.jpg}
@@ -358,7 +363,7 @@ Durch den zusätzlichen Widerstand wird das Signal gedämpft. Außerdem kommt es
 
 Ohne einen Abschlusswiderstand am T-Stück am Oszilloskop sind die Peaks weniger deutlich ausgeprägt, siehe Abbildung \ref{fig:0755}.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0755-1500.jpg}
@@ -373,7 +378,7 @@ Ohne einen Abschlusswiderstand am T-Stück am Oszilloskop sind die Peaks weniger
 	\label{fig:0755}
 \end{figure}
 
-Die Zeit $\Deltaup t$ wird länger, $V_\text{SS}$ nimmt um einen Faktor 5 ab.
+Die Zeit $\Deltaup t$ wird länger, $U_\text{SS}$ nimmt um einen Faktor 5 ab.
 
 \FloatBarrier
 \subsection{Versuchsaufgabe 2: Impulse auf Kabeln}
@@ -383,7 +388,7 @@ an den Kanal 1 des Oszilloskops an. An den Kanal 2 schließen wir die Mitte der
 beiden \SI{6}{\meter} Kabel an, so dass wir die Schwingung innerhalb des Kabels
 beobachten können. Dieser Aufbau ist in Abbildung \ref{fig:1-7} gezeigt.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Schaltplan/1-7.png}
 	\caption{%
@@ -403,7 +408,7 @@ Da der Differenzierer abwechselnd positive und negative Peaks erzeugt, sind die
 Wellenpakete auch abwechselnd über und unter der Nulllinie. Die Reflexion an
 den beiden Enden kehrt die Amplitude nicht um.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0756-1500.jpg}
@@ -418,7 +423,7 @@ den beiden Enden kehrt die Amplitude nicht um.
 	\label{fig:0756}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0757-1500.jpg}
@@ -438,7 +443,7 @@ obere Linie Zwischenpeaks hat, während die untere dafür richtige Peaks hat. Di
 Untere hat kleine und große Peaks. Dips auf Kanal 1 korrespondieren zu großen
 Peaks auf Kanal 2.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0759-1500.jpg}
@@ -476,7 +481,7 @@ Differenzierglied kommen:
 
 Dieser Aufbau ist als Schaltskizze in Abbildung \ref{fig:1-8} gezeigt.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Schaltplan/1-8.png}
 	\caption{%
@@ -492,7 +497,7 @@ Dieser Aufbau ist als Schaltskizze in Abbildung \ref{fig:1-8} gezeigt.
 In Abbildung \ref{fig:0763} und \ref{fig:0765} sind die Oszillogramme ohne und
 mit Abschlusswiderstand.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0763-1500.jpg}
@@ -510,7 +515,7 @@ mit Abschlusswiderstand.
 	\label{fig:0763}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0765-1500.jpg}
@@ -534,7 +539,7 @@ mit Abschlusswiderstand.
 In Abbildung \ref{fig:0764} und \ref{fig:0766} sind die Oszillogramme ohne und
 mit Abschlusswiderstand, mit zehnfacher Vergrößerung.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0764-1500.jpg}
@@ -552,7 +557,7 @@ mit Abschlusswiderstand, mit zehnfacher Vergrößerung.
 	\label{fig:0764}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0766-1500.jpg}
@@ -574,9 +579,9 @@ mit Abschlusswiderstand, mit zehnfacher Vergrößerung.
 \subsubsection{Teil c}
 
 In Abbildung \ref{fig:0767} ist das Oszillogramm ohne Anpassung, in Abbildung
-\ref{fig:0768} mit Anpassung gezeigt.
+\ref{fig:0768} mit Anpassung gezeigt. Das Ende des Verzögerungskabels ist hier kurzgeschlossen ($R_\text{A}=0$).
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0767-1500.jpg}
@@ -594,7 +599,7 @@ In Abbildung \ref{fig:0767} ist das Oszillogramm ohne Anpassung, in Abbildung
 	\label{fig:0767}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0768-1500.jpg}
@@ -615,60 +620,28 @@ In Abbildung \ref{fig:0767} ist das Oszillogramm ohne Anpassung, in Abbildung
 \FloatBarrier
 \subsubsection{Teil d}
 
-Ohne Anpassungswiderstand in Abbildung \ref{fig:0769}. Zur Illustration sind
-noch höhere Frequenzen in den Abbildungen \ref{fig:0770} und \ref{fig:0771}
-gezeigt.
+Zur Illustration sind verschiedene Frequenzen in der Abbildung \ref{fig:0769-0771} gezeigt.
 
-\begin{figure}
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\includegraphics[width=\linewidth]{Skizzen/IMG_0769-1500.jpg}
+\begin{figure}[htbp]
+	\begin{minipage}{.3\linewidth}
+			\includegraphics[width=\linewidth]{Fotos/IMG_0769-1500.jpg}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{.45\linewidth}
-	\includegraphics[width=\linewidth]{Fotos/IMG_0769-1500.jpg}
+	\begin{minipage}{.3\linewidth}
+			\includegraphics[width=\linewidth]{Fotos/IMG_0770-1500.jpg}
 	\end{minipage}
+	\hfill
+	\begin{minipage}{.3\linewidth}
+			\includegraphics[width=\linewidth]{Fotos/IMG_0771-1500.jpg}
+	\end{minipage}
+
 	\caption{%
-		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Rechteck, Frequenz (v.l.n.r) \SI{200}{\kilo\hertz}, \SI{400}{\kilo\hertz}, \SI{600}{\kilo\hertz},
 		Zeitbasis \SI{.2}{\micro\second\per\division},
 		Verstärkung \SI{50}{\milli\volt\per\division},
 		externe Triggerung
 	}
-	\label{fig:0769}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{.45\linewidth}
-	\includegraphics[width=\linewidth]{Fotos/IMG_0770-1500.jpg}
-	\end{minipage}
-	\caption{%
-		Rechteck, Frequenz \SI{400}{\kilo\hertz},
-		Zeitbasis \SI{.2}{\micro\second\per\division},
-		Verstärkung \SI{50}{\milli\volt\per\division},
-		externe Triggerung
-	}
-	\label{fig:0770}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{.45\linewidth}
-	\includegraphics[width=\linewidth]{Fotos/IMG_0771-1500.jpg}
-	\end{minipage}
-	\caption{%
-		Rechteck, Frequenz \SI{600}{\kilo\hertz},
-		Zeitbasis \SI{.2}{\micro\second\per\division},
-		Verstärkung \SI{50}{\milli\volt\per\division},
-		externe Triggerung
-	}
-	\label{fig:0771}
+	\label{fig:0769-0771}
 \end{figure}
 
 Wir lesen aus dem Oszillogramm ab 12 Peaks auf 4 Kästchen ab. Die
@@ -682,7 +655,7 @@ passt also gut.
 
 Bei Kurzschluss des Verzögerungskabels halbiert sich die Anzahl der Peaks, jedoch wird das Signal jetzt symmetrisch. Dies kommt daher, dass die Reflexion jetzt am festen Ende ist, so dass die Amplitude negiert wird. Daher ist jetzt nicht mehr Peak, Null, Peak, sondern Plus, Minus, Plus abzulesen. Siehe Abbildung \ref{fig:0772}.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\end{minipage}
@@ -705,7 +678,7 @@ eine Peak vom Differenzierer zu sehen ist. So ist es auch.
 \FloatBarrier
 \subsection{Versuchsaufgabe 4: Klippkabel, Dämpfung}
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Schaltplan/1-9.png}
 	\caption{%
@@ -728,7 +701,7 @@ der negativen Halbwelle. Dies liegt daran, dass das Verzögerungskabel eine
 Dämpfung hat und somit die zweite Hälfte des Signals weniger als die halbe
 Amplitude hat.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0773-1500.jpg}
@@ -755,7 +728,7 @@ reflektiert, jedoch am festen Ende mit Negierung der Amplitude. Die zweite
 Hälfte wird also nun nach der Verzögerungszeit von der ersten Hälfte
 \emph{subtrahiert}. Dadurch wird der Impuls geklippt.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0774-1500.jpg}
@@ -789,7 +762,7 @@ gezeigt. Die Länge der geklippten Impulse wird durch die Verzögerungszeit des
 kominierten Kabels bestimmt. Der Mechanismus ist der im vorigen Aufgabenteil
 beschriebene.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0775-1500.jpg}
@@ -812,7 +785,7 @@ Wir lesen ein Verhältnis von $9 : 2$ ab.
 \FloatBarrier
 \subsection{Versuchsaufgabe 5: \SI{50}{\ohm} Kabel RG-58 C/U}
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Schaltplan/1-11.png}
 	\caption{%
@@ -836,7 +809,7 @@ kleinen Bandbreite ist allerdings genau dies das Problem: Hohe Frequenzen
 werden abgeschnitten, da sie besonders gedämpft werden. So wird das Rechteck an
 den Ecken etwas abgerundet.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\end{minipage}
@@ -851,7 +824,7 @@ den Ecken etwas abgerundet.
 	\label{fig:0776}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\end{minipage}
@@ -866,7 +839,7 @@ den Ecken etwas abgerundet.
 	\label{fig:0777}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\end{minipage}
@@ -883,7 +856,7 @@ den Ecken etwas abgerundet.
 
 \subsubsection{Teil b}
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Skizzen/IMG_0779-1500.jpg}
