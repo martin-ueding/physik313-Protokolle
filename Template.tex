@@ -313,7 +313,9 @@ aufgelistet.
 
 Wir schließen den Oszillograph an das Differenzierglied (ohne Abschluss), das
 vom Funktionsgenerator mit einer Rechteckspannung versorgt wird. Wir benutzen
-die externe Triggerung. Der Aufbau ist in Abbildung \ref{fig:1-6} dargestellt.
+die externe Triggerung. Das Oszilloskop haben wir im zuerst mit einem
+Abschlusswiderstand abgeschlossen. Der Aufbau ist in Abbildung \ref{fig:1-6}
+dargestellt.
 
 \begin{figure}[htbp]
 	\centering
@@ -357,9 +359,13 @@ die Impulse deutlich kleiner, wie in Abbildung \ref{fig:0753} zu sehen.
 	\label{fig:0753}
 \end{figure}
 
-Durch den zusätzlichen Widerstand wird das Signal gedämpft. Außerdem kommt es zur Reflexion am offenen Ende, da der Anpasswiderstand im Differenzierglied durch den zusätzlichen Widerstand aufgehoben wird.
+Durch den zusätzlichen Widerstand wird das Signal gedämpft. Außerdem kommt es zur Reflexion am offenen Ende, da der Anpasswiderstand im Differenzierglied durch den zusätzlichen Widerstand aufgehoben wird. Das Bild ändert sich jedoch nicht, da wir durch den Abschluss am Oszilloskop dort keine Reflexion haben.
 
-Ohne einen Abschlusswiderstand am T-Stück am Oszilloskop sind die Peaks weniger deutlich ausgeprägt, siehe Abbildung \ref{fig:0755}.
+Ohne einen Abschlusswiderstand am T-Stück am Oszilloskop sind die Peaks weniger
+deutlich ausgeprägt, siehe Abbildung \ref{fig:0755}. Dies liegt daran, dass
+jezt an beiden Enden des BNC-Kabel reflektiert wird. Die Pulse laufen sehr
+schnell durch das Kabel und werden gedämpft. Dadurch fällt der Puls
+exponentiell ab.
 
 \begin{figure}[htbp]
 	\centering
@@ -375,8 +381,6 @@ Ohne einen Abschlusswiderstand am T-Stück am Oszilloskop sind die Peaks weniger
 	}
 	\label{fig:0755}
 \end{figure}
-
-Die Zeit $\Deltaup t$ wird länger, $U_\text{SS}$ nimmt um einen Faktor 5 ab.
 
 Aus dem Differenzierglied kommen also, wie in der Vorbesprechung gesagt, kurze
 Peaks heraus. Diese Peaks sind der Eingang für die weiteren Versuche.
@@ -406,10 +410,11 @@ Wir beobachten Wellenpakete (Abbildung \ref{fig:0756} und \ref{fig:0757}), die
 oberhalb und unterhalb der Nulllinie sind. Um das Paket ist eine abfallende
 Einhüllende, es sieht exponentiell aus. Dieser exponentielle Abfall kommt durch
 den Ohm'schen Widerstand in dem Kabel, in dem der Puls hin und her läuft. Auf
-Kanal 2 ist das Signal schwächer. Da der Differenzierer abwechselnd positive
-und negative Peaks erzeugt, sind die Wellenpakete auch abwechselnd über und
-unter der Nulllinie. Die Reflexion an den beiden Enden kehrt die Amplitude
-nicht um.
+Kanal 2 ist das Signal schwächer.
+
+Da der Differenzierer abwechselnd positive und negative Peaks erzeugt, sind die
+Wellenpakete auch abwechselnd über und unter der Nulllinie. Die Reflexion an
+den beiden Enden kehrt die Amplitude nicht um.
 
 \begin{figure}[htbp]
 	\centering
@@ -444,6 +449,8 @@ Bei näherer Betrachtung (Abbildung \ref{fig:0759}) ist zu erkennen, dass die
 obere Linie Zwischenpeaks hat, während die untere dafür richtige Peaks hat. Die
 Untere hat kleine und große Peaks. Dips auf Kanal 1 korrespondieren zu großen
 Peaks auf Kanal 2.
+
+In der Mitte des Kabels (Kanal 2) ist die Welle annähernd sinusförmig. Am Rand (Kanal 1), wo die Reflexion stattfindet, ist die Welle verzerrt. In beiden Fällen sind allerdings nur die Peaks und nicht die Dips verzerrt. Da die Vergrößerung die Bildmitte zeigt, ist in Abbildung \ref{fig:0759} die Reflexion eines negativen Pulses gezeigt. Die Verzerrungen sind also um die Null herum, nicht um den negativen Peak.
 
 \begin{figure}[htbp]
 	\centering
