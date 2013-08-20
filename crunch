@@ -46,8 +46,21 @@ def render_template(T):
     with open("physik313-1-Ueding_Lemmer.tex", "w") as f:
         f.write(template.render(**T))
 
+def aufgabe_3(T):
+    nu = 12. / (4. * .2e-6)
+    period = 1. / nu
+    kabel_length = 6
+    spez_verz = period / (2. * kabel_length)
+
+    T["nu"] = g(nu)
+    T["T"] = g(period)
+    T["kabel_length"] = g(kabel_length)
+    T["spez_verz"] = g(spez_verz)
+
 def main():
     T = {}
+
+    aufgabe_3(T)
 
     render_template(T)
 

@@ -2,6 +2,8 @@
 
 \input{header.tex}
 
+\usepackage{placeins}
+
 \ihead{physik313 – Versuch 1}
 \ifoot{Ueding, Lemmer}
 
@@ -17,10 +19,15 @@
 	\and
 	Lino Lemmer \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
 }
+\publishers{Gruppe 3 -- A -- Brezina}
+
+\setcounter{tocdepth}{2}
 
 \begin{document}
 
 \maketitle
+
+Der \LaTeX{} Quelltext zu diesem Protokoll kann auf \url{http://martin-ueding.de/de/university/physik313/} eingesehen werden.
 
 %\newpage
 \tableofcontents
@@ -129,9 +136,9 @@ Wert \num{+1} bzw. \num{-1} an.
 
 \subsection{Aufgabe A}
 
-\begin{quote}
+\begin{problem}
 	Was muss man tun, um große Verzögerungszeiten zu erreichen?
-\end{quote}
+\end{problem}
 
 Eine große Verzögerungszeit bedeutet eine kleine Phasengeschwindigkeit. Diese
 ist in Formel \eqref{eq:1.13} gegeben. Es kann entweder $\mu_r$ oder
@@ -141,10 +148,10 @@ Außerdem kann das Kabel verlängert werden, dann braucht das Signal auch länge
 
 \subsection{Aufgabe B}
 
-\begin{quote}
+\begin{problem}
 	Welche Konsequenz für den Wellenwiderstand haben die verschiedenen
 	Möglichkeiten, die Verzögerungszeiten zu verändern?
-\end{quote}
+\end{problem}
 
 \paragraph{Permittivität erhöhen}
 
@@ -168,10 +175,10 @@ auch mehr Material und somit mehr Gewicht und Kosten.
 
 \subsection{Aufgabe C}
 
-\begin{quote}
+\begin{problem}
 	Sei ein Kabel abgeschlossen mit $R_A = Z$. Wie hängt der Eingangswiderstand
 	$R_\text{in}$ des Kabels von seiner Länge ab?
-\end{quote}
+\end{problem}
 
 Der Eingangswiderstand ist der Widerstand, den der Signalgenerator am Kabel
 erfährt, also das Verhältnis von $\Uh(0)$ und $I_\text h(0)$. Der
@@ -187,12 +194,12 @@ Längenabhängigkeit erhalten wir also:
 
 \subsection{Aufgabe D}
 
-\begin{quote}
+\begin{problem}
 	Wie groß ist die Eingangsimpedanz $Z$ eines verlustfreien Kabels mit
 	Wellenwiderstand $Z = \SI{50}\ohm$ und einem offenen Leitungsende für eine
 	Sinusspannung der Frequenz $\omega$ und der Wellenlänge auf dem Kabel
 	$\lambda$ in Abhängigkeit der Länge $l$ des Kabels ($0 < l < \lambda$)?
-\end{quote}
+\end{problem}
 
 Nach \eqref{eq:1.14} ist der Wellenwiderstand:
 \begin{equation}
@@ -269,34 +276,472 @@ aufgelistet.
 	\begin{tabular}{ll}
 		Gerät & Seriennummer \\
 		\hline
-		Oszillograph & \\
-		Funktionsgenerator & \\
-		Kabel HH 2500 & \\
-		Kabelkasten (RG-58 C/U) & \\
-		Differenzierglied & \\
-		Differenzierglied mit \SI{2.2}{\kilo\ohm} Anpassung & \\
-		Anpasswiderstand: \SI{2.45}{\kilo\ohm} & \\
-		Abschlusswiderstand: \SI{2.5}{\kilo\ohm} und \SI{50}{\ohm} & \\
-		Einstellbarer Abschlusswiderstand: \SIrange{0}{10}{\kilo\ohm} &
+		Oszillograph & HM 604, 11/92, Z 20462 \\
+		Funktionsgenerator & 3478 \\
+		%Kabel HH 2500 & \\
+		%Kabelkasten (RG-58 C/U) & \\
+		%Differenzierglied & \\
+		%Differenzierglied mit \SI{2.2}{\kilo\ohm} Anpassung & \\
+		%Anpasswiderstand: \SI{2.45}{\kilo\ohm} & \\
+		%Abschlusswiderstand: \SI{2.5}{\kilo\ohm} und \SI{50}{\ohm} & \\
+		%Einstellbarer Abschlusswiderstand: \SIrange{0}{10}{\kilo\ohm} &
 	\end{tabular}
 \end{table}
 
 \subsection{Versuchsaufgabe 1: Differenzierglied}
 
+Wir schließen den Oszillograph an das Differenzierglied ohne Abschluss), das
+vom Funktionsgenerator mit einer Rechteckspannung versorgt wird. Das
+Oszillogramm ist in Abbildung \ref{fig:0752} dargestellt. Mit dem eingebauten
+\SI{2.2}{\kilo\ohm} Widerstand werden die Impulse deutlich kleiner, wie in
+Abbildung \ref{fig:0753} zu sehen.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0752-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis \SI{1}{\micro\second\per\division}, Verstärkung \SI{5}{\milli\volt\per\division}, externe Triggerung
+	}
+	\label{fig:0752}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0753-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis \SI{1}{\micro\second\per\division}, Verstärkung \SI{5}{\milli\volt\per\division}, externe Triggerung
+	}
+	\label{fig:0753}
+\end{figure}
+
+Durch den zusätzlichen Widerstand wird das Signal gedämpft. Außerdem kommt es zur Reflexion am offenen Ende, da der Anpasswiderstand im Differenzierglied durch den zusätzlichen Widerstand aufgehoben wird.
+
+Ohne einen Abschlusswiderstand T-Stück am Oszilloskop sind die Peaks weniger deutlich ausgeprägt, siehe Abbildung \ref{fig:0755}.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0755-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis \SI{1}{\micro\second\per\division}, Verstärkung \SI{20}{\milli\volt\per\division}, externe Triggerung
+	}
+	\label{fig:0755}
+\end{figure}
+
+Die Zeit $\Deltaup t$ wird länger, $V_\text{SS}$ nimmt um einen Faktor 5 ab.
+
+\FloatBarrier
 \subsection{Versuchsaufgabe 2: Impulse auf Kabeln}
 
+In diesem Versuchsteil schließen wir das Differenzierglied mit Zusatzwiderstand
+an den Kanal 1 des Oszilloskops an. An den Kanal 2 schließen wir die Mitte der
+beiden \SI{6}{\meter} Kabel an, so dass wir die Schwingung innerhalb des Kabels
+beobachten können. Durch den Abschlusswiderstand im Differenzierglied und den
+fehlenden Abschlusswiderstand am anderen Ende des Verzögerungskabels gehen die
+Wellen im langen Kabel hin uns her und werden reflektiert.
+
+Wir beobachten Wellenpakete (Abbildung \ref{fig:0756} und \ref{fig:0757}), die
+oberhalb und unterhalb der Nulllinie sind. Um das Paket ist eine abfallende
+Einhüllende, es sieht exponentiell aus. Auf Kanal 2 ist das Signal schwächer.
+Da der Differenzierer abwechselnd positive und negative Peaks erzeugt, sind die
+Wellenpakete auch abwechselnd über und unter der Nulllinie. Die Reflexion an
+den beiden Enden kehrt die Amplitude nicht um.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0756-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis \SI{1}{\micro\second\per\division}, Verstärkung \SI{5}{\milli\volt\per\division}, externe Triggerung
+	}
+	\label{fig:0756}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0757-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{1000}{\kilo\hertz}, Zeitbasis \SI{1}{\micro\second\per\division}, Verstärkung \SI{50}{\milli\volt\per\division}, externe Triggerung
+	}
+	\label{fig:0757}
+\end{figure}
+
+Bei näherer Betrachtung (Abbildung \ref{fig:0759}) ist zu erkennen, dass die
+obere Linie Zwischenpeaks hat, während die untere dafür richtige Peaks hat. Die
+Untere hat kleine und große Peaks. Dips auf Kanal 1 korrespondieren zu großen
+Peaks auf Kanal 2.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0759-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{1000}{\kilo\hertz},
+		Zeitbasis \SI{1}{\micro\second\per\division},
+		$\times 10$,
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0759}
+\end{figure}
+
+\FloatBarrier
 \subsection{Versuchsaufgabe 3: Leitungsabschluss, Verzögerungszeit}
 
+Wir schließen das Differenzierglied mit zusätzlichem Widerstand an den
+Funktionsgenerator an, den wir auf Rechteck stehen lassen. An das
+Differenzierglied kommen:
+%
+\begin{itemize}
+	\item
+		Abschlusswiderstand
+	\item
+		Langes BNC-Kabel (Verzögerungskabel), später mit Anpassungswiderstand
+		von $R_\text A = Z$
+	\item
+		Oszillograph
+\end{itemize}
+
+\FloatBarrier
+\subsubsection{Teil a}
+
+In Abbildung \ref{fig:0763} und \ref{fig:0765} sind die Oszillogramme ohne und
+mit Abschlusswiderstand.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0763-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{.05}{\micro\second\per\division},
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0763}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0765-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{.5}{\micro\second\per\division},
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0765}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{Teil b}
+
+In Abbildung \ref{fig:0764} und \ref{fig:0766} sind die Oszillogramme ohne und
+mit Abschlusswiderstand, mit zehnfacher Vergrößerung.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0764-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{.05}{\micro\second\per\division},
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0764}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0766-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{.05}{\micro\second\per\division},
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0766}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{Teil c}
+
+In Abbildung \ref{fig:0767} ist das Oszillogramm ohne Anpassung, in Abbildung
+\ref{fig:0786} mit Anpassung gezeigt.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0767-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{.5}{\micro\second\per\division},
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0767}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0768-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{.5}{\micro\second\per\division},
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0768}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{Teil d}
+
+Ohne Anpassungswiderstand in Abbildung \ref{fig:0769}. Zur Illustration sind
+noch höhere Frequenzen in den Abbildungen \ref{fig:0770} und \ref{fig:0771}
+gezeigt.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0769-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{.2}{\micro\second\per\division},
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0769}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0770-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{400}{\kilo\hertz},
+		Zeitbasis \SI{.2}{\micro\second\per\division},
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0770}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0771-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{600}{\kilo\hertz},
+		Zeitbasis \SI{.2}{\micro\second\per\division},
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0771}
+\end{figure}
+
+Wir lesen aus dem Oszillogramm ab 12 Peaks auf 4 Kästchen ab. Die
+Zeitauflösung ist auf \SI{.2}{\micro\second\per\division}, eingestellt. Somit
+ergibt sich eine Frequenz von $\nu = \SI{<< nu >>}{\hertz}$ und eine Periode
+von $T = \SI{<< T >>}\second$. Dies ist die Zeit, die das Signal braucht, um
+die \SI{<< kabel_length >>}{\meter} \emph{zweimal} zurückzulegen. Daraus folgt
+eine spezifische Verzögerungszeit von \SI{<< spez_verz >>}{\second\per\meter}.
+Der Literaturwert für RG-58C/U Kabel ist \SI{5}{\nano\second\per\meter}, dies
+passt also gut.
+
+Bei Kurzschluss des Verzögerungskabels halbiert sich die Anzahl der Peaks, jedoch wird das Signal jetzt symmetrisch. Dies kommt daher, dass die Reflexion jetzt am festen Ende ist, so dass die Amplitude negiert wird. Daher ist jetzt nicht mehr Peak, Null, Peak, sondern Plus, Minus, Plus abzulesen. Siehe Abbildung \ref{fig:0772}.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0772-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{.2}{\micro\second\per\division},
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0772}
+\end{figure}
+
+Bei Abschluss erwarten wir, dass die Reflexionen verschwinden und nur noch der
+eine Peak vom Differenzierer zu sehen ist. So ist es auch.
+
+\FloatBarrier
 \subsection{Versuchsaufgabe 4: Klippkabel, Dämpfung}
 
+\FloatBarrier
+\subsubsection{Teil a}
+
+Wir lassen das Verzögerungskabel zunächst offen. Dadurch werden die Wellen
+offen reflektiert, also mit gleich bleibender Amplitude. Die reflektierte
+Teilwelle verbindet sich einfach additiv mit der normalen Welle, die gerade im
+Funktionsgenerator generiert wird. Der Effekt ist, dass am Anfang und am Ende
+die Amplitude des Signals etwas halb so groß ist. Das passende Oszillogramm ist
+in Abbildung \ref{fig:0773} gezeigt. Wenn man genau hinschaut, ist auch zu
+sehen, dass die Stufe bei vor der positiven Halbwelle etwas höher ist, als vor
+der negativen Halbwelle. Dies liegt daran, dass das Verzögerungskabel eine
+Dämpfung hat und somit die zweite Hälfte des Signals weniger als die halbe
+Amplitude hat.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0773-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{10}{\micro\second\per\division},
+		Verstärkung \SI{5}{\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0773}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{Teil b}
+
+Wir schließen das Klippkabel nun kurz. Das Oszillogramm ist in Abbildung
+\ref{fig:0774}. Ähnlich wie vorher wird die Welle im Verzögerungskabel
+reflektiert, jedoch am festen Ende mit Negierung der Amplitude. Die zweite
+Hälfte wird also nun nach der Verzögerungszeit von der ersten Hälfte
+\emph{subtrahiert}. Dadurch wird der Impuls geklippt.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0774-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{10}{\micro\second\per\division},
+		Verstärkung \SI{5}{\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0774}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{Teil c}
+
+Wir verändern nun die Frequenz. Die Abstände der einzelnen Pulse verändern
+sich. Die Länge des beschnittenen Pulses bleibt jedoch gleich, da diese Länge
+nur von der Verzögerungszeit des Klippkabels abhängt.
+
+\FloatBarrier
+\subsubsection{Teil d}
+
+Nun verlängern wir das Klippkabel auf \SI{2.1}{\meter}, in dem wir drei der
+vorhandenen zusammenhängen. Das Oszillogramm ist in Abbildung \ref{fig:0775}
+gezeigt. Die Länge der geklippten Impulse wird durch die Verzögerungszeit des
+kominierten Kabels bestimmt. Der Mechanismus ist der im vorigen Aufgabenteil
+beschriebene.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0775-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Zeitbasis \SI{10}{\micro\second\per\division},
+		Verstärkung \SI{5}{\volt\per\division},
+		externe Triggerung
+	}
+	\label{fig:0775}
+\end{figure}
+
+Wir lesen ein Verhältnis von $9 : 2$ ab.
+
+\FloatBarrier
 \subsection{Versuchsaufgabe 5: \SI{50}{\ohm} Kabel RG-58 C/U}
 
 \subsubsection{Teil a}
 
-\begin{quote}
+\begin{problem}
 	Warum macht sich eine kleine Bandbreite besonders bei der Übertragung von
 	Rechtecksignalen bemerkbar?
-\end{quote}
+\end{problem}
 
 Entwickelt man ein Rechtecksignal in eine Fourierreihe, so fallen die
 Amplituden der hohen Frequenzen nur langsam ab, weil die Funktion nicht
@@ -305,6 +750,68 @@ einbezogen werden müssen, damit die Summe wie ein Rechteck aussieht. Bei einer
 kleinen Bandbreite ist allerdings genau dies das Problem: Hohe Frequenzen
 werden abgeschnitten, da sie besonders gedämpft werden. So wird das Rechteck an
 den Ecken etwas abgerundet.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0776-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{1}{\kilo\hertz},
+		externe Triggerung
+	}
+	\label{fig:0776}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0777-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{10}{\kilo\hertz},
+		externe Triggerung
+	}
+	\label{fig:0777}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0778-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{100}{\kilo\hertz},
+		externe Triggerung
+	}
+	\label{fig:0778}
+\end{figure}
+
+\subsubsection{Teil b}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0779-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{500}{\kilo\hertz},
+		externe Triggerung
+	}
+	\label{fig:0779}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 Auswertung                                  %
