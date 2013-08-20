@@ -27,7 +27,7 @@
 
 \maketitle
 
-Der \LaTeX{} Quelltext zu allen Protokollen in diesem Praktikum kann auf
+Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 \ref{it:mu} eingesehen werden. Die Quellen für dieses Protokoll können auf
 \ref{it:github/alles} eingesehen werden. Die \LaTeX-Datei wird aus
 \ref{it:github/template} generiert.
@@ -118,8 +118,13 @@ Die Phasengeschwindigkeit kann hergeleitet werden zu:
 Der Wellenwiderstand ist in der Anleitung definiert als:
 \begin{equation}
 	\label{eq:1.14}
-	Z = \frac{\Uh (x)}{I_\text h (x)}
+	Z = \frac{\Uh (x)}{I_\text h (x)} = \sqrt{\frac{L'}{C'}}\cdot\sqrt{\frac{1-\ii\frac{R'}{\omega L'}}{1-\ii\frac{G'}{\omega C'}}}
 \end{equation}
+Im Verlustfreien Fall wird dies zu
+\begin{equation}
+	\label{eq:1.15}
+	Z = \sqrt{\frac{L'}{C'}} = \sqrt{\frac{\mu_r\mu_0}{\epsilon_r\epsilon_0}}\cdot\frac{\log\del{\frac{R_a}{R_i}}}{2\piup}
+	\end{equation}
 
 \subsection{Anpassung}
 
@@ -372,7 +377,7 @@ Ohne einen Abschlusswiderstand am T-Stück am Oszilloskop sind die Peaks weniger
 	\label{fig:0755}
 \end{figure}
 
-Die Zeit $\Deltaup t$ wird länger, $V_\text{SS}$ nimmt um einen Faktor 5 ab.
+Die Zeit $\Deltaup t$ wird länger, $U_\text{SS}$ nimmt um einen Faktor 5 ab.
 
 \FloatBarrier
 \subsection{Versuchsaufgabe 2: Impulse auf Kabeln}
@@ -572,7 +577,7 @@ mit Abschlusswiderstand, mit zehnfacher Vergrößerung.
 \subsubsection{Teil c}
 
 In Abbildung \ref{fig:0767} ist das Oszillogramm ohne Anpassung, in Abbildung
-\ref{fig:0768} mit Anpassung gezeigt.
+\ref{fig:0768} mit Anpassung gezeigt. Das Ende des Verzögerungskabels ist hier kurzgeschlossen ($R_\text{A}=0$).
 
 \begin{figure}[htbp]
 	\centering
@@ -613,59 +618,28 @@ In Abbildung \ref{fig:0767} ist das Oszillogramm ohne Anpassung, in Abbildung
 \FloatBarrier
 \subsubsection{Teil d}
 
-Ohne Anpassungswiderstand in Abbildung \ref{fig:0769}. Zur Illustration sind
-noch höhere Frequenzen in den Abbildungen \ref{fig:0770} und \ref{fig:0771}
-gezeigt.
+Zur Illustration sind verschiedene Frequenzen in der Abbildung \ref{fig:0769-0771} gezeigt.
 
 \begin{figure}[htbp]
-	\centering
-	\begin{minipage}{.45\linewidth}
+	\begin{minipage}{.3\linewidth}
+			\includegraphics[width=\linewidth]{Fotos/IMG_0769-1500.jpg}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{.45\linewidth}
-	\includegraphics[width=\linewidth]{Fotos/IMG_0769-1500.jpg}
+	\begin{minipage}{.3\linewidth}
+			\includegraphics[width=\linewidth]{Fotos/IMG_0770-1500.jpg}
 	\end{minipage}
+	\hfill
+	\begin{minipage}{.3\linewidth}
+			\includegraphics[width=\linewidth]{Fotos/IMG_0771-1500.jpg}
+	\end{minipage}
+
 	\caption{%
-		Rechteck, Frequenz \SI{200}{\kilo\hertz},
+		Rechteck, Frequenz (v.l.n.r) \SI{200}{\kilo\hertz}, \SI{400}{\kilo\hertz}, \SI{600}{\kilo\hertz},
 		Zeitbasis \SI{.2}{\micro\second\per\division},
 		Verstärkung \SI{50}{\milli\volt\per\division},
 		externe Triggerung
 	}
-	\label{fig:0769}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{.45\linewidth}
-	\includegraphics[width=\linewidth]{Fotos/IMG_0770-1500.jpg}
-	\end{minipage}
-	\caption{%
-		Rechteck, Frequenz \SI{400}{\kilo\hertz},
-		Zeitbasis \SI{.2}{\micro\second\per\division},
-		Verstärkung \SI{50}{\milli\volt\per\division},
-		externe Triggerung
-	}
-	\label{fig:0770}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{.45\linewidth}
-	\includegraphics[width=\linewidth]{Fotos/IMG_0771-1500.jpg}
-	\end{minipage}
-	\caption{%
-		Rechteck, Frequenz \SI{600}{\kilo\hertz},
-		Zeitbasis \SI{.2}{\micro\second\per\division},
-		Verstärkung \SI{50}{\milli\volt\per\division},
-		externe Triggerung
-	}
-	\label{fig:0771}
+	\label{fig:0769-0771}
 \end{figure}
 
 Wir lesen aus dem Oszillogramm ab 12 Peaks auf 4 Kästchen ab. Die
