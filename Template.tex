@@ -5,7 +5,7 @@
 \usepackage{placeins}
 
 \ihead{physik313 – Versuch 1}
-\ifoot{Ueding, Lemmer}
+\ifoot{Lino Lemmer}
 
 \hypersetup{
 	pdftitle={Ausbreitung von Signalen auf Leitungen}
@@ -15,8 +15,6 @@
 \title{Ausbreitung von Signalen auf Leitungen}
 \subtitle{physik313 – Versuch 1}
 \author{
-	Martin Ueding \footnote{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
-	\and
 	Lino Lemmer \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
 }
 \publishers{Gruppe 3 -- A -- Tutor: Christoph Brezina}
@@ -313,21 +311,22 @@ aufgelistet.
 
 Wir schließen den Oszillograph an das Differenzierglied (ohne Abschluss), das
 vom Funktionsgenerator mit einer Rechteckspannung versorgt wird. Wir benutzen
-die externe Triggerung. Der Aufbau ist in Abbildung \ref{fig:1-6} dargestellt.
+die externe Triggerung. Das Oszilloskop haben wir im zuerst mit einem
+Abschlusswiderstand abgeschlossen. Der Aufbau ist in Abbildung~\ref{fig:1-6}
+dargestellt.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\textwidth]{Schaltplan/1-6.png}
+	\includegraphics[width=.7\textwidth]{Schaltplan/1-6.png}
 	\caption{%
 		\cite[Abbildung~1.6]{physik313-Anleitung}
 	}
 	\label{fig:1-6}
 \end{figure}
 
-Das
-Oszillogramm ist in Abbildung \ref{fig:0752} dargestellt. Mit dem eingebauten
-\SI{2.2}{\kilo\ohm} Widerstand werden die Impulse deutlich kleiner, wie in
-Abbildung \ref{fig:0753} zu sehen.
+Das Oszillogramm ist in Abbildung~\ref{fig:0752} dargestellt. Mit dem
+eingebauten \SI{2.2}{\kilo\ohm} Widerstand im anderen Differenzierglied werden
+die Impulse deutlich kleiner, wie in Abbildung~\ref{fig:0753} zu sehen.
 
 \begin{figure}[htbp]
 	\centering
@@ -339,7 +338,9 @@ Abbildung \ref{fig:0753} zu sehen.
 	\includegraphics[width=\linewidth]{Fotos/IMG_0752-1500.jpg}
 	\end{minipage}
 	\caption{%
-		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis \SI{1}{\micro\second\per\division}, Verstärkung \SI{5}{\milli\volt\per\division}, externe Triggerung
+		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis
+		\SI{1}{\micro\second\per\division}, Verstärkung
+		\SI{5}{\milli\volt\per\division}, externe Triggerung
 	}
 	\label{fig:0752}
 \end{figure}
@@ -354,14 +355,23 @@ Abbildung \ref{fig:0753} zu sehen.
 	\includegraphics[width=\linewidth]{Fotos/IMG_0753-1500.jpg}
 	\end{minipage}
 	\caption{%
-		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis \SI{1}{\micro\second\per\division}, Verstärkung \SI{5}{\milli\volt\per\division}, externe Triggerung
+		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis
+		\SI{1}{\micro\second\per\division}, Verstärkung
+		\SI{5}{\milli\volt\per\division}, externe Triggerung
 	}
 	\label{fig:0753}
 \end{figure}
 
-Durch den zusätzlichen Widerstand wird das Signal gedämpft. Außerdem kommt es zur Reflexion am offenen Ende, da der Anpasswiderstand im Differenzierglied durch den zusätzlichen Widerstand aufgehoben wird.
+Durch den zusätzlichen Widerstand wird das Signal gedämpft. Außerdem kommt es
+zur Reflexion am offenen Ende, da der Anpasswiderstand im Differenzierglied
+durch den zusätzlichen Widerstand aufgehoben wird. Das Bild ändert sich jedoch
+nicht, da wir durch den Abschluss am Oszilloskop dort keine Reflexion haben.
 
-Ohne einen Abschlusswiderstand am T-Stück am Oszilloskop sind die Peaks weniger deutlich ausgeprägt, siehe Abbildung \ref{fig:0755}.
+Ohne einen Abschlusswiderstand am T-Stück am Oszilloskop sind die Peaks weniger
+deutlich ausgeprägt, siehe Abbildung~\ref{fig:0755}. Dies liegt daran, dass
+jezt an beiden Enden des BNC-Kabel reflektiert wird. Die Pulse laufen sehr
+schnell durch das Kabel und werden gedämpft. Dadurch fällt der Puls
+exponentiell ab.
 
 \begin{figure}[htbp]
 	\centering
@@ -373,12 +383,15 @@ Ohne einen Abschlusswiderstand am T-Stück am Oszilloskop sind die Peaks weniger
 	\includegraphics[width=\linewidth]{Fotos/IMG_0755-1500.jpg}
 	\end{minipage}
 	\caption{%
-		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis \SI{1}{\micro\second\per\division}, Verstärkung \SI{20}{\milli\volt\per\division}, externe Triggerung
+		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis
+		\SI{1}{\micro\second\per\division}, Verstärkung
+		\SI{20}{\milli\volt\per\division}, externe Triggerung
 	}
 	\label{fig:0755}
 \end{figure}
 
-Die Zeit $\Deltaup t$ wird länger, $U_\text{SS}$ nimmt um einen Faktor 5 ab.
+Aus dem Differenzierglied kommen also, wie in der Vorbesprechung gesagt, kurze
+Peaks heraus. Diese Peaks sind der Eingang für die weiteren Versuche.
 
 \FloatBarrier
 \subsection{Versuchsaufgabe 2: Impulse auf Kabeln}
@@ -386,11 +399,11 @@ Die Zeit $\Deltaup t$ wird länger, $U_\text{SS}$ nimmt um einen Faktor 5 ab.
 In diesem Versuchsteil schließen wir das Differenzierglied mit Zusatzwiderstand
 an den Kanal 1 des Oszilloskops an. An den Kanal 2 schließen wir die Mitte der
 beiden \SI{6}{\meter} Kabel an, so dass wir die Schwingung innerhalb des Kabels
-beobachten können. Dieser Aufbau ist in Abbildung \ref{fig:1-7} gezeigt.
+beobachten können. Dieser Aufbau ist in Abbildung~\ref{fig:1-7} gezeigt.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\textwidth]{Schaltplan/1-7.png}
+	\includegraphics[width=.7\textwidth]{Schaltplan/1-7.png}
 	\caption{%
 		\cite[Abbildung~1.7]{physik313-Anleitung}
 	}
@@ -401,12 +414,11 @@ Durch den Abschlusswiderstand im Differenzierglied und den
 fehlenden Abschlusswiderstand am anderen Ende des Verzögerungskabels gehen die
 Wellen im langen Kabel hin und her und werden reflektiert.
 
-Wir beobachten Wellenpakete (Abbildung \ref{fig:0756} und \ref{fig:0757}), die
+Wir beobachten Wellenpakete (Abbildung~\ref{fig:0756} und \ref{fig:0757}), die
 oberhalb und unterhalb der Nulllinie sind. Um das Paket ist eine abfallende
-Einhüllende, es sieht exponentiell aus. Auf Kanal 2 ist das Signal schwächer.
-Da der Differenzierer abwechselnd positive und negative Peaks erzeugt, sind die
-Wellenpakete auch abwechselnd über und unter der Nulllinie. Die Reflexion an
-den beiden Enden kehrt die Amplitude nicht um.
+Einhüllende, es sieht exponentiell aus. Dieser exponentielle Abfall kommt durch
+den Ohm'schen Widerstand in dem Kabel, in dem der Puls hin und her läuft. Auf
+Kanal 2 ist das Signal schwächer.
 
 \begin{figure}[htbp]
 	\centering
@@ -418,7 +430,9 @@ den beiden Enden kehrt die Amplitude nicht um.
 	\includegraphics[width=\linewidth]{Fotos/IMG_0756-1500.jpg}
 	\end{minipage}
 	\caption{%
-		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis \SI{1}{\micro\second\per\division}, Verstärkung \SI{5}{\milli\volt\per\division}, externe Triggerung
+		Rechteck, Frequenz \SI{200}{\kilo\hertz}, Zeitbasis
+		\SI{1}{\micro\second\per\division}, Verstärkung
+		\SI{5}{\milli\volt\per\division}, externe Triggerung
 	}
 	\label{fig:0756}
 \end{figure}
@@ -433,15 +447,28 @@ den beiden Enden kehrt die Amplitude nicht um.
 	\includegraphics[width=\linewidth]{Fotos/IMG_0757-1500.jpg}
 	\end{minipage}
 	\caption{%
-		Rechteck, Frequenz \SI{1000}{\kilo\hertz}, Zeitbasis \SI{1}{\micro\second\per\division}, Verstärkung \SI{50}{\milli\volt\per\division}, externe Triggerung
+		Rechteck, Frequenz \SI{1000}{\kilo\hertz}, Zeitbasis
+		\SI{1}{\micro\second\per\division}, Verstärkung
+		\SI{50}{\milli\volt\per\division}, externe Triggerung
 	}
 	\label{fig:0757}
 \end{figure}
 
-Bei näherer Betrachtung (Abbildung \ref{fig:0759}) ist zu erkennen, dass die
+Da der Differenzierer abwechselnd positive und negative Peaks erzeugt, sind die
+Wellenpakete auch abwechselnd über und unter der Nulllinie. Die Reflexion an
+den beiden Enden kehrt die Amplitude nicht um.
+
+Bei näherer Betrachtung (Abbildung~\ref{fig:0759}) ist zu erkennen, dass die
 obere Linie Zwischenpeaks hat, während die untere dafür richtige Peaks hat. Die
-Untere hat kleine und große Peaks. Dips auf Kanal 1 korrespondieren zu großen
-Peaks auf Kanal 2.
+Untere hat kleine und große Peaks. Dips auf Kanal~1 korrespondieren zu großen
+Peaks auf Kanal~2.
+
+In der Mitte des Kabels (Kanal~2) ist die Welle annähernd sinusförmig. Am Rand
+(Kanal~1), wo die Reflexion stattfindet, ist die Welle verzerrt. In beiden
+Fällen sind allerdings nur die Peaks und nicht die Dips verzerrt. Da die
+Vergrößerung die Bildmitte zeigt, ist in Abbildung~\ref{fig:0759} die Reflexion
+eines negativen Pulses gezeigt. Die Verzerrungen sind also um die Null herum,
+nicht um den negativen Peak.
 
 \begin{figure}[htbp]
 	\centering
@@ -479,11 +506,11 @@ Differenzierglied kommen:
 		Oszillograph
 \end{itemize}
 
-Dieser Aufbau ist als Schaltskizze in Abbildung \ref{fig:1-8} gezeigt.
+Dieser Aufbau ist als Schaltskizze in Abbildung~\ref{fig:1-8} gezeigt.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\textwidth]{Schaltplan/1-8.png}
+	\includegraphics[width=.7\textwidth]{Schaltplan/1-8.png}
 	\caption{%
 		\cite[Abbildung~1.8]{physik313-Anleitung}
 	}
@@ -494,7 +521,7 @@ Dieser Aufbau ist als Schaltskizze in Abbildung \ref{fig:1-8} gezeigt.
 \FloatBarrier
 \subsubsection{Teil a}
 
-In Abbildung \ref{fig:0763} und \ref{fig:0765} sind die Oszillogramme ohne und
+In Abbildung~\ref{fig:0763} und \ref{fig:0765} sind die Oszillogramme ohne und
 mit Abschlusswiderstand.
 
 \begin{figure}[htbp]
@@ -533,10 +560,23 @@ mit Abschlusswiderstand.
 	\label{fig:0765}
 \end{figure}
 
+Ohne Anpasswiderstand vorne wird der einkommende Puls direkt am Oszilloskop
+registriert. Außerdem wird er durch das Verzögerungskabel geschickt und am Ende
+offen reflektiert, also mit gleicher Amplitude. Nach einer kurzen
+Verzögerungszeit kommt dieser Puls am Oszilloskop an, es kommt zum zweiten Peak
+innerhalb der Einhüllenden. Da der Differenzierer mit einem hohen Widerstand
+abgeschlossen ist, und sonst kein kleiner angepasster Widerstand auf dieser
+Seite ist, wird die Welle wieder in das Verzögerungskabel reflektiert. Dieser
+Prozess wiederholt sich, bis die Welle abgeklungen ist.
+
+Mit Anpassungswiderstand vorne wird die Welle zwar einmal am Kabelende
+reflektiert, jedoch nach der Registrierung am Oszilloskop absorbiert. Daher
+kommt es zu exakt zwei Peaks pro Puls.
+
 \FloatBarrier
 \subsubsection{Teil b}
 
-In Abbildung \ref{fig:0764} und \ref{fig:0766} sind die Oszillogramme ohne und
+In Abbildung~\ref{fig:0764} und \ref{fig:0766} sind die Oszillogramme ohne und
 mit Abschlusswiderstand, mit zehnfacher Vergrößerung.
 
 \begin{figure}[htbp]
@@ -575,11 +615,15 @@ mit Abschlusswiderstand, mit zehnfacher Vergrößerung.
 	\label{fig:0766}
 \end{figure}
 
+Hier ist das, was wir zum vorherigen Teil geschrieben haben, deutlicher zu
+erkennen.
+
 \FloatBarrier
 \subsubsection{Teil c}
 
-In Abbildung \ref{fig:0767} ist das Oszillogramm ohne Anpassung, in Abbildung
-\ref{fig:0768} mit Anpassung gezeigt. Das Ende des Verzögerungskabels ist hier kurzgeschlossen ($R_\text{A}=0$).
+In Abbildung~\ref{fig:0767} ist das Oszillogramm ohne Anpassung, in
+Abbildung~\ref{fig:0768} mit Anpassung gezeigt. Das Ende des Verzögerungskabels
+ist hier kurzgeschlossen ($R_\text{A}=0$).
 
 \begin{figure}[htbp]
 	\centering
@@ -617,10 +661,21 @@ In Abbildung \ref{fig:0767} ist das Oszillogramm ohne Anpassung, in Abbildung
 	\label{fig:0768}
 \end{figure}
 
+Der Vorgang, der hier auftritt, ist ähnlich zum offenen Verzögerungskabel. Der
+Unterschied ist jedoch, dass die Reflexion nun am \emph{schweren} Ende
+stattfindet, also mit einer Negierung der Amplitude. Dadurch folgt auf den
+ersten Peak ein Dip. Es gibt nur noch halb so viele Peaks wie vorher,
+allerdings so viele Dips wie Peaks. Das Signal ist jetzt auch symmetrisch, da
+durch die Negierung Peaks und Dips auftauchen.
+
+Im angepassten Fall wird auch wieder die Welle nach einer Reflexion absorbiert.
+Es ist der Peak und der reflektierte Dip zu erkennen.
+
 \FloatBarrier
 \subsubsection{Teil d}
 
-Zur Illustration sind verschiedene Frequenzen in der Abbildung \ref{fig:0769-0771} gezeigt.
+Wir variieren die Frequenz am Generator. Zur Illustration sind verschiedene
+Frequenzen in der Abbildung~\ref{fig:0769-0771} gezeigt.
 
 \begin{figure}[htbp]
 	\begin{minipage}{.3\linewidth}
@@ -636,7 +691,7 @@ Zur Illustration sind verschiedene Frequenzen in der Abbildung \ref{fig:0769-077
 	\end{minipage}
 
 	\caption{%
-		Rechteck, Frequenz (v.l.n.r) \SI{200}{\kilo\hertz}, \SI{400}{\kilo\hertz}, \SI{600}{\kilo\hertz},
+		Rechteck, Frequenz (v.\,l.\,n.\,r) \SI{200}{\kilo\hertz}, \SI{400}{\kilo\hertz}, \SI{600}{\kilo\hertz},
 		Zeitbasis \SI{.2}{\micro\second\per\division},
 		Verstärkung \SI{50}{\milli\volt\per\division},
 		externe Triggerung
@@ -644,22 +699,27 @@ Zur Illustration sind verschiedene Frequenzen in der Abbildung \ref{fig:0769-077
 	\label{fig:0769-0771}
 \end{figure}
 
-Wir lesen aus dem Oszillogramm ab 12 Peaks auf 4 Kästchen ab. Die
-Zeitauflösung ist auf \SI{.2}{\micro\second\per\division}, eingestellt. Somit
-ergibt sich eine Frequenz von $\nu = \SI{<< nu >>}{\hertz}$ und eine Periode
-von $T = \SI{<< T >>}\second$. Dies ist die Zeit, die das Signal braucht, um
-die \SI{<< kabel_length >>}{\meter} \emph{zweimal} zurückzulegen. Daraus folgt
-eine spezifische Verzögerungszeit von \SI{<< spez_verz >>}{\second\per\meter}.
-Der Literaturwert für RG-58C/U Kabel ist \SI{5}{\nano\second\per\meter}, dies
-passt also gut.
+Die Abstände der einzelnen Peaks bleiben gleich. Der Abstand der Einhüllenden
+variiert jedoch. Erstere Abstände hängen von der Verzögerungszeit ab. Letztere
+Abstände sind die Periode des Frequenzgenerators.
 
-Bei Kurzschluss des Verzögerungskabels halbiert sich die Anzahl der Peaks, jedoch wird das Signal jetzt symmetrisch. Dies kommt daher, dass die Reflexion jetzt am festen Ende ist, so dass die Amplitude negiert wird. Daher ist jetzt nicht mehr Peak, Null, Peak, sondern Plus, Minus, Plus abzulesen. Siehe Abbildung \ref{fig:0772}.
+Wir lesen aus dem Oszillogramm 12 Peaks auf 4 Kästchen ab. Die Zeitauflösung
+ist auf \SI{.2}{\micro\second\per\division}, eingestellt. Somit ergibt sich
+eine Frequenz von $\nu = \SI{<< nu >>}{\hertz}$ und eine Periode von $T =
+\SI{<< T >>}\second$. Dies ist die Zeit, die das Signal braucht, um die \SI{<<
+kabel_length >>}{\meter} \emph{zweimal} zurückzulegen. Daraus folgt eine
+spezifische Verzögerungszeit von \SI{<< spez_verz >>}{\second\per\meter}. Der
+Literaturwert für RG-58C/U Kabel ist \SI{5}{\nano\second\per\meter}, dies passt
+also gut.
+
+Bei Kurzschluss des Verzögerungskabels halbiert sich die Anzahl der Peaks,
+jedoch wird das Signal jetzt symmetrisch. Dies kommt daher, dass die Reflexion
+jetzt am festen Ende ist, so dass die Amplitude negiert wird. Daher ist jetzt
+nicht mehr Peak, Null, Peak, sondern Plus, Minus, Plus abzulesen. Siehe
+Abbildung~\ref{fig:0772}.
 
 \begin{figure}[htbp]
 	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
-	\hfill
 	\begin{minipage}{.45\linewidth}
 	\includegraphics[width=\linewidth]{Fotos/IMG_0772-1500.jpg}
 	\end{minipage}
@@ -678,9 +738,17 @@ eine Peak vom Differenzierer zu sehen ist. So ist es auch.
 \FloatBarrier
 \subsection{Versuchsaufgabe 4: Klippkabel, Dämpfung}
 
+Vom Funktionsgenerator lassen wir eine Rechteckschwingung erzeugen. Diese
+koppeln wir mit dem \SI{2450}{\ohm} Widerstand in das Verzögerungskabel
+HH~2500. Dieses Kabel wird aufgrund seiner Wirkung auch \emph{Klippkabel}
+genannt. Außerdem nehmen wir am Anfang des Verzögerungskabels mit dem
+Oszilloskop das Signal ab. Wir benutzen die externe Triggerung. Ans Ende des
+Verzögerungskabels werden wir verschiedene Abschlusswiderstände montieren. Der
+Aufbau ist in Abbildung~\ref{fig:1-9} abgebildet.
+
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\textwidth]{Schaltplan/1-9.png}
+	\includegraphics[width=.7\textwidth]{Schaltplan/1-9.png}
 	\caption{%
 		\cite[Abbildung~1.9]{physik313-Anleitung}
 	}
@@ -690,16 +758,16 @@ eine Peak vom Differenzierer zu sehen ist. So ist es auch.
 \FloatBarrier
 \subsubsection{Teil a}
 
-Wir lassen das Verzögerungskabel zunächst offen. Dadurch werden die Wellen
-offen reflektiert, also mit gleich bleibender Amplitude. Die reflektierte
-Teilwelle verbindet sich einfach additiv mit der normalen Welle, die gerade im
-Funktionsgenerator generiert wird. Der Effekt ist, dass am Anfang und am Ende
-die Amplitude des Signals etwas halb so groß ist. Das passende Oszillogramm ist
-in Abbildung \ref{fig:0773} gezeigt. Wenn man genau hinschaut, ist auch zu
-sehen, dass die Stufe bei vor der positiven Halbwelle etwas höher ist, als vor
-der negativen Halbwelle. Dies liegt daran, dass das Verzögerungskabel eine
-Dämpfung hat und somit die zweite Hälfte des Signals weniger als die halbe
-Amplitude hat.
+Wir lassen das Verzögerungskabel zunächst offen ($R_\text{A}=\infty$). Dadurch
+werden die Wellen offen reflektiert, also mit gleich bleibender Amplitude. Die
+reflektierte Teilwelle verbindet sich einfach additiv mit der normalen Welle,
+die gerade im Funktionsgenerator generiert wird. Der Effekt ist, dass am Anfang
+und am Ende die Amplitude des Signals etwa halb so groß ist. Das passende
+Oszillogramm ist in Abbildung~\ref{fig:0773} gezeigt. Wenn man genau hinschaut,
+ist auch zu sehen, dass die Stufe vor der positiven Halbwelle etwas höher
+ist, als vor der negativen Halbwelle. Dies liegt daran, dass das
+Verzögerungskabel eine Dämpfung hat und somit die zweite Hälfte des Signals
+weniger als die halbe Amplitude hat.
 
 \begin{figure}[htbp]
 	\centering
@@ -722,11 +790,12 @@ Amplitude hat.
 \FloatBarrier
 \subsubsection{Teil b}
 
-Wir schließen das Klippkabel nun kurz. Das Oszillogramm ist in Abbildung
-\ref{fig:0774}. Ähnlich wie vorher wird die Welle im Verzögerungskabel
-reflektiert, jedoch am festen Ende mit Negierung der Amplitude. Die zweite
-Hälfte wird also nun nach der Verzögerungszeit von der ersten Hälfte
-\emph{subtrahiert}. Dadurch wird der Impuls geklippt.
+Wir schließen das Klippkabel nun kurz. Das Oszillogramm ist in
+Abbildung~\ref{fig:0774}. Ähnlich wie vorher wird die Welle im
+Verzögerungskabel reflektiert, jedoch am festen Ende mit Negierung der
+Amplitude. Die zweite Hälfte wird also nun nach der Verzögerungszeit von der
+ersten Hälfte \emph{subtrahiert}. Dadurch wird der Impuls geklippt. Auch hier
+ist durch Dämpfung die Interferenz nicht perfekt.
 
 \begin{figure}[htbp]
 	\centering
@@ -756,10 +825,10 @@ nur von der Verzögerungszeit des Klippkabels abhängt.
 \FloatBarrier
 \subsubsection{Teil d}
 
-Nun verlängern wir das Klippkabel auf \SI{2.1}{\meter}, in dem wir drei der
-vorhandenen zusammenhängen. Das Oszillogramm ist in Abbildung \ref{fig:0775}
+Nun verlängern wir das Klippkabel auf \SI{2.1}{\meter}, indem wir drei der
+vorhandenen zusammenhängen. Das Oszillogramm ist in Abbildung~\ref{fig:0775}
 gezeigt. Die Länge der geklippten Impulse wird durch die Verzögerungszeit des
-kominierten Kabels bestimmt. Der Mechanismus ist der im vorigen Aufgabenteil
+kombinierten Kabels bestimmt. Der Mechanismus ist der im vorigen Aufgabenteil
 beschriebene.
 
 \begin{figure}[htbp]
@@ -780,14 +849,21 @@ beschriebene.
 	\label{fig:0775}
 \end{figure}
 
-Wir lesen ein Verhältnis von $9 : 2$ ab.
+\subsubsection{Teil e}
+
+Wir lesen ein Verhältnis zwischen oberster und zweitoberster Stufe von $9 : 2$
+ab. Daraus können wir mit
+\[
+	\frac{20\log\frac{U_2}{U_1}\SI{}{\deci\bel}}{2l} = \frac{20\log\frac79}{\SI{4.2}{\meter}} = \SI{-0.52}{\deci\bel\per\meter}
+\]
+die spezifische Dämpfung berechnen.
 
 \FloatBarrier
 \subsection{Versuchsaufgabe 5: \SI{50}{\ohm} Kabel RG-58 C/U}
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\textwidth]{Schaltplan/1-11.png}
+	\includegraphics[width=.7\textwidth]{Schaltplan/1-11.png}
 	\caption{%
 		\cite[Abbildung~1.11]{physik313-Anleitung}
 	}
@@ -795,6 +871,7 @@ Wir lesen ein Verhältnis von $9 : 2$ ab.
 \end{figure}
 
 \subsubsection{Teil a}
+\label{sss:teil_a}
 
 \begin{problem}
 	Warum macht sich eine kleine Bandbreite besonders bei der Übertragung von
@@ -809,52 +886,43 @@ kleinen Bandbreite ist allerdings genau dies das Problem: Hohe Frequenzen
 werden abgeschnitten, da sie besonders gedämpft werden. So wird das Rechteck an
 den Ecken etwas abgerundet.
 
+\subsubsection{Teil b}
+
+Der Versuchsaufbau ist in Abbildung~\ref{fig:1-11} zu sehen. Wir beginnen bei
+einer Frequenz von \SI{1}{\kilo\hertz} und steigern diese bis zur maximalen
+Frequenz des Generators. Der Verlauf ist dabei in Abbildung~\ref{fig:0776-0778}
+zu sehen. Einen deutlichen Unterschied erkennt man ab einer Frequenz von
+\SI{100}{\kilo\hertz}.
+
 \begin{figure}[htbp]
 	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{.45\linewidth}
+	\begin{minipage}{.3\linewidth}
 	\includegraphics[width=\linewidth]{Fotos/IMG_0776-1500.jpg}
 	\end{minipage}
-	\caption{%
-		Rechteck, Frequenz \SI{1}{\kilo\hertz},
-		externe Triggerung
-	}
-	\label{fig:0776}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
 	\hfill
-	\begin{minipage}{.45\linewidth}
+	\begin{minipage}{.3\linewidth}
 	\includegraphics[width=\linewidth]{Fotos/IMG_0777-1500.jpg}
 	\end{minipage}
-	\caption{%
-		Rechteck, Frequenz \SI{10}{\kilo\hertz},
-		externe Triggerung
-	}
-	\label{fig:0777}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\begin{minipage}{.45\linewidth}
-	\end{minipage}
 	\hfill
-	\begin{minipage}{.45\linewidth}
+	\begin{minipage}{.3\linewidth}
 	\includegraphics[width=\linewidth]{Fotos/IMG_0778-1500.jpg}
 	\end{minipage}
+
 	\caption{%
-		Rechteck, Frequenz \SI{100}{\kilo\hertz},
-		externe Triggerung
+		Rechteck, Frequenz (v.\,l.\,n.\,r.) \SI{1}{\kilo\hertz},
+		\SI{10}{\kilo\hertz}, \SI{100}{\kilo\hertz}, externe Triggerung
 	}
-	\label{fig:0778}
+	\label{fig:0776-0778}
 \end{figure}
 
-\subsubsection{Teil b}
+\subsubsection{Teil c}
+
+Die beiden Signale bei einer Frequenz von \SI{500}{\kilo\hertz} sind in
+Abbildung~\ref{fig:0779} zu sehen, wobei das untere Signal invertiert ist. Man
+erkennt deutlich, dass die Kanten des Dreiecksignals, welches durch das HH~2500
+gelaufen ist, verschwinden, der Grund ist in \ref{sss:teil_a} erklärt. Das
+RG58~C/U hat anscheinend eine deutlich höhere Bandbreite, da das Signal hier
+weniger verfälscht wird.
 
 \begin{figure}[htbp]
 	\centering
@@ -871,6 +939,11 @@ den Ecken etwas abgerundet.
 	}
 	\label{fig:0779}
 \end{figure}
+
+\subsubsection{Teil d}
+
+Auch bei den anderen Signalformen ist eine Verzerrung zu erkennen, am
+geringsten fällt diese beim Sinussignal aus, am stärksten beim Rechtecksignal.
 
 \IfFileExists{\bibliographyfile}{
 	\bibliography{\bibliographyfile}
