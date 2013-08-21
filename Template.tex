@@ -711,19 +711,47 @@ Die Kennlinien der in Versuch 1 statisch vermessenen Dioden und einer Zener-Diod
 
 Ein auf Dreieck \SI{200}{\kilo\hertz} gestellter Signalgenerator wird an BNC~1 angeschlossen. Je nach zu messender Diode werden B3 mit B8 (MRA4004), B4 mit B9 (10BG015) oder B5 mit B10 (Zener) verbunden. Die Kanäle CH1 und CH2 werden an BNC~2 bzw. BNC~3 angeschlossen um die zum Strom proportionale Spannung abzunehmen. Im Oszillographen werden die Kanäle invers addiert. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                 Auswertung                                  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \FloatBarrier
-\section{Auswertung}
+\subsection{Versuchsaufgabe 5}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                  Ergebnis                                   %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[htbp]
+	\centering
+	\caption{%
+		Messdaten ohne Stabilisierung
+	}
+	\label{table:D2}
+	\begin{tabular}{SS}
+		{$U / \si\volt$} & {$I_1 / \si{\milli\ampere}$} \\
+		\hline
+		%< for u, i in a5_table: >%
+		<< u >> & << i >> \\
+		%< endfor >%
+	\end{tabular}
+\end{table}
 
-\FloatBarrier
-\section{Ergebnis}
+\begin{table}[htbp]
+	\centering
+	\caption{%
+		Messdaten mit Stabilisierung
+	}
+	\label{table:D2}
+	\begin{tabular}{SS}
+		{$U / \si\volt$} & {$I_1 / \si{\milli\ampere}$} \\
+		\hline
+		%< for u, i in a5_ZD_table: >%
+		<< u >> & << i >> \\
+		%< endfor >%
+	\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+	\centering
+	\caption{%
+		Plot zur Diode D2
+	}
+	\label{fig:D2}
+	\includegraphics[width=\textwidth]{Daten_5.pdf}
+\end{figure}
 
 \IfFileExists{\bibliographyfile}{
 	\bibliography{\bibliographyfile}
