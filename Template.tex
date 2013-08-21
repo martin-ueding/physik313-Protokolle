@@ -839,7 +839,11 @@ ab. Eine Skizze zu diesem Aufbau ist in Abbildung~\ref{fig:2-10}. Das Netzteil v
 	\includegraphics[width=\linewidth]{Bilder_aus_Anleitung/2-10.png}
 \end{figure}
 
-Das Oszillogramm der gleichgerichteten Spannung ist in Abbildung~\ref{fig:790}.
+Das Oszillogramm der gleichgerichteten Spannung ist in
+Abbildung~\ref{fig:790}. Die mittlere Spannung, die wir als den Mittelwert
+zwischen Maximum und Minimum interpretieren, ist hier $\SI{11}\volt$. Der
+Brumm ist \SI{2.1}{\division}, entspricht also \SI{21}{\volt}. Bei einer
+Eingangsspannung von \SI{20}{\volt} kommt dies ziemlich genau hin.
 
 \begin{figure}[htbp]
 	\centering
@@ -858,7 +862,7 @@ Das Oszillogramm der gleichgerichteten Spannung ist in Abbildung~\ref{fig:790}.
 	\label{fig:790}
 \end{figure}
 
-Mit einer zusätzlichen, parallelen Kapazität von \SI{2.2}{\micro\farad} wird die Spannung etwas geglättet, siehe Abbildung \ref{fig:792}. Dabei ist die exponentielle Entladung des Kondensator zu beobachten.
+Mit einer zusätzlichen, parallelen Kapazität von \SI{2.2}{\micro\farad} wird die Spannung etwas geglättet, siehe Abbildung \ref{fig:792}. Dabei ist die exponentielle Entladung des Kondensator zu beobachten. Die Mittlere Spannung ist \SI{16}{\volt}. Der Brumm ist hier $\SI{1.1}\division \sim \SI{11}\volt$.
 
 \begin{figure}[htbp]
 	\centering
@@ -877,7 +881,7 @@ Mit einer zusätzlichen, parallelen Kapazität von \SI{2.2}{\micro\farad} wird d
 	\label{fig:792}
 \end{figure}
 
-Bei \SI{24.2}{\micro\farad} ist der Brumm deutlich kleiner geworden, der Kondensator kann nicht mehr komplett entladen werden, da seine Kapazität zu groß ist. Dies ist in Abbildung~\ref{fig:793} gezeigt.
+Bei \SI{24.2}{\micro\farad} ist der Brumm deutlich kleiner geworden, der Kondensator kann nicht mehr komplett entladen werden, da seine Kapazität zu groß ist. Dies ist in Abbildung~\ref{fig:793} gezeigt. Die mittlere Spannung ist \SI{19}{\volt}. Hier ist der Brumm $\SI{0.3}\division \sim \SI{3}\volt$.
 
 \begin{figure}[htbp]
 	\centering
@@ -896,7 +900,7 @@ Bei \SI{24.2}{\micro\farad} ist der Brumm deutlich kleiner geworden, der Kondens
 	\label{fig:793}
 \end{figure}
 
-Mit \SI{1022}{\micro\farad} ist mit dem Auge kein Brumm mehr zu erkennen, siehe Abbildung \ref{fig:795}.
+Mit \SI{1022}{\micro\farad} ist mit dem Auge kein Brumm mehr zu erkennen, siehe Abbildung \ref{fig:795}. Die mittlere Spannung ist \SI{20}{\volt}.
 
 \begin{figure}[htbp]
 	\centering
@@ -920,10 +924,8 @@ Mit \SI{1022}{\micro\farad} ist mit dem Auge kein Brumm mehr zu erkennen, siehe 
 
 Der Gleichrichter wird so geschlossen, dass es ein Zweiweggleichrichter wird.
 Mit den gleichen Kapazitäten werden die Messungen wiederholt. Siehe
-Abbildungen~\ref{fig:796} für \SI{0}{\micro\farad}, Abbildungen~\ref{fig:797}
-für \SI{2.2}{\micro\farad}, Abbildungen~\ref{fig:798} für
-\SI{24.2}{\micro\farad}. Bei der größten Kapazität sieht das Oszillogramm
-genauso aus, wie das in Abbildung~\ref{fig:795}.
+Abbildung~\ref{fig:796} für \SI{0}{\micro\farad}. Die mittlere Spannung ist
+\SI{11}{\volt}. Der Brumm ist hier $\SI{2.2}\division \sim \SI{22}\volt$.
 
 \begin{figure}[htbp]
 	\centering
@@ -942,6 +944,10 @@ genauso aus, wie das in Abbildung~\ref{fig:795}.
 	\label{fig:796}
 \end{figure}
 
+\SI{2.2}{\micro\farad} ist in Abbildung~\ref{fig:797} dargestellt. Die
+mittlere Spannung ist \SI{20}{\volt}. Der Brumm ist $\SI{.7}\division \sim \SI
+7\volt$.
+
 \begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
@@ -959,6 +965,10 @@ genauso aus, wie das in Abbildung~\ref{fig:795}.
 	\label{fig:797}
 \end{figure}
 
+\SI{24.2}{\micro\farad} ist in Abbildung~\ref{fig:798} dargestellt. Die
+mittlere Spannung ist \SI{23}{\volt}. Hier ist der Brumm $\SI{.2}\division
+\sim \SI 2\volt$.
+
 \begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
@@ -975,6 +985,9 @@ genauso aus, wie das in Abbildung~\ref{fig:795}.
 	}
 	\label{fig:798}
 \end{figure}
+
+Bei der größten Kapazität sieht das Oszillogramm genauso aus, wie das in
+Abbildung~\ref{fig:795}.
 
 \FloatBarrier
 \subsection{Versuchsaufgabe 5: Stabilisierung mit Zenerdiode}
