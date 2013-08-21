@@ -954,7 +954,9 @@ Aufgabenteilen nehmen.
 
 Wir bestimmen die Lastabhängigkeit der Schaltung, in dem wir Strom (mit
 Unigor) und Spannung (mit Digitalmultimeter) über dem Lastwiderstand messen.
-Unsere Messdaten sind in Tabelle~\ref{table:oS}.
+Unsere Messdaten sind in Tabelle~\ref{table:oS}. Der Plot dieser Daten ist in
+Abbildung~\ref{fig:Stabilisierung}, zusammen mit den Daten der nächsten
+Teilaufgabe.
 
 \begin{table}[htbp]
 	\centering
@@ -962,19 +964,18 @@ Unsere Messdaten sind in Tabelle~\ref{table:oS}.
 		Messdaten ohne Stabilisierung
 	}
 	\label{table:oS}
-	\begin{tabular}{SS}
-		{$U / \si\volt$} & {$I_1 / \si{\milli\ampere}$} \\
+	\begin{tabular}{SSS}
+		{$U / \si\volt$} & {$I / \si{\milli\ampere}$} & {$R / \si{\kilo\ohm}$} \\
 		\hline
-		%< for u, i in a5_table: >%
-		<< u >> & << i >> \\
+		%< for u, i, r in a5_table: >%
+		<< u >> & << i >> & << r >> \\
 		%< endfor >%
 	\end{tabular}
 \end{table}
 
-Der Plot dieser Daten ist in Abbildung~\ref{fig:Stabilisierung}, zusammen mit
-den Daten der nächsten Teilaufgabe.
-
 \subsubsection{Teil b}
+
+Wir schalten nun die Zenerdiode parallel zur Last.
 
 Unsere Messdaten sind in Tabelle~\ref{table:mS}.
 
@@ -984,11 +985,11 @@ Unsere Messdaten sind in Tabelle~\ref{table:mS}.
 		Messdaten mit Stabilisierung
 	}
 	\label{table:mS}
-	\begin{tabular}{SS}
-		{$U / \si\volt$} & {$I_1 / \si{\milli\ampere}$} \\
+	\begin{tabular}{SSS}
+		{$U / \si\volt$} & {$I / \si{\milli\ampere}$} & {$R / \si{\kilo\ohm}$} \\
 		\hline
-		%< for u, i in a5_ZD_table: >%
-		<< u >> & << i >> \\
+		%< for u, i, r in a5_ZD_table: >%
+		<< u >> & << i >> & << r >> \\
 		%< endfor >%
 	\end{tabular}
 \end{table}

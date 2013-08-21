@@ -61,8 +61,8 @@ def aufgabe_5(T):
     pl.savefig("Daten_5.pdf")
     pl.clf()
 
-    T["a5_table"] = list(zip(U_5, I_5))
-    T["a5_ZD_table"] = list(zip(U_5_ZD, I_5_ZD))
+    T["a5_table"] = list(zip(U_5, I_5, np.round(U_5/I_5, 3)))
+    T["a5_ZD_table"] = list(zip(U_5_ZD, I_5_ZD, np.round(U_5_ZD/I_5_ZD, 3)))
 
 def g(value, error=None, digits=3):
     if error is None:
