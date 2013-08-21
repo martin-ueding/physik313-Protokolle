@@ -18,7 +18,7 @@ def aufgabe_1(T):
     I_2 = data[:, 1]
 
     pl.plot(U, I_1, label="Aufbau 1", marker="o")
-    pl.plot(U, I_2, label="Aufbau 2", marker="x")
+    pl.plot(U, I_2, label="Aufbau 2", marker="o")
     pl.xlabel(r"$U / \mathrm{V}$")
     pl.ylabel(r"$I / \mathrm{mA}$")
     pl.grid(True)
@@ -53,7 +53,7 @@ def aufgabe_5(T):
     I_5_ZD = data_5_ZD[:, 1]
 
     pl.plot(U_5, I_5, marker="o", label="ohne Stabilisierung")
-    pl.plot(U_5_ZD, I_5_ZD, marker="x", label="mit Stabilisierung")
+    pl.plot(U_5_ZD, I_5_ZD, marker="o", label="mit Stabilisierung")
     pl.xlabel(r"$U / \mathrm{V}$")
     pl.ylabel(r"$I / \mathrm{mA}$")
     pl.legend(loc="best")
