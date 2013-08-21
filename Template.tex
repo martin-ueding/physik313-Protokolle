@@ -2,6 +2,8 @@
 
 \input{header.tex}
 
+\usepackage{placeins}
+
 \ihead{physik313 – Versuch 2}
 \ifoot{Lino Lemmer}
 
@@ -47,6 +49,7 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 %                                 Einleitung                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\FloatBarrier
 \section{Einleitung}
 
 In diesem Versuch untersuchen wir die Kennlinien von Halbleiterdioden. Wir
@@ -57,6 +60,7 @@ untersuchen wir verschiedene Gleichrichter sowie Spannungsstabilisierung.
 %                                   Theorie                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\FloatBarrier
 \section{Theorie}
 
 Dioden bestehen meistens aus Silizium oder Germanium. Ein Teil ist n-dotiert,
@@ -74,7 +78,7 @@ letzte Voraufgaben.
 Den Stromverlauf in Abhängigkeit der Spannung wird \emph{Kennlinie} genannt und
 taucht in den Voraufgaben einige Male auf. Siehe Abbildung~\ref{fig:2-2}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie einer Diode \cite[Abbildung~2.2]{physik313-Anleitung}
@@ -90,7 +94,7 @@ Halbwelle zu einer positiven Spannung umgewandelt werden. Siehe Abbildung
 Spannung, noch zu einer besseren Gleichspannung mit weniger Restwelligkeit
 gemacht werden.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Ein- und Zweiweggleichrichter \cite[Abbildung~2.4]{physik313-Anleitung}
@@ -111,8 +115,10 @@ sichtbar gemacht werden, wenn das System von einem Sägezahn angetrieben wird.
 %                                  Aufgaben                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\FloatBarrier
 \section{Aufgaben}
 
+\FloatBarrier
 \subsection{Aufgabe A}
 
 \begin{problem}
@@ -122,6 +128,7 @@ sichtbar gemacht werden, wenn das System von einem Sägezahn angetrieben wird.
 Bei Silizium gibt es 4 Zustände im Valenzband, keine in der Bandlücke und 4 im
 Leitungsband. \cite[Vorlesung~16, Folie~13]{meschede/physik441}
 
+\FloatBarrier
 \subsection{Aufgabe B}
 
 \begin{problem}
@@ -134,6 +141,7 @@ Leitungsband besetzt. Dies erreicht man, in dem man Atome mit anderer
 Wertigkeit an Kristallplätze setzt und Si so ersetzt. Dies ist eine gezielte
 Verunreinigung.
 
+\FloatBarrier
 \subsection{Aufgabe C}
 
 \begin{problem}
@@ -149,6 +157,7 @@ gebunden ist. So wird der Kristall einfach leitend.
 Donatoren und Akzeptoren bringen also ein zusätzliches, freies Elektron bzw.
 Loch in den Kristall. \cite[§~18.4.2]{meschede-gerthsen_24}
 
+\FloatBarrier
 \subsection{Aufgabe D}
 
 \begin{problem}
@@ -159,6 +168,7 @@ Die Schichtdicke wird durch die Diffusionsspannung $U_\text{D}$, die Donator-
 und Akzeptorkonzentration $N_\text{D}$ bzw. $N_\text{A}$, die angelegte
 Spannung $U$ und die Permittivitätszahl $\varepsilon_\text{r}$ bestimmt.
 
+\FloatBarrier
 \subsection{Aufgabe E}
 
 \begin{problem}
@@ -175,6 +185,7 @@ Eigenschaften der Diode abhängig:
 	C_R = \frac{C_0}{\del{1- \frac U{U_\text D}}^n}
 \]
 
+\FloatBarrier
 \subsection{Aufgabe F}
 
 \begin{problem}
@@ -183,7 +194,7 @@ Eigenschaften der Diode abhängig:
 	c) und d) den Einfluss der Widerstände.
 \end{problem}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		\cite[Abbildung~2.3]{physik313-Anleitung}
@@ -192,6 +203,7 @@ Eigenschaften der Diode abhängig:
 	\includegraphics[width=.6\linewidth]{Bilder_aus_Anleitung/2-3.png}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Einfacher Widerstand}
 
 Beim einfachen Widerstand $R$ gilt:
@@ -201,7 +213,7 @@ Beim einfachen Widerstand $R$ gilt:
 
 Dies ist in Abbildung~\ref{fig:F-Widerstand} skizziert.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie des Ohm'schen Widerstands
@@ -210,12 +222,13 @@ Dies ist in Abbildung~\ref{fig:F-Widerstand} skizziert.
 	\includegraphics{Zeichnungen/F-Widerstand.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Einfache Diode}
 
 Für die Diode gilt die in Abbildung~\ref{fig:2-2} der Aufgabenstellung gezeichnete
 Kennlinie, ich habe sie in Abbildung~\ref{fig:F-Diode} selbst gemalt.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie der einfachen Diode
@@ -224,6 +237,7 @@ Kennlinie, ich habe sie in Abbildung~\ref{fig:F-Diode} selbst gemalt.
 	\includegraphics{Zeichnungen/F-Diode.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Diode und Widerstand seriell}
 
 Hier gibt die Diode den Stromverlauf vor. Der Widerstand verschlingt jedoch
@@ -236,7 +250,7 @@ So haben wir uns überlegt, dass der Durchlass erst bei höherer Spannung
 einsetzt und dann flacher einsteigt. Dies ist in Abbildung~\ref{fig:F-seriell}
 skizziert.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie der Reihenschaltung
@@ -245,6 +259,7 @@ skizziert.
 	\includegraphics{Zeichnungen/F-seriell.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Diode und Widerstand parallel}
 
 Hier liegt die gleiche Spannung an Diode und Widerstand an. Die Leitfähigkeiten
@@ -261,7 +276,7 @@ addieren sich:
 Somit summieren sich beide Kennlinien auf, siehe Abbildung
 \ref{fig:F-parallel}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie der Parallelschaltung
@@ -270,6 +285,7 @@ Somit summieren sich beide Kennlinien auf, siehe Abbildung
 	\includegraphics{Zeichnungen/F-parallel.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Ideale Spannungsquelle}
 
 Eine reale Spannungsquelle mit eingestellter Spannung $U_0$ hat einen
@@ -291,7 +307,7 @@ Betrachtet man für die ideale Spannungsquelle den Grenzwert $R_\text{I}\to0$
 geht die Steigung in Abbildung~\ref{fig:F-Spannungsquelle} gegen unendlich und
 wir erhalten eine Senkrechte.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie der realen Spannungsquelle
@@ -300,6 +316,7 @@ wir erhalten eine Senkrechte.
 	\includegraphics{Zeichnungen/F-Spannungsquelle.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Ideale Stromquelle}
 
 Die ideale Stromquelle hat einen Innenwiderstand $R_\text i$, die Quelle passt
@@ -312,7 +329,7 @@ der Strom fließt trotzdem.
 
 Dies haben wir in Abbildung~\ref{fig:F-Stromquelle} skizziert.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie der idealen Stromquelle
@@ -321,6 +338,7 @@ Dies haben wir in Abbildung~\ref{fig:F-Stromquelle} skizziert.
 	\includegraphics{Zeichnungen/F-Stromquelle.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsection{Aufgabe G}
 
 \begin{problem}
@@ -335,7 +353,7 @@ Eingangsspannung weit über der Durchlassspannung ist, wird unten nichts
 nennenswertes abgeschnitten. Es ergibt sich ein Spannungsverlauf wie in
 Abbildung~\ref{fig:G-einfach}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Spannungsverlauf nach der einfachen Gleichrichtung
@@ -348,7 +366,7 @@ Bei der zweiten Schaltung wird auch die untere Halbwelle durchgelassen,
 allerdings nach oben geklappt. Es kommt zu einem Spannungsverlauf wie in
 Abbildung~\ref{fig:G-doppelt}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Spannungsverlauf nach der doppelten Gleichrichtung
@@ -357,6 +375,7 @@ Abbildung~\ref{fig:G-doppelt}.
 	\includegraphics{Zeichnungen/G-doppelt.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsection{Aufgabe H}
 
 \begin{problem}
@@ -376,6 +395,7 @@ die Durchschnittsspannung erreicht hat. Dadurch wird das System träge und zieht
 zu beginn beliebig hohe Ströme aus der Diode. Dieser Aspekt wird in einer
 späteren Aufgabe noch behandelt.
 
+\FloatBarrier
 \subsection{Aufgabe I}
 \label{s:I}
 
@@ -388,7 +408,7 @@ späteren Aufgabe noch behandelt.
 In Abbildung~\ref{fig:I-Schaltungen} sind zwei Möglichkeiten zur
 Kennlinienmessung dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Mögliche Schaltungen zur Kennlinienmessung
@@ -412,6 +432,7 @@ hohe Spannungen auftreten, ist es vielleicht sinnvoll, dafür \textcircled 2 zu
 benutzen, um den Strommessfehler durch den Innenwiderstand des Spannungsmessers
 zu vermeiden.
 
+\FloatBarrier
 \subsection{Aufgabe J}
 
 \begin{problem}
@@ -424,7 +445,7 @@ dann eine zum Strom proportionale Spannung ab.
 Dies erfährt man auch, wenn man etwas weiter ließt und sich
 Abbildung~\ref{fig:2-7} aus der Anleitung anschaut.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		\cite[Abbildung~2.7]{physik313-Anleitung}
@@ -433,6 +454,7 @@ Abbildung~\ref{fig:2-7} aus der Anleitung anschaut.
 	\includegraphics[width=.6\linewidth]{Bilder_aus_Anleitung/2-7.png}
 \end{figure}
 
+\FloatBarrier
 \subsection{Aufgabe K}
 
 \begin{problem}
@@ -461,6 +483,7 @@ Dies muss kleiner als $I_\text{max}$ sein:
 	C < \SI{100}{\micro\farad}
 \]
 
+\FloatBarrier
 \subsection{Aufgabe L}
 
 \begin{problem}
@@ -475,6 +498,7 @@ einmal die Spannung $- U_0$ von der Spannungsquelle. Außerdem wird noch einmal
 eine Spannung $-U_0$ durch den Kondensator auf die Diode. Es liegen also
 $-2U_0$ an.
 
+\FloatBarrier
 \subsection{Aufgabe M}
 
 \begin{problem}
@@ -482,7 +506,7 @@ $-2U_0$ an.
 	Schaltungen in Abbildung~\ref{fig:2-9}.
 \end{problem}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		\cite[Abbildung~2.9]{physik313-Anleitung}
@@ -508,7 +532,7 @@ Dies ist nur eine andere Darstellung von Schaltung b, so dass die gleichen
 Überlegungen auch hier zutreffen. Die Umformung ist in Abbildung
 \ref{fig:M-Schaltung_drei} dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Umformung von Schaltung c
@@ -517,6 +541,7 @@ Dies ist nur eine andere Darstellung von Schaltung b, so dass die gleichen
 	\includegraphics{Zeichnungen/M-Schaltung_drei.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsection{Aufgabe N}
 
 $U'$ ist die Spannung an der Last. Der Gesamtstrom, der fließt ist:
@@ -537,7 +562,7 @@ Die Spannung $U'$ ist:
 
 Die Funktion ist in Abbildung~\ref{fig:N-Plot} skizziert.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Lastspannung in Abhängigkeit vom Lastwiderstand
@@ -549,6 +574,7 @@ Die Funktion ist in Abbildung~\ref{fig:N-Plot} skizziert.
 Die Extremwerte sind $I_\text{max} = U_0/R$, $U'_\text{min} = 0$, wenn
 $\RL = 0$, sowie $I_\text{min} = 0$ und $U'_\text{max} = U_0$ wenn $\RL \to \infty$.
 
+\FloatBarrier
 \subsection{Aufgabe O}
 
 \newcommand\IZmax{I_\text{Z,max}}
@@ -597,8 +623,10 @@ Somit ist der Bereich \SIrange{138}{8000}{\ohm}.
 %                      Versuchsaufbau und -durchführung                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\FloatBarrier
 \section{Versuchsaufbau und -durchführung}
 
+\FloatBarrier
 \subsection{Versuchsaufgabe 1: Statische Messung der Diodenkennlinie}
 
 In diesem Versuch soll mit Hilfe eines Gleichspannungsnetzgerätes und zweier
@@ -607,12 +635,13 @@ Multimeter die Kennlinien der Silizium-Diode MRA4004 und der Schottky-Diode
 beschrieben (Abb.~\ref{fig:I-Schaltungen}). Die Messung in Durchlass- und in
 Sperrrichtung werden dabei nacheinander durchgeführt.
 
+\FloatBarrier
 \subsubsection{Diode D1}
 
 Unsere Messwerte für die Diode~D1 sind in Tabelle~\ref{table:D1}. Der
 entsprechende Plot der Daten ist in Abbildung~\ref{fig:D1}.
 
-\begin{table}[h]
+\begin{table}[htbp]
 	\centering
 	\caption{%
 		Messdaten zur Diode D1
@@ -627,7 +656,7 @@ entsprechende Plot der Daten ist in Abbildung~\ref{fig:D1}.
 	\end{tabular}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Plot zur Diode D1
@@ -636,12 +665,13 @@ entsprechende Plot der Daten ist in Abbildung~\ref{fig:D1}.
 	\includegraphics[width=\textwidth]{Daten_D1.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Diode D2}
 
 Unsere Messwerte für die Diode~D2 sind in Tabelle~\ref{table:D2}. Der
 entsprechende Plot der Daten ist in Abbildung~\ref{fig:D2}
 
-\begin{table}[h]
+\begin{table}[htbp]
 	\centering
 	\caption{%
 		Messdaten zur Diode D2
@@ -656,7 +686,7 @@ entsprechende Plot der Daten ist in Abbildung~\ref{fig:D2}
 	\end{tabular}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Plot zur Diode D2
@@ -665,11 +695,12 @@ entsprechende Plot der Daten ist in Abbildung~\ref{fig:D2}
 	\includegraphics[width=\textwidth]{Daten_D2.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsection{Versuchsaufgabe 2: Oszillogramm der Diodenkennlinie}
 
 Die Kennlinien der in Versuch 1 statisch vermessenen Dioden und einer Zener-Diode sollen mit Hilfe eines Osszilographen vermessen werden. Dazu wird der in Abbildung~\ref{fig:2-6} gezeigte Aufbau verwendet.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		\cite[Abbildung~2.6]{physik313-Anleitung}
@@ -684,12 +715,14 @@ Ein auf Dreieck \SI{200}{\kilo\hertz} gestellter Signalgenerator wird an BNC~1 a
 %                                 Auswertung                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\FloatBarrier
 \section{Auswertung}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Ergebnis                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\FloatBarrier
 \section{Ergebnis}
 
 \IfFileExists{\bibliographyfile}{
