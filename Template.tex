@@ -57,21 +57,21 @@ wird nicht zerstört und kann so zur Spannungsbegrenzung benutzt werden, siehe
 letzte Voraufgaben.
 
 Den Stromverlauf in Abhängigkeit der Spannung wird \emph{Kennlinie} genannt und
-taucht in den Voraufgaben einige Male auf. Siehe Abbildung \ref{fig:2.2}.
+taucht in den Voraufgaben einige Male auf. Siehe Abbildung \ref{fig:2-2}.
 
 \begin{figure}[h]
 	\centering
 	\caption{%
 		Kennlinie einer Diode \cite[Abbildung~2.2]{physik313-Anleitung}
 	}
-	\label{fig:2.2}
+	\label{fig:2-2}
 	\includegraphics[width=.45\linewidth]{Bilder_aus_Anleitung/2-2.png}
 \end{figure}
 
 Dioden können zur Gleichrichtung benutzt werden. Dabei kann die untere
 Halbwelle blockiert werden, oder mit einem Zweiweggleichrichter auch die untere
 Halbwelle zu einer positiven Spannung umgewandelt werden. Siehe Abbildung
-\ref{fig:2.4}. Mit einem Glättungskondensator kann diese $|\sin(\omega t)|$
+\ref{fig:2-4}. Mit einem Glättungskondensator kann diese $|\sin(\omega t)|$
 Spannung, noch zu einer besseren Gleichspannung mit weniger Restwelligkeit
 gemacht werden.
 
@@ -80,7 +80,7 @@ gemacht werden.
 	\caption{%
 		Ein- und Zweiweggleichrichter \cite[Abbildung~2.4]{physik313-Anleitung}
 	}
-	\label{fig:2.4}
+	\label{fig:2-4}
 	\includegraphics[width=.7\linewidth]{Bilder_aus_Anleitung/2-4.png}
 \end{figure}
 
@@ -169,9 +169,18 @@ Eigenschaften der Diode abhängig:
 
 \begin{problem}
 	Skizzieren Sie den Kennlinienverlauf, $I = f(U)$, der Zweipole aus
-	Abbildung~2.3 ($R = \SI{100}\ohm$, D = Diode). Erläutern Sie bei c) und d)
-	den Einfluss der Widerstände.
+	Abbildung~\ref{fig:2-3} ($R = \SI{100}\ohm$, D = Diode). Erläutern Sie bei
+	c) und d) den Einfluss der Widerstände.
 \end{problem}
+
+\begin{figure}[h]
+	\centering
+	\caption{%
+		\cite[Abbildung~2.3]{physik313-Anleitung}
+	}
+	\label{fig:2-3}
+	\includegraphics[width=.6\linewidth]{Bilder_aus_Anleitung/2-3.png}
+\end{figure}
 
 \subsubsection{Einfacher Widerstand}
 
@@ -193,7 +202,7 @@ Dies ist in Abbildung \ref{fig:F-Widerstand} skizziert.
 
 \subsubsection{Einfache Diode}
 
-Für die Diode gilt die in Abbildung 2.2 der Aufgabenstellung gezeichnete
+Für die Diode gilt die in Abbildung~\ref{fig:2-2} der Aufgabenstellung gezeichnete
 Kennlinie, ich habe sie in Abbildung \ref{fig:F-Diode} selbst gemalt.
 
 \begin{figure}[h]
@@ -302,8 +311,9 @@ Dies haben wir in Abbildung \ref{fig:F-Stromquelle} skizziert.
 
 \begin{problem}
 	Skizzieren Sie den zeitlichen Verlauf der Ausgangsspannungen der
-	Schaltungen in Abbildung~2.4~(a) und (b), wenn die Eingangsspannung eine
-	weit über der Durchlassspannung der Dioden liegende Sinusspannung ist.
+	Schaltungen in Abbildung~\ref{fig:2-4}~(a) und (b), wenn die
+	Eingangsspannung eine weit über der Durchlassspannung der Dioden liegende
+	Sinusspannung ist.
 \end{problem}
 
 Die eingehende Wechselspannung wird unten abgeschnitten. Da die
@@ -396,8 +406,17 @@ zu vermeiden.
 Man lässt den Strom durch einen Ohm'schen Widerstand laufen, an diesem fällt
 dann eine zum Strom proportionale Spannung ab.
 
-Dies erfährt man auch, wenn man etwas weiter ließt und sich Abbildung 2.7 aus
-der Anleitung anschaut.
+Dies erfährt man auch, wenn man etwas weiter ließt und sich
+Abbildung~\ref{fig:2-7} aus der Anleitung anschaut.
+
+\begin{figure}[h]
+	\centering
+	\caption{%
+		\cite[Abbildung~2.7]{physik313-Anleitung}
+	}
+	\label{fig:2-7}
+	\includegraphics[width=.6\linewidth]{Bilder_aus_Anleitung/2-7.png}
+\end{figure}
 
 \subsection{Aufgabe K}
 
@@ -445,8 +464,17 @@ $-2U_0$ an.
 
 \begin{problem}
 	Skizzieren Sie den zeitlichen Verlauf der Spannung am Ausgang der
-	Schaltungen in Abbildung~2.9.
+	Schaltungen in Abbildung~\ref{fig:2-9}.
 \end{problem}
+
+\begin{figure}[h]
+	\centering
+	\caption{%
+		\cite[Abbildung~2.9]{physik313-Anleitung}
+	}
+	\label{fig:2-9}
+	\includegraphics[width=\linewidth]{Bilder_aus_Anleitung/2-9.png}
+\end{figure}
 
 \subsubsection{Schaltung a}
 
@@ -534,7 +562,7 @@ Schranke für $R$:
 \]
 
 Dies ist die untere Grenze. Wenn weniger als $\IZmin$ durch die Zenerdiode
-fließen, ist die STabilisierung auch weg. Also im unbelasteten Fall:
+fließen, ist die Stabilisierung auch weg. Also im unbelasteten Fall:
 \[
 	\frac U\IZmin > R
 \]
