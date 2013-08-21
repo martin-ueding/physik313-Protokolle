@@ -718,14 +718,49 @@ BNC~2 bzw. BNC~3 angeschlossen um die zum Strom proportionale Spannung
 abzunehmen. Im Oszillographen werden die Kanäle invers addiert. 
 
 \FloatBarrier
-\subsection{Versuchsaufgabe 5}
+\subsection{Versuchsaufgabe 5: Stabilisierung mit Zenerdiode}
+
+Wir bauen die Einweggleichrichtung auf (Abbildung~\ref{2-8}), jedoch ohne den
+Lastwiderstand und ohne Glättungskapazität. Auf dem Oszillographen wurde wieder
+die Sinuswelle dargestellt, wie in Abbildung~\ref{fig:796}. Dann setzen wir den
+Glättungskondensator mit \SI{22}{\micro\farad} ein. Auf dem Oszillographen
+wurde direkt eine konstante Spannung angezeigt. Dies liegt daran, dass der
+Kondensator einmal aufgeladen wird und nicht mehr entladen wird. Das
+Oszilloskop zeigt dann die konstante Spannung auf dem Kondensator an.
+
+\begin{figure}[htbp]
+	\centering
+	\caption{%
+		\cite[Abbildung~2.8]{physik313-Anleitung}
+	}
+	\label{fig:2-8}
+	\includegraphics[width=.45\linewidth]{Bilder_aus_Anleitung/2-8.png}
+\end{figure}
+
+Anschließend bauen wir die erste der Schaltungen aus Abbildung~\ref{fig:2-11}
+an den Ausgang der vorherigen Schaltung. Als Lastwiderstand benutzen wir das eingebaute Potentiometer.
+
+\begin{figure}[htbp]
+	\centering
+	\caption{%
+		\cite[Abbildung~2.11]{physik313-Anleitung}
+	}
+	\label{fig:2-11}
+	\includegraphics[width=.45\linewidth]{Bilder_aus_Anleitung/2-11.png}
+\end{figure}
+
+Wir bestimmen die Lastabhängigkeit
+
+\subsubsection{Teil a}
+
+Unsere Messdaten sind in Tabelle~\ref{table:oS}.
 
 \begin{table}[htbp]
 	\centering
 	\caption{%
 		Messdaten ohne Stabilisierung
 	}
-	\label{table:D2}
+	\label{table:oS}
 	\begin{tabular}{SS}
 		{$U / \si\volt$} & {$I_1 / \si{\milli\ampere}$} \\
 		\hline
@@ -735,12 +770,16 @@ abzunehmen. Im Oszillographen werden die Kanäle invers addiert.
 	\end{tabular}
 \end{table}
 
+\subsubsection{Teil b}
+
+Unsere Messdaten sind in Tabelle~\ref{table:mS}.
+
 \begin{table}[htbp]
 	\centering
 	\caption{%
 		Messdaten mit Stabilisierung
 	}
-	\label{table:D2}
+	\label{table:mS}
 	\begin{tabular}{SS}
 		{$U / \si\volt$} & {$I_1 / \si{\milli\ampere}$} \\
 		\hline
