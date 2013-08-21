@@ -598,37 +598,63 @@ Somit ist der Bereich \SIrange{138}{8000}{\ohm}.
 
 \section{Versuchsaufbau und -durchführung}
 
-\begin{tabular}{SSS}
-	{$U / \si\volt$} & {$I_1 / \si{\milli\ampere}$} & {$I_2 / \si{\milli\ampere}$} \\
-	\hline
-	%< for u, i1, u2 in a1_D1: >%
-	<< u >> & << i1 >> & << u2 >> \\
-	%< endfor >%
-\end{tabular}
+\subsection{Versuchsaufgabe 1}
+
+\subsubsection{Diode D1}
+
+Unsere Messwerte für die Diode~D1 sind in Tabelle~\ref{table:D1}. Der
+entsprechende Plot der Daten ist in Abbildung~\ref{fig:D1}.
+
+\begin{table}[h]
+	\centering
+	\caption{%
+		Messdaten zur Diode D1
+	}
+	\label{table:D1}
+	\begin{tabular}{SSS}
+		{$U / \si\volt$} & {$I_1 / \si{\milli\ampere}$} & {$I_2 / \si{\milli\ampere}$} \\
+		\hline
+		%< for u, i1, u2 in a1_D1: >%
+		<< u >> & << i1 >> & << u2 >> \\
+		%< endfor >%
+	\end{tabular}
+\end{table}
 
 \begin{figure}[h]
 	\centering
 	\caption{%
 		Plot zur Diode D1
 	}
-	\label{fig:}
+	\label{fig:D1}
 	\includegraphics[width=\textwidth]{Daten_D1.pdf}
 \end{figure}
 
-\begin{tabular}{SS}
-	{$U / \si\volt$} & {$I_1 / \si{\milli\ampere}$} \\
-	\hline
-	%< for u, i in a1_D2: >%
-	<< u >> & << i >> \\
-	%< endfor >%
-\end{tabular}
+\subsubsection{Diode D2}
+
+Unsere Messwerte für die Diode~D2 sind in Tabelle~\ref{table:D2}. Der
+entsprechende Plot der Daten ist in Abbildung~\ref{fig:D2}
+
+\begin{table}[h]
+	\centering
+	\caption{%
+		Messdaten zur Diode D2
+	}
+	\label{table:D2}
+	\begin{tabular}{SS}
+		{$U / \si\volt$} & {$I_1 / \si{\milli\ampere}$} \\
+		\hline
+		%< for u, i in a1_D2: >%
+		<< u >> & << i >> \\
+		%< endfor >%
+	\end{tabular}
+\end{table}
 
 \begin{figure}[h]
 	\centering
 	\caption{%
 		Plot zur Diode D2
 	}
-	\label{fig:}
+	\label{fig:D2}
 	\includegraphics[width=\textwidth]{Daten_D2.pdf}
 \end{figure}
 
