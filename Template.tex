@@ -107,6 +107,10 @@ Leitungsband. \cite[Vorlesung~16, Folie~13]{meschede/physik441}
 
 \subsection{Aufgabe B}
 
+\begin{problem}
+	Wie uns weshalb dotiert man Halbleiter?
+\end{problem}
+
 Dotierung benutzt man, um freie Ladungsträger zu erhalten. In Halbleitern wäre
 sonst kein Zustand im Leitungsband besetzt. Dies erreicht man, in dem man Atome
 mit anderer Wertigkeit an Kristallplätze setzt und Si so ersetzt. Dies ist eine
@@ -114,9 +118,9 @@ gezielte Verunreinigung.
 
 \subsection{Aufgabe C}
 
-\begin{quote}
+\begin{problem}
 	Was sind Donatoren und Akzeptoren?
-\end{quote}
+\end{problem}
 
 Beides sind Atome mit anderer Wertigkeit als die umgebenen Kristallatome. Zum
 Beispiel P oder B in einem Si- oder Ge-Gitter. Bei P sind reichen die
@@ -128,6 +132,10 @@ Donatoren und Akzeptoren bringen also ein zusätzliches, freies Elektron bzw.
 Loch in den Kristall. \cite[§~18.4.2]{meschede-gerthsen_24}
 
 \subsection{Aufgabe D}
+
+\begin{problem}
+	Was bestimmt die Dicke der Grenzschicht bei einem p-n-Halbleiter?
+\end{problem}
 
 In \cite[§~6.1]{schenke/bauelemente} ist folgende Formel gegeben. Dabei ist
 $C_\text S$ die Kapazität der Sperrschicht, $\varepsilon$ die
@@ -141,6 +149,11 @@ Größen messen kann, hat man die Schichtdicke.
 
 \subsection{Aufgabe E}
 
+\begin{problem}
+	Wie ändert sich die Kapazität einer Diode im Sperrfall mit der angelegten
+	Spannung?
+\end{problem}
+
 Sie verändert sich nichtlinear. \cite[§~15.2.2]{beuth/elementare_elektronik}
 
 Mit der Diffusionsspannung $U_\text D$ und $n$ von den physikalischen
@@ -151,6 +164,12 @@ Eigenschaften der Diode abhängig:
 \]
 
 \subsection{Aufgabe F}
+
+\begin{problem}
+	Skizzieren Sie den Kennlinienverlauf, $I = f(U)$, der Zweipole aus
+	Abbildung~2.3 ($R = \SI{100}\ohm$, D = Diode). Erläutern Sie bei c) und d)
+	den Einfluss der Widerstände.
+\end{problem}
 
 \subsubsection{Einfacher Widerstand}
 
@@ -279,6 +298,12 @@ Dies haben wir in Abbildung \ref{fig:F-Stromquelle} skizziert.
 
 \subsection{Aufgabe G}
 
+\begin{problem}
+	Skizzieren Sie den zeitlichen Verlauf der Ausgangsspannungen der
+	Schaltungen in Abbildung~2.4~(a) und (b), wenn die Eingangsspannung eine
+	weit über der Durchlassspannung der Dioden liegende Sinusspannung ist.
+\end{problem}
+
 Die eingehende Wechselspannung wird unten abgeschnitten. Da die
 Eingangsspannung weit über der Durchlassspannung ist, wird unten nichts
 nennenswertes abgeschnitten. Es ergibt sich ein Spannungsverlauf wie in
@@ -308,6 +333,11 @@ Abbildung \ref{fig:G-doppelt}.
 
 \subsection{Aufgabe H}
 
+\begin{problem}
+	Wie muss $C$ dimensioniert sein, um die Welligkeit der Spannung über $R$
+	möglichst klein zu halten?
+\end{problem}
+
 Der Kondensator sollte so groß sein, dass die Kapazität sich in einem Zyklus
 nicht komplett entlädt.
 
@@ -321,6 +351,12 @@ zu beginn beliebig hohe Ströme aus der Diode. Dieser Aspekt wird in einer
 späteren Aufgabe noch behandelt.
 
 \subsection{Aufgabe I}
+
+\begin{problem}
+	Wie würden Sie Strom- und Spannungsmessgerät zur Messung der Kennlinie in
+	Durchlassrichtung und in Sperrichtung anordnen? Berücksichten Sie die
+	Innenwiderstände der beiden Geräte.
+\end{problem}
 
 In Abbildung \ref{fig:I-Schaltungen} sind zwei Möglichkeiten zur
 Kennlinienmessung dargestellt.
@@ -351,6 +387,10 @@ zu vermeiden.
 
 \subsection{Aufgabe J}
 
+\begin{problem}
+	Wie kann man sich eine zu einem Strom proportionale Spannung herstellen?
+\end{problem}
+
 Man lässt den Strom durch einen Ohm'schen Widerstand laufen, an diesem fällt
 dann eine zum Strom proportionale Spannung ab.
 
@@ -358,6 +398,14 @@ Dies erfährt man auch, wenn man etwas weiter ließt und sich Abbildung 2.7 aus
 der Anleitung anschaut.
 
 \subsection{Aufgabe K}
+
+\begin{problem}
+	Für Abbildung~2.8: Berechnen Sie größenordnungsmäßig die größte Kapazität,
+	die benutzt werden darf, ohne die Grenzwerte der Si-Diode zu überschreiten.
+	Nehmen Sie dazu an, dass sich $U$ beim Einschalten um $\SI{1}\volt$ in
+	$\SI{100}{\micro\second}$ ändert und vernachlässigen Sie den Einfluss von
+	$R_\text L$.
+\end{problem}
 
 Der maximale Durchlassstrom ist \SI{1000}{\milli\ampere}. Wenn $C$ zu groß ist,
 zieht $C$ zu viel Strom. In $\Deltaup t := \SI{100}{\micro\second}$ geht die
@@ -379,12 +427,24 @@ Dies muss kleiner als $I_\text{max}$ sein:
 
 \subsection{Aufgabe L}
 
+\begin{problem}
+	Welche Sperrbelastung erfährt die Diode in der Sperrsphase für eine
+	Eingangswechselspannung mit einer Amplitude $U_0$? Die Amplitude $U_0$ ist
+	der Betrag der maximalen Spannung, der zwischen den beiden Polen der
+	Wechselspannungsquelle autritt.
+\end{problem}
+
 Wenn die Wechselspannungsquelle gerade ganz negativ ist, so wirkt auf die Diode
 einmal die Spannung $- U_0$ von der Spannungsquelle. Außerdem wird noch einmal
 eine Spannung $-U_0$ durch den Kondensator auf die Diode. Es liegen also
 $-2U_0$ an.
 
 \subsection{Aufgabe M}
+
+\begin{problem}
+	Skizzieren Sie den zeitlichen Verlauf der Spannung am Ausgang der
+	Schaltungen in Abbildung~2.9.
+\end{problem}
 
 \subsubsection{Schaltung a}
 
