@@ -602,6 +602,12 @@ Die Extremwerte sind $I_\text{max} = U_0/R$, $U'_\text{min} = 0$, wenn $\RL =
 \FloatBarrier
 \subsection{Aufgabe O}
 
+\begin{problem}
+	Innerhalb welches \emph{Wertebereichs} muss bei dieser Dimensioniertung
+	des Arbeitswiderstand $R$ liegen, damit die Ausgangsspannung $U'$ bei der
+	Zenerspannung \SI{8.2}{\volt} stabilisiert wird?
+\end{problem}
+
 \newcommand\IZmax{I_\text{Z,max}}
 \newcommand\IZmin{I_\text{Z,min}}
 \newcommand\IZ{I_\text Z}
@@ -615,10 +621,11 @@ ab. Damit der Strom nicht überschritten wird, muss gelten:
 	R > \frac{U - \UZ}\IZmax
 \]
 
-%Diese Bedingung ist erfüllt:
-%\[
-	%\SI{200}\ohm > \frac{\SI{8.2}\volt}{\SI{100}{\milli\ampere}} = \SI{82}\ohm
-%\]
+Diese Bedingung ist erfüllt, da $R_\text L$ im Bereich \SI{200}{\ohm} und
+$\infty$ einstellbar ist:
+\[
+	\SI{200}\ohm > \frac{\SI{8.2}\volt}{\SI{100}{\milli\ampere}} = \SI{82}\ohm
+\]
 
 Der extremste Fall tritt ein, wenn $U$ maximal wird. Also ist die untere
 Schranke für $R$:
