@@ -1,0 +1,15 @@
+# Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+# Spannung/V	Strom/mA
+0.6	2.0
+0.70	8.6
+0.74	16.2
+0.76	23.4
+0.79	31.0
+0.81	38.5
+0.56	0.9
+0.48	0.2
+-0.5	0.0
+-0.95	0.0
+-1.4	0.0
+-3.1	0.0
+# vim: ts=8 sw=8
