@@ -12,12 +12,13 @@ import scipy.optimize as op
 
 def aufgabe_1(T):
     data = np.genfromtxt("Daten_D1.txt")
+    data = data[data[:,0].argsort()]
     U = data[:, 0]
     I_1 = data[:, 2]
     I_2 = data[:, 1]
 
-    pl.plot(U, I_1, label="Aufbau 1", marker="x")
-    pl.plot(U, I_2, label="Aufbau 2", marker="+")
+    pl.plot(U, I_1, label="Aufbau 1", marker="o")
+    pl.plot(U, I_2, label="Aufbau 2", marker="x")
     pl.title("Kennlinie der Diode")
     pl.xlabel(r"$U / \mathrm{V}$")
     pl.ylabel(r"$I / \mathrm{mA}$")
@@ -29,10 +30,11 @@ def aufgabe_1(T):
     T["a1_D1"] = list(zip(U, I_1, I_2))
 
     data = np.genfromtxt("Daten_D2.txt")
+    data = data[data[:,0].argsort()]
     U = data[:, 0]
     I = data[:, 1]
 
-    pl.plot(U, I, marker="x")
+    pl.plot(U, I, marker="o")
     pl.title("Kennlinie der Diode")
     pl.xlabel(r"$U / \mathrm{V}$")
     pl.ylabel(r"$I / \mathrm{mA}$")
