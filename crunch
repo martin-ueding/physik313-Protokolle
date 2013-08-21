@@ -19,7 +19,6 @@ def aufgabe_1(T):
 
     pl.plot(U, I_1, label="Aufbau 1", marker="o")
     pl.plot(U, I_2, label="Aufbau 2", marker="x")
-    pl.title("Kennlinie der Diode D1")
     pl.xlabel(r"$U / \mathrm{V}$")
     pl.ylabel(r"$I / \mathrm{mA}$")
     pl.grid(True)
@@ -35,7 +34,6 @@ def aufgabe_1(T):
     I = data[:, 1]
 
     pl.plot(U, I, marker="o")
-    pl.title("Kennlinie der Diode D2")
     pl.xlabel(r"$U / \mathrm{V}$")
     pl.ylabel(r"$I / \mathrm{mA}$")
     pl.grid(True)
@@ -56,7 +54,6 @@ def aufgabe_5(T):
 
     pl.plot(U_5, I_5, marker="o", label="ohne Stabilisierung")
     pl.plot(U_5_ZD, I_5_ZD, marker="x", label="mit Stabilisierung")
-    pl.title("Kennlinie der Diode D2")
     pl.xlabel(r"$U / \mathrm{V}$")
     pl.ylabel(r"$I / \mathrm{mA}$")
     pl.legend(loc="best")
