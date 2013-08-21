@@ -12,6 +12,10 @@ physik313-2-Ueding_Lemmer.tex: crunch Template.tex
 	if [[ -f $@ ]]; then chmod +w $@; fi
 	./$^
 	chmod -w $@
+	for d in Daten*.pdf; \
+		do \
+		pdfcrop $$d $$d;\
+		done
 
 .PHONY: clean
 clean:
