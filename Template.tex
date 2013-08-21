@@ -715,9 +715,19 @@ Ein auf Dreieck \SI{200}{\kilo\hertz} gestellter Signalgenerator wird an BNC~1
 angeschlossen. Je nach zu messender Diode werden B3 mit B8 (MRA4004), B4 mit B9
 (10BG015) oder B5 mit B10 (Zener) verbunden. Die Kanäle CH1 und CH2 werden an
 BNC~2 bzw. BNC~3 angeschlossen um die zum Strom proportionale Spannung
-abzunehmen. Im Oszillographen werden die Kanäle invers addiert. 
+abzunehmen. Im auf xy-Betrieb stehenden Oszillographen werden die Kanäle invers
+addiert. Als Zeitablenkung haben wir \SI{0.5}{\milli\second\per\division} und
+als Verstärkung \SI{2}{\volt\per\division} auf beiden Kanälen. In
+Abbildung~\ref{fig:0785} ist die Messung ohne Diode der Vollständigkeit halber
+gezeigt und in den
+Abbildungen~\ref{fig:0786},~\ref{fig:0787}~und~\ref{fig:0788}, die Messungen
+von MRA4004, 10BG015 und der Zener-Diode.
+
+Man kann hier deutlich sehen, dass nur die Zenerdiode ab einer bestimmten Spannung auch in Sperrrichtung leitet. Aus der Verstärkung folgt aus dem Knick bei (-)\SI{3.9}{\division} eine Zener-Spannung von \SI{-7.8}{\volt}.
 
 \subsection{Versuchsaufgabe 3: Oszillogramm des Einweggleichrichters}
+
+In diesem Versuchsteil soll die Einweggleichrichtung mit und ohne Glättungskondensator untersucht werden. Dazu wird eine Schaltung nach Abb.~\ref{fig:2-10} aufgebaut werden.
 
 \subsection{Versuchsaufgabe 4: Oszillogramm des Zweiweggleichrichters}
 
