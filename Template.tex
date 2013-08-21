@@ -954,7 +954,9 @@ Aufgabenteilen nehmen.
 
 Wir bestimmen die Lastabhängigkeit der Schaltung, in dem wir Strom (mit
 Unigor) und Spannung (mit Digitalmultimeter) über dem Lastwiderstand messen.
-Unsere Messdaten sind in Tabelle~\ref{table:oS}. Der Plot dieser Daten ist in
+Unsere Messdaten sind in Tabelle~\ref{table:oS}. Dabei haben wir den
+Lastwiderstand $R_\text L = U / I$ direkt mit in die Tabelle, hinter einen
+Trenner, geschrieben. Der Plot dieser Daten ist in
 Abbildung~\ref{fig:Stabilisierung}, zusammen mit den Daten der nächsten
 Teilaufgabe.
 
@@ -964,7 +966,7 @@ Teilaufgabe.
 		Messdaten ohne Stabilisierung
 	}
 	\label{table:oS}
-	\begin{tabular}{SSS}
+	\begin{tabular}{SS|S}
 		{$U / \si\volt$} & {$I / \si{\milli\ampere}$} & {$R_\text L / \si{\kilo\ohm}$} \\
 		\hline
 		%< for u, i, r in a5_table: >%
@@ -985,7 +987,7 @@ Unsere Messdaten sind in Tabelle~\ref{table:mS}.
 		Messdaten mit Stabilisierung
 	}
 	\label{table:mS}
-	\begin{tabular}{SSS}
+	\begin{tabular}{SS|S}
 		{$U / \si\volt$} & {$I / \si{\milli\ampere}$} & {$R_\text L / \si{\kilo\ohm}$} \\
 		\hline
 		%< for u, i, r in a5_ZD_table: >%
