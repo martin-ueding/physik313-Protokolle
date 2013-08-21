@@ -825,6 +825,22 @@ abzunehmen. Im Oszillographen werden die Kanäle invers addiert.
 \FloatBarrier
 \subsection{Versuchsaufgabe 3: Oszillogramm des Einweggleichrichters}
 
+In dieser Aufgabe bauen wir den Einweggleichrichter im unteren Teil des
+Schaltbrettes auf. Als Last stellen wir die vollen \SI{8}{\kilo\ohm} ein. Am
+BNC-Ausgang auf der rechten Seite nehmen wir die Spannung mit dem Oszilloskop
+ab. Eine Skizze zu diesem Aufbau ist in Abbildung~\ref{fig:2-10}. Das Netzteil versorgt die Schaltung mit \SI{20}{\volt} bei \SI{50}{\hertz}.
+
+\begin{figure}[htbp]
+	\centering
+	\caption{%
+		\cite[Abbildung~2.10]{physik313-Anleitung}
+	}
+	\label{fig:2-10}
+	\includegraphics[width=\linewidth]{Bilder_aus_Anleitung/2-10.png}
+\end{figure}
+
+Das Oszillogramm der gleichgerichteten Spannung ist in Abbildung~\ref{fig:790}.
+
 \begin{figure}[htbp]
 	\centering
 	\begin{minipage}{.45\linewidth}
@@ -835,12 +851,14 @@ abzunehmen. Im Oszillographen werden die Kanäle invers addiert.
 	\includegraphics[width=\linewidth]{Oszi_Foto/790.jpg}
 	\end{minipage}
 	\caption{%
-		Dreieck, Frequenz \SI{200}{\hertz},
-		Zeitbasis \SI{5}{\micro\second\per\division},
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
 		Verstärkung \SI{10}{\volt\per\division}
 	}
 	\label{fig:790}
 \end{figure}
+
+Mit einer zusätzlichen, parallelen Kapazität von \SI{2.2}{\micro\farad} wird die Spannung etwas geglättet, siehe Abbildung \ref{fig:792}. Dabei ist die exponentielle Entladung des Kondensator zu beobachten.
 
 \begin{figure}[htbp]
 	\centering
@@ -852,12 +870,14 @@ abzunehmen. Im Oszillographen werden die Kanäle invers addiert.
 	\includegraphics[width=\linewidth]{Oszi_Foto/792.jpg}
 	\end{minipage}
 	\caption{%
-		Dreieck, Frequenz \SI{200}{\hertz},
-		Zeitbasis \SI{5}{\micro\second\per\division},
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
 		Verstärkung \SI{10}{\volt\per\division}
 	}
 	\label{fig:792}
 \end{figure}
+
+Bei \SI{24.2}{\micro\farad} ist der Brumm deutlich kleiner geworden, der Kondensator kann nicht mehr komplett entladen werden, da seine Kapazität zu groß ist. Dies ist in Abbildung~\ref{fig:793} gezeigt.
 
 \begin{figure}[htbp]
 	\centering
@@ -869,12 +889,14 @@ abzunehmen. Im Oszillographen werden die Kanäle invers addiert.
 	\includegraphics[width=\linewidth]{Oszi_Foto/793.jpg}
 	\end{minipage}
 	\caption{%
-		Dreieck, Frequenz \SI{200}{\hertz},
-		Zeitbasis \SI{5}{\micro\second\per\division},
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
 		Verstärkung \SI{10}{\volt\per\division}
 	}
 	\label{fig:793}
 \end{figure}
+
+Mit \SI{1022}{\micro\farad} ist mit dem Auge kein Brumm mehr zu erkennen, siehe Abbildung \ref{fig:795}.
 
 \begin{figure}[htbp]
 	\centering
@@ -886,8 +908,8 @@ abzunehmen. Im Oszillographen werden die Kanäle invers addiert.
 	\includegraphics[width=\linewidth]{Oszi_Foto/795.jpg}
 	\end{minipage}
 	\caption{%
-		Dreieck, Frequenz \SI{200}{\hertz},
-		Zeitbasis \SI{5}{\micro\second\per\division},
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
 		Verstärkung \SI{10}{\volt\per\division}
 	}
 	\label{fig:795}
@@ -895,6 +917,13 @@ abzunehmen. Im Oszillographen werden die Kanäle invers addiert.
 
 \FloatBarrier
 \subsection{Versuchsaufgabe 4: Oszillogramm des Zweiweggleichrichters}
+
+Der Gleichrichter wird so geschlossen, dass es ein Zweiweggleichrichter wird.
+Mit den gleichen Kapazitäten werden die Messungen wiederholt. Siehe
+Abbildungen~\ref{fig:796} für \SI{0}{\micro\farad}, Abbildungen~\ref{fig:797}
+für \SI{2.2}{\micro\farad}, Abbildungen~\ref{fig:798} für
+\SI{24.2}{\micro\farad}. Bei der größten Kapazität sieht das Oszillogramm
+genauso aus, wie das in Abbildung~\ref{fig:795}.
 
 \begin{figure}[htbp]
 	\centering
@@ -906,8 +935,8 @@ abzunehmen. Im Oszillographen werden die Kanäle invers addiert.
 	\includegraphics[width=\linewidth]{Oszi_Foto/796.jpg}
 	\end{minipage}
 	\caption{%
-		Dreieck, Frequenz \SI{200}{\hertz},
-		Zeitbasis \SI{5}{\micro\second\per\division},
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
 		Verstärkung \SI{10}{\volt\per\division}
 	}
 	\label{fig:796}
@@ -923,8 +952,8 @@ abzunehmen. Im Oszillographen werden die Kanäle invers addiert.
 	\includegraphics[width=\linewidth]{Oszi_Foto/797.jpg}
 	\end{minipage}
 	\caption{%
-		Dreieck, Frequenz \SI{200}{\hertz},
-		Zeitbasis \SI{5}{\micro\second\per\division},
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
 		Verstärkung \SI{10}{\volt\per\division}
 	}
 	\label{fig:797}
@@ -940,8 +969,8 @@ abzunehmen. Im Oszillographen werden die Kanäle invers addiert.
 	\includegraphics[width=\linewidth]{Oszi_Foto/798.jpg}
 	\end{minipage}
 	\caption{%
-		Dreieck, Frequenz \SI{200}{\hertz},
-		Zeitbasis \SI{5}{\micro\second\per\division},
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
 		Verstärkung \SI{10}{\volt\per\division}
 	}
 	\label{fig:798}
