@@ -128,10 +128,11 @@ Leitungsband. \cite[Vorlesung~16, Folie~13]{meschede/physik441}
 	Wie uns weshalb dotiert man Halbleiter?
 \end{problem}
 
-Dotierung benutzt man, um freie Ladungsträger zu erhalten. In Halbleitern wäre
-sonst kein Zustand im Leitungsband besetzt. Dies erreicht man, in dem man Atome
-mit anderer Wertigkeit an Kristallplätze setzt und Si so ersetzt. Dies ist eine
-gezielte Verunreinigung.
+Dotierung benutzt man, um freie Ladungsträger zu erhalten und so die
+Leitfähigkeit zu verbessern. In Halbleitern wäre sonst kein Zustand im
+Leitungsband besetzt. Dies erreicht man, in dem man Atome mit anderer
+Wertigkeit an Kristallplätze setzt und Si so ersetzt. Dies ist eine gezielte
+Verunreinigung.
 
 \subsection{Aufgabe C}
 
@@ -154,15 +155,9 @@ Loch in den Kristall. \cite[§~18.4.2]{meschede-gerthsen_24}
 	Was bestimmt die Dicke der Grenzschicht bei einem p-n-Halbleiter?
 \end{problem}
 
-In \cite[§~6.1]{schenke/bauelemente} ist folgende Formel gegeben. Dabei ist
-$C_\text S$ die Kapazität der Sperrschicht, $\varepsilon$ die
-Dielektrizitätszahl und $d$ die Schichtdicke:
-\[
-	C_\text S = \frac{\varepsilon A}d
-\]
-
-Dies kann nach der Schichtdicke $d$ aufgelöst werden. Wenn man die anderen
-Größen messen kann, hat man die Schichtdicke.
+Die Schichtdicke wird durch die Diffusionsspannung $U_\text{D}$, die Donator-
+und Akzeptorkonzentration $N_\text{D}$ bzw. $N_\text{A}$, die angelegte
+Spannung $U$ und die Permittivitätszahl $\varepsilon_\text{r}$ bestimmt.
 
 \subsection{Aufgabe E}
 
@@ -277,14 +272,14 @@ Somit summieren sich beide Kennlinien auf, siehe Abbildung
 
 \subsubsection{Ideale Spannungsquelle}
 
-Eine ideale Spannungsquelle mit eingestellter Spannung $U_0$ hat einen
+Eine reale Spannungsquelle mit eingestellter Spannung $U_0$ hat einen
 Innenwiderstand $R_\text i$. Wenn man die Quelle kurzschließt, fließt der
 Strom:
 \[
 	I = \frac{U_0}{R_\text i}
 \]
 
-Wir noch eine externe Spannung angelegt, fließt mehr oder weniger Strom durch
+Wird noch eine externe Spannung angelegt, fließt mehr oder weniger Strom durch
 den Innenwiderstand:
 \[
 	I = \frac{1}{R_\text i} (U_0 + U_\text{ext})
@@ -292,10 +287,12 @@ den Innenwiderstand:
 
 Dies ist in Abbildung~\ref{fig:F-Spannungsquelle} skizziert.
 
+Betrachtet man für die ideale Spannungsquelle den Grenzwert $R_\text{I}\to0$ geht die Steigung in \ref{fig:F-Spannungsquelle} gegen unendlich und wir erhalten eine Senkrechte.
+
 \begin{figure}[h]
 	\centering
 	\caption{%
-		Kennlinie der idealen Spannungsquelle
+		Kennlinie der realen Spannungsquelle
 	}
 	\label{fig:F-Spannungsquelle}
 	\includegraphics{Zeichnungen/F-Spannungsquelle.pdf}
@@ -532,7 +529,7 @@ Die Spannung $U'$ ist:
 	&= \RL I \\
 	&= \RL \frac{U_0}{R + R_\text L} \\
 	&= \frac{U_0 \RL}{R + \RL} \\
-	&+ \frac{U_0}{1 + \frac R\RL}
+	&= \frac{U_0}{1 + \frac R\RL}
 \end{align*}
 
 Die Funktion ist in Abbildung~\ref{fig:N-Plot} skizziert.
@@ -546,8 +543,8 @@ Die Funktion ist in Abbildung~\ref{fig:N-Plot} skizziert.
 	\includegraphics{Zeichnungen/N-Plot.pdf}
 \end{figure}
 
-Die Extremwerte sind $I = U/R$, wenn $\RL = 0$ sowie $U' = U_0$ wenn $\RL \to
-\infty$.
+Die Extremwerte sind $I_\text{max} = U_0/R$, $U'_\text{min} = 0$, wenn
+$\RL = 0$, sowie $I_\text{min} = 0$ und $U'_\text{max} = U_0$ wenn $\RL \to \infty$.
 
 \subsection{Aufgabe O}
 
@@ -564,7 +561,7 @@ ab. Damit der Strom nicht überschritten wird, muss gelten:
 	R > \frac{U - \UZ}\IZmax
 \]
 
-Diese Bedingung ist erfüllt:
+%Diese Bedingung ist erfüllt:
 %\[
 	%\SI{200}\ohm > \frac{\SI{8.2}\volt}{\SI{100}{\milli\ampere}} = \SI{82}\ohm
 %\]
