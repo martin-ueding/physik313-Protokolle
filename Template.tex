@@ -1,0 +1,63 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+\input{header.tex}
+
+\usepackage{placeins}
+
+\ihead{physik313 – Versuch 3}
+\ifoot{Lino Lemmer}
+
+\hypersetup{
+	pdftitle={Transistor und Transistorverstärker}
+}
+
+\subject{Praktikumsprotokoll}
+\title{Transistor und Transistorverstärker}
+\subtitle{physik313 – Versuch 3}
+\author{
+	Lino Lemmer \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
+}
+
+%\setcounter{tocdepth}{2}
+
+\begin{document}
+
+\maketitle
+
+Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
+\ref{it:mu} eingesehen werden. Die Quellen für dieses Protokoll können auf
+\ref{it:github/alles} eingesehen werden. Die \LaTeX-Datei wird aus
+\ref{it:github/template} generiert.
+
+\begin{enumerate}
+	\item
+		\label{it:mu}
+		\url{http://martin-ueding.de/de/university/physik313/}
+	\item
+		\label{it:github/alles}
+		\url{https://github.com/martin-ueding/physik313-3,4/}
+	\item
+		\label{it:github/template}
+		\url{https://github.com/martin-ueding/physik313-3,4/blob/master/Template.tex}
+\end{enumerate}
+
+\newpage
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Einleitung                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Einleitung}
+
+
+\FloatBarrier
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de
