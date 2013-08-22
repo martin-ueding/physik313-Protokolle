@@ -115,7 +115,24 @@ Die Ladungsträgerkonzentration im npn-Transistor ist in Abb.~\ref{fig:C_Zeichnu
 	Verifizieren Sie die Relationen zwischen $\alpha$, $\beta$ und $\gamma$.
 \end{problem}
 
-\fehlt
+\newcommand\IB{I_\text{B}}
+\newcommand\IC{I_\text{C}}
+\newcommand\IE{I_\text{E}}
+
+Zwischen $\alpha$ und $\beta$:
+
+\begin{align*}
+	\beta &= \dod{\IC}{\IB}\\
+	&= \dod{\IC}{\del{\IE-\IC}}\\
+	&= \frac{\dif\IC}{\dif\IE-\dif\IC}\\
+	&= \frac{\od\IC\IE}{\od\IE\IE-\od\IC\IE}\\
+	&=\frac{\alpha}{1-\alpha}
+	\intertext{Zwischen $\beta$ und $\gamma$:}
+	\beta &= \dod{\IC}{\IB}\\
+	&=\dod{\del{\IE-\IB}}\IB\\
+	&= \frac{\dif\IE-\dif\IB}{\dif\IB}\
+	&= \gamma-1
+\end{align*}
 
 \subsection{Aufgabe E}
 
