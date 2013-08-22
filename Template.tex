@@ -665,15 +665,18 @@ Somit ist der Bereich \SIrange{138}{8000}{\ohm}.
 
 In diesem Versuch soll mit Hilfe eines Gleichspannungsnetzgerätes und zweier
 Multimeter die Kennlinien der Silizium-Diode MRA4004 und der Schottky-Diode
-10BG015. Wir verwenden dafür \fehlt und \fehlt. Die Anordnung ist in §\ref{s:I}
+10BG015. Wir verwenden dafür ein UNIGOR für die Spannungsmessung und ein
+Digitalmultimeter für die Strommessung. Die Anordnung ist in \ref{s:I}
 beschrieben (Abb.~\ref{fig:I-Schaltungen}). Die Messung in Durchlass- und in
 Sperrrichtung werden dabei nacheinander durchgeführt.
 
 \FloatBarrier
 \subsubsection{Diode D1}
 
+Zunächst haben wir fälschlicherweise sowohl in Durchlass- als auch in Sperrrichtung die Spannung über der Diode und dem Amperemeter abgenommen ($I_1$), in der zweiten Messung wurde dies korrigiert und wir haben Durchlassrichtung die Spannung nur über der Diode abgenommen ($I_2$).
+
 Unsere Messwerte für die Diode~D1 sind in Tabelle~\ref{table:D1}. Der
-entsprechende Plot der Daten ist in Abbildung~\ref{fig:D1}.
+entsprechende Plot der Daten ist in Abbildung~\ref{fig:D1}. Zur Anschauung haben wir die falsche Messung mit in die Tabelle und den Plot genommen.
 
 \begin{table}[htbp]
 	\centering
@@ -703,7 +706,7 @@ entsprechende Plot der Daten ist in Abbildung~\ref{fig:D1}.
 \subsubsection{Diode D2}
 
 Unsere Messwerte für die Diode~D2 sind in Tabelle~\ref{table:D2}. Der
-entsprechende Plot der Daten ist in Abbildung~\ref{fig:D2}
+entsprechende Plot der Daten ist in Abbildung~\ref{fig:D2}.
 
 \begin{table}[htbp]
 	\centering
@@ -733,7 +736,7 @@ entsprechende Plot der Daten ist in Abbildung~\ref{fig:D2}
 \subsection{Versuchsaufgabe 2: Oszillogramm der Diodenkennlinie}
 
 Die Kennlinien der in Versuch~1 statisch vermessenen Dioden und einer
-Zener-Diode sollen mit Hilfe eines Osszilographen vermessen werden. Dazu wird
+Zener-Diode sollen mit Hilfe eines Oszillographen vermessen werden. Dazu wird
 der in Abbildung~\ref{fig:2-6} gezeigte Aufbau verwendet.
 
 \begin{figure}[htbp]
@@ -742,14 +745,22 @@ der in Abbildung~\ref{fig:2-6} gezeigte Aufbau verwendet.
 		\cite[Abbildung~2.6]{physik313-Anleitung}
 	}
 	\label{fig:2-6}
-	\includegraphics[width=.8\linewidth]{Bilder_aus_Anleitung/2-6.png}
+	\includegraphics[width=.8\textwidth]{Bilder_aus_Anleitung/2-6.png}
 \end{figure}
 
 Ein auf Dreieck \SI{200}{\kilo\hertz} gestellter Signalgenerator wird an BNC~1
 angeschlossen. Je nach zu messender Diode werden B3 mit B8 (MRA4004), B4 mit B9
 (10BG015) oder B5 mit B10 (Zener) verbunden. Die Kanäle CH1 und CH2 werden an
 BNC~2 bzw. BNC~3 angeschlossen um die zum Strom proportionale Spannung
-abzunehmen. Im Oszillographen werden die Kanäle invers addiert. 
+abzunehmen. Im auf xy-Betrieb stehenden Oszillographen werden die Kanäle invers
+addiert. Als Zeitablenkung haben wir \SI{0.5}{\milli\second\per\division} und
+als Verstärkung \SI{2}{\volt\per\division} auf beiden Kanälen. In
+Abbildung~\ref{fig:785} ist die Messung ohne Diode der Vollständigkeit halber
+gezeigt und in den
+Abbildungen~\ref{fig:786},~\ref{fig:787}~und~\ref{fig:788}, die Messungen
+von MRA4004, 10BG015 und der Zener-Diode.
+
+Man kann hier deutlich sehen, dass nur die Zenerdiode ab einer bestimmten Spannung auch in Sperrrichtung leitet. Aus der Verstärkung folgt aus dem Knick bei $(-)$\SI{3.9}{\division} eine Zener-Spannung von \SI{-7.8}{\volt}.
 
 \begin{figure}[htbp]
 	\centering
@@ -838,7 +849,7 @@ versorgt die Schaltung mit \SI{20}{\volt} bei \SI{50}{\hertz}.
 		\cite[Abbildung~2.10]{physik313-Anleitung}
 	}
 	\label{fig:2-10}
-	\includegraphics[width=\linewidth]{Bilder_aus_Anleitung/2-10.png}
+	\includegraphics[width=.8\textwidth]{Bilder_aus_Anleitung/2-10.png}
 \end{figure}
 
 Das Oszillogramm der gleichgerichteten Spannung ist in
