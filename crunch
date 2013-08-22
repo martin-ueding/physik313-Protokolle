@@ -14,11 +14,11 @@ def aufgabe_1(T):
     data = np.genfromtxt("Daten_D1.txt")
     data = data[data[:,0].argsort()]
     U = data[:, 0]
-    I_1 = data[:, 2]
-    I_2 = data[:, 1]
+    I_1 = data[:, 1]
+    I_2 = data[:, 2]
 
-    pl.plot(U, I_1, label="Aufbau 1", marker="o")
-    pl.plot(U, I_2, label="Aufbau 2", marker="o")
+    pl.plot(U, I_1, label="Messung 1", marker="o")
+    pl.plot(U, I_2, label="Messung 2", marker="o")
     pl.xlabel(r"$U / \mathrm{V}$")
     pl.ylabel(r"$I / \mathrm{mA}$")
     pl.grid(True)
