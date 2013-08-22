@@ -2,6 +2,8 @@
 
 \input{header.tex}
 
+\usepackage{placeins}
+
 \ihead{physik313 – Versuch 2}
 \ifoot{Martin Ueding}
 
@@ -16,7 +18,7 @@
 	Martin Ueding \footnote{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
 }
 
-\setcounter{tocdepth}{2}
+%\setcounter{tocdepth}{2}
 
 \begin{document}
 
@@ -47,6 +49,7 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 %                                 Einleitung                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\FloatBarrier
 \section{Einleitung}
 
 In diesem Versuch untersuchen wir die Kennlinien von Halbleiterdioden. Wir
@@ -57,12 +60,13 @@ untersuchen wir verschiedene Gleichrichter sowie Spannungsstabilisierung.
 %                                   Theorie                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\FloatBarrier
 \section{Theorie}
 
 Dioden bestehen meistens aus Silizium oder Germanium. Ein Teil ist n-dotiert,
 der andere p-dotiert. Wenn Plus an die p-Zone gepolt ist, dann ist dieser
 pn-Übergang in Durchlassrichtung gepolt
-\cite[§~14.1]{beuth/elementare_elektronik}. In der anderen Polung ist die
+\cite[§14.1]{beuth/elementare_elektronik}. In der anderen Polung ist die
 Diode gesperrt und lässt so gut wie keinen Strom durch.
 
 Bei einer hohen Gegenspannung wird die Diode jedoch durchbrochen, dies ist die
@@ -72,9 +76,9 @@ wird nicht zerstört und kann so zur Spannungsbegrenzung benutzt werden, siehe
 letzte Voraufgaben.
 
 Den Stromverlauf in Abhängigkeit der Spannung wird \emph{Kennlinie} genannt und
-taucht in den Voraufgaben einige Male auf. Siehe Abbildung \ref{fig:2-2}.
+taucht in den Voraufgaben einige Male auf. Siehe Abbildung~\ref{fig:2-2}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie einer Diode \cite[Abbildung~2.2]{physik313-Anleitung}
@@ -90,7 +94,7 @@ Halbwelle zu einer positiven Spannung umgewandelt werden. Siehe Abbildung
 Spannung, noch zu einer besseren Gleichspannung mit weniger Restwelligkeit
 gemacht werden.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Ein- und Zweiweggleichrichter \cite[Abbildung~2.4]{physik313-Anleitung}
@@ -111,8 +115,10 @@ sichtbar gemacht werden, wenn das System von einem Sägezahn angetrieben wird.
 %                                  Aufgaben                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\FloatBarrier
 \section{Aufgaben}
 
+\FloatBarrier
 \subsection{Aufgabe A}
 
 \begin{problem}
@@ -122,17 +128,20 @@ sichtbar gemacht werden, wenn das System von einem Sägezahn angetrieben wird.
 Bei Silizium gibt es 4 Zustände im Valenzband, keine in der Bandlücke und 4 im
 Leitungsband. \cite[Vorlesung~16, Folie~13]{meschede/physik441}
 
+\FloatBarrier
 \subsection{Aufgabe B}
 
 \begin{problem}
 	Wie uns weshalb dotiert man Halbleiter?
 \end{problem}
 
-Dotierung benutzt man, um freie Ladungsträger zu erhalten. In Halbleitern wäre
-sonst kein Zustand im Leitungsband besetzt. Dies erreicht man, in dem man Atome
-mit anderer Wertigkeit an Kristallplätze setzt und Si so ersetzt. Dies ist eine
-gezielte Verunreinigung.
+Dotierung benutzt man, um freie Ladungsträger zu erhalten und so die
+Leitfähigkeit zu verbessern. In Halbleitern wäre sonst kein Zustand im
+Leitungsband besetzt. Dies erreicht man, in dem man Atome mit anderer
+Wertigkeit an Kristallplätze setzt und Si so ersetzt. Dies ist eine gezielte
+Verunreinigung.
 
+\FloatBarrier
 \subsection{Aufgabe C}
 
 \begin{problem}
@@ -146,24 +155,20 @@ ein Elektron übrig, das nur mit einer kleinen Ionisationsenergie an den Kern
 gebunden ist. So wird der Kristall einfach leitend.
 
 Donatoren und Akzeptoren bringen also ein zusätzliches, freies Elektron bzw.
-Loch in den Kristall. \cite[§~18.4.2]{meschede-gerthsen_24}
+Loch in den Kristall. \cite[§18.4.2]{meschede-gerthsen_24}
 
+\FloatBarrier
 \subsection{Aufgabe D}
 
 \begin{problem}
 	Was bestimmt die Dicke der Grenzschicht bei einem p-n-Halbleiter?
 \end{problem}
 
-In \cite[§~6.1]{schenke/bauelemente} ist folgende Formel gegeben. Dabei ist
-$C_\text S$ die Kapazität der Sperrschicht, $\varepsilon$ die
-Dielektrizitätszahl und $d$ die Schichtdicke:
-\[
-	C_\text S = \frac{\varepsilon A}d
-\]
+Die Schichtdicke wird durch die Diffusionsspannung $U_\text{D}$, die Donator-
+und Akzeptorkonzentration $N_\text{D}$ bzw. $N_\text{A}$, die angelegte
+Spannung $U$ und die Permittivitätszahl $\varepsilon_\text{r}$ bestimmt.
 
-Dies kann nach der Schichtdicke $d$ aufgelöst werden. Wenn man die anderen
-Größen messen kann, hat man die Schichtdicke.
-
+\FloatBarrier
 \subsection{Aufgabe E}
 
 \begin{problem}
@@ -171,15 +176,16 @@ Größen messen kann, hat man die Schichtdicke.
 	Spannung?
 \end{problem}
 
-Sie verändert sich nichtlinear. \cite[§~15.2.2]{beuth/elementare_elektronik}
+Sie verändert sich nichtlinear. \cite[§15.2.2]{beuth/elementare_elektronik}
 
 Mit der Diffusionsspannung $U_\text D$ und $n$ von den physikalischen
 Eigenschaften der Diode abhängig:
-\cite[§~1.1.1.1.2]{antula/schaltungen_mikroelektronik}
+\cite[§1.1.1.1.2]{antula/schaltungen_mikroelektronik}
 \[
 	C_R = \frac{C_0}{\del{1- \frac U{U_\text D}}^n}
 \]
 
+\FloatBarrier
 \subsection{Aufgabe F}
 
 \begin{problem}
@@ -188,7 +194,7 @@ Eigenschaften der Diode abhängig:
 	c) und d) den Einfluss der Widerstände.
 \end{problem}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		\cite[Abbildung~2.3]{physik313-Anleitung}
@@ -197,6 +203,7 @@ Eigenschaften der Diode abhängig:
 	\includegraphics[width=.6\linewidth]{Bilder_aus_Anleitung/2-3.png}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Einfacher Widerstand}
 
 Beim einfachen Widerstand $R$ gilt:
@@ -204,9 +211,9 @@ Beim einfachen Widerstand $R$ gilt:
 	I = \frac 1R U
 \]
 
-Dies ist in Abbildung \ref{fig:F-Widerstand} skizziert.
+Dies ist in Abbildung~\ref{fig:F-Widerstand} skizziert.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie des Ohm'schen Widerstands
@@ -215,12 +222,14 @@ Dies ist in Abbildung \ref{fig:F-Widerstand} skizziert.
 	\includegraphics{Zeichnungen/F-Widerstand.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Einfache Diode}
 
-Für die Diode gilt die in Abbildung~\ref{fig:2-2} der Aufgabenstellung gezeichnete
-Kennlinie, ich habe sie in Abbildung \ref{fig:F-Diode} selbst gemalt.
+Für die Diode gilt die in Abbildung~\ref{fig:2-2} der Aufgabenstellung
+gezeichnete Kennlinie, ich habe sie in Abbildung~\ref{fig:F-Diode} selbst
+gemalt.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie der einfachen Diode
@@ -229,6 +238,7 @@ Kennlinie, ich habe sie in Abbildung \ref{fig:F-Diode} selbst gemalt.
 	\includegraphics{Zeichnungen/F-Diode.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Diode und Widerstand seriell}
 
 Hier gibt die Diode den Stromverlauf vor. Der Widerstand verschlingt jedoch
@@ -238,10 +248,10 @@ Diode hat mehr spannung zur Verfügung. Wir haben versucht, die analytisch zu
 lösen, sind jedoch nur anschaulich weitergekommen.
 
 So haben wir uns überlegt, dass der Durchlass erst bei höherer Spannung
-einsetzt und dann flacher einsteigt. Dies ist in Abbildung \ref{fig:F-seriell}
+einsetzt und dann flacher einsteigt. Dies ist in Abbildung~\ref{fig:F-seriell}
 skizziert.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie der Reihenschaltung
@@ -250,6 +260,7 @@ skizziert.
 	\includegraphics{Zeichnungen/F-seriell.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Diode und Widerstand parallel}
 
 Hier liegt die gleiche Spannung an Diode und Widerstand an. Die Leitfähigkeiten
@@ -266,7 +277,7 @@ addieren sich:
 Somit summieren sich beide Kennlinien auf, siehe Abbildung
 \ref{fig:F-parallel}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie der Parallelschaltung
@@ -275,32 +286,38 @@ Somit summieren sich beide Kennlinien auf, siehe Abbildung
 	\includegraphics{Zeichnungen/F-parallel.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Ideale Spannungsquelle}
 
-Eine ideale Spannungsquelle mit eingestellter Spannung $U_0$ hat einen
+Eine reale Spannungsquelle mit eingestellter Spannung $U_0$ hat einen
 Innenwiderstand $R_\text i$. Wenn man die Quelle kurzschließt, fließt der
 Strom:
 \[
 	I = \frac{U_0}{R_\text i}
 \]
 
-Wir noch eine externe Spannung angelegt, fließt mehr oder weniger Strom durch
+Wird noch eine externe Spannung angelegt, fließt mehr oder weniger Strom durch
 den Innenwiderstand:
 \[
 	I = \frac{1}{R_\text i} (U_0 + U_\text{ext})
 \]
 
-Dies ist in Abbildung \ref{fig:F-Spannungsquelle} skizziert.
+Dies ist in Abbildung~\ref{fig:F-Spannungsquelle} skizziert.
 
-\begin{figure}[h]
+Betrachtet man für die ideale Spannungsquelle den Grenzwert $R_\text{I}\to0$
+geht die Steigung in Abbildung~\ref{fig:F-Spannungsquelle} gegen unendlich und
+wir erhalten eine Senkrechte.
+
+\begin{figure}[htbp]
 	\centering
 	\caption{%
-		Kennlinie der idealen Spannungsquelle
+		Kennlinie der realen Spannungsquelle
 	}
 	\label{fig:F-Spannungsquelle}
 	\includegraphics{Zeichnungen/F-Spannungsquelle.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Ideale Stromquelle}
 
 Die ideale Stromquelle hat einen Innenwiderstand $R_\text i$, die Quelle passt
@@ -311,9 +328,9 @@ der Strom fließt trotzdem.
 	I = I_0
 \]
 
-Dies haben wir in Abbildung \ref{fig:F-Stromquelle} skizziert.
+Dies haben wir in Abbildung~\ref{fig:F-Stromquelle} skizziert.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Kennlinie der idealen Stromquelle
@@ -322,6 +339,7 @@ Dies haben wir in Abbildung \ref{fig:F-Stromquelle} skizziert.
 	\includegraphics{Zeichnungen/F-Stromquelle.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsection{Aufgabe G}
 
 \begin{problem}
@@ -334,9 +352,9 @@ Dies haben wir in Abbildung \ref{fig:F-Stromquelle} skizziert.
 Die eingehende Wechselspannung wird unten abgeschnitten. Da die
 Eingangsspannung weit über der Durchlassspannung ist, wird unten nichts
 nennenswertes abgeschnitten. Es ergibt sich ein Spannungsverlauf wie in
-Abbildung \ref{fig:G-einfach}.
+Abbildung~\ref{fig:G-einfach}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Spannungsverlauf nach der einfachen Gleichrichtung
@@ -347,9 +365,9 @@ Abbildung \ref{fig:G-einfach}.
 
 Bei der zweiten Schaltung wird auch die untere Halbwelle durchgelassen,
 allerdings nach oben geklappt. Es kommt zu einem Spannungsverlauf wie in
-Abbildung \ref{fig:G-doppelt}.
+Abbildung~\ref{fig:G-doppelt}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Spannungsverlauf nach der doppelten Gleichrichtung
@@ -358,6 +376,7 @@ Abbildung \ref{fig:G-doppelt}.
 	\includegraphics{Zeichnungen/G-doppelt.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsection{Aufgabe H}
 
 \begin{problem}
@@ -377,7 +396,9 @@ die Durchschnittsspannung erreicht hat. Dadurch wird das System träge und zieht
 zu beginn beliebig hohe Ströme aus der Diode. Dieser Aspekt wird in einer
 späteren Aufgabe noch behandelt.
 
+\FloatBarrier
 \subsection{Aufgabe I}
+\label{s:I}
 
 \begin{problem}
 	Wie würden Sie Strom- und Spannungsmessgerät zur Messung der Kennlinie in
@@ -385,10 +406,10 @@ späteren Aufgabe noch behandelt.
 	Innenwiderstände der beiden Geräte.
 \end{problem}
 
-In Abbildung \ref{fig:I-Schaltungen} sind zwei Möglichkeiten zur
+In Abbildung~\ref{fig:I-Schaltungen} sind zwei Möglichkeiten zur
 Kennlinienmessung dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Mögliche Schaltungen zur Kennlinienmessung
@@ -412,6 +433,7 @@ hohe Spannungen auftreten, ist es vielleicht sinnvoll, dafür \textcircled 2 zu
 benutzen, um den Strommessfehler durch den Innenwiderstand des Spannungsmessers
 zu vermeiden.
 
+\FloatBarrier
 \subsection{Aufgabe J}
 
 \begin{problem}
@@ -424,7 +446,7 @@ dann eine zum Strom proportionale Spannung ab.
 Dies erfährt man auch, wenn man etwas weiter ließt und sich
 Abbildung~\ref{fig:2-7} aus der Anleitung anschaut.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		\cite[Abbildung~2.7]{physik313-Anleitung}
@@ -433,15 +455,25 @@ Abbildung~\ref{fig:2-7} aus der Anleitung anschaut.
 	\includegraphics[width=.6\linewidth]{Bilder_aus_Anleitung/2-7.png}
 \end{figure}
 
+\FloatBarrier
 \subsection{Aufgabe K}
 
 \begin{problem}
-	Für Abbildung~2.8: Berechnen Sie größenordnungsmäßig die größte Kapazität,
-	die benutzt werden darf, ohne die Grenzwerte der Si-Diode zu überschreiten.
-	Nehmen Sie dazu an, dass sich $U$ beim Einschalten um $\SI{1}\volt$ in
-	$\SI{100}{\micro\second}$ ändert und vernachlässigen Sie den Einfluss von
-	$R_\text L$.
+	Für Abbildung~\ref{fig:2-8}: Berechnen Sie größenordnungsmäßig die größte
+	Kapazität, die benutzt werden darf, ohne die Grenzwerte der Si-Diode zu
+	überschreiten. Nehmen Sie dazu an, dass sich $U$ beim Einschalten um
+	$\SI{1}\volt$ in $\SI{100}{\micro\second}$ ändert und vernachlässigen Sie
+	den Einfluss von $R_\text L$.
 \end{problem}
+
+\begin{figure}[htbp]
+	\centering
+	\caption{%
+		\cite[Abbildung~2.8]{physik313-Anleitung}
+	}
+	\label{fig:2-8}
+	\includegraphics[width=.45\linewidth]{Bilder_aus_Anleitung/2-8.png}
+\end{figure}
 
 Der maximale Durchlassstrom ist \SI{1000}{\milli\ampere}. Wenn $C$ zu groß ist,
 zieht $C$ zu viel Strom. In $\Deltaup t := \SI{100}{\micro\second}$ geht die
@@ -461,6 +493,7 @@ Dies muss kleiner als $I_\text{max}$ sein:
 	C < \SI{100}{\micro\farad}
 \]
 
+\FloatBarrier
 \subsection{Aufgabe L}
 
 \begin{problem}
@@ -475,6 +508,7 @@ einmal die Spannung $- U_0$ von der Spannungsquelle. Außerdem wird noch einmal
 eine Spannung $-U_0$ durch den Kondensator auf die Diode. Es liegen also
 $-2U_0$ an.
 
+\FloatBarrier
 \subsection{Aufgabe M}
 
 \begin{problem}
@@ -482,7 +516,7 @@ $-2U_0$ an.
 	Schaltungen in Abbildung~\ref{fig:2-9}.
 \end{problem}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		\cite[Abbildung~2.9]{physik313-Anleitung}
@@ -508,7 +542,7 @@ Dies ist nur eine andere Darstellung von Schaltung b, so dass die gleichen
 Überlegungen auch hier zutreffen. Die Umformung ist in Abbildung
 \ref{fig:M-Schaltung_drei} dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Umformung von Schaltung c
@@ -517,7 +551,24 @@ Dies ist nur eine andere Darstellung von Schaltung b, so dass die gleichen
 	\includegraphics{Zeichnungen/M-Schaltung_drei.pdf}
 \end{figure}
 
+\FloatBarrier
 \subsection{Aufgabe N}
+
+\begin{problem}
+	Skizzieren Sie die Lastabhängigkeit der Spannung $U'$ in
+	Abbildung~\ref{fig:2-11}~a). Geben Sie die Formel an, aus der sich $U'$ in
+	Abhängigkeit von $U_0$, $R$ und $R_\text L$ berechnen lässt. Was sind die
+	Extremwerte für $U'$ und $I$?
+\end{problem}
+
+\begin{figure}[htbp]
+	\centering
+	\caption{%
+		\cite[Abbildung~2.11]{physik313-Anleitung}
+	}
+	\label{fig:2-11}
+	\includegraphics[width=\linewidth]{Bilder_aus_Anleitung/2-11.png}
+\end{figure}
 
 $U'$ ist die Spannung an der Last. Der Gesamtstrom, der fließt ist:
 \[
@@ -532,12 +583,12 @@ Die Spannung $U'$ ist:
 	&= \RL I \\
 	&= \RL \frac{U_0}{R + R_\text L} \\
 	&= \frac{U_0 \RL}{R + \RL} \\
-	&+ \frac{U_0}{1 + \frac R\RL}
+	&= \frac{U_0}{1 + \frac R\RL}
 \end{align*}
 
-Die Funktion ist in Abbildung \ref{fig:N-Plot} skizziert.
+Die Funktion ist in Abbildung~\ref{fig:N-Plot} skizziert.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\caption{%
 		Lastspannung in Abhängigkeit vom Lastwiderstand
@@ -546,10 +597,18 @@ Die Funktion ist in Abbildung \ref{fig:N-Plot} skizziert.
 	\includegraphics{Zeichnungen/N-Plot.pdf}
 \end{figure}
 
-Die Extremwerte sind $I = U/R$, wenn $\RL = 0$ sowie $U' = U_0$ wenn $\RL \to
-\infty$.
+Die Extremwerte sind $I_\text{max} = U_0/R$, $U'_\text{min} = 0$, wenn $\RL =
+0$, sowie $I_\text{min} = 0$ und $U'_\text{max} = U_0$ wenn $\RL \to \infty$.
 
+\FloatBarrier
 \subsection{Aufgabe O}
+\label{ss:O}
+
+\begin{problem}
+	Innerhalb welches \emph{Wertebereichs} muss bei dieser Dimensioniertung
+	des Arbeitswiderstand $R$ liegen, damit die Ausgangsspannung $U'$ bei der
+	Zenerspannung \SI{8.2}{\volt} stabilisiert wird?
+\end{problem}
 
 \newcommand\IZmax{I_\text{Z,max}}
 \newcommand\IZmin{I_\text{Z,min}}
@@ -557,17 +616,18 @@ Die Extremwerte sind $I = U/R$, wenn $\RL = 0$ sowie $U' = U_0$ wenn $\RL \to
 \newcommand\UZ{U_\text Z}
 
 Der Strom $\IZmax$ darf nicht überschritten werden. Mit dem Ansatz aus 
-\cite[§~15.1.3]{beuth/elementare_elektronik} betrachte ich zuerst $\RL =
+\cite[§15.1.3]{beuth/elementare_elektronik} betrachte ich zuerst $\RL =
 \infty$. Dann fällt an der Zenerdiode gerade $\UZ$ ab, über $R$ fällt $U - \UZ$
 ab. Damit der Strom nicht überschritten wird, muss gelten:
 \[
 	R > \frac{U - \UZ}\IZmax
 \]
 
-Diese Bedingung ist erfüllt:
-%\[
-	%\SI{200}\ohm > \frac{\SI{8.2}\volt}{\SI{100}{\milli\ampere}} = \SI{82}\ohm
-%\]
+Diese Bedingung ist erfüllt, da $R_\text L$ im Bereich \SI{200}{\ohm} und
+$\infty$ einstellbar ist:
+\[
+	\SI{200}\ohm > \frac{\SI{8.2}\volt}{\SI{100}{\milli\ampere}} = \SI{82}\ohm
+\]
 
 Der extremste Fall tritt ein, wenn $U$ maximal wird. Also ist die untere
 Schranke für $R$:
@@ -597,20 +657,439 @@ Somit ist der Bereich \SIrange{138}{8000}{\ohm}.
 %                      Versuchsaufbau und -durchführung                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\FloatBarrier
 \section{Versuchsaufbau und -durchführung}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                 Auswertung                                  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\FloatBarrier
+\subsection{Versuchsaufgabe 1: Statische Messung der Diodenkennlinie}
 
-\section{Auswertung}
+In diesem Versuch soll mit Hilfe eines Gleichspannungsnetzgerätes und zweier
+Multimeter die Kennlinien der Silizium-Diode MRA4004 und der Schottky-Diode
+10BG015. Wir verwenden dafür \fehlt und \fehlt. Die Anordnung ist in §\ref{s:I}
+beschrieben (Abb.~\ref{fig:I-Schaltungen}). Die Messung in Durchlass- und in
+Sperrrichtung werden dabei nacheinander durchgeführt.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                  Ergebnis                                   %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\FloatBarrier
+\subsubsection{Diode D1}
 
-\section{Ergebnis}
+Unsere Messwerte für die Diode~D1 sind in Tabelle~\ref{table:D1}. Der
+entsprechende Plot der Daten ist in Abbildung~\ref{fig:D1}.
 
+\begin{table}[htbp]
+	\centering
+	\caption{%
+		Messdaten zur Diode D1
+	}
+	\label{table:D1}
+	\begin{tabular}{SSS}
+		{$U / \si\volt$} & {$I_1 / \si{\milli\ampere}$} & {$I_2 / \si{\milli\ampere}$} \\
+		\hline
+		%< for u, i1, u2 in a1_D1: >%
+		<< u >> & << i1 >> & << u2 >> \\
+		%< endfor >%
+	\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+	\centering
+	\caption{%
+		Kennlinie der Diode D1
+	}
+	\label{fig:D1}
+	\includegraphics[width=\textwidth]{Daten_D1.pdf}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{Diode D2}
+
+Unsere Messwerte für die Diode~D2 sind in Tabelle~\ref{table:D2}. Der
+entsprechende Plot der Daten ist in Abbildung~\ref{fig:D2}
+
+\begin{table}[htbp]
+	\centering
+	\caption{%
+		Messdaten zur Diode D2
+	}
+	\label{table:D2}
+	\begin{tabular}{SS}
+		{$U / \si\volt$} & {$I_1 / \si{\milli\ampere}$} \\
+		\hline
+		%< for u, i in a1_D2: >%
+		<< u >> & << i >> \\
+		%< endfor >%
+	\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+	\centering
+	\caption{%
+		Kennlinie der Diode D2
+	}
+	\label{fig:D2}
+	\includegraphics[width=\textwidth]{Daten_D2.pdf}
+\end{figure}
+
+\FloatBarrier
+\subsection{Versuchsaufgabe 2: Oszillogramm der Diodenkennlinie}
+
+Die Kennlinien der in Versuch~1 statisch vermessenen Dioden und einer
+Zener-Diode sollen mit Hilfe eines Osszilographen vermessen werden. Dazu wird
+der in Abbildung~\ref{fig:2-6} gezeigte Aufbau verwendet.
+
+\begin{figure}[htbp]
+	\centering
+	\caption{%
+		\cite[Abbildung~2.6]{physik313-Anleitung}
+	}
+	\label{fig:2-6}
+	\includegraphics[width=.8\linewidth]{Bilder_aus_Anleitung/2-6.png}
+\end{figure}
+
+Ein auf Dreieck \SI{200}{\kilo\hertz} gestellter Signalgenerator wird an BNC~1
+angeschlossen. Je nach zu messender Diode werden B3 mit B8 (MRA4004), B4 mit B9
+(10BG015) oder B5 mit B10 (Zener) verbunden. Die Kanäle CH1 und CH2 werden an
+BNC~2 bzw. BNC~3 angeschlossen um die zum Strom proportionale Spannung
+abzunehmen. Im Oszillographen werden die Kanäle invers addiert. 
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Hand/785.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Foto/785.jpg}
+	\end{minipage}
+	\caption{%
+		Dreieck, Frequenz \SI{200}{\hertz},
+		Zeitbasis \SI{.5}{\micro\second\per\division},
+		Verstärkung \SI{2}{\volt\per\division} und \SI{2}{\volt\per\division},
+		Kanal~2 invertiert, Kanal~1 und 2 addiert, XY-Betrieb
+	}
+	\label{fig:785}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Hand/786.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Foto/786.jpg}
+	\end{minipage}
+	\caption{%
+		Dreieck, Frequenz \SI{200}{\hertz},
+		Zeitbasis \SI{.5}{\micro\second\per\division},
+		Verstärkung \SI{2}{\volt\per\division} und \SI{2}{\volt\per\division},
+		Kanal~2 invertiert, Kanal~1 und 2 addiert, XY-Betrieb
+	}
+	\label{fig:786}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Hand/787.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Foto/787.jpg}
+	\end{minipage}
+	\caption{%
+		Dreieck, Frequenz \SI{200}{\hertz},
+		Zeitbasis \SI{.5}{\micro\second\per\division},
+		Verstärkung \SI{2}{\volt\per\division} und \SI{2}{\volt\per\division},
+		Kanal~2 invertiert, Kanal~1 und 2 addiert, XY-Betrieb
+	}
+	\label{fig:787}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Hand/788.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Foto/788.jpg}
+	\end{minipage}
+	\caption{%
+		Dreieck, Frequenz \SI{200}{\hertz},
+		Zeitbasis \SI{.5}{\micro\second\per\division},
+		Verstärkung \SI{2}{\volt\per\division} und \SI{2}{\volt\per\division},
+		Kanal~2 invertiert, Kanal~1 und 2 addiert, XY-Betrieb
+	}
+	\label{fig:788}
+\end{figure}
+
+\FloatBarrier
+\subsection{Versuchsaufgabe 3: Oszillogramm des Einweggleichrichters}
+
+In dieser Aufgabe bauen wir den Einweggleichrichter im unteren Teil des
+Schaltbrettes auf. Als Last stellen wir die vollen \SI{8}{\kilo\ohm} ein. Am
+BNC-Ausgang auf der rechten Seite nehmen wir die Spannung mit dem Oszilloskop
+ab. Eine Skizze zu diesem Aufbau ist in Abbildung~\ref{fig:2-10}. Das Netzteil
+versorgt die Schaltung mit \SI{20}{\volt} bei \SI{50}{\hertz}.
+
+\begin{figure}[htbp]
+	\centering
+	\caption{%
+		\cite[Abbildung~2.10]{physik313-Anleitung}
+	}
+	\label{fig:2-10}
+	\includegraphics[width=\linewidth]{Bilder_aus_Anleitung/2-10.png}
+\end{figure}
+
+Das Oszillogramm der gleichgerichteten Spannung ist in
+Abbildung~\ref{fig:790}. Die mittlere Spannung, die wir als den Mittelwert
+zwischen Maximum und Minimum interpretieren, ist hier $\SI{11}\volt$. Der
+Brumm ist \SI{2.1}{\division}, entspricht also \SI{21}{\volt}. Bei einer
+Eingangsspannung von \SI{20}{\volt} kommt dies ziemlich genau hin.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Hand/790.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Foto/790.jpg}
+	\end{minipage}
+	\caption{%
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
+		Verstärkung \SI{10}{\volt\per\division}
+	}
+	\label{fig:790}
+\end{figure}
+
+Mit einer zusätzlichen, parallelen Kapazität von \SI{2.2}{\micro\farad} wird
+die Spannung etwas geglättet, siehe Abbildung \ref{fig:792}. Dabei ist die
+exponentielle Entladung des Kondensator zu beobachten. Die Mittlere Spannung
+ist \SI{16}{\volt}. Der Brumm ist hier $\SI{1.1}\division \sim \SI{11}\volt$.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Hand/792.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Foto/792.jpg}
+	\end{minipage}
+	\caption{%
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
+		Verstärkung \SI{10}{\volt\per\division}
+	}
+	\label{fig:792}
+\end{figure}
+
+Bei \SI{24.2}{\micro\farad} ist der Brumm deutlich kleiner geworden, der
+Kondensator kann nicht mehr komplett entladen werden, da seine Kapazität zu
+groß ist. Dies ist in Abbildung~\ref{fig:793} gezeigt. Die mittlere Spannung
+ist \SI{19}{\volt}. Hier ist der Brumm $\SI{0.3}\division \sim \SI{3}\volt$.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Hand/793.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Foto/793.jpg}
+	\end{minipage}
+	\caption{%
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
+		Verstärkung \SI{10}{\volt\per\division}
+	}
+	\label{fig:793}
+\end{figure}
+
+Mit \SI{1022}{\micro\farad} ist mit dem Auge kein Brumm mehr zu erkennen, siehe
+Abbildung \ref{fig:795}. Die mittlere Spannung ist \SI{20}{\volt}.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Hand/795.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Foto/795.jpg}
+	\end{minipage}
+	\caption{%
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
+		Verstärkung \SI{10}{\volt\per\division}
+	}
+	\label{fig:795}
+\end{figure}
+
+\FloatBarrier
+\subsection{Versuchsaufgabe 4: Oszillogramm des Zweiweggleichrichters}
+
+Der Gleichrichter wird so geschlossen, dass es ein Zweiweggleichrichter wird.
+Mit den gleichen Kapazitäten werden die Messungen wiederholt. Siehe
+Abbildung~\ref{fig:796} für \SI{0}{\micro\farad}. Die mittlere Spannung ist
+\SI{11}{\volt}. Der Brumm ist hier $\SI{2.2}\division \sim \SI{22}\volt$.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Hand/796.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Foto/796.jpg}
+	\end{minipage}
+	\caption{%
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
+		Verstärkung \SI{10}{\volt\per\division}
+	}
+	\label{fig:796}
+\end{figure}
+
+\SI{2.2}{\micro\farad} ist in Abbildung~\ref{fig:797} dargestellt. Die
+mittlere Spannung ist \SI{20}{\volt}. Der Brumm ist $\SI{.7}\division \sim \SI
+7\volt$.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Hand/797.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Foto/797.jpg}
+	\end{minipage}
+	\caption{%
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
+		Verstärkung \SI{10}{\volt\per\division}
+	}
+	\label{fig:797}
+\end{figure}
+
+\SI{24.2}{\micro\farad} ist in Abbildung~\ref{fig:798} dargestellt. Die
+mittlere Spannung ist \SI{23}{\volt}. Hier ist der Brumm $\SI{.2}\division
+\sim \SI 2\volt$.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Hand/798.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Oszi_Foto/798.jpg}
+	\end{minipage}
+	\caption{%
+		Sinus, Frequenz \SI{50}{\hertz},
+		Zeitbasis \SI{5}{\milli\second\per\division},
+		Verstärkung \SI{10}{\volt\per\division}
+	}
+	\label{fig:798}
+\end{figure}
+
+Bei der größten Kapazität sieht das Oszillogramm genauso aus, wie das in
+Abbildung~\ref{fig:795}.
+
+Der erste große Unterschied ist, dass der Brumm abnimmt. Dies liegt daran,
+dass die zweite Halbwelle nicht wegfällt. Der Kondensator muss also nur noch
+die Welligkeit ausgleichen, nicht mehr die zweite halbe Periode Spannung
+bereitstellen.
+
+Außerdem ist die mittlere Höhe der Gleichspannung beim Zweiweggleichrichter um
+den Scheitelwert der Eingangsspannung, während beim Einweggleichrichter die
+Maximalspannung dem Scheitelwert entspricht.
+
+\FloatBarrier
+\subsection{Versuchsaufgabe 5: Stabilisierung mit Zenerdiode}
+
+Wir bauen die Einweggleichrichtung auf (Abbildung~\ref{fig:2-8}), jedoch ohne
+den Lastwiderstand und ohne Glättungskapazität. Auf dem Oszillographen wurde
+wieder die Sinuswelle dargestellt, wie in Abbildung~\ref{fig:796}. Dann setzen
+wir den Glättungskondensator mit \SI{22}{\micro\farad} ein. Auf dem
+Oszillographen wurde direkt eine konstante Spannung angezeigt. Dies liegt
+daran, dass der Kondensator einmal aufgeladen wird und nicht mehr entladen
+wird. Das Oszilloskop zeigt dann die konstante Spannung auf dem Kondensator an.
+
+\subsubsection{Teil a}
+
+Anschließend bauen wir die erste der Schaltungen aus Abbildung~\ref{fig:2-11}
+an den Ausgang der vorherigen Schaltung. Als Lastwiderstand benutzen wir das
+eingebaute Potentiometer. Der Widerstand $R$, der innerhalb des Bereiches
+liegen muss, den wir in §\ref{ss:O} bestimmt haben, wählen wir
+\SI{1}{\kilo\ohm}. So können wir den gleichen Widerstand wie in den vorherigen
+Aufgabenteilen nehmen.
+
+Wir bestimmen die Lastabhängigkeit der Schaltung, in dem wir Strom (mit
+Unigor) und Spannung (mit Digitalmultimeter) über dem Lastwiderstand messen.
+Unsere Messdaten sind in Tabelle~\ref{table:oS}. Dabei haben wir den
+Lastwiderstand $R_\text L = U / I$ direkt mit in die Tabelle, hinter einen
+Trenner, geschrieben. Der Plot dieser Daten ist in
+Abbildung~\ref{fig:Stabilisierung}, zusammen mit den Daten der nächsten
+Teilaufgabe.
+
+\begin{table}[htbp]
+	\centering
+	\caption{%
+		Messdaten ohne Stabilisierung
+	}
+	\label{table:oS}
+	\begin{tabular}{SS|S}
+		{$U / \si\volt$} & {$I / \si{\milli\ampere}$} & {$R_\text L / \si{\kilo\ohm}$} \\
+		\hline
+		%< for u, i, r in a5_table: >%
+		<< u >> & << i >> & << r >> \\
+		%< endfor >%
+	\end{tabular}
+\end{table}
+
+\subsubsection{Teil b}
+
+Wir schalten nun die Zenerdiode parallel zur Last und messen wie in der
+vorherigen Aufgabe. Unsere Messdaten sind in Tabelle~\ref{table:mS}. Die Daten
+sind in Abbildung~\ref{fig:Stabilisierung} geplottet.
+
+\begin{table}[htbp]
+	\centering
+	\caption{%
+		Messdaten mit Stabilisierung
+	}
+	\label{table:mS}
+	\begin{tabular}{SS|S}
+		{$U / \si\volt$} & {$I / \si{\milli\ampere}$} & {$R_\text L / \si{\kilo\ohm}$} \\
+		\hline
+		%< for u, i, r in a5_ZD_table: >%
+		<< u >> & << i >> & << r >> \\
+		%< endfor >%
+	\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+	\centering
+	\caption{%
+		Plot zur Spannungsstabilisierung
+	}
+	\label{fig:Stabilisierung}
+	\includegraphics[width=\textwidth]{Daten_5.pdf}
+\end{figure}
+
+Die Stabilisierung greift ungefähr ab der Zenerspannung, die wir vorher
+bestimmt hatten. Sie entspricht genau der Spannung, die in §\ref{ss:O} in der
+Aufgabenstellung gegeben ist.
+
+Ab einem Lastwiderstand von \SI{1}{\kilo\ohm} setzt die Stabilisierung ein.
+
+% TODO
+\textcolor{darkred}{Es fehlt der Vergleich mit den berechneten Werten}
+
+\FloatBarrier
 \IfFileExists{\bibliographyfile}{
 	\bibliography{\bibliographyfile}
 }{}

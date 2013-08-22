@@ -10,6 +10,60 @@ import matplotlib.pyplot as pl
 import numpy as np
 import scipy.optimize as op
 
+def aufgabe_1(T):
+    data = np.genfromtxt("Daten_D1.txt")
+    data = data[data[:,0].argsort()]
+    U = data[:, 0]
+    I_1 = data[:, 2]
+    I_2 = data[:, 1]
+
+    pl.plot(U, I_1, label="Aufbau 1", marker="o")
+    pl.plot(U, I_2, label="Aufbau 2", marker="o")
+    pl.xlabel(r"$U / \mathrm{V}$")
+    pl.ylabel(r"$I / \mathrm{mA}$")
+    pl.grid(True)
+    pl.legend(loc="best")
+    pl.savefig("Daten_D1.pdf")
+    pl.clf()
+
+    T["a1_D1"] = list(zip(U, I_1, I_2))
+
+    data = np.genfromtxt("Daten_D2.txt")
+    data = data[data[:,0].argsort()]
+    U = data[:, 0]
+    I = data[:, 1]
+
+    pl.plot(U, I, marker="o")
+    pl.xlabel(r"$U / \mathrm{V}$")
+    pl.ylabel(r"$I / \mathrm{mA}$")
+    pl.grid(True)
+    pl.savefig("Daten_D2.pdf")
+    pl.clf()
+
+    T["a1_D2"] = list(zip(U, I))
+
+def aufgabe_5(T):
+    data_5 = np.genfromtxt("Daten_5.txt")
+    data_5 = data_5[data_5[:,0].argsort()]
+    data_5_ZD = np.genfromtxt("Daten_5_ZD.txt")
+    data_5_ZD = data_5_ZD[data_5_ZD[:,0].argsort()]
+    U_5 = data_5[:, 0]
+    I_5 = data_5[:, 1]
+    U_5_ZD = data_5_ZD[:, 0]
+    I_5_ZD = data_5_ZD[:, 1]
+
+    pl.plot(U_5, I_5, marker="o", label="ohne Stabilisierung")
+    pl.plot(U_5_ZD, I_5_ZD, marker="o", label="mit Stabilisierung")
+    pl.xlabel(r"$U / \mathrm{V}$")
+    pl.ylabel(r"$I / \mathrm{mA}$")
+    pl.legend(loc="best")
+    pl.grid(True)
+    pl.savefig("Daten_5.pdf")
+    pl.clf()
+
+    T["a5_table"] = list(zip(U_5, I_5, np.round(U_5/I_5, 3)))
+    T["a5_ZD_table"] = list(zip(U_5_ZD, I_5_ZD, np.round(U_5_ZD/I_5_ZD, 3)))
+
 def g(value, error=None, digits=3):
     if error is None:
         return ("{:."+str(digits)+"g}").format(value)
@@ -48,6 +102,9 @@ def render_template(T):
 
 def main():
     T = {}
+
+    aufgabe_1(T)
+    aufgabe_5(T)
 
     render_template(T)
 
