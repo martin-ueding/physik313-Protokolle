@@ -615,43 +615,25 @@ Die Extremwerte sind $I_\text{max} = U_0/R$, $U'_\text{min} = 0$, wenn $\RL =
 \newcommand\IZ{I_\text Z}
 \newcommand\UZ{U_\text Z}
 
-Der Strom $\IZmax$ darf nicht überschritten werden. Mit dem Ansatz aus 
-\cite[§15.1.3]{beuth/elementare_elektronik} betrachte ich zuerst $\RL =
-\infty$. Dann fällt an der Zenerdiode gerade $\UZ$ ab, über $R$ fällt $U - \UZ$
-ab. Damit der Strom nicht überschritten wird, muss gelten:
+Der Strom $\IZmax$ darf nicht überschritten werden. Der stärkste Strom fließt,
+wenn der gesamte Strom wegen $R_L=\infty$ durch die Diode geht und die
+Eingangsspannung $U_0$ maximal ist.
+
+Also ist die untere Schranke für $R$:
+
 \[
-	R > \frac{U - \UZ}\IZmax
+R > \frac{\SI{22}\volt - \SI{8.2}\volt}{\SI{100}{\milli\ampere}} =
+\SI{138}\ohm 
 \]
 
-Diese Bedingung ist erfüllt, da $R_\text L$ im Bereich \SI{200}{\ohm} und
-$\infty$ einstellbar ist:
-\[
-	\SI{200}\ohm > \frac{\SI{8.2}\volt}{\SI{100}{\milli\ampere}} = \SI{82}\ohm
-\]
+Wenn weniger als $\IZmin$ durch die Zenerdiode fließen, ist die Stabilisierung
+auch weg. Dies ist der Fall, wenn die Eingangsspannung und der Lastwiderstand
+minimal werden:
 
-Der extremste Fall tritt ein, wenn $U$ maximal wird. Also ist die untere
-Schranke für $R$:
-\[
-	R > \frac{\SI{22}\volt - \SI{8.2}\volt}{\SI{100}{\milli\ampere}}
-	= \SI{138}\ohm
-\]
+\[ R < \frac{\SI{16}{\volt} - \SI{8.2}{\volt}}{\SI{2}{\milli\ampere} +
+\frac{\SI{8.2}{\volt}}{\SI{200}{\ohm}}}=\SI{181.395}{\ohm} \]
 
-Dies ist die untere Grenze. Wenn weniger als $\IZmin$ durch die Zenerdiode
-fließen, ist die Stabilisierung auch weg. Also im unbelasteten Fall:
-\[
-	\frac U\IZmin > R
-\]
-
-Nehme minimales $U$ für Extremwert:
-\[
-	R < \SI{8}{\kilo\ohm}
-\]
-
-Wenn jetzt die Last dazukommt, wird der Zenerstrom allerdings kleiner. Sobald
-dann jedoch die Spannung wieder ansteigt, sollte der Zenerstrom wieder groß
-genug werden.
-
-Somit ist der Bereich \SIrange{138}{8000}{\ohm}.
+Somit ist der Bereich \SIrange{138}{181.395}{\ohm}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                      Versuchsaufbau und -durchführung                      %
