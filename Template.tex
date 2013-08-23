@@ -170,7 +170,8 @@ Zwischen $\alpha$ und $\beta$:
 	Emitterschaltung ($I_\text B$ als Funktion von $I_\text{BE}$)?
 \end{problem}
 
-Die Eingangskennlinie ist die Kennlinie einer Diode. Sie ist in Abbildung~\ref{fig:F_Zeichnung} zu sehen.
+Die Eingangskennlinie ist die Kennlinie einer Diode. Sie ist in
+Abbildung~\ref{fig:F_Zeichnung} zu sehen.
 
 \begin{figure}[htbp]
 	\centering
@@ -188,7 +189,19 @@ Die Eingangskennlinie ist die Kennlinie einer Diode. Sie ist in Abbildung~\ref{f
 	Leiten Sie \eqref{eq:3_4-7} her!
 \end{problem}
 
-\fehlt
+$U_\text{B}$ und $I_\text{B}$ sind in Abbildung~\ref{fig:3_4.5} die Spannung,
+die über $R_2$ abfällt, bzw. der Strom der durch $R_2$ fließt. $U_1$ fällt über
+$R_1$ ab und der Strom $I_1$ fließt durch $R_2$ hindurch.
+
+\begin{align*}
+	U_0 &= U_1 + U_\text{B}\\
+		&= R_1I_1 + U_\text{B}\\
+	 &= R_1 (I_2 + I_\text{B}) + U_\text{B}\\
+	 &= R_1 I_\text{B} + R_1\frac{U_\text{B}}{R_2} + U_\text{B}\\
+	 &= U_\text{B} \frac{R_1+R_2}{R_2} + R_1 I_\text{B}
+	\intertext{hieraus folgt sofort}
+	U_\text{B} &= U_0\frac{R_2}{R_1 + R_2} - I_\text{B}\frac{R_1 R_2}{R_1 + R_2}
+\end{align*}
 
 \FloatBarrier
 \subsection{Aufgabe H}
