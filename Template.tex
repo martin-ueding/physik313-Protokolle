@@ -395,10 +395,11 @@ Die zitierte Gleichung ist:
 
 \subsubsection{Kennlinienschreiber}
 
-\fehlt
-
-Das Schaltbild des Kennlinienschreibers ist in Abbildung~\ref{fig:3-1}
-dargestellt.
+Um direkt mehrere Kennlinien auf dem Oszilloskop darstellen zu können, müssen
+wir schnell hintereinander verschiedene Basisströme $\IB$ auf den Transistor
+gegeben werden. Diese Umschaltung der Basisströme übernimmt der
+Kennlinienschreiber für uns. Das Schaltbild des Kennlinienschreibers ist in
+Abbildung~\ref{fig:3-1} dargestellt.
 
 \begin{figure}[htbp]
 	\centering
@@ -409,11 +410,24 @@ dargestellt.
 	\label{fig:3-1}
 \end{figure}
 
-\fehlt
+Am linken Triggereingang wird ein
+Rechtecksignal zugeführt. Dieses wird durch den Kondensator differenziert. Die
+positiven Pulse, die durch den Transistor verstärkt werden, werden im Zählwerk
+gezählt. Dieses gibt die aktuelle Anzahl als vier Binärstellen durch vier
+Widerstandsketten. Die einzelnen Widerstände unterscheiden sich um einen Faktor
+2, so dass der Ausgangsstrom in 16 Stufen erhöht wird.
 
 \subsubsection{Inbetriebnahme des Kennlinienschreibers}
 
-\fehlt
+\newcommand\UCE{U_\text{CE}}
+
+Am rechten Ende ist ein Steckplatz für einen Transistor, der mit den oben
+beschriebene den Basisströmen versorgt wird. Der zweite Ausgang des
+Funktionsgenerators, der ein Dreiecksignal liefert, gibt eine kontinuierlich
+ändernde Betriebsspannung. Mit dem Oszilloskop nehmen wir die
+Kollektor-Emitter-Spannung $\UCE$ ab und geben es in Kanal~2 rein. Auf Kanal~1
+wird die Betriebsspannung vom Funktionsgenerator angelegt. Dieser Aufbau ist in
+Abbildung~\ref{fig:3-2} gezeigt.
 
 \begin{figure}[htbp]
 	\centering
@@ -423,6 +437,10 @@ dargestellt.
 	}
 	\label{fig:3-2}
 \end{figure}
+
+Damit auf dem Oszilloskop die Spannungsdifferenz angezeigt wird, invertieren
+wir Kanal~2 und addieren ihn auf Kanal~1. Für die Kennlinien stellen wir
+außerdem den XY-Betrieb ein.
 
 \subsubsection{Bipolarer Transistor}
 
