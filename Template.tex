@@ -573,6 +573,7 @@ ganz exakt, da der Widerstand nicht unendlich groß ist und so alle Ströme etwa
 verändert.
 
 \paragraph{Bestimmung der Schwellenspannung und Transkonduktanz}
+\label{par:Schwellenspannung}
 
 \fehlt
 
@@ -691,6 +692,11 @@ Dabei setzen wir $\RC = \SI0\ohm$ und den Emitterwiderstand im Bereich
 	gegangen wird?
 }
 
+Die Schaltung wird mit \SI{10}{\volt} Gleichstrom versorgt. Als Eingangssignal
+in die Basis des Transistors geben wir ein Sinussignal mit \SI1{\kilo\hertz}
+und \SI{2}{\voltss}. Außerdem stellen wir einen Offset von etwa \SI5{\volt}
+ein.
+
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Anleitung/3-5.png}
@@ -700,7 +706,22 @@ Dabei setzen wir $\RC = \SI0\ohm$ und den Emitterwiderstand im Bereich
 	\label{fig:3-5}
 \end{figure}
 
-\fehlt
+Wir beobachen das Eingangssignal sowie das Signal, das aus dem Emitter kommt,
+mit den beiden Kanälen des Oszilloskops. Dazu stellen wir auf beiden Kanälen
+die gleiche Verstärkung und den gleichen $y$-Offset ein. Die Kanäle werden auf
+DC gekoppelt, damit auch die Basisvorspannung zu sehen ist.
+
+Der Offset wird varriert, dabei beobachten wir \fehlt.
+
+Als nächstes bauen wir eine vergleichbare Schaltung, diesmal allerdings mit dem
+FET. Die Schaltung heißt nicht mehr Emitterfolgerschaltung sondern
+Sourcefolgerschaltung, da beim FET die englischen Begriffe benutzt werden. Wir
+überprüfen die Funktion der Schaltung und verändern den DC-Offset und
+beobachten \fehlt.
+
+Wir bestimmen $U_\text{thr}$ zu $\messwert$. Im Vergleich zu der Messung der
+Schwellenspannung, die wir auf Seite \pageref{par:Schwellenspannung} gemessen
+haben, \fehlt
 
 \subsubsection{Eingangswiderstand}
 
