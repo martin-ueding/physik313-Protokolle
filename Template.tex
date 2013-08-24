@@ -742,7 +742,8 @@ haben, \fehlt
 
 \subsubsection{Eingangswiderstand}
 
-\fehlt
+In dieser Versuchsaufgabe wollen wir die Eingangswiderstände der Transistoren
+als unbelastete Emitterfolger abschätzen.
 
 Den Sinusgenerator nehmen wir aus der Buchse~B1 heraus. Mit einer Drahtbrücke
 koppeln wir den \SI1{\micro\farad}-Kondensator ein. Das Oszilloskop hat einen
@@ -753,7 +754,31 @@ die Entladung des Kondensators sein:
 \]
 
 Die Halbwertszeit $T_{1/2}$ ist um $1/\ln(2)$ kleiner, also $\SI{.69}\second$.
-Wir beobachten eine Halbwertszeit von $\messwert$. \fehlt
+Wir beobachten eine Halbwertszeit von $\messwert$.
+
+\TODO{
+	Übereinstimmung mit Erwartung
+}
+
+Der bipolare Transistor wird wieder als Emitterfolger eingesetzt. Buchse~1 wird
+mit einem kurzen BNC Kabel an die Basis angeschlossen. Mit dem Oszilloskop
+beobachen wir die Spannung am Emitter, also am Ausgang des Verstärkers. Wir
+beobachten die neue Abfallszeit. Diese ist anders, da der Kondensator jetzt
+über einen anderen Widerstand entlädt, den Transistor. Wir beobachten eine
+Abfallzeit von $\messwert$.
+
+Aus diesem Verhältnis bestimmen wir die Stromverstärkung. Diese ist definiert
+als:
+\[
+	B := \frac\IC\IB
+	\eqnsep
+	\beta := \frac{\dif\IC}{\dif\IB}
+\]
+
+\FRAGE{
+	In der Anleitung werden noch weitere Stromverstärkungsgrößen, $\alpha$ und
+	$\gamma$ definiert. Welche dieser Größen ist denn jetzt die Richtige?
+}
 
 \fehlt
 
