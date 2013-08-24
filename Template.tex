@@ -22,7 +22,9 @@
 
 \newcommand\IB{I_\text{B}}
 \newcommand\IC{I_\text{C}}
+\newcommand\ID{I_\text{D}}
 \newcommand\IE{I_\text{E}}
+\newcommand\IS{I_\text{S}}
 \newcommand\RC{R_\text{C}}
 \newcommand\RE{R_\text{E}}
 \newcommand\UBE{U_\text{BE}}
@@ -174,7 +176,7 @@ Zwischen $\alpha$ und $\beta$:
 
 \begin{problem}
 	Welche Form hat die \emph{Eingangskennlinie} eines Transistors in
-	Emitterschaltung ($I_\text B$ als Funktion von $I_\text{BE}$)?
+	Emitterschaltung ($\IB$ als Funktion von $\UBE$)?
 \end{problem}
 
 Die Eingangskennlinie ist die Kennlinie einer Diode. Sie ist in
@@ -196,18 +198,18 @@ Abbildung~\ref{fig:F_Zeichnung} zu sehen.
 	Leiten Sie \eqref{eq:3_4-7} her!
 \end{problem}
 
-$U_\text{B}$ und $I_\text{B}$ sind in Abbildung~\ref{fig:3_4-5} die Spannung,
-die über $R_2$ abfällt, bzw. der Strom der durch $R_2$ fließt. $U_1$ fällt über
-$R_1$ ab und der Strom $I_1$ fließt durch $R_2$ hindurch.
+$\UB$ und $\IB$ sind in Abbildung~\ref{fig:3_4-5} die Spannung, die über $R_2$
+abfällt, bzw. der Strom der durch $R_2$ fließt. $U_1$ fällt über $R_1$ ab und
+der Strom $I_1$ fließt durch $R_2$ hindurch.
 
 \begin{align*}
-	U_0 &= U_1 + U_\text{B}\\
-		&= R_1I_1 + U_\text{B}\\
-	 &= R_1 (I_2 + I_\text{B}) + U_\text{B}\\
-	 &= R_1 I_\text{B} + R_1\frac{U_\text{B}}{R_2} + U_\text{B}\\
-	 &= U_\text{B} \frac{R_1+R_2}{R_2} + R_1 I_\text{B}
+	U_0 &= U_1 + \UB\\
+		&= R_1I_1 + \UB\\
+	 &= R_1 (I_2 + \IB) + \UB\\
+	 &= R_1 \IB + R_1\frac{\UB}{R_2} + \UB\\
+	 &= \UB \frac{R_1+R_2}{R_2} + R_1 \IB
 	\intertext{hieraus folgt sofort}
-	U_\text{B} &= U_0\frac{R_2}{R_1 + R_2} - I_\text{B}\frac{R_1 R_2}{R_1 + R_2}
+	\UB &= U_0\frac{R_2}{R_1 + R_2} - \IB\frac{R_1 R_2}{R_1 + R_2}
 \end{align*}
 
 \FloatBarrier
@@ -233,7 +235,7 @@ $R_1$ ab und der Strom $I_1$ fließt durch $R_2$ hindurch.
 \subsection{Aufgabe J}
 
 \begin{problem}
-	Was ändert sich, wenn man $I_\text S$ anstelle von $I_\text D$ aufträgt?
+	Was ändert sich, wenn man $\IS$ anstelle von $\ID$ aufträgt?
 \end{problem}
 
 \fehlt
@@ -245,10 +247,10 @@ $R_1$ ab und der Strom $I_1$ fließt durch $R_2$ hindurch.
 	Zeigen Sie, dass genauer gilt:
 	\begin{equation}
 		\label{eq:3_4-11}
-		v = \frac{\gamma R_\text E}{r_\text{BE} + \gamma R_\text E},
+		v = \frac{\gamma \RE}{r_\text{BE} + \gamma \RE},
 	\end{equation}
 	wobei der differentielle Widerstand der Emitter-Basis-Diode $r_\text{BE} =
-	\mathrm d U_\text{BE} / \mathrm d I_\text B$ ist.
+	\mathrm d \UBE / \mathrm d \IB$ ist.
 \end{problem}
 
 \fehlt
@@ -257,7 +259,7 @@ $R_1$ ab und der Strom $I_1$ fließt durch $R_2$ hindurch.
 \subsection{Aufgabe L}
 
 \begin{problem}
-	Welchen Zweck könnte der Kollektorwiderstand $R_\text C$ beim Emitterfolger
+	Welchen Zweck könnte der Kollektorwiderstand $\RC$ beim Emitterfolger
 	haben? Hinweis: Am Ausgang könnte eine niederohmige Last angeschlossen
 	sein.
 \end{problem}
@@ -275,7 +277,7 @@ Die zitierte Gleichung ist:
 \begin{equation}
 	\label{eq:3_4-12}
 	\frac{r_\text{out}}{r_\text{in}}
-	= \frac{\gamma R_\text E}{r_\text{BE} + \gamma R_\text E}
+	= \frac{\gamma \RE}{r_\text{BE} + \gamma \RE}
 	\approx \frac 1\gamma
 \end{equation}
 
@@ -297,7 +299,7 @@ Die zitierte Gleichung ist:
 	Zeigen Sie, dass genauer gilt:
 	\begin{equation}
 		\label{eq:3_4-14}
-		v = - \frac{\beta R_\text C}{r_\text{BE} + \gamma R_\text E}
+		v = - \frac{\beta \RC}{r_\text{BE} + \gamma \RE}
 	\end{equation}
 \end{problem}
 
@@ -336,7 +338,7 @@ Die zitierte Gleichung ist:
 \begin{problem}
 	Erklären Sie die Funktionsweise der Schaltung in
 	Abbildung~\ref{fig:3_4-15}! Wie groß ist die Spannungsänderung im Punkt P
-	bei einer Stromänderung $\mathrm d I_\text E(T2)$ und welche
+	bei einer Stromänderung $\mathrm d \IE(T2)$ und welche
 	Transistorgröße bestimmt diesen Wert?
 \end{problem}
 
