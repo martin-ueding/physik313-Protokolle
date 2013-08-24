@@ -512,10 +512,18 @@ $\UCE$ ab: $\messwert$.
 
 Wir benutzen den gleichen Aufbau, wie in der vorherigen Aufgabe. Den bipolaren
 Transistor ersetzen wir durch einen FET. Da dieser mit einer Spannung gesteuert
-wird, müssen wir den Basisstrom $\IB$ erst noch in eine Basis-Emitter-Spannung $\UBE$
-umwandeln. Bei FETs heißt diese jedoch Gate-Source-Spannung, $\UGS$. Wir
-schließen also einen Widerstand zwischen Gate und Source an. Dazu benutzen wir
-ein \SI{470}{\kilo\ohm}-Potentiometer.
+wird, müssen wir den Basisstrom $\IB$ erst noch in eine Basis-Emitter-Spannung
+$\UBE$ umwandeln. Bei FETs heißt diese jedoch Gate-Source-Spannung, $\UGS$. Wir
+schließen also einen Widerstand $R$ zwischen Gate und Source an. Dazu benutzen
+wir ein \SI{470}{\kilo\ohm}-Potentiometer. Wir justieren das Potentiometer so,
+dass möglichst viele Linien auf dem Oszilloskop zu sehen sind.
+
+Den Spannungsabstand $\dif\UGS$ erhalten wir durch $R \cdot
+\SI{6}{\micro\ampere}$, da, wie schon im vorherigen Abschnitt berechnet, die
+Stromunterschiede $\dif\IB$ den Wert \SI{6}{\micro\ampere} haben. Über einem
+Widerstand $R$ fällt dann die Spannung $U = IR$ ab. Dies ist natürlich nicht
+ganz exakt, da der Widerstand nicht unendlich groß ist und so alle Ströme etwas
+verändert.
 
 \paragraph{Bestimmung der Schwellenspannung und Transkonduktanz}
 
