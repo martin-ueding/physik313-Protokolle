@@ -33,6 +33,24 @@
 \newcommand\UE{U_\text{E}}
 \newcommand\UGS{U_\text{GS}}
 
+\usepackage{tocloft}
+
+\newlistof{todo}{lotd}{TODO Liste}
+
+\newcommand{\FIXME}[1]{\printTODO{FIXME: #1}}
+\newcommand{\TODO}[1]{\printTODO{TODO: #1}}
+\newcommand{\XXX}[1]{\printTODO{XXX: #1}}
+\newcommand{\FRAGE}[1]{\printTODO{Rückfrage: #1}}
+
+\newcommand{\printTODO}[1]{
+	\par%
+	\textcolor{OrangeRed}{\textsf{#1}}%
+	\par%
+	\refstepcounter{todo}
+	\addcontentsline{lotd}{todo}{#1}
+}
+
+
 \begin{document}
 
 \maketitle
@@ -56,6 +74,9 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 
 %\newpage
 \tableofcontents
+\newpage
+
+\listoftodo
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -649,6 +670,17 @@ der Schaltung am größten ist.
 \FloatBarrier
 \subsection{FET}
 
+Auf dem \emph{Schaltbrett 2} (Abbildung~\ref{fig:3-5}) bauen wir eine
+Emitterfolgerschaltung (Kollektorschaltung) mit dem Bipolartransistor auf.
+Dabei setzen wir $\RC = \SI0\ohm$ und den Emitterwiderstand im Bereich
+\SIrange{1}{2}{\kilo\ohm}.
+
+\FRAGE{
+	Im Schaltbild ist ein \SI{100}{\ohm}-Widerstand eingezeichnet. Wo soll der
+	zusätzliche Widerstand hin, mit dem dann in den \si{\kilo\ohm}-Bereich
+	gegangen wird?
+}
+
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Anleitung/3-5.png}
@@ -661,6 +693,19 @@ der Schaltung am größten ist.
 \fehlt
 
 \subsubsection{Eingangswiderstand}
+
+\fehlt
+
+Den Sinusgenerator nehmen wir aus der Buchse~B1 heraus. Mit einer Drahtbrücke
+koppeln wir den \SI1{\micro\farad}-Kondensator ein. Das Oszilloskop hat einen
+Eingangswiderstand von \SI1{\mega\ohm}. Dadurch sollte die Zeitkonstante für
+die Entladung des Kondensators sein:
+\[
+	\tau = RC = \SI1{\second}
+\]
+
+Die Halbwertszeit $T_{1/2}$ ist um $1/\ln(2)$ kleiner, also $\SI{.69}\second$.
+Wir beobachten eine Halbwertszeit von $\messwert$. \fehlt
 
 \fehlt
 
