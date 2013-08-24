@@ -315,7 +315,14 @@ Die zitierte Gleichung ist:
 	\approx \frac 1\gamma
 \end{equation}
 
-\fehlt
+Aus $r_\text{in}=\frac\UB\IB$ und $r_\text{out}=\frac\UE\IE$ folgt:
+
+\begin{align*}
+	\frac{r_\text{out}}{r_\text{in}} &= \dod\UE\IE \dod\IB\UB\\
+	&= \frac{\gamma\RE}{r_\text{BE}+\gamma\RE}\frac1\gamma\\
+	&= \frac{\RE}{r_\text{BE}+\gamma\RE}\\
+	&\approx \frac 1\gamma
+\end{align*}
 
 \FloatBarrier
 \subsection{Aufgabe N}
@@ -324,7 +331,12 @@ Die zitierte Gleichung ist:
 	Wie groß ist der Eingangswiderstand des unbelasteten Emitterfolgers?
 \end{problem}
 
-\fehlt
+\begin{align*}
+	R_\text{in} &= \dod\UB\IB\\
+	&= \frac {\dif\UE+\dif\UBE}{\dif\IB}\\
+	&= r_\text{BE} + \dod \IE\IB \RE\\
+	&= r_\text{BE} + \gamma\RE
+\end{align*}
 
 \FloatBarrier
 \subsection{Aufgabe O}
@@ -337,7 +349,13 @@ Die zitierte Gleichung ist:
 	\end{equation}
 \end{problem}
 
-\fehlt
+\begin{align*}
+	v &= \dod \UC\UB\\
+	  &= -\frac{\dif\IC\RC}{\dif\UBE + \dif\UE}\\
+	  &= -\frac{\dif\IC\RC}{\dif\UBE + \dif\IE\RE}\\
+	  &= -\frac{\od\IC\IB\RC}{\od\UBE\IB+\od\IE\IB\RE}\\
+	  &= -\frac{\beta\RC}{r_\text{BE}+\gamma\RE}
+\end{align*}
 
 \FloatBarrier
 \subsection{Aufgabe P}
