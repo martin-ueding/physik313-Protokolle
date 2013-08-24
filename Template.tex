@@ -410,7 +410,7 @@ Abbildung~\ref{fig:3-1} dargestellt.
 	\centering
 	\includegraphics[width=\textwidth]{Anleitung/3-1.png}
 	\caption{
-		\cite[Abbildung~3.1]{physik313-Anleitung}
+		Kennlinienschreiber \cite[Abbildung~3.1]{physik313-Anleitung}
 	}
 	\label{fig:3-1}
 \end{figure}
@@ -447,6 +447,15 @@ außerdem den XY-Betrieb ein.
 
 Wir schließen den Transistor vom \emph{Schaltbrett 1} (siehe
 Abbildung~\ref{fig:3-4}) an den Kennlinienschreiber an.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{Anleitung/3-4.png}
+	\caption{
+		\emph{Schaltbrett 1} \cite[Abbildung~3.4]{physik313-Anleitung}
+	}
+	\label{fig:3-4}
+\end{figure}
 
 \subsubsection{Bipolarer Transistor}
 
@@ -529,20 +538,30 @@ verändert.
 
 \fehlt
 
+\FloatBarrier
 \subsection{Emitterfolger}
 
 \subsubsection{Aufbau}
 
-\fehlt
+Auf dem \emph{Schaltbrett 1} (Abbildung~\ref{fig:3-4}) bauen wir einen
+Emitterfolger (Kollektorschaltung) auf. Eine solche ist, mit Kapazitäten
+erweitert, in Abbildung~\ref{fig:beuth-bild-16-21} dargestellt.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\textwidth]{Anleitung/3-4.png}
-	\caption{
-		\cite[Abbildung~3.4]{physik313-Anleitung}
+	\includegraphics[width=.6\textwidth]{beuth-bild-16-21.jpg}
+	\caption{%
+		Verstärkerstufe in Kollektorschaltung (Emitterfolgerstufe)
+		\cite[Bild~16.21]{beuth/elementare_elektronik}
 	}
-	\label{fig:3-4}
+	\label{fig:beuth-bild-16-21}
 \end{figure}
+
+Das Netzgerät mit $U_0 = \SI{15}\volt$ wird an das Schaltbrett angeschlossen.
+Wir setzen $\RC = \RE = \SI{390}\ohm$ ein, wie in der Anleitung beschrieben.
+Als Signal stellen wir ein Sinussignal mit $\dif\UBE = \SI{.5}{\voltss}$ und
+einer Frequenz $f = \SI{500}\hertz$ ein. Daraus kommt ein Offset von
+\SI{2}{\volt}.
 
 \subsubsection{Spannungsverstärkung}
 
@@ -558,7 +577,7 @@ verändert.
 	\centering
 	\includegraphics[width=\textwidth]{Anleitung/3-5.png}
 	\caption{
-		\cite[Abbildung~3.5]{physik313-Anleitung}
+		\emph{Schaltbrett 2} \cite[Abbildung~3.5]{physik313-Anleitung}
 	}
 	\label{fig:3-5}
 \end{figure}
