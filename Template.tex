@@ -20,6 +20,12 @@
 
 %\setcounter{tocdepth}{2}
 
+\newcommand\IB{I_\text{B}}
+\newcommand\IC{I_\text{C}}
+\newcommand\IE{I_\text{E}}
+\newcommand\RC{R_\text{C}}
+\newcommand\UCE{U_\text{CE}}
+
 \begin{document}
 
 \maketitle
@@ -122,10 +128,6 @@ Abbildung~\ref{fig:C_Zeichnung} zu sehen.
 \begin{problem}
 	Verifizieren Sie die Relationen zwischen $\alpha$, $\beta$ und $\gamma$.
 \end{problem}
-
-\newcommand\IB{I_\text{B}}
-\newcommand\IC{I_\text{C}}
-\newcommand\IE{I_\text{E}}
 
 Zwischen $\alpha$ und $\beta$:
 
@@ -419,8 +421,6 @@ Widerstandsketten. Die einzelnen Widerstände unterscheiden sich um einen Faktor
 
 \subsubsection{Inbetriebnahme des Kennlinienschreibers}
 
-\newcommand\UCE{U_\text{CE}}
-
 Am rechten Ende ist ein Steckplatz für einen Transistor, der mit den oben
 beschriebene den Basisströmen versorgt wird. Der zweite Ausgang des
 Funktionsgenerators, der ein Dreiecksignal liefert, gibt eine kontinuierlich
@@ -447,7 +447,30 @@ Abbildung~\ref{fig:3-4}) an den Kennlinienschreiber an.
 
 \subsubsection{Bipolarer Transistor}
 
-\fehlt
+\paragraph{Aufnahme der Kennlinen}
+
+Wir lassen die Schaltung von unserem Assistenten überprüfen. Danach schalten
+wir das Netzgerät ein und erhalten nach Justierung das Kennlinienfeld, siehe
+Abbildung~\ref{fig:fehlt}.
+
+Den Kollektorstrom $\IC$ haben wir indirekt gemessen, in dem wir die
+Spannungsdifferenz vor und nach dem Widerstand $\RC$ mit dem Oszilloskop
+sichtbar gemacht haben. Da $\RC = \SI{500}\ohm$ ist, können wir die Spannung so
+in einen Strom umwandeln.
+
+\paragraph{Bestimmung von $\beta$}
+
+Aus dem Graph in Abbildung~\ref{fig:fehlt} lesen den Abstand zwischen zwei
+Kennlinien, $\dif\IC$, ab. Wir wählen Kennline $\messwert$ und $\messwert$, und
+erhalten eine Differenz von \SI{<< dIC >>}{\micro\ampere}. Mit $\dif\IB =
+\SI{6}{\micro\ampere}$ erhalten wir:
+\[
+	\beta = \dod\IC\IB = \num{<< beta >>}
+\]
+
+Die Nummer unseres \emph{Schaltbrett 1} ist: \fehlt
+
+\paragraph{Arbeitspunkt}
 
 \subsubsection{FET}
 
