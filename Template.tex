@@ -25,7 +25,9 @@
 \newcommand\IE{I_\text{E}}
 \newcommand\RC{R_\text{C}}
 \newcommand\RE{R_\text{E}}
+\newcommand\UBE{U_\text{BE}}
 \newcommand\UCE{U_\text{CE}}
+\newcommand\UGS{U_\text{GS}}
 
 \begin{document}
 
@@ -502,9 +504,20 @@ auseinander liegen. Es soll die Spannung $\UCE$ für den Arbeitspunkt $\IB =
 verlängert werden. Die gewünschte Linie ist dann die zehnte Linie. Aus dem
 erweiterten Kennlinienfeld in
 Abbildung~\ref{fig:refactor_Kennlinienfeld_erweitert} lesen wir die Spannung
-ab: $\messwert$.
+$\UCE$ ab: $\messwert$.
 
 \subsubsection{FET}
+
+\paragraph{Aufnahme der Kennlinien}
+
+Wir benutzen den gleichen Aufbau, wie in der vorherigen Aufgabe. Den bipolaren
+Transistor ersetzen wir durch einen FET. Da dieser mit einer Spannung gesteuert
+wird, müssen wir den Basisstrom $\IB$ erst noch in eine Basis-Emitter-Spannung $\UBE$
+umwandeln. Bei FETs heißt diese jedoch Gate-Source-Spannung, $\UGS$. Wir
+schließen also einen Widerstand zwischen Gate und Source an. Dazu benutzen wir
+ein \SI{470}{\kilo\ohm}-Potentiometer.
+
+\paragraph{Bestimmung der Schwellenspannung und Transkonduktanz}
 
 \fehlt
 
