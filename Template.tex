@@ -26,7 +26,9 @@
 \newcommand\RC{R_\text{C}}
 \newcommand\RE{R_\text{E}}
 \newcommand\UBE{U_\text{BE}}
+\newcommand\UB{U_\text{B}}
 \newcommand\UCE{U_\text{CE}}
+\newcommand\UE{U_\text{E}}
 \newcommand\UGS{U_\text{GS}}
 
 \begin{document}
@@ -560,8 +562,23 @@ erweitert, in Abbildung~\ref{fig:beuth-bild-16-21} dargestellt.
 Das Netzgerät mit $U_0 = \SI{15}\volt$ wird an das Schaltbrett angeschlossen.
 Wir setzen $\RC = \RE = \SI{390}\ohm$ ein, wie in der Anleitung beschrieben.
 Als Signal stellen wir ein Sinussignal mit $\dif\UBE = \SI{.5}{\voltss}$ und
-einer Frequenz $f = \SI{500}\hertz$ ein. Daraus kommt ein Offset von
+einer Frequenz $f = \SI{500}\hertz$ ein. Dazu kommt ein Offset von
 \SI{2}{\volt}.
+
+Das Oszilloskop wir mit Kanal~1 an das Signal des Funktionsgenerators
+angeschlossen. Kanal~2 kommt Emitter und Emitterwiderstand $\RE$, da es sich um
+eine Kollektorschaltung handelt.
+
+Wir vergleichen die Eingangs- und Ausgangsspannung, $\UB$ bzw. $\UE$. auf dem Oszilloskop.
+
+\textcolor{gray}{
+	(Dies habe ich mir nur überlegt, sollte durch die Messung ersetzt werden.)
+	Eingangs- und Ausgangspannung haben die gleiche Phase. Das liegt daran,
+	dass ein höherer Basisstrom $\IB$ einen höheren Kollektorstrom $\IC$
+	erlaubt, da weniger Spannung $\UCE$ abfällt. Dies führt dazu, dass mehr
+	Strom durch den Emitterwiderstand $\RE$ fließt und somit mehr Spannung
+	$\UE$ abfällt.
+}
 
 \subsubsection{Spannungsverstärkung}
 
