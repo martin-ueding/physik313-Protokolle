@@ -24,6 +24,7 @@
 \newcommand\IC{I_\text{C}}
 \newcommand\IE{I_\text{E}}
 \newcommand\RC{R_\text{C}}
+\newcommand\RE{R_\text{E}}
 \newcommand\UCE{U_\text{CE}}
 
 \begin{document}
@@ -451,7 +452,7 @@ Abbildung~\ref{fig:3-4}) an den Kennlinienschreiber an.
 
 Wir lassen die Schaltung von unserem Assistenten überprüfen. Danach schalten
 wir das Netzgerät ein und erhalten nach Justierung das Kennlinienfeld, siehe
-Abbildung~\ref{fig:fehlt}.
+Abbildung~\ref{fig:refactor_Kennlinienfeld}.
 
 Den Kollektorstrom $\IC$ haben wir indirekt gemessen, in dem wir die
 Spannungsdifferenz vor und nach dem Widerstand $\RC$ mit dem Oszilloskop
@@ -460,10 +461,10 @@ in einen Strom umwandeln.
 
 \paragraph{Bestimmung von $\beta$}
 
-Aus dem Graph in Abbildung~\ref{fig:fehlt} lesen den Abstand zwischen zwei
-Kennlinien, $\dif\IC$, ab. Wir wählen Kennline $\messwert$ und $\messwert$, und
-erhalten eine Differenz von \SI{<< dIC >>}{\micro\ampere}. Mit $\dif\IB =
-\SI{<< dIB >>}{\ampere}$ erhalten wir:
+Aus dem Graph in Abbildung~\ref{fig:refactor_Kennlinienfeld} lesen den Abstand
+zwischen zwei Kennlinien, $\dif\IC$, ab. Wir wählen Kennline $\messwert$ und
+$\messwert$, und erhalten eine Differenz von \SI{<< dIC >>}{\micro\ampere}. Mit
+$\dif\IB = \SI{<< dIB >>}{\ampere}$ erhalten wir:
 \[
 	\beta = \dod\IC\IB = \num{<< beta >>}
 \]
@@ -471,6 +472,28 @@ erhalten eine Differenz von \SI{<< dIC >>}{\micro\ampere}. Mit $\dif\IB =
 Die Nummer unseres \emph{Schaltbrett 1} ist: $\messwert$
 
 \paragraph{Arbeitspunkt}
+
+Die Arbeitsgerade ist in der Anleitung gegeben als:
+\cite[Formel~3/4.6]{physik313-Anleitung}
+\begin{equation}
+	\label{eq:3_4-6}
+	\IC = \frac{U_0 - \UCE}{\RC + \RE}
+\end{equation}
+
+Mit $\RC = \RE = \SI{390}\ohm$ und einer Betriebspannung von $U_0 =
+\SI{15}\volt$ können wir eine Gerade einzeichnen. Die Spurpunkte sind:
+\[
+	\del{\UCE = \SI0\volt; \IC = \frac{U_0}{\RC + \RE} = \SI{19.2}{\milli\ampere}}
+	\eqnsep
+	\del{\UCE = U_0 = \SI{15}\volt; \IC = \SI0\ampere}
+\]
+
+Aus diesem Grund sollten wir bereits beim Abzeichnen des Kennlinienfeldes
+darauf achten, dass $\UCE$ einen Bereich bis $\SI{15}\volt$ und $\IC$ einen
+Bereich bis $\SI{20}{\milli\ampere}$ umfasst.
+
+Wir zeichnen diese Gerade in den Graph in Abbildung
+\ref{fig:refactor_Kennlinienfeld} ein.
 
 \subsubsection{FET}
 
