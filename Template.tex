@@ -598,6 +598,49 @@ spannungsverstaerkung >>}$.
 
 \fehlt
 
+\paragraph{Arbeitspunkteinstellung}
+
+Wir ersetzen nun den DC-Offset am Funktionsgenerator mit einer
+Basisvorspannung, die wir mit dem Spannungsteiler erzeugen. In der Anleitung
+steht: „Fügen Sie dazu einen geeigneten Kondensator in Serie hinter dem
+\SI{10}{\kilo\ohm}-Widerstand ein.“ Auf \emph{Schaltbrett 1} gibt es jedoch
+drei solche Widerstände, wobei einer davon ein Potentiometer ist. Der
+Kondensator soll hinter den linken Widerstand. Dies habe ich in blau in
+Abbildung~\ref{fig:3-4_Arbeitspunkt} dargestellt. In grün und blau sind
+einfache Kabelbrücken.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{Anleitung/3-4_Arbeitspunkt.png}
+	\caption{
+		\emph{Schaltbrett 2} mit Beschaltung. Originalbild ist in
+		Abbildung~\ref{fig:3-4} und aus
+		\cite[Abbildung~3.4]{physik313-Anleitung}.
+	}
+	\label{fig:3-4_Arbeitspunkt}
+\end{figure}
+
+Der Kondensator hat nicht direkt etwas mit der Einstellung der Basisvorspannung
+zu tun. Diese ist mit dem blauen Kontakt schon eingestellt. Der Kondensator
+dient dazu, den Funktionsgenerator von der Gleichspannung zu entkoppeln, sowie
+eine eventuell verbleibende Offsetspannung vom Signal zu trennen.
+
+Wenn der Kondensator zu klein ist, ist seine Impedanz zu hoch, das
+Eingangssignal wird geschwächt.
+
+\textcolor{gray}{
+	Die Eigenschaften der Schaltung sollten jetzt etwas anders sein, weil der
+	Kondensator das Eingangssignal differenziert. Bei einer Sinusspannung
+	bedeutet das nur eine Phasenverschiebung um $\piup/2$. Somit sind die
+	beiden Signale auf den Kanälen des Oszilloskops im Vergleich zu vorher
+	miteinander verschoben.
+}
+
+Wir verändern den Spannungsteiler um zu schauen, wann der Aussteuerungsbereich
+der Schaltung am größten ist.
+
+\fehlt
+
 \FloatBarrier
 \subsection{FET}
 
