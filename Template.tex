@@ -250,7 +250,24 @@ der Strom $I_1$ fließt durch $R_2$ hindurch.
 	Welcher Spannung entspricht dort $U_\text{thr}$?
 \end{problem}
 
-\fehlt
+Die „entsprechende Kennlinie“ ist der Graph von $\ID$ gegen $\UGS$. Bei einem
+bipolaren Transistor ist dies $\IC$ gegen $\UBE$.
+
+Die Kennlinie sieht genauso aus, wie die einer normalen Diode, da Basis und
+Emitter eine normale Diode sind. Die Kennlinie ist in
+Abbildung~\ref{fig:beuth-bild-16-9} gezeigt.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.5\textwidth]{beuth-bild-16-9.jpg}
+	\caption{%
+		\cite[Bild~16.9]{beuth/elementare_elektronik}
+	}
+	\label{fig:beuth-bild-16-9}
+\end{figure}
+
+Die Spannung $U_\text{thr}$ entspricht hier der Spannung, die die Diode
+braucht, bis sie leitend wird, also $\SI{.6}\volt$.
 
 \FloatBarrier
 \subsection{Aufgabe J}
@@ -501,14 +518,14 @@ Damit auf dem Oszilloskop die Spannungsdifferenz angezeigt wird, invertieren
 wir Kanal~2 und addieren ihn auf Kanal~1. Für die Kennlinien stellen wir
 außerdem den XY-Betrieb ein.
 
-Wir schließen den Transistor vom \emph{Schaltbrett 1} (siehe
+Wir schließen den Transistor vom \emph{Schaltbrett~1} (siehe
 Abbildung~\ref{fig:3-4}) an den Kennlinienschreiber an.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Anleitung/3-4.png}
 	\caption{
-		\emph{Schaltbrett 1} \cite[Abbildung~3.4]{physik313-Anleitung}
+		\emph{Schaltbrett~1} \cite[Abbildung~3.4]{physik313-Anleitung}
 	}
 	\label{fig:3-4}
 \end{figure}
@@ -536,7 +553,7 @@ $\dif\IB = \SI{<< dIB >>}{\ampere}$ erhalten wir:
 	\beta = \dod\IC\IB = \num{<< beta >>}
 \]
 
-Die Nummer unseres \emph{Schaltbrett 1} ist: $\messwert$
+Die Nummer unseres \emph{Schaltbrett~1} ist: $\messwert$
 
 \paragraph{Arbeitspunkt}
 
@@ -591,6 +608,7 @@ ganz exakt, da der Widerstand nicht unendlich groß ist und so alle Ströme etwa
 verändert.
 
 \paragraph{Bestimmung der Schwellenspannung und Transkonduktanz}
+\label{par:Schwellenspannung}
 
 \fehlt
 
@@ -599,7 +617,7 @@ verändert.
 
 \subsubsection{Aufbau}
 
-Auf dem \emph{Schaltbrett 1} (Abbildung~\ref{fig:3-4}) bauen wir einen
+Auf dem \emph{Schaltbrett~1} (Abbildung~\ref{fig:3-4}) bauen wir einen
 Emitterfolger (Kollektorschaltung) auf. Eine solche ist, mit Kapazitäten
 erweitert, in Abbildung~\ref{fig:beuth-bild-16-21} dargestellt.
 
@@ -657,7 +675,7 @@ spannungsverstaerkung >>}$.
 Wir ersetzen nun den DC-Offset am Funktionsgenerator mit einer
 Basisvorspannung, die wir mit dem Spannungsteiler erzeugen. In der Anleitung
 steht: „Fügen Sie dazu einen geeigneten Kondensator in Serie hinter dem
-\SI{10}{\kilo\ohm}-Widerstand ein.“ Auf \emph{Schaltbrett 1} gibt es jedoch
+\SI{10}{\kilo\ohm}-Widerstand ein.“ Auf \emph{Schaltbrett~1} gibt es jedoch
 drei solche Widerstände, wobei einer davon ein Potentiometer ist. Der
 Kondensator soll hinter den linken Widerstand. Dies habe ich in blau in
 Abbildung~\ref{fig:3-4_Arbeitspunkt} dargestellt. In rot und grün sind
@@ -667,7 +685,7 @@ einfache Kabelbrücken.
 	\centering
 	\includegraphics[width=\textwidth]{Anleitung/3-4_Arbeitspunkt.png}
 	\caption{
-		\emph{Schaltbrett 2} mit Beschaltung. Originalbild ist in
+		\emph{Schaltbrett~2} mit Beschaltung. Originalbild ist in
 		Abbildung~\ref{fig:3-4} und aus
 		\cite[Abbildung~3.4]{physik313-Anleitung}.
 	}
@@ -698,7 +716,7 @@ der Schaltung am größten ist.
 \FloatBarrier
 \subsection{FET}
 
-Auf dem \emph{Schaltbrett 2} (Abbildung~\ref{fig:3-5}) bauen wir eine
+Auf dem \emph{Schaltbrett~2} (Abbildung~\ref{fig:3-5}) bauen wir eine
 Emitterfolgerschaltung (Kollektorschaltung) mit dem Bipolartransistor auf.
 Dabei setzen wir $\RC = \SI0\ohm$ und den Emitterwiderstand im Bereich
 \SIrange{1}{2}{\kilo\ohm}.
@@ -709,20 +727,41 @@ Dabei setzen wir $\RC = \SI0\ohm$ und den Emitterwiderstand im Bereich
 	gegangen wird?
 }
 
+Die Schaltung wird mit \SI{10}{\volt} Gleichstrom versorgt. Als Eingangssignal
+in die Basis des Transistors geben wir ein Sinussignal mit \SI1{\kilo\hertz}
+und \SI{2}{\voltss}. Außerdem stellen wir einen Offset von etwa \SI5{\volt}
+ein.
+
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Anleitung/3-5.png}
 	\caption{
-		\emph{Schaltbrett 2} \cite[Abbildung~3.5]{physik313-Anleitung}
+		\emph{Schaltbrett~2} \cite[Abbildung~3.5]{physik313-Anleitung}
 	}
 	\label{fig:3-5}
 \end{figure}
 
-\fehlt
+Wir beobachen das Eingangssignal sowie das Signal, das aus dem Emitter kommt,
+mit den beiden Kanälen des Oszilloskops. Dazu stellen wir auf beiden Kanälen
+die gleiche Verstärkung und den gleichen $y$-Offset ein. Die Kanäle werden auf
+DC gekoppelt, damit auch die Basisvorspannung zu sehen ist.
+
+Der Offset wird varriert, dabei beobachten wir \fehlt.
+
+Als nächstes bauen wir eine vergleichbare Schaltung, diesmal allerdings mit dem
+FET. Die Schaltung heißt nicht mehr Emitterfolgerschaltung sondern
+Sourcefolgerschaltung, da beim FET die englischen Begriffe benutzt werden. Wir
+überprüfen die Funktion der Schaltung und verändern den DC-Offset und
+beobachten \fehlt.
+
+Wir bestimmen $U_\text{thr}$ zu $\messwert$. Im Vergleich zu der Messung der
+Schwellenspannung, die wir auf Seite \pageref{par:Schwellenspannung} gemessen
+haben, \fehlt
 
 \subsubsection{Eingangswiderstand}
 
-\fehlt
+In dieser Versuchsaufgabe wollen wir die Eingangswiderstände der Transistoren
+als unbelastete Emitterfolger abschätzen.
 
 Den Sinusgenerator nehmen wir aus der Buchse~B1 heraus. Mit einer Drahtbrücke
 koppeln wir den \SI1{\micro\farad}-Kondensator ein. Das Oszilloskop hat einen
@@ -733,7 +772,31 @@ die Entladung des Kondensators sein:
 \]
 
 Die Halbwertszeit $T_{1/2}$ ist um $1/\ln(2)$ kleiner, also $\SI{.69}\second$.
-Wir beobachten eine Halbwertszeit von $\messwert$. \fehlt
+Wir beobachten eine Halbwertszeit von $\messwert$.
+
+\TODO{
+	Übereinstimmung mit Erwartung
+}
+
+Der bipolare Transistor wird wieder als Emitterfolger eingesetzt. Buchse~1 wird
+mit einem kurzen BNC Kabel an die Basis angeschlossen. Mit dem Oszilloskop
+beobachen wir die Spannung am Emitter, also am Ausgang des Verstärkers. Wir
+beobachten die neue Abfallszeit. Diese ist anders, da der Kondensator jetzt
+über einen anderen Widerstand entlädt, den Transistor. Wir beobachten eine
+Abfallzeit von $\messwert$.
+
+Aus diesem Verhältnis bestimmen wir die Stromverstärkung. Diese ist definiert
+als:
+\[
+	B := \frac\IC\IB
+	\eqnsep
+	\beta := \frac{\dif\IC}{\dif\IB}
+\]
+
+\FRAGE{
+	In der Anleitung werden noch weitere Stromverstärkungsgrößen, $\alpha$ und
+	$\gamma$ definiert. Welche dieser Größen ist denn jetzt die Richtige?
+}
 
 \fehlt
 
