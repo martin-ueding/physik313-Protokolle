@@ -410,7 +410,21 @@ Die zitierte Gleichung ist:
 	= \frac{\mathrm d v_0}{v_0} \frac{v}{v_0}
 \end{equation}
 
-\fehlt
+Aus 
+
+\begin{align*}
+	\frac 1v &= \frac 1{v_0} + k
+	\intertext{folgt:}
+	v &= \frac {v_0}{1+kv_0}
+	\intertext{Daraus ergibt sich}
+	\dod {v}{v_0} &= \frac {1+kv_0-kv_0}{\del{1+kv_0}^2}\\
+	&= \frac 1{\del{1+kv_0}^2}\\
+	&= \frac {v_0}{1+kv_0} \frac 1{v_0\del{1+kv_0}}\\
+	&= \frac v{v_0} \frac 1{1+kv_0}
+	\intertext{Hieraus erhält man die gesuchte Gleichung}
+	\frac {\dif v}v &= \frac {\dif v_0}{v_0} \frac 1{1+kv_0} = \frac {\dif
+v_0}{v_0} \frac v{v_0}
+\end{align*}
 
 \FloatBarrier
 \subsection{Aufgabe Q}
