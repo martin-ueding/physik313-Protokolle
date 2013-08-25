@@ -12,6 +12,7 @@ physik313-2-Ueding_Lemmer.tex: crunch Template.tex
 	if [[ -f $@ ]]; then chmod +w $@; fi
 	./$^
 	chmod -w $@
+	cd Zeichnungen && ./split
 	for d in Daten*.pdf; \
 		do \
 		pdfcrop $$d $$d;\
