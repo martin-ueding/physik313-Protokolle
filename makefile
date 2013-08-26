@@ -3,15 +3,13 @@
 
 SHELL = /bin/bash
 
-all: physik313-3_4-Ueding_Lemmer.pdf
+all: physik313-3-Ueding_Lemmer.pdf physik313-4-Ueding_Lemmer.pdf
 
 %.pdf: %.tex
 	latexmk -pdf $<
 
-physik313-3_4-Ueding_Lemmer.tex: crunch Template.tex
-	if [[ -f $@ ]]; then chmod +w $@; fi
+physik313-3-Ueding_Lemmer.tex physik313-4-Ueding_Lemmer.tex: crunch Template_3.tex Template_4.tex
 	./$^
-	chmod -w $@
 	shopt -s nullglob; \
 		for d in Daten*.pdf; \
 		do \
@@ -24,3 +22,4 @@ clean:
 	$(RM) *.o *.out
 	$(RM) *.pyc *.pyo
 	$(RM) *.orig
+	latexmk -C

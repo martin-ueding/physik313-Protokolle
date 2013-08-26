@@ -1,0 +1,344 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+\input{header.tex}
+
+\usepackage{placeins}
+
+\ihead{physik313 – Versuch 3/4}
+\ifoot{Lino Lemmer}
+
+\hypersetup{
+	pdftitle={Transistorverstärker}
+}
+
+\subject{Praktikumsprotokoll}
+\title{Transistorverstärker}
+\subtitle{physik313 – Versuch 4}
+\author{
+	Lino Lemmer \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
+}
+
+%\setcounter{tocdepth}{2}
+
+\newcommand\IB{I_\text{B}}
+\newcommand\IC{I_\text{C}}
+\newcommand\ID{I_\text{D}}
+\newcommand\IE{I_\text{E}}
+\newcommand\IS{I_\text{S}}
+\newcommand\RC{R_\text{C}}
+\newcommand\RE{R_\text{E}}
+\newcommand\UBE{U_\text{BE}}
+\newcommand\UB{U_\text{B}}
+\newcommand\UC{U_\text{C}}
+\newcommand\UCE{U_\text{CE}}
+\newcommand\UE{U_\text{E}}
+\newcommand\UGS{U_\text{GS}}
+
+\usepackage{tocloft}
+
+\newlistof{todo}{lotd}{TODO Liste}
+
+\newcommand{\FIXME}[1]{\printTODO{FIXME: #1}}
+\newcommand{\TODO}[1]{\printTODO{TODO: #1}}
+\newcommand{\XXX}[1]{\printTODO{XXX: #1}}
+\newcommand{\FRAGE}[1]{\printTODO{Rückfrage: #1}}
+
+\newcommand{\printTODO}[1]{
+	\par%
+	\textcolor{OrangeRed}{\textsf{#1}}%
+	\par%
+	\refstepcounter{todo}
+	\addcontentsline{lotd}{todo}{#1}
+}
+
+
+\begin{document}
+
+\maketitle
+
+Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
+\ref{it:mu} eingesehen werden. Die Quellen für dieses Protokoll können auf
+\ref{it:github/alles} eingesehen werden. Die \LaTeX-Datei wird aus
+\ref{it:github/template} generiert.
+
+\begin{enumerate}
+	\item
+		\label{it:mu}
+		\url{http://martin-ueding.de/de/university/physik313/}
+	\item
+		\label{it:github/alles}
+		\url{https://github.com/martin-ueding/physik313-3_4/}
+	\item
+		\label{it:github/template}
+		\url{https://github.com/martin-ueding/physik313-3_4/blob/master/Template_4.tex}
+\end{enumerate}
+
+%\newpage
+\tableofcontents
+
+\listoftodo
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Einleitung                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Einleitung}
+
+\TODO{
+	Einleitung für den zweiten Tag schreiben.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Aufgaben                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Aufgaben}
+
+\FloatBarrier
+\subsection{Aufgabe O}
+
+\begin{problem}
+	Zeigen Sie, dass genauer gilt:
+	\begin{equation}
+		\label{eq:3_4-14}
+		v = - \frac{\beta \RC}{r_\text{BE} + \gamma \RE}
+	\end{equation}
+\end{problem}
+
+\begin{align*}
+	v &= \dod \UC\UB\\
+	  &= -\frac{\dif\IC\RC}{\dif\UBE + \dif\UE}\\
+	  &= -\frac{\dif\IC\RC}{\dif\UBE + \dif\IE\RE}\\
+	  &= -\frac{\od\IC\IB\RC}{\od\UBE\IB+\od\IE\IB\RE}\\
+	  &= -\frac{\beta\RC}{r_\text{BE}+\gamma\RE}
+\end{align*}
+
+\FloatBarrier
+\subsection{Aufgabe P}
+
+\begin{problem}
+	Beweisen Sie \eqref{eq:3_4-17}.
+\end{problem}
+
+Die zitierte Gleichung ist:
+\begin{equation}
+	\label{eq:3_4-17}
+	\frac{\dif  v} v
+	= \frac{\dif  v_0}{v_0} \frac{1}{k v_0 + 1}
+	= \frac{\dif  v_0}{v_0} \frac{v}{v_0}
+\end{equation}
+
+Aus 
+
+\begin{align*}
+	\frac 1v &= \frac 1{v_0} + k
+	\intertext{folgt:}
+	v &= \frac {v_0}{1+kv_0}
+	\intertext{Daraus ergibt sich}
+	\dod {v}{v_0} &= \frac {1+kv_0-kv_0}{\del{1+kv_0}^2}\\
+	&= \frac 1{\del{1+kv_0}^2}\\
+	&= \frac {v_0}{1+kv_0} \frac 1{v_0\del{1+kv_0}}\\
+	&= \frac v{v_0} \frac 1{1+kv_0}
+	\intertext{Hieraus erhält man die gesuchte Gleichung}
+	\frac {\dif v}v &= \frac {\dif v_0}{v_0} \frac 1{1+kv_0} = \frac {\dif
+v_0}{v_0} \frac v{v_0}
+\end{align*}
+
+\FloatBarrier
+\subsection{Aufgabe Q}
+
+\begin{problem}
+	Erklären sie, wieso die Kapazität $C_\text{CB}$ Einfluss auf die
+	Verstärkung hat.
+\end{problem}
+
+\TODO{Aufgabe Q fertigstellen}
+
+\FloatBarrier
+\subsection{Aufgabe R}
+
+\begin{problem}
+	Erklären Sie die Funktionsweise der Schaltung in
+	Abbildung~\ref{fig:3_4-15}! Wie groß ist die Spannungsänderung im Punkt P
+	bei einer Stromänderung $\dif  \IE(T2)$ und welche
+	Transistorgröße bestimmt diesen Wert?
+\end{problem}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.6\textwidth]{Anleitung/3_4-15.png}
+	\caption{%
+		\cite[Abbildung~3/4.15]{physik313-Anleitung}
+	}
+	\label{fig:3_4-15}
+\end{figure}
+
+\TODO{Aufgabe R fertigstellen}
+
+\FloatBarrier
+\subsection{Aufgabe S}
+
+\begin{problem}
+	Leiten Sie \eqref{eq:3_4-18} her. Hinweise: Da die Gegenkopplung bei
+	Betrachtung im Frequenzraum auf der Addition von Sinusschwingungen beruht
+	und wie in diesem Kapitel die Phasen ignoriert haben, ist hier
+	$v(f_\text{grenz gk}) = 2v(f=0)$ statt korrekterweise $\sqrt 2 v (f = 0)$.
+\end{problem}
+
+Die zitierte Gleichung ist:
+\begin{equation}
+	\label{eq:3_4-18}
+	f_\text{grenz gk} = f_\text{grenz} \frac{v_0}{v(f=0)}
+\end{equation}
+
+\TODO{Aufgabe S fertigstellen}
+
+\FloatBarrier
+\subsection{Aufgabe T}
+
+\begin{problem}
+	Erläutern Sie die Wirkungsweise der Art der Stabilisierung des
+	Basispotentials durch den Widerstand $R$ in Abbildung~\ref{fig:3_4-16}.
+	Überlegen Sie dazu, was passiert, wenn das Basispotential aus irgend einem
+	(äußeren) Grund „wegläuft“!
+\end{problem}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.6\textwidth]{Anleitung/3_4-16.png}
+	\caption{%
+		\cite[Abbildung~3/4.16]{physik313-Anleitung}
+	}
+	\label{fig:3_4-16}
+\end{figure}
+
+Da kein Emitterwiderstand in dieser Schaltung vorhanden ist, trennt Basis und
+Emitter nur \SI{.6}{\volt}. Der Widerstand zwischen Basis und Masse ist recht
+gering ab dieser Spannung, es kann also ein hoher Basisstrom fließen. Dieser
+wird jedoch durch $R_\text{in}$ aus $U_\text{in}$ begrenzt.
+
+Durch den Widerstand $R$ wird eine Basisvorspannung angelegt, die jedoch vom
+Kollektorstrom abhängt. Im Arbeitspunkt stellt sich folgende Basisspannung ein:
+\[
+	\UB = U_\text{in} - R_\text{in} I_\text{B in}
+	+ U_0 - \RC \IC - R I_R
+\]
+
+Der Strom $I_\text{B in}$ sollte unabhängig vom Strom $I_R$ sein und somit:
+\[
+	I_\text{B in} = \frac{U_\text{in} - \SI{.6}\volt}{R_\text{in}}
+\]
+
+Eingesetzt bleibt von $\UB$ nur noch folgendes übrig:
+\[
+	\UB = \SI{.6}\volt + U_0 - \RC \IC - R I_R
+\]
+
+Das liegt daran, dass $U_\text{in}$ einen so hohen Basistrom erzeugen würde,
+bis der Widerstand $R_\text{in}$ die meiste Spannung wieder verbrannt hat. Die
+Basisvorspannung muss also über $R$ laufen. Da über $R_\text{in}$ nur das
+kleine Wechselstromsignal kommen soll, passt dies auch.
+
+Je nach Bemessung von $R$ und $\RC$ wird sich ein gewisser Arbeitspunkt mit
+einer gewissen Basisspannung $\UB$ einstellen. Darauf hin wird ein Basisstrom
+$\IB$ fließen, der jedoch auf einen recht kleinen Widerstand trifft, solange
+$\UB \gtrsim \SI{.6}\volt$ gilt. Würde $\UB$ konstant bleiben, käme es hier zu
+einem beliebigen Anwachsen von $\IB$.
+
+Jedoch bedeutet ein höherer Basisstrom, der durch $R$ fließen muss, dass mehr
+Spannung über diesem abfällt und somit die Basisvorspannung gesenkt wird.
+Außerdem schaltet der Transistor einen höhreren Kollektorstrom $\IC$ frei,
+womit auch wieder mehr Strom über $\RC$ abfällt, das Basispotential rückt
+wieder näher zur Masse, es fließt weniger Basisstrom.
+
+Auf diese Weise wird ein unbeschränktes Anwachsen von $\IB$, und somit die
+Zerstörung des Transistors, verhindert werden.
+
+\FloatBarrier
+\subsection{Aufgabe U}
+
+\begin{problem}
+	An welche Stelle der Schaltung [Abbildung~\ref{fig:3_4-16}] würden Sie den
+	Kondensator setzen [, um die Rückkopplung wechselspannungsmäßig
+	aufzuheben]? (Tip: Man kann einen Widerstand teilen!)
+\end{problem}
+
+Um die Rückkopplung für Wechselspannungen aufzuheben, muss die Leitfähigkeit
+von $R$ für Wechselspannungen herabgesetzt werden. Es soll also ein
+Wechselstromwiderstand zu $R$ hinzukommen. Falls wir eine Induktivität zur
+Verfügung hätten, konnte man diese direkt hinter $R$ schalten. Dies würde für
+ausreichend hohe Frequenzen die Leitfähigkeit klein halten.
+
+Mit einem Kondensator, der seriell geschaltet wird, wird nur die
+Gleichspannung gesperrt. Mit einem Kondensator, der parallel geschaltet wird,
+wird der Wechselstromwiderstand gesenkt.
+
+\TODO{Aufgabe U fertigstellen}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                    Durchführung: Transistorverstärker                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Durchführung}
+
+\subsection{Fortsetung Emitterfolger}
+
+\subsubsection{Spannungsverstärkung des Emitterfolgers}
+
+\fehlt
+
+\subsubsection{Emitterfolger als Impedanzwandler}
+
+\fehlt
+
+\subsection{Invertierender Transistorverstärker (Emitterschaltung)}
+
+\subsubsection{Phasenbeziehung zwischen Ein- und Ausgang}
+
+\fehlt
+
+\subsubsection{Spannungsverstärkung des inverteierenden Verstärkers}
+
+\fehlt
+
+\subsubsection{Bestimmung des Transistoreingangswiderstands}
+
+\fehlt
+
+\subsection{Wechselstrommäßige Aufhebung der Gegenkopplung}
+
+\fehlt
+
+\subsection{Frequenzverhalten und Kaskodenschaltung}
+
+\fehlt
+
+\subsection{Verstärker mit Spannungsgegenkopplung}
+
+\fehlt
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.6\textwidth]{Anleitung/4-1.png}
+	\caption{
+		\cite[Abbildung~4.1]{physik313-Anleitung}
+	}
+	\label{fig:4-1}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Literatur                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de tw=79
