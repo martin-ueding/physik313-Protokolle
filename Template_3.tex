@@ -688,13 +688,8 @@ der Schaltung am größten ist.
 Auf dem \emph{Schaltbrett~2} (Abbildung~\ref{fig:3-5}) bauen wir eine
 Emitterfolgerschaltung (Kollektorschaltung) mit dem Bipolartransistor auf.
 Dabei setzen wir $\RC = \SI0\ohm$ und den Emitterwiderstand im Bereich
-\SIrange{1}{2}{\kilo\ohm}.
-
-\FRAGE{
-	Im Schaltbild ist ein \SI{100}{\ohm}-Widerstand eingezeichnet. Wo soll der
-	zusätzliche Widerstand hin, mit dem dann in den \si{\kilo\ohm}-Bereich
-	gegangen wird?
-}
+\SIrange{1}{2}{\kilo\ohm}. Dazu setzen wir einen \SI{1.8}{\kilo\ohm} hinter den
+schon vorhandenen \SI{100}{\ohm} Widerstand.
 
 Die Schaltung wird mit \SI{10}{\volt} Gleichstrom versorgt. Als Eingangssignal
 in die Basis des Transistors geben wir ein Sinussignal mit \SI1{\kilo\hertz}
@@ -710,12 +705,12 @@ ein.
 	\label{fig:3-5}
 \end{figure}
 
-Wir beobachen das Eingangssignal sowie das Signal, das aus dem Emitter kommt,
+Wir beobachten das Eingangssignal sowie das Signal, das aus dem Emitter kommt,
 mit den beiden Kanälen des Oszilloskops. Dazu stellen wir auf beiden Kanälen
 die gleiche Verstärkung und den gleichen $y$-Offset ein. Die Kanäle werden auf
 DC gekoppelt, damit auch die Basisvorspannung zu sehen ist.
 
-Der Offset wird varriert, dabei beobachten wir $\messwert$.
+Der Offset wird variiert, dabei beobachten wir $\messwert$.
 
 Als nächstes bauen wir eine vergleichbare Schaltung, diesmal allerdings mit dem
 FET. Die Schaltung heißt nicht mehr Emitterfolgerschaltung sondern
@@ -749,8 +744,8 @@ Wir beobachten eine Halbwertszeit von $\messwert$.
 
 Der bipolare Transistor wird wieder als Emitterfolger eingesetzt. Buchse~1 wird
 mit einem kurzen BNC Kabel an die Basis angeschlossen. Mit dem Oszilloskop
-beobachen wir die Spannung am Emitter, also am Ausgang des Verstärkers. Wir
-beobachten die neue Abfallszeit. Diese ist anders, da der Kondensator jetzt
+beobachten wir die Spannung am Emitter, also am Ausgang des Verstärkers. Wir
+beobachten die neue Abfallzeit. Diese ist anders, da der Kondensator jetzt
 über einen anderen Widerstand entlädt, den Transistor. Wir beobachten eine
 Abfallzeit von $\messwert$.
 
