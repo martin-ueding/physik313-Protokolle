@@ -11,8 +11,8 @@ import numpy as np
 import scipy.optimize as op
 
 def subsection1(T):
-    dIC_val = 1234 # A
-    dIC_err = 1234 # A
+    dIC_val = .6 * 2.e-3 # A
+    dIC_err = .1 * 2.e-3 # A
 
     dIB_val = 6.e-6 # A
 

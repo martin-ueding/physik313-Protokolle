@@ -486,13 +486,33 @@ Abbildung~\ref{fig:3-4}) an den Kennlinienschreiber an.
 	\label{fig:3-4}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Bipolarer Transistor}
 
 \paragraph{Aufnahme der Kennlinen}
 
 Wir lassen die Schaltung von unserem Assistenten überprüfen. Danach schalten
 wir das Netzgerät ein und erhalten nach Justierung das Kennlinienfeld, siehe
-Abbildung~\ref{fig:refactor_Kennlinienfeld}.
+Abbildung~\ref{fig:3}.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+		%\includegraphics[width=\linewidth]{Oszi_Hand/3-03.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/3-03.jpg}
+	\end{minipage}
+	\caption{%
+		Kennlinienfeld, $\IC$ gegen $\UCE$. Verstärkung
+		\SI{1}{\volt\per\division}, XY-Modus. Durch die Umwandlung des Stromes
+		$\IC$ in eine Spannung mit $\RC = \SI{500}\ohm$ entspricht ein
+		\si{\division} auf der $\IC$-Achse einem Strom von
+		\SI{2}{\milli\ampere}.
+	}
+	\label{fig:3}
+\end{figure}
 
 Den Kollektorstrom $\IC$ haben wir indirekt gemessen, in dem wir die
 Spannungsdifferenz vor und nach dem Widerstand $\RC$ mit dem Oszilloskop
@@ -501,15 +521,13 @@ in einen Strom umwandeln.
 
 \paragraph{Bestimmung von $\beta$}
 
-Aus dem Graph in Abbildung~\ref{fig:refactor_Kennlinienfeld} lesen den Abstand
-zwischen zwei Kennlinien, $\dif\IC$, ab. Wir wählen Kennline $\messwert$ und
-$\messwert$, und erhalten eine Differenz von \SI{<< dIC >>}{\micro\ampere}. Mit
+Aus dem Graph in Abbildung~\ref{fig:3} lesen den Abstand
+zwischen zwei Kennlinien, $\dif\IC$, ab. Wir wählen Kennline 5 und
+6 von unten, und erhalten eine Differenz von \SI{<< dIC >>}{\ampere}. Mit
 $\dif\IB = \SI{<< dIB >>}{\ampere}$ erhalten wir:
 \[
 	\beta = \dod\IC\IB = \num{<< beta >>}
 \]
-
-Die Nummer unseres \emph{Schaltbrett~1} ist: $\messwert$
 
 \paragraph{Arbeitspunkt}
 
@@ -535,6 +553,8 @@ Bereich bis $\SI{20}{\milli\ampere}$ umfasst.
 Wir zeichnen diese Gerade in den Graph in Abbildung
 \ref{fig:refactor_Kennlinienfeld_Gerade} ein.
 
+\TODO{Bild einscannen und Gerade einzeichnen}
+
 In der Anleitung war gegeben, dass die Kennlinien $(\SI{12}\volt -
 \SI{.7}\volt)/(4 \cdot \SI{470}{\kilo\ohm})$, also \SI{6.01}{\micro\ampere}
 auseinander liegen. Es soll die Spannung $\UCE$ für den Arbeitspunkt $\IB =
@@ -544,11 +564,13 @@ erweiterten Kennlinienfeld in
 Abbildung~\ref{fig:refactor_Kennlinienfeld_erweitert} lesen wir die Spannung
 $\UCE$ ab: $\messwert$.
 
+\TODO{Wert aus Graph ablesen}
+
 \subsubsection{FET}
 
 \paragraph{Aufnahme der Kennlinien}
 
-Wir benutzen den gleichen Aufbau, wie in der vorherigen Aufgabe. Den bipolaren
+Wir benutzen den gleichen Aufbau wie in der vorherigen Aufgabe. Den bipolaren
 Transistor ersetzen wir durch einen FET. Da dieser mit einer Spannung gesteuert
 wird, müssen wir den Basisstrom $\IB$ erst noch in eine Basis-Emitter-Spannung
 $\UBE$ umwandeln. Bei FETs heißt diese jedoch Gate-Source-Spannung, $\UGS$. Wir
