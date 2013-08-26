@@ -200,7 +200,53 @@ Zwischen $\alpha$ und $\beta$:
 	\label{fig:3_4-5}
 \end{figure}
 
-\TODO{Aufgabe E fertigstellen}
+Wir vernachlässigen $U_\text{CE sat}$, so dass der Transistor auch bei beliebig
+kleinen Spannungen $\UCE$ noch funktioniert. Die Ausgangsspannung, die gemessen
+wird, ist die Spannung zwischen Abgriff und Masse. Diese ist die
+Kollektorspannung $\UC$. Bei einem gegebenen Kollektorstrom $\IC$ kann die
+Ausgangsspannung auch berechnet werden durch:
+\[
+	U_\text{out} = U_0 - \IC\RC
+\]
+
+Die Frage ist nun also, welche Kollektorströme in dieser Schaltung fließen
+können.
+
+In der Anleitung steht, dass der Aussteuerbereich durch folgende
+Eckpunkte begrenzt wird:
+
+\begin{quote}
+	Die niedrigste Ausgangsspannung wird beim größtmöglichen Transistorstrom
+	$\IC$ und beim kleinstmöglichen Spannungsabfall am Transsistor $\UCE$
+	erreicht, und umgekehrt. \cite[§3/4.3.1]{physik313-Anleitung}
+\end{quote}
+
+Der größte Kollektorstrom, der fließen kann, wird durch $\RC$ und $\RE$
+begrenzt, wenn der Transistor eine unendliche Leitfähigkeit erreicht. Somit
+ist:
+\[
+	{\IC}_\text{max} = \frac{U_0}{\RC + \RE}
+\]
+
+Dadurch fällt eine minimale Spannung ab, nämlich:
+\[
+	{U_\text{out}}_\text{min} = U_0 \cdot \del{1 - \frac{\RC}{\RC + \RE}}
+\]
+
+Wenn wenn der Basisstrom $\IB$ minimal wird, weil durch das Signal $\UB$
+unter \SI{0.6}{\volt} fällt, wird der Widerstand des Transistors sehr groß.
+Wenn dieser dabei deutlich größer als $\RC$ wird, wird die rechte Seite der
+Schaltung zu einem unbelasteten Spannungsteiler, die Spannung $U_0$ fällt
+komplett über dem Transistor ab. Dadurch fällt keine Spannung über $\RC$ ab,
+die Ausgangsspannung ist die volle Eingangsspannung. Also:
+\[
+	{U_\text{out}}_\text{max} = U_0
+\]
+
+Somit ist der Aussteuerbereich:
+\[
+	\intcc{U_0; U_0 \cdot \del{1 - \frac{\RC}{\RC + \RE}}}
+\]
 
 \FloatBarrier
 \subsection{Aufgabe F}
