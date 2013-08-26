@@ -539,7 +539,47 @@ Die zitierte Gleichung ist:
 	\label{fig:3_4-16}
 \end{figure}
 
-\TODO{Aufgabe T fertigstellen}
+Da kein Emitterwiderstand in dieser Schaltung vorhanden ist, trennt Basis und
+Emitter nur \SI{.6}{\volt}. Der Widerstand zwischen Basis und Masse ist recht
+gering ab dieser Spannung, es kann also ein hoher Basisstrom fließen. Dieser
+wird jedoch durch $R_\text{in}$ aus $U_\text{in}$ begrenzt.
+
+Durch den Widerstand $R$ wird eine Basisvorspannung angelegt, die jedoch vom
+Kollektorstrom abhängt. Im Arbeitspunkt stellt sich folgende Basisspannung ein:
+\[
+	\UB = U_\text{in} - R_\text{in} I_\text{B in}
+	+ U_0 - \RC \IC - R I_R
+\]
+
+Der Strom $I_\text{B in}$ sollte unabhängig vom Strom $I_R$ sein und somit:
+\[
+	I_\text{B in} = \frac{U_\text{in} - \SI{.6}\volt}{R_\text{in}}
+\]
+
+Eingesetzt bleibt von $\UB$ nur noch folgendes übrig:
+\[
+	\UB = \SI{.6}\volt + U_0 - \RC \IC - R I_R
+\]
+
+Das liegt daran, dass $U_\text{in}$ einen so hohen Basistrom erzeugen würde,
+bis der Widerstand $R_\text{in}$ die meiste Spannung wieder verbrannt hat. Die
+Basisvorspannung muss also über $R$ laufen. Da über $R_\text{in}$ nur das
+kleine Wechselstromsignal kommen soll, passt dies auch.
+
+Je nach Bemessung von $R$ und $\RC$ wird sich ein gewisser Arbeitspunkt mit
+einer gewissen Basisspannung $\UB$ einstellen. Darauf hin wird ein Basisstrom
+$\IB$ fließen, der jedoch auf einen recht kleinen Widerstand trifft, solange
+$\UB \gtrsim \SI{.6}\volt$ gilt. Würde $\UB$ konstant bleiben, käme es hier zu
+einem beliebigen Anwachsen von $\IB$.
+
+Jedoch bedeutet ein höherer Basisstrom, der durch $R$ fließen muss, dass mehr
+Spannung über diesem abfällt und somit die Basisvorspannung gesenkt wird.
+Außerdem schaltet der Transistor einen höhreren Kollektorstrom $\IC$ frei,
+womit auch wieder mehr Strom über $\RC$ abfällt, das Basispotential rückt
+wieder näher zur Masse, es fließt weniger Basisstrom.
+
+Auf diese Weise wird ein unbeschränktes Anwachsen von $\IB$, und somit die
+Zerstörung des Transistors, verhindert werden.
 
 \FloatBarrier
 \subsection{Aufgabe U}
