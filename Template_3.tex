@@ -754,7 +754,7 @@ spannungsverstaerkung >>}$.
 
 Am Signalgenerator wird nun die Amplitude variiert um die untere und obere
 Aussteuergrenze zu ermitteln. Fällt das Eingangssignal dabei unter
-\SI{0.3}\volt wird das Ausgangssignal abgeschnitten. Dieser Wert
+\SI{0.3}{\volt} wird das Ausgangssignal abgeschnitten.
 
 Durch weiteres Aufdrehen bis zur maximalen Amplitude des Generators konnten
 wir keine Signalverzerrung feststellen. Der Theorie nach hätten wir ab einer
@@ -794,7 +794,11 @@ dient dazu, den Funktionsgenerator von der Gleichspannung zu entkoppeln, sowie
 eine eventuell verbleibende Offsetspannung vom Signal zu trennen.
 
 Wenn der Kondensator zu klein ist, ist seine Impedanz zu hoch, das
-Eingangssignal wird geschwächt.
+Eingangssignal wird zu stark geschwächt. Es findet eine Phasenverschiebung
+statt, die größer wird je kleiner der Kondensator ist.
+
+Bei einem \SI{10}{\micro\farad}-Kondensator war weder eine Dämpfung, noch eine
+Phasenverschiebung erkennbar.
 
 \textcolor{gray}{
 	Die Eigenschaften der Schaltung sollten jetzt etwas anders sein, weil der
