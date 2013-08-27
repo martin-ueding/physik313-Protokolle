@@ -734,10 +734,10 @@ Dabei setzen wir $\RC = \SI0\ohm$ und den Emitterwiderstand im Bereich
 \SIrange{1}{2}{\kilo\ohm}. Dazu setzen wir einen \SI{1.8}{\kilo\ohm} hinter den
 schon vorhandenen \SI{100}{\ohm} Widerstand.
 
-Die Schaltung wird mit \SI{10}{\volt} Gleichstrom versorgt. Als Eingangssignal
-in die Basis des Transistors geben wir ein Sinussignal mit \SI1{\kilo\hertz}
-und \SI{2}{\voltss}. Außerdem stellen wir einen Offset von etwa \SI5{\volt}
-ein.
+Die Schaltung wird mit \SI{10}{\volt} Gleichspannung versorgt. Als
+Eingangssignal in die Basis des Transistors geben wir ein Sinussignal mit
+\SI1{\kilo\hertz} und \SI{2}{\voltss}. Außerdem stellen wir einen Offset von
+etwa \SI5{\volt} ein.
 
 \begin{figure}[htbp]
 	\centering
@@ -753,17 +753,44 @@ mit den beiden Kanälen des Oszilloskops. Dazu stellen wir auf beiden Kanälen
 die gleiche Verstärkung und den gleichen $y$-Offset ein. Die Kanäle werden auf
 DC gekoppelt, damit auch die Basisvorspannung zu sehen ist.
 
-Der Offset wird variiert, dabei beobachten wir $\messwert$.
+Der Offset wird variiert, dabei beobachten wir, wie die Ausgangsspannung
+ungefähr \SI{.6}{\volt} unterhalb der Eingangsspannung liegt. Außerdem erhalten
+wir nur ein Ausgangssignal, wenn die Spannung oberhalb dieser Grenzspannung
+liegt. Siehe Abbildung~\ref{fig:Folger}.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.3\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/3-08.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.3\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/3-10.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.3\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/3-11.jpg}
+	\end{minipage}
+	\caption{%
+		Variation des Offsets. Verstärkung \SI{1}{\volt\per\division}.
+	}
+	\label{fig:Folger}
+\end{figure}
 
 Als nächstes bauen wir eine vergleichbare Schaltung, diesmal allerdings mit dem
 FET. Die Schaltung heißt nicht mehr Emitterfolgerschaltung sondern
 Sourcefolgerschaltung, da beim FET die englischen Begriffe benutzt werden. Wir
 überprüfen die Funktion der Schaltung und verändern den DC-Offset und
-beobachten $\messwert$.
+beobachten, dass die Schaltung im wesentlichen gleich funktioniert.
 
-Wir bestimmen $U_\text{thr}$ zu $\messwert$. Im Vergleich zu der Messung der
-Schwellenspannung, die wir auf Seite \pageref{par:Schwellenspannung} gemessen
+Wir bestimmen $U_\text{thr}$ zu \SI{1.4}{\volt}. Im Vergleich zu der Messung der
+Schwellenspannung, die wir auf Seite~\pageref{par:Schwellenspannung} gemessen
 haben, $\messwert$.
+
+\TODO{
+	Mit Schwellenspannung auf Seite~\pageref{par:Schwellenspannung}
+	vergleichen.
+}
 
 \subsubsection{Eingangswiderstand}
 
@@ -779,18 +806,21 @@ die Entladung des Kondensators sein:
 \]
 
 Die Halbwertszeit $T_{1/2}$ ist um $1/\ln(2)$ kleiner, also $\SI{.69}\second$.
-Wir beobachten eine Halbwertszeit von $\messwert$.
-
-\TODO{
-	Übereinstimmung mit Erwartung
-}
+Wir beobachten eine Halbwertszeit von \SI{0.64}{\second}.
 
 Der bipolare Transistor wird wieder als Emitterfolger eingesetzt. Buchse~1 wird
 mit einem kurzen BNC Kabel an die Basis angeschlossen. Mit dem Oszilloskop
-beobachten wir die Spannung am Emitter, also am Ausgang des Verstärkers. Wir
-beobachten die neue Abfallzeit. Diese ist anders, da der Kondensator jetzt
+beobachten wir die Spannung am Emitter, also am Ausgang des Verstärkers. Der
+Transistor wird am Kollektor mit Strom versorgt, am Emitter haben wir keinen
+Widerstand eingesetzt. Die Entladung hat nur über den \SI{1}{\mega\ohm}
+Eingangswiderstand am Oszilloskop stattgefunden. In der Anleitung steht, dass
+man einen Widerstand im Bereich \SIrange{1}{2}{\kilo\ohm} als $\RE$ benutzen
+soll. Dies haben wir versucht, jedoch war die Entladung dann so schnell, dass
+sie nicht mehr sinnvoll zu beobachten war.
+
+Wir beobachten die neue Abfallzeit. Diese ist anders, da der Kondensator jetzt
 über einen anderen Widerstand entlädt, den Transistor. Wir beobachten eine
-Abfallzeit von $\messwert$.
+Abfallzeit von \SI{76}{\second}.
 
 Aus diesem Verhältnis bestimmen wir die Stromverstärkung. Diese ist definiert
 als:
@@ -808,6 +838,31 @@ als:
 \TODO{
 	Stromverstärkung herleiten.
 }
+
+Bei kleineren Kapazitäten wurde die Halbwertszeit deutlich geringer. Bei den
+kleinsten Kapazitäten soweit, dass sie mit dem Auge als instantan wahrgenommen
+worden sind. Wir haben die Zeitbasis am Oszilloskop so eingestellt, dass wir
+die Entladekurve beobachten konnte. Da keine Triggerung eingestellt worden ist,
+war die Entladung an einer beliebigen Stelle auf dem Schirm und hat nur
+aufgeblitzt. Wir haben versucht abzuschätzen, wie lange die Halbwertszeit ist,
+jedoch sind unsere Messungen nur Größenordnungen. Siehe
+Tabelle~\ref{tab:Halbwertszeiten}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SSSS}
+		{Kapazität / \si{\farad}} & {Oszilloskop alleine / \si\second} & {Bipoltransistor / \si\second} & {FET \/
+		\si\second} \\
+		\hline
+		1e-6 & .64 & 76 & .63 \\
+		10e-9 & 7.5e-3 & .8 & 10e-3 \\
+		100e-12 & 1e-3 & 20e-3 & .5e-3
+	\end{tabular}
+	\caption{
+		Halbwertszeiten bei den verschiedenen Transistoren
+	}
+	\label{tab:Halbwertszeiten}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
