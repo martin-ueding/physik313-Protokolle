@@ -584,16 +584,28 @@ verändert.
 \paragraph{Bestimmung der Schwellenspannung und Transkonduktanz}
 \label{par:Schwellenspannung}
 
-\TODO{
-	Durchführung einfügen.
-}
+\begin{figure}
+	\label{fig:4}
+	\begin{minipage}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Hand/3-04.jpg}
+	\end{minipage}
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/3-04.jpg}
+	\end{minipage}
+	\caption{%
+		Kennlinienfeld, $\ID$ gegen $\UDS$. Verstärkung $\SI
+		1{\volt\per\division}$, XY-Modus.
+	}
+\end{figure}
 
-\FRAGE{
-	Wie soll die Abhängigkeit des $\ID$ gegen $\UGS$ aus dem Feld extrahiert
-	werden? Das Feld ist diese Abhängigkeit. Sollen wir daraus einige Punkte
-	ablesen, damit wir plotten können? Sollen wir dann mit den diskretisierten
-	Punkten plotten und fitten?
-}
+Das Kennlinienfeld des FET ist in Abbildung \ref{fig:4} zu sehen. Um die
+Schwellenspannung und die Transkonduktanz bestimmen zu können muss die
+Abhängigkeit des Drainstromes $\ID$ von $\UGS$ bei konstantem $\UDS$ untersucht
+werden.
+
+Als feste $\UDS$ wähle ich \SI 2\volt. Ich erhalte folgenden Zusammenhang:
+
+\TODO{Tabelle und Plot: Abhängigkeit $\ID$ von $\UGS$}
 
 \FloatBarrier
 \subsection{Emitterfolger}
