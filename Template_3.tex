@@ -573,7 +573,10 @@ wird, müssen wir den Basisstrom $\IB$ erst noch in eine Basis-Emitter-Spannung
 $\UBE$ umwandeln. Bei FETs heißt diese jedoch Gate-Source-Spannung, $\UGS$. Wir
 schließen also einen Widerstand $R$ zwischen Gate und Source an. Dazu benutzen
 wir ein \SI{470}{\kilo\ohm}-Potentiometer. Wir justieren das Potentiometer so,
-dass möglichst viele Linien auf dem Oszilloskop zu sehen sind.
+dass möglichst viele Linien auf dem Oszilloskop zu sehen sind. Leider haben wir
+es bei der Durchführung versäumt, den eingestellten Wert von $R$ zu messen.
+Daher können wir jetzt nur einen Wert zwischen \SIrange{0}{470}{\kilo\ohm}
+annehmen und damit rechnen.
 
 Den Spannungsabstand $\dif\UGS$ erhalten wir durch $R \cdot
 \SI{6}{\micro\ampere}$, da, wie schon im vorherigen Abschnitt berechnet, die
@@ -596,7 +599,7 @@ verändert.
 		\includegraphics[width=\linewidth]{Oszi_Foto/3-04.jpg}
 	\end{minipage}
 	\caption{%
-		Kennlinienfeld, $\ID$ gegen $\UDS$. Verstärkung $\SI
+		Kennlinienfeld, $R \ID$ gegen $\UDS$. Verstärkung $\SI
 		1{\volt\per\division}$, XY-Modus.
 	}
 \end{figure}
