@@ -848,21 +848,79 @@ aufgeblitzt. Wir haben versucht abzuschätzen, wie lange die Halbwertszeit ist,
 jedoch sind unsere Messungen nur Größenordnungen. Siehe
 Tabelle~\ref{tab:Halbwertszeiten}.
 
+Zuletzt bauen wir mit dem FET einen Sourcefolger auf, der ebenfalls am Drain
+mit Spannung versorgt wird. Die Entladung findet nur über das Oszilloskop
+statt, auch hier haben wir keinen Emitterwiderstand benutzt. Die Entladezeiten
+waren alle extrem kurz. Zu erwarten wäre, laut Tutor, dass sich die Spannung
+selbst bei der kleinsten Kapazität nicht verändert. Bei unserem FET
+unterscheiden sich die Entladezeiten allerdings nicht von den Entladezeiten des
+Oszilloskops alleine.
+
 \begin{table}[htbp]
 	\centering
-	\begin{tabular}{SSSS}
+	\begin{tabular}{S|SSS}
 		{Kapazität / \si{\farad}} & {Oszilloskop alleine / \si\second} & {Bipoltransistor / \si\second} & {FET \/
 		\si\second} \\
 		\hline
-		1e-6 & .64 & 76 & .63 \\
-		10e-9 & 7.5e-3 & .8 & 10e-3 \\
-		100e-12 & 1e-3 & 20e-3 & .5e-3
+		%< for c, o, b, f in halbwertszeiten: >%
+		<< c >> & << o >> & << b >> & << f >> \\
+		%< endfor >%
 	\end{tabular}
 	\caption{
 		Halbwertszeiten bei den verschiedenen Transistoren
 	}
 	\label{tab:Halbwertszeiten}
 \end{table}
+
+Aus den Halbwertszeiten können wir die Widerstände errechnen:
+\[
+	R = \frac{T_{1/2}}{C \ln(2)}
+\]
+
+Die errechneten Widerstände sind in Tabelle~\ref{tab:Eingangswiderstaende}. Der
+\SI{1}{\mega\ohm}-Widerstand des Oszilloskop ist in der entsprechenden Spalte
+zu erkennen. Bei der letzten Kapazität ist unser Wert allerdings weniger genau.
+Der Bipolartransistor hat einen \emph{höheren} Widerstand als das Oszilloskop
+alleine. Dies ist zu erwarten, da wir nur über das Oszilloskop entladen haben.
+Um den eigentlichen Widerstand zu erhalten, muss man den gemessenen Wert vom
+Widerstand des Oszilloskops abziehen. Allerdings bleibt auch dann immer noch
+ein Widerstand in der Größenordnung \SI{1e8}{\ohm} übrig.
+
+Der gemessene Widerstand beim FET ist jedoch nur wenig größer als der des
+Oszilloskops. Dies bedeutet, dass der FET keinen besonders hohen
+Eingangswiderstand hat. In der Anleitung sind Widerstände von
+\SIrange{e12}{e15}{\ohm} angegeben. \cite[§3/4.4]{physik313-Anleitung}. In
+anderen Gruppen war die Entladezeit deutlich höher. Der von uns benutzte FET
+hatte wahrscheinlich einen defekt.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{S|SSS}
+		{Kapazität / \si{\farad}} & {Oszilloskop alleine / \si\ohm} &
+		{Bipoltransistor / \si\ohm} & {FET \/ \si\ohm} \\
+		\hline
+		%< for c, o, b, f in widerstaende: >%
+		<< "%.3g" % c >> & << "%.3g" % o >> & << "%.3g" % b >> & << "%.3g" % f >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{
+		Eingangswiderstände bei den verschiedenen Transistoren
+	}
+	\label{tab:Eingangswiderstaende}
+\end{table}
+
+Die Entladung mit der Kapazität vom BNC Kabel war noch deutlich schneller als
+bei der \SI{100}{\pico\farad}-Kapazität. In Simons Gruppe war zu sehen, dass
+die Kapazität des Kabels wohl in der gleichen Größenordnung wie
+\SI{100}{\pico\farad} ist. Sie hatten das Kabel auf Seite des Kondensators
+abgesteckt, entladen und wieder angesteckt. Die Spannung auf dem Oszilloskop
+war noch ungefähr halb so groß.
+
+In der Tabelle~1.1 aus der Anleitung ist eine spezifische Kapazität von
+\SI{100}{\pico\farad\per\meter} für RG-58C/U-Kabel gegeben. Das kurze Kabel war
+jedoch nur ungefähr \SI{15}{\centi\meter} lang. Wahrscheinlich haben Stecker
+und das Gate selbst noch eine Kapazität, so dass die Summe in der Größenordnung
+von \SI{100}{\pico\farad} liegt.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %

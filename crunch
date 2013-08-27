@@ -31,6 +31,21 @@ def subsection2(T):
     T["dU_B"] = g(U_B)
     T["spannungsverstaerkung"] = g(U_E/U_B)
 
+def subsection3(T):
+    data = np.genfromtxt("Halbwertszeiten.txt")
+
+    resistances = data[:, 1:] / np.log(2)
+    capacity = data[:, 0].transpose()
+    print(capacity)
+    print()
+    print(resistances)
+    print()
+    resistances = (resistances.T / capacity).T
+    print(resistances)
+
+    T["halbwertszeiten"] = data
+    T["widerstaende"] = np.column_stack([capacity, resistances])
+
 def g(value, error=None, digits=3):
     if error is None:
         return ("{:."+str(digits)+"g}").format(value)
@@ -75,6 +90,7 @@ def main():
 
     subsection1(T)
     subsection2(T)
+    subsection3(T)
 
     render_template(T)
 
