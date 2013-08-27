@@ -637,6 +637,8 @@ $n$ die Gatespannung $\UG$ wie folgt ausrechnen:
 	\UG = R n \cdot \SI{6}{\micro\ampere}
 \]
 
+Die umgerechneten Daten sind in Tabelle~\ref{tab:trans}.
+
 \begin{table}[htbp]
 	\centering
 	\begin{tabular}{SS}
@@ -649,14 +651,17 @@ $n$ die Gatespannung $\UG$ wie folgt ausrechnen:
 	\caption{%
 		Berechnete Daten aus Tabelle~\ref{tab:trans_raw}
 	}
-	\label{tab:trans_raw}
+	\label{tab:trans}
 \end{table}
+
+Die Daten plotte ich einmal $\ID$ gegen $\UG$ in Abbildung~\ref{fig:ID_UG} und
+einmal als $\sqrt\ID$ gegen $\UG$ in Abbildung~\ref{fig:ID_UG_sqrt}.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{ID_UG.pdf}
 	\caption{%
-		\fehlt
+		Drainstrom gegen Gatespannung bei konstanter Drainspannung
 	}
 	\label{fig:ID_UG}
 \end{figure}
@@ -665,13 +670,21 @@ $n$ die Gatespannung $\UG$ wie folgt ausrechnen:
 	\centering
 	\includegraphics[width=\textwidth]{ID_UG_sqrt.pdf}
 	\caption{%
-		\fehlt
+		Drainstrom gegen Gatespannung bei konstanter Drainspannung
 	}
 	\label{fig:ID_UG_sqrt}
 \end{figure}
 
 Dies fitte ich mit $\ID = k (\UG - U_\text{thr})^2$ und erhalte $k = \SI{<< k
->>}{\per\ohm}$ und $U_\text{thr} = \SI{<< Uthr >>}{\volt}$.
+>>}{\per\ohm}$ und $U_\text{thr} = \SI{<< Uthr >>}{\volt}$. Die Fits sind
+schon in den Abbildungen~\ref{fig:ID_UG} und \ref{fig:ID_UG_sqrt} eingetragen.
+
+%< if Uthr | float < 0: >%
+Es sollte keine negative Thresholdspannung herauskommen. In den weiteren
+Aufgaben hatten wir eine Spannung von \SI{1.4}{\volt} gemessen. Auch wenn wir
+den Widerstand $R$ nicht bestimmt hatten, sollte mindestens eine positive
+Spannung $U_\text{thr}$ herauskommen.
+%< endif >%
 
 \FloatBarrier
 \subsection{Emitterfolger}
