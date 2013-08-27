@@ -798,22 +798,16 @@ Eingangssignal wird zu stark geschwächt. Es findet eine Phasenverschiebung
 statt, die größer wird je kleiner der Kondensator ist.
 
 Bei einem \SI{10}{\micro\farad}-Kondensator war weder eine Dämpfung, noch eine
-Phasenverschiebung erkennbar.
-
-\textcolor{gray}{
-	Die Eigenschaften der Schaltung sollten jetzt etwas anders sein, weil der
-	Kondensator das Eingangssignal differenziert. Bei einer Sinusspannung
-	bedeutet das nur eine Phasenverschiebung um $\piup/2$. Somit sind die
-	beiden Signale auf den Kanälen des Oszilloskops im Vergleich zu vorher
-	miteinander verschoben.
-}
+Phasenverschiebung erkennbar. Beim \SI{100}{\nano\farad}-Kondensator waren
+beide zwar sichtbar, aber noch sehr klein.
 
 Wir verändern den Spannungsteiler um zu schauen, wann der Aussteuerungsbereich
 der Schaltung am größten ist.
 
-\TODO{
-	Durchführung einfügen.
-}
+Beim \SI{100}{\nano\farad}-Kondensator war der Bereich am größten bei einer
+Basisspannung von \SI{1.2}{\volt}. Dies ist ein kleiner Wert im Gegensatz zu
+anliegenden Gesamtspannung von \SI{15}{\volt}. Daraus kann man folgern je
+größer $\RC$, desto größer der Aussteuerbereich.
 
 \FloatBarrier
 \subsection{FET}
