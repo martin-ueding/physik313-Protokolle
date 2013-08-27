@@ -37,23 +37,6 @@
 \newcommand\UGS{U_\text{GS}}
 \newcommand\UDS{U_\text{DS}}
 
-\usepackage{tocloft}
-
-\newlistof{todo}{lotd}{TODO Liste}
-
-\newcommand{\FIXME}[1]{\printTODO{FIXME: #1}}
-\newcommand{\TODO}[1]{\printTODO{TODO: #1}}
-\newcommand{\XXX}[1]{\printTODO{XXX: #1}}
-\newcommand{\FRAGE}[1]{\printTODO{Rückfrage: #1}}
-
-\newcommand{\printTODO}[1]{
-	\par%
-	\textcolor{OrangeRed}{\textsf{#1}}%
-	\par%
-	\refstepcounter{todo}
-	\addcontentsline{lotd}{todo}{#1}
-}
-
 \begin{document}
 
 \maketitle
@@ -77,8 +60,6 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 
 \newpage
 \tableofcontents
-
-\listoftodo
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
