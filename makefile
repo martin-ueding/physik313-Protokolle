@@ -8,13 +8,8 @@ all: physik313-3-Ueding_Lemmer.pdf physik313-4-Ueding_Lemmer.pdf
 %.pdf: %.tex
 	latexmk -pdf $<
 
-physik313-3-Ueding_Lemmer.tex physik313-4-Ueding_Lemmer.tex: crunch Template_3.tex Template_4.tex
+physik313-%-Ueding_Lemmer.tex: crunch_% Template_%.tex
 	./$^
-	shopt -s nullglob; \
-		for d in Daten*.pdf; \
-		do \
-		pdfcrop $$d $$d;\
-		done
 
 .PHONY: clean
 clean:

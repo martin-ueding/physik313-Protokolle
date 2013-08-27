@@ -120,13 +120,10 @@ def render_template(T):
         loader=jinja2.FileSystemLoader(".")
     )
     template3 = env.get_template("Template_3.tex")
-    template4 = env.get_template("Template_4.tex")
 
     # Rendering LaTeX document with values.
     with open("physik313-3-Ueding_Lemmer.tex", "w") as f:
         f.write(template3.render(**T))
-    with open("physik313-4-Ueding_Lemmer.tex", "w") as f:
-        f.write(template4.render(**T))
 
 def main():
     T = {}
