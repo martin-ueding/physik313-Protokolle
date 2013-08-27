@@ -26,7 +26,7 @@ def subsection1(T):
 
     data = np.genfromtxt("Transkonduktanz.txt")
 
-    R = 470e3
+    R = 18e3
 
     RC = 500
 
@@ -45,13 +45,22 @@ def subsection1(T):
 
     T["k"] = g(popt[0], p_err[0])
     T["Uthr"] = g(popt[1], p_err[1])
+    T["k"] = g(popt[0])
+    T["Uthr"] = g(popt[1])
 
     pl.plot(UG, ID, linestyle="none", marker="o")
     pl.plot(x, y)
-    pl.xlabel(r"Gatespannung $U_{\mathrm{G}}$")
-    pl.ylabel(r"Drainstrom $I_{\mathrm{D}}$")
+    pl.xlabel(r"Gatespannung $U_{\mathrm{G}} / \mathrm{V}$")
+    pl.ylabel(r"Drainstrom $I_{\mathrm{D}} / \mathrm{A}$")
     pl.grid(True)
     pl.savefig("ID_UG.pdf")
+    pl.clf()
+
+    pl.plot(UG, np.sqrt(ID), linestyle="none", marker="o")
+    pl.xlabel(r"Gatespannung $U_{\mathrm{G}} / \mathrm{V}$")
+    pl.ylabel(r"Drainstrom $\sqrt{I_{\mathrm{D}} / \mathrm{A}}$")
+    pl.grid(True)
+    pl.savefig("ID_UG_sqrt.pdf")
     pl.clf()
 
     T["trans_raw"] = data
