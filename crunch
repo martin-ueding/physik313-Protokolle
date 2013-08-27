@@ -26,7 +26,7 @@ def subsection1(T):
 
     data = np.genfromtxt("Transkonduktanz.txt")
 
-    R = 100e3
+    R = 200e3
 
     RC = 500
 
