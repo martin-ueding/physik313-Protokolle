@@ -26,12 +26,14 @@
 \newcommand\IE{I_\text{E}}
 \newcommand\IS{I_\text{S}}
 \newcommand\RC{R_\text{C}}
+\newcommand\RD{R_\text{D}}
 \newcommand\RE{R_\text{E}}
 \newcommand\UBE{U_\text{BE}}
 \newcommand\UB{U_\text{B}}
 \newcommand\UC{U_\text{C}}
 \newcommand\UCE{U_\text{CE}}
 \newcommand\UE{U_\text{E}}
+\newcommand\UG{U_\text{G}}
 \newcommand\UGS{U_\text{GS}}
 \newcommand\UDS{U_\text{DS}}
 
@@ -614,7 +616,7 @@ werden.
 Als feste $\UDS$ wähle ich \SI 2\volt. Ich lese aus dem Plot die Werte für
 $\ID$ für die verschiedenen Linien ab, siehe Tabelle~\ref{tab:trans_raw}.
 
-\begin{table}
+\begin{table}[htbp]
 	\centering
 	\begin{tabular}{SS}
 		{Liniennummer $n$} & {$\ID / \si\division$} \\
@@ -635,9 +637,32 @@ $n$ die Gatespannung $\UG$ wie folgt ausrechnen:
 	\UG = R n \cdot \SI{6}{\micro\ampere}
 \]
 
-Ich erhalte folgenden Zusammenhang:
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SS}
+		{$\UG / \si\volt$} & {$\ID / \si\ampere$} \\
+		\hline
+		%< for ug, id in trans: >%
+		<< ug >> & << id >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Berechnete Daten aus Tabelle~\ref{tab:trans_raw}
+	}
+	\label{tab:trans_raw}
+\end{table}
 
-\TODO{Tabelle und Plot: Abhängigkeit $\ID$ von $\UGS$}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{ID_UG.pdf}
+	\caption{%
+		\fehlt
+	}
+	\label{fig:ID_UG}
+\end{figure}
+
+Dies fitte ich mit $\ID = k (\UG - U_\text{thr})^2$ und erhalte $k = \SI{<< k
+>>}{\per\ohm}$ und $U_\text{thr} = \SI{<< Uthr >>}{\volt}$.
 
 \FloatBarrier
 \subsection{Emitterfolger}
