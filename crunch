@@ -23,7 +23,6 @@ def subsection1(T):
     T['dIB'] = g(dIB_val)
     T['beta'] = g(beta_val, beta_err)
 
-
     data = np.genfromtxt("Transkonduktanz.txt")
 
     R = 200e3
