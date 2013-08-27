@@ -585,9 +585,6 @@ Widerstand $R$ fällt dann die Spannung $U = IR$ ab. Dies ist natürlich nicht
 ganz exakt, da der Widerstand nicht unendlich groß ist und so alle Ströme etwas
 verändert.
 
-\paragraph{Bestimmung der Schwellenspannung und Transkonduktanz}
-\label{par:Schwellenspannung}
-
 \begin{figure}
 	\centering
 	\label{fig:4}
@@ -599,17 +596,46 @@ verändert.
 		\includegraphics[width=\linewidth]{Oszi_Foto/3-04.jpg}
 	\end{minipage}
 	\caption{%
-		Kennlinienfeld, $R \ID$ gegen $\UDS$. Verstärkung $\SI
+		Kennlinienfeld, $\RD \ID$ gegen $\UDS$. Verstärkung $\SI
 		1{\volt\per\division}$, XY-Modus.
 	}
+	\label{fig:4}
 \end{figure}
 
-Das Kennlinienfeld des FET ist in Abbildung~\ref{fig:4} zu sehen. Um die
-Schwellenspannung und die Transkonduktanz bestimmen zu können muss die
+Das Kennlinienfeld des FET ist in Abbildung~\ref{fig:4} zu sehen.
+
+\paragraph{Bestimmung der Schwellenspannung und Transkonduktanz}
+\label{par:Schwellenspannung}
+
+Um die Schwellenspannung und die Transkonduktanz bestimmen zu können muss die
 Abhängigkeit des Drainstromes $\ID$ von $\UGS$ bei konstantem $\UDS$ untersucht
 werden.
 
-Als feste $\UDS$ wähle ich \SI 2\volt. Ich erhalte folgenden Zusammenhang:
+Als feste $\UDS$ wähle ich \SI 2\volt. Ich lese aus dem Plot die Werte für
+$\ID$ für die verschiedenen Linien ab, siehe Tabelle~\ref{tab:trans_raw}.
+
+\begin{table}
+	\centering
+	\begin{tabular}{SS}
+		{Liniennummer $n$} & {$\ID / \si\division$} \\
+		\hline
+		%< for n, id in trans_raw: >%
+		<< n >> & << id >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Abgelesene Daten aus Abbildung~\ref{fig:4}
+	}
+	\label{tab:trans_raw}
+\end{table}
+
+Mit einem angenommenen Widerstand von \SI{<< R >>}{\ohm} kann ich für die Linie
+$n$ die Gatespannung $\UG$ wie folgt ausrechnen:
+\[
+	\UG = R n \cdot \SI{6}{\micro\ampere}
+\]
+
+Ich erhalte folgenden Zusammenhang:
 
 \TODO{Tabelle und Plot: Abhängigkeit $\ID$ von $\UGS$}
 

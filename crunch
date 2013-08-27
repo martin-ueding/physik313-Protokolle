@@ -23,6 +23,26 @@ def subsection1(T):
     T['dIB'] = g(dIB_val)
     T['beta'] = g(beta_val, beta_err)
 
+
+    data = np.genfromtxt("Transkonduktanz.txt")
+
+    R = 470e3
+
+    RC = 500
+
+    UG = data[:, 0] * dIB_val * R
+    ID = data[:, 1] / RC
+
+    pl.plot(UG, ID, linestyle="none", marker="o")
+    pl.xlabel(r"Gatespannung $U_{\mathrm{G}}$")
+    pl.ylabel(r"Drainstrom $I_{\mathrm{D}}$")
+    pl.grid(True)
+    pl.savefig("ID_UG.pdf")
+    pl.clf()
+
+    T["trans_raw"] = data
+    T["R"] = g(R)
+
 def subsection2(T):
     U_E = 1234 # V_{SS}
     U_B = 1236 # V_{SS}
