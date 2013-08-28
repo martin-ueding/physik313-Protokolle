@@ -32,6 +32,7 @@ def a4_1_2_spannungsverstaerkung(T):
     dUC = data[:, 3]
 
     v = dUC / dUB
+    v_approx = RC / RE
 
     pl.plot(RE[5:], 1/v[5:], linestyle="none", marker="x")
     pl.xlabel(r"$R_\mathrm{E}/\Omega$")
@@ -40,7 +41,7 @@ def a4_1_2_spannungsverstaerkung(T):
     pl.savefig("vRE.pdf")
     pl.clf()
 
-    T["table412"] = np.column_stack([RE, RC, dUB, dUC, np.round(v, 3)])
+    T["table412"] = np.column_stack([RE, RC, dUB, dUC, np.round(v, 3), np.round(v_approx, 3)])
 
 def a4_1_4(T):
     data = np.genfromtxt("4-1-4-normal.txt")

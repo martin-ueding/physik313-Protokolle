@@ -325,7 +325,7 @@ danach umgekehrt. Die Messung ist in Tabelle~\ref{tab:4-1-1}.
 		{$\dif\UE / \si{\division}$} &
 		{$v = \dif\UE / \dif\UB$} \\
 		\hline
-		%< for re, rc, dub, due, v in table412: >%
+		%< for re, rc, dub, due, v in table411: >%
 		<< re >> & << rc >> & << dub >> & << due >> & << v >> \\
 		%< endfor >%
 	\end{tabular}
@@ -397,19 +397,27 @@ Die Phasenbeziehung zwischen Eingangs- und Ausgangssignal ist hierbei $\pi$.
 
 \subsubsection{Spannungsverstärkung des invertierenden Verstärkers}
 
+Wir vermessen die Abhängigkeit der Spannungsverstärkung für verschiedene $\RC$
+und $\RE$, siehe Tabelle~\ref{tab:412}.
+
 \begin{table}
 	\centering
-	\begin{tabular}{SSSSS}
+	\begin{tabular}{SSSS|SS}
 		{$\RE / \si\ohm$} &
 		{$\RC / \si\ohm$} &
 		{$\dif\UB / \si\volt$} &
 		{$\dif\UE / \si\volt$} &
-		{$\beta$} \\
+		{$v$} &
+		{$- \RC / \RE$} \\
 		\hline
-		%< for re, rc, dub, due, beta in table412: >%
-		<< re >> & << rc >> & << dub >> & << due >> & << beta >> \\
+		%< for re, rc, dub, due, v, rcre in table412: >%
+		<< re >> & << rc >> & << dub >> & << due >> & << v >> & << rcre >> \\
 		%< endfor >%
 	\end{tabular}
+	\caption{%
+		Abhängigkeit der Spannungsverstärkung. Vor der vertikalen Linie sind
+		Messwerte, dahinter berechnete Werte.
+	}
 \end{table}
 
 \fehlt
