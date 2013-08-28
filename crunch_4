@@ -22,12 +22,16 @@ def a4_1_2_spannungsverstaerkung(T):
     dUB = data[:, 2]
     dUC = data[:, 3]
 
-    beta = dUC / dUB
+    v = dUC / dUB
 
-    print("β")
-    print(beta)
+    pl.plot(RE[5:], 1/v[5:], linestyle="none", marker="x")
+    pl.xlabel(r"$R_\mathrm{E}/\Omega$")
+    pl.ylabel(r"$1/v$")
+    pl.grid(True)
+    pl.savefig("vRE.pdf")
+    pl.clf()
 
-    T["table412"] = np.column_stack([RE, RC, dUB, dUC, np.round(beta, 3)])
+    T["table412"] = np.column_stack([RE, RC, dUB, dUC, np.round(v, 3)])
 
 def g(value, error=None, digits=3):
     if error is None:
