@@ -73,12 +73,7 @@ def a4_1_4(T):
 
     v = np.abs(dUE/dUB)
 
-    pl.loglog(f, v, linestyle="none", marker="x")
-    pl.xlabel(r"Frequenz $f / \mathrm{Hz}$")
-    pl.ylabel(r"Wechselspannungsverstärkung $v$")
-    pl.grid(True)
-    pl.savefig("4-1-4-normal.pdf")
-    pl.clf()
+    pl.loglog(f, v, linestyle="none", marker="o", color="red")
 
     T["table414normal"] = np.column_stack([f, dUB, dUE, np.round(v, 3)])
 
@@ -90,11 +85,11 @@ def a4_1_4(T):
 
     v = np.abs(dUE/dUB)
 
-    pl.loglog(f, v, linestyle="none", marker="x")
+    pl.loglog(f, v, linestyle="none", marker="o", color="blue")
     pl.xlabel(r"Frequenz $f / \mathrm{Hz}$")
     pl.ylabel(r"Wechselspannungsverstärkung $v$")
     pl.grid(True)
-    pl.savefig("4-1-4-Kaskode.pdf")
+    pl.savefig("4-1-4-Plot.pdf")
     pl.clf()
 
     T["table414Kaskode"] = np.column_stack([f, dUB, dUE, np.round(v, 3)])
