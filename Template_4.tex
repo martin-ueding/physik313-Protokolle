@@ -429,6 +429,36 @@ schlecht.
 \FloatBarrier
 \subsubsection{Bestimmung des Transistoreingangswiderstands}
 
+Wir bestimmen die Spannungsverstärkung für den Spezialfall:
+\[
+	\RE = \SI0\ohm
+	\eqnsep
+	\RC = \SI{390}\ohm
+	\eqnsep
+	\dif\UB = \SI{.05}\voltss
+	\eqnsep
+	U = \SI{.7}V
+\]
+
+Dabei haben wir die Leerlaufverstärkung erhalten:
+\[
+	\dif\UB = \SI{<< ew_dUB >>}\division
+	\eqnsep
+	\dif\UC = \SI{<< ew_dUC >>}\division
+	\eqnsep
+	v_0 = \dod\UC\UB = \num{<< ew_v0 >>}
+\]
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{vRE.pdf}
+	\caption{%
+		Erstes Diagramm zur Auswertung. Dabei sind in rot die ersten Einträge
+		aus Tabelle~\ref{tab:412}, Letzten in blau.
+	}
+	\label{fig:}
+\end{figure}
+
 \fehlt
 
 \FloatBarrier
