@@ -73,7 +73,7 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 		\url{https://github.com/martin-ueding/physik313-3_4/blob/master/Template_4.tex}
 \end{enumerate}
 
-%\newpage
+\newpage
 \tableofcontents
 
 \listoftodo
@@ -341,55 +341,57 @@ erster Näherung
 	v = \frac{\gamma\RE}{r_\text{BE}+\gamma\RE} \approx 1
 \]
 unabhängig sein soll von $\RE$ und $\RC$ wurde nicht bestätigt. Die Werte von
-$v$ schwanken schon deutlich.
-
-\TODO{Was passiert bei kleinen $\RE$, großen $\RC$?}
+$v$ schwanken schon deutlich. Bei sehr kleinem $\RE$ wurde die Verstärkung
+groß, während bei sehr großem $\RC$ die Verstärkung kleiner wurde.
 
 \subsubsection{Emitterfolger als Impedanzwandler}
 
 Nun wird ein invertierender Transistorverstärker aufgebaut, indem in
-Abbildung~\ref{fig:3-4} $\RC = \SI {22}{\kilo\ohm}$ und $\RE = \SI
-1{\kilo\ohm}$ gesetzt werden. Als Eingangssignal wird ein Sinussignal mit
-$U_\text{SS} = \SI {0.5}{\volt}$, $\UB = \SI 1{\volt}$ und $f =
-\SI{800}{\hertz}$ gewählt.
+Abbildung~\ref{fig:3-4} $\RC = \SI{22}{\kilo\ohm}$ und $\RE = \SI1{\kilo\ohm}$
+gesetzt werden. Als Eingangssignal wird ein Sinussignal mit $U_\text{SS} = \SI
+{0.5}{\voltss}$, $\UB = \SI1{\volt}$ und $f = \SI{800}{\hertz}$ gewählt.
 
 Nun wird an den Kollektor ein Lautsprecher mit $R \approx \SI{300}{\ohm}$
 angeschlossen. 
 
-\TODO{Warum ist nichts zu hören?}
+Wir hören fast nichts, da die Emitterschaltung nur die Spannung verstärkt,
+jedoch nicht die Leistung.
 
-Mit dem Schaltbrett~2 (Abbildung~\ref{fig:3-5} wird ein Emitterfolger zwischen
+Mit dem Schaltbrett~2 (Abbildung~\ref{fig:3-5}) wird ein Emitterfolger zwischen
 Transistorverstärker und Lautsprecher eingebaut. Dazu wird die
 Gleichspannungsversorgung von Brett~1 übernommen und der Lautsprecher wird an
-den Emitter der npn-Bipolar-Transistors geschlossen.
+den Emitter des npn-Bipolar-Transistors angeschlossen.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{Anleitung/3-5.png}
 	\caption{%
-		Schaltbrett 2
+		Schaltbrett~2 \cite[Abbildung~3.5]{physik313-Anleitung}
 	}
 	\label{fig:3-5}
 \end{figure}
 
-\TODO{Warum ist hier ein Signal zu hören}
+Jetzt ist ein Ton zu hören. Die Kollektorschaltung lässt die Spannung gleich,
+diese wurde allerdings schon verstärkt. Jetzt wird der Strom verstärkt. Nach
+beiden Stufen wurde somit die Leistung verstärkt, diese reicht jetzt für den
+Lautsprecher aus.
 
 \FloatBarrier
 \subsection{Invertierender Transistorverstärker (Emitterschaltung)}
 
 \subsubsection{Phasenbeziehung zwischen Ein- und Ausgang}
 
-Auf Schaltbrett 1 (Abbildung~\ref{fig:3-4}) wird nun eine Emitterschaltung
+Auf Schaltbrett~1 (Abbildung~\ref{fig:3-4}) wird nun eine Emitterschaltung
 aufgebaut, indem Kanal~2 des Oszilloskops an den oberen Ausgang geschlossen
-wird. Für Kollektor- und Emitterwiderstand soll gelten $\RC = \RE =
+wird. Für Kollektor- und Emitterwiderstand soll gelten: $\RC = \RE =
 \SI{390}{\ohm}$.
 
-Das Basispotenzial wird mit dem Spannungsteiler (senkrechter Doppelpfeil
-überbrückt) so eingestellt, dass $\UB = \SI {1.5}{\volt}$ ist.  Eine der
+Das Basispotential wird mit dem Spannungsteiler (senkrechter Doppelpfeil
+überbrückt) so eingestellt, dass $\UB = \SI{1.5}{\volt}$ ist. Eine der
 waagerechten Kabelbrücken aus dem vorherigen Versuch muss durch einen möglichst
 großen Kondensator ersetzt werden, damit der Gleichspannungsanteil aus dem
 Signal des Generators gefiltert wird. Letzterer soll ein
-$U_\text{SS}=\SI{0.5}{\volt}$-Sinussignal ausgeben.
+\SI{0.5}{\voltss}-Sinussignal ausgeben.
 
 Die Phasenbeziehung zwischen Eingangs- und Ausgangssignal ist hierbei $\pi$.
 
