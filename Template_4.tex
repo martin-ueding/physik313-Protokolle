@@ -391,17 +391,24 @@ Die Phasenbeziehung zwischen Eingangs- und Ausgangssignal ist hierbei $\pi$.
 
 \subsubsection{Spannungsverstärkung des invertierenden Verstärkers}
 
+Bei gleichem Aufbau soll nun die Spannungsverstärkung bei variierendem $\RE$
+und gleichbleibendem $\RC$ und anders herum vermessen werden. Die Messwerte
+sind in Tabelle~\ref{tab:412}. Zum Vergleich mit der Näherungsformel ist eine
+Spalte mit der genäherten Verstärkung eingefügt.
+
 \begin{table}
 	\centering
-	\begin{tabular}{SSSSS}
+	\begin{tabular}{SSSSSS}
 		{$\RE / \si\ohm$} &
 		{$\RC / \si\ohm$} &
 		{$\dif\UB / \si\division$} &
-		{$\dif\UE / \si\division$} &
-		{$v$} \\
+		{$\dif\UC / \si\division$} &
+		{$v = \dif\UC / \dif\UB$} &
+		{$v = -\RC / \RE$} \\
 		\hline
-		%< for re, rc, dub, due, v in table412: >%
-		<< re >> & << rc >> & << dub >> & << due >> & << v >> \\
+		%< for re, rc, dub, duc, v_mess, v_naeherung in table412: >%
+		<< re >> & << rc >> & << dub >> & << duc >> & << v_mess >> & << v_naeherung
+		>> \\
 		%< endfor >%
 	\end{tabular}
 	\caption{%
