@@ -33,6 +33,37 @@ def a4_1_2_spannungsverstaerkung(T):
 
     T["table412"] = np.column_stack([RE, RC, dUB, dUC, np.round(v, 3)])
 
+def a4_1_4(T):
+    data = np.genfromtxt("4-1-4-normal.txt")
+
+    f = data[:, 0]
+    dUB = data[:, 1]
+    dUE = data[:, 2]
+
+    v = np.abs(dUE/dUB)
+
+    pl.loglog(f, v, linestyle="none", marker="x")
+    pl.xlabel(r"Frequenz $f / \mathrm{Hz}$")
+    pl.ylabel(r"Wechselspannungsverstärkung $v$")
+    pl.grid(True)
+    pl.savefig("4-1-4-normal.pdf")
+    pl.clf()
+
+    data = np.genfromtxt("4-1-4-Kaskode.txt")
+
+    f = data[:, 0]
+    dUB = data[:, 1]
+    dUE = data[:, 2]
+
+    v = np.abs(dUE/dUB)
+
+    pl.loglog(f, v, linestyle="none", marker="x")
+    pl.xlabel(r"Frequenz $f / \mathrm{Hz}$")
+    pl.ylabel(r"Wechselspannungsverstärkung $v$")
+    pl.grid(True)
+    pl.savefig("4-1-4-Kaskode.pdf")
+    pl.clf()
+
 def g(value, error=None, digits=3):
     if error is None:
         return ("{:."+str(digits)+"g}").format(value)
@@ -73,6 +104,7 @@ def main():
     T = {}
 
     a4_1_2_spannungsverstaerkung(T)
+    a4_1_4(T)
     render_template(T)
 
 if __name__ == "__main__":
