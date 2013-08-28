@@ -49,6 +49,8 @@ def a4_1_4(T):
     pl.savefig("4-1-4-normal.pdf")
     pl.clf()
 
+    T["table414normal"] = np.column_stack([f, dUB, dUE, np.round(v, 3)])
+
     data = np.genfromtxt("4-1-4-Kaskode.txt")
 
     f = data[:, 0]
@@ -63,6 +65,8 @@ def a4_1_4(T):
     pl.grid(True)
     pl.savefig("4-1-4-Kaskode.pdf")
     pl.clf()
+
+    T["table414Kaskode"] = np.column_stack([f, dUB, dUE, np.round(v, 3)])
 
 def g(value, error=None, digits=3):
     if error is None:
