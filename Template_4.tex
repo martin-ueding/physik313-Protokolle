@@ -155,7 +155,11 @@ v_0}{v_0} \frac v{v_0}
 	Verstärkung hat.
 \end{problem}
 
-\TODO{Aufgabe Q fertigstellen}
+Bei einer Verstärkung $\beta$ wird durch den Miller-Effekt wird die anfänglich
+kleine Kapazität $C_\text{CB}$ um den Faktor $1+\abs\beta$ vergrößert. Die
+hierdurch vergrößerte Kapazität wirkt nun als Tiefpass. Die durch diesen
+Tiefpass unterdrückten Frequenzen werden zwar weiterhin verstärkt, aber die
+Unterdrückung wirkt stärker.
 
 \FloatBarrier
 \subsection{Aufgabe R}
@@ -176,7 +180,13 @@ v_0}{v_0} \frac v{v_0}
 	\label{fig:3_4-15}
 \end{figure}
 
-\TODO{Aufgabe R fertigstellen}
+An $T_2$ liegt eine konstante Spannung an. Durch die Diodeneigenschaft des
+Transistors wird dadurch die Spannung am Punkt $P$ auf ca. $\SI 2{\volt} -
+\SI{0.6}{\volt} = \SI{1.4}{\volt}$ fixiert, da eine kleine Änderung des Stroms
+$\dif\IE$ nahezu keine Änderung der Basis-Emitter-Spannung $\UBE$ in $T_2$
+bewirkt.
+
+\TODO{Aufgabe R: welche Transistoreigneschaft?}
 
 \FloatBarrier
 \subsection{Aufgabe S}
@@ -184,7 +194,7 @@ v_0}{v_0} \frac v{v_0}
 \begin{problem}
 	Leiten Sie \eqref{eq:3_4-18} her. Hinweise: Da die Gegenkopplung bei
 	Betrachtung im Frequenzraum auf der Addition von Sinusschwingungen beruht
-	und wie in diesem Kapitel die Phasen ignoriert haben, ist hier
+	und wir in diesem Kapitel die Phasen ignoriert haben, ist hier
 	$v(f_\text{grenz gk}) = 2v(f=0)$ statt korrekterweise $\sqrt 2 v (f = 0)$.
 \end{problem}
 
@@ -194,7 +204,10 @@ Die zitierte Gleichung ist:
 	f_\text{grenz gk} = f_\text{grenz} \frac{v_0}{v(f=0)}
 \end{equation}
 
-\TODO{Aufgabe S fertigstellen}
+Die Transitfrequenz $f_\text{T}$ bleibt, trotz der durch die Gegenkopplung
+verringerten Verstärkung, die gleiche. Daher gilt
+\[f_\text{grenz}v_0 = f_\text{T} = f_\text{grenz gk} v(f=0)\]
+Hieraus folgt sofort die gesuchte Gleichung \eqref{eq:3_4-18}.
 
 \FloatBarrier
 \subsection{Aufgabe T}
@@ -267,16 +280,10 @@ Zerstörung des Transistors, verhindert werden.
 \end{problem}
 
 Um die Rückkopplung für Wechselspannungen aufzuheben, muss die Leitfähigkeit
-von $R$ für Wechselspannungen herabgesetzt werden. Es soll also ein
-Wechselstromwiderstand zu $R$ hinzukommen. Falls wir eine Induktivität zur
-Verfügung hätten, konnte man diese direkt hinter $R$ schalten. Dies würde für
-ausreichend hohe Frequenzen die Leitfähigkeit klein halten.
-
-Mit einem Kondensator, der seriell geschaltet wird, wird nur die
-Gleichspannung gesperrt. Mit einem Kondensator, der parallel geschaltet wird,
-wird der Wechselstromwiderstand gesenkt.
-
-\TODO{Aufgabe U fertigstellen}
+von $R$ für Wechselspannungen herabgesetzt werden. Dies wird ermöglicht, indem
+man den Widerstand $R$ aufteilt und in die Mitte einen Kondensator zur Masse
+einsetzt. Der so entstandene Tiefpass bewirkt eine Unterdrückung hoher
+Frequenzen und wirkt in beide Richtungen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                    Durchführung: Transistorverstärker                     %
@@ -289,19 +296,110 @@ wird der Wechselstromwiderstand gesenkt.
 
 \subsubsection{Spannungsverstärkung des Emitterfolgers}
 
-\fehlt
+Auf Schaltbrett 1 (Abbildung \ref{fig:3-4}) wird ein Emitterfolger mit
+externem Offset aufgebaut. Dazu wird der Funktionsgenerator auf Sinussignal mit
+$U_\text{SS} = \SI{0.5}{\volt}$ und Offset $\UB = \SI 2{\volt}$ eingestellt. An
+die Stellen der waagerechten Doppelpfeile kommen einfache Kabelbrücken. Kanal~2
+des Osziloskops werden mit dem unteren Anschluss verbunden.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{Anleitung/3-4.png}
+	\caption{%
+		Schaltbrett 1
+	}
+	\label{fig:3-4}
+\end{figure}
+
+Nun wird zunächst der Emitterwiderstand $\RE$ konstant gelassen und die
+Spannungsverstärkung für drei verschiedene Kollektorwiderstände $\RC$ gemessen,
+danach umgekehrt.
+
+Die Messung ist in Tabelle~\ref{tab:4-1-1}.
+
+\begin{table}
+	\centering
+	\begin{tabular}{SS|SSS}
+		{$\RE / \si{\ohm}$} & {$\RC / \si{\ohm}$} & {$\dif\UB / \si{\division}$}
+		& {$\dif\UE / \si{\division}$} & {$\del{\dif\UE / \dif\UB}$} \\
+		\hline
+	\end{tabular}
+	\caption{%
+		Abhängigkeit der Spannungsverstärkung von $\RE$ und $\RC$
+	}
+\label{tab:4-1-1}
+\end{table}
+
+Die Erwartung, dass sich die Verstärkung nicht nennenswert verändert, da sie in
+erster Näherung
+\[v = \frac{\gamma\RE}{r_\text{BE}+\gamma\RE} \approx 1\]
+unabhängig sein soll von $\RE$ und $\RC$ wurde $\messwert$.
+
+\TODO{Was passiert bei kleinen $\RE$, großen $\RC$?}
 
 \subsubsection{Emitterfolger als Impedanzwandler}
 
-\fehlt
+Nun wird ein invertierender Transistorverstärker aufgebaut, indem in
+Abbildung~\ref{fig:3-4} $\RC = \SI {22}{\kilo\ohm}$ und $\RE = \SI
+1{\kilo\ohm}$ gesetzt werden. Als Eingangssignal wird ein Sinussignal mit
+$U_\text{SS} = \SI {0.5}{\volt}$, $\UB = \SI 1{\volt}$ und $f =
+\SI{800}{\hertz}$ gewählt.
+
+Nun wird an den Kollektor ein Lautsprecher mit $R \approx \SI{300}{\ohm}$
+angeschlossen. 
+
+\TODO{Warum ist nichts zu hören?}
+
+Mit dem Schaltbrett~2 (Abbildung~\ref{fig:3-5} wird ein Emitterfolger zwischen
+Transistorverstärker und Lautsprecher eingebaut. Dazu wird die
+Gleichspannungsversorgung von Brett~1 übernommen und der Lautsprecher wird an
+den Emitter der npn-Bipolar-Transistors geschlossen.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{Anleitung/3-5.png}
+	\caption{%
+		Schaltbrett 2
+	}
+	\label{fig:3-5}
+\end{figure}
+
+\TODO{Warum ist hier ein Signal zu hören}
 
 \subsection{Invertierender Transistorverstärker (Emitterschaltung)}
 
 \subsubsection{Phasenbeziehung zwischen Ein- und Ausgang}
 
-\fehlt
+Auf Schaltbrett 1 (Abbildung~\ref{fig:3-4}) wird nun eine Emitterschaltung
+aufgebaut, indem Kanal~2 des Oszilloskops an den oberen Ausgang geschlossen
+wird. Für Kollektor- und Emitterwiderstand soll gelten $\RC = \RE =
+\SI{390}{\ohm}$.
+
+Das Basispotenzial wird mit dem Spannungsteiler (senkrechter Doppelpfeil
+überbrückt) so eingestellt, dass $\UB = \SI {1.5}{\volt}$ ist.  Eine der
+waagerechten Kabelbrücken aus dem vorherigen Versuch muss durch einen möglichst
+großen Kondensator ersetzt werden, damit der Gleichspannungsanteil aus dem
+Signal des Generators gefiltert wird. Letzterer soll ein
+$U_\text{SS}=\SI{0.5}{\volt}$-Sinussignal ausgeben.
+
+Die Phasenbeziehung zwischen Eingangs- und Ausgangssignal ist hierbei $\pi$.
 
 \subsubsection{Spannungsverstärkung des inverteierenden Verstärkers}
+
+\begin{table}
+	\centering
+	\begin{tabular}{SSSSS}
+		{$\RE / \si\ohm$} &
+		{$\RC / \si\ohm$} &
+		{$\dif\UB / \si\volt$} &
+		{$\dif\UE / \si\volt$} &
+		{$\beta$} \\
+		\hline
+		%< for re, rc, dub, due, beta in table412: >%
+		<< re >> & << rc >> & << dub >> & << due >> & << beta >> \\
+		%< endfor >%
+	\end{tabular}
+\end{table}
 
 \fehlt
 
