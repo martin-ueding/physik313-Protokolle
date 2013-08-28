@@ -407,8 +407,8 @@ und $\RE$, siehe Tabelle~\ref{tab:412}.
 	\begin{tabular}{SSSS|SS}
 		{$\RE / \si\ohm$} &
 		{$\RC / \si\ohm$} &
-		{$\dif\UB / \si\volt$} &
-		{$\dif\UE / \si\volt$} &
+		{$\dif\UB / \si\division$} &
+		{$\dif\UE / \si\division$} &
 		{$v$} &
 		{$- \RC / \RE$} \\
 		\hline
@@ -464,7 +464,45 @@ Dabei haben wir die Leerlaufverstärkung erhalten:
 \FloatBarrier
 \subsection{Wechselstrommäßige Aufhebung der Gegenkopplung}
 
-\fehlt
+Wir betrachten den Spielraum der Basisvorspannung bei der vorherigen Schaltung.
+
+Bei $\RE = 0$ haben wir bei einer Basisvorspannung im Bereich
+\SIrange{.6}{.8}{\volt} noch eine Sinuskurve im Ausgang sehen können. Bei
+\SI{390}{\ohm} für $\RE$ und $\RC$ haben wir als minimale Basisvorspannung
+\SI{.8}{\volt} erhalten, ein Maximum konnten wir jedoch nicht finden, da das
+Potentiometer am Anschlag war.
+
+Nun schalten wir einen Kondensator parallel zu $\RE$, die Gegenkopplung für
+Wechselströme aufzuheben. Dies bedeutet, dass der Kondensator möglichst klein
+sein muss, um für große Frequenzen einen kleinen Widerstand darzustellen ($X =
+1/(\ii \omega C)$). Wir wählen \SI{3300}{\pico\farad}. Für ein Frequenzspektrum
+über fast alle möglichen Frequenzen des Generator nehmen wir die Verstärkung
+auf. Diese Daten sind in Tabelle~\ref{tab:413}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SSS|S}
+		{$f / \si\hertz$} &
+		{$\dif\UB / \si\division$} &
+		{$\dif\UE / \si\division$} &
+		{$|v|$} \\
+		\hline
+		%< for f, dub, due, v in table413: >%
+		<< f >> & << dub >> & << due >> & << v >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für die Wechselspannungsverstärkung mit einer parallelen
+		Kapazität.
+	}
+	\label{tab:413}
+\end{table}
+
+Die hohe Verstärkung von \num{<< ew_v0 >>} haben wir nicht wieder erreichen
+können. Jedenfalls ist ab einer Frequenz von ungefähr \SI{500}{\kilo\hertz} die
+Verstärkung größer als 1, so dass die wechselstrommäßige Aufhebung
+funktioniert. Dass die letzte Verstärkung wieder kleiner wird, liegt daran,
+dass hier die Grenze des Verstärkers erreicht ist, siehe nächste Aufgabe.
 
 \FloatBarrier
 \subsection{Frequenzverhalten und Kaskodenschaltung}
@@ -473,8 +511,8 @@ Dabei haben wir die Leerlaufverstärkung erhalten:
 	\centering
 	\begin{tabular}{SSS|S}
 		{$f / \si\hertz$} &
-		{$\dif\UB / \si\volt$} &
-		{$\dif\UE / \si\volt$} &
+		{$\dif\UB / \si\division$} &
+		{$\dif\UE / \si\division$} &
 		{$|v|$} \\
 		\hline
 		%< for f, dub, due, v in table414normal: >%
@@ -491,8 +529,8 @@ Dabei haben wir die Leerlaufverstärkung erhalten:
 	\centering
 	\begin{tabular}{SSS|S}
 		{$f / \si\hertz$} &
-		{$\dif\UB / \si\volt$} &
-		{$\dif\UE / \si\volt$} &
+		{$\dif\UB / \si\division$} &
+		{$\dif\UE / \si\division$} &
 		{$|v|$} \\
 		\hline
 		%< for f, dub, due, v in table414Kaskode: >%
