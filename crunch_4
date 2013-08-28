@@ -10,13 +10,13 @@ import matplotlib.pyplot as pl
 import numpy as np
 import scipy.optimize as op
 
-def emitterfolger(T):
-    data = np.genfromtxt("4-1-1-Spannungsverstärkung.txt")
+def a4_1_1_spannungsverstaerkung(T):
+    data = np.genfromtxt("4-1-1-Spannungsverstaerkung.txt")
 
-    RE = data[:0]
-    RC = data[:1]
-    dUB = data[:2]
-    dUE = data[:3]
+    RE = data[:,0]
+    RC = data[:,1]
+    dUB = data[:,2]
+    dUE = data[:,3]
 
     v = dUE / dUB
 
@@ -81,6 +81,7 @@ def render_template(T):
 def main():
     T = {}
 
+    a4_1_1_spannungsverstaerkung(T)
     a4_1_2_spannungsverstaerkung(T)
     render_template(T)
 

@@ -315,19 +315,25 @@ Nun wird zunächst der Emitterwiderstand $\RE$ konstant gelassen und die
 Spannungsverstärkung für drei verschiedene Kollektorwiderstände $\RC$ gemessen,
 danach umgekehrt.
 
-Die Messung ist in Tabelle~\ref{tab:4-1-1}.
+Die Messung ist in Tabelle~\ref{tab:411}.
 
 \begin{table}
 	\centering
-	\begin{tabular}{SS|SSS}
-		{$\RE / \si{\ohm}$} & {$\RC / \si{\ohm}$} & {$\dif\UB / \si{\division}$}
-		& {$\dif\UE / \si{\division}$} & {$\del{\dif\UE / \dif\UB}$} \\
+	\begin{tabular}{SSSSS}
+		{$\RE / \si{\ohm}$} &
+		{$\RC / \si{\ohm}$} &
+		{$\dif\UB / \si{\division}$} &
+		{$\dif\UE / \si{\division}$} &
+		{$v$} \\
 		\hline
+		%< for re, rc, dub, due, v in table411: >%
+		<< re >> & << rc >> & << dub >> & << due >> & << v >>\\
+		%< endfor >%
 	\end{tabular}
 	\caption{%
 		Abhängigkeit der Spannungsverstärkung von $\RE$ und $\RC$
 	}
-\label{tab:4-1-1}
+\label{tab:411}
 \end{table}
 
 Die Erwartung, dass sich die Verstärkung nicht nennenswert verändert, da sie in
@@ -391,14 +397,18 @@ Die Phasenbeziehung zwischen Eingangs- und Ausgangssignal ist hierbei $\pi$.
 	\begin{tabular}{SSSSS}
 		{$\RE / \si\ohm$} &
 		{$\RC / \si\ohm$} &
-		{$\dif\UB / \si\volt$} &
-		{$\dif\UE / \si\volt$} &
-		{$\beta$} \\
+		{$\dif\UB / \si\division$} &
+		{$\dif\UE / \si\division$} &
+		{$v$} \\
 		\hline
-		%< for re, rc, dub, due, beta in table412: >%
-		<< re >> & << rc >> & << dub >> & << due >> & << beta >> \\
+		%< for re, rc, dub, due, v in table412: >%
+		<< re >> & << rc >> & << dub >> & << due >> & << v >> \\
 		%< endfor >%
 	\end{tabular}
+	\caption{%
+		Abhängigkeit der Spannungsverstärkung von $\RE$ und $\RC$
+	}
+	\label{tab:412}
 \end{table}
 
 \fehlt
