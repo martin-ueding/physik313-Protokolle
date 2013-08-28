@@ -302,7 +302,41 @@ wird der Wechselstromwiderstand gesenkt.
 
 \subsubsection{Spannungsverstärkung des Emitterfolgers}
 
-\fehlt
+Auf Schaltbrett 1 (Abbildung \ref{fig:3-4}) wird ein Emitterfolger mit
+externem Offset aufgebaut. Dazu wird der Funktionsgenerator auf Sinussignal mit
+$U_\text{SS} = \SI{0.5}{\volt}$ und Offset $\UB = \SI 2{\volt}$ eingestellt. An
+die Stellen der waagerechten Doppelpfeile kommen einfache Kabelbrücken. Kanal~2
+des Osziloskops werden mit dem unteren Anschluss verbunden.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{Anleitung/3-4.png}
+	\caption{%
+		Schaltbrett 1
+	}
+	\label{fig:3-4}
+\end{figure}
+
+Nun wird zunächst der Emitterwiderstand $\RE$ konstant gelassen und die
+Spannungsverstärkung für drei verschiedene Kollektorwiderstände $\RC$ gemessen,
+danach umgekehrt.
+
+Die Messung ist in Tabelle \ref{tab:4-1-1}.
+
+\begin{table}
+	\centering
+	\begin{tabular}{SS|SSS}
+		{$\RE / \si{\ohm}$} & {$\RC / \si{ohm}$} & {$\dif\UB / \si{\division}$}
+		& {$\dif\UE / \si{\division}$} & {$\del{\dif\UE / \dif\UB}$} \\
+		\hline
+	\end{tabular}
+	\caption{%
+		Abhängigkeit der Spannungsverstärkung von $\RE$ und $\RC$
+	}
+\label{tab:4-1-1}
+\end{table}
+
+\TODO{Erwartung, Begründung. Was passiert bei kleinen $\RE$, großen $\RC$?}
 
 \subsubsection{Emitterfolger als Impedanzwandler}
 
