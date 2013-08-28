@@ -297,33 +297,37 @@ Frequenzen und wirkt in beide Richtungen.
 
 \subsubsection{Spannungsverstärkung des Emitterfolgers}
 
-Auf Schaltbrett 1 (Abbildung \ref{fig:3-4}) wird ein Emitterfolger mit
-externem Offset aufgebaut. Dazu wird der Funktionsgenerator auf Sinussignal mit
-$U_\text{SS} = \SI{0.5}{\volt}$ und Offset $\UB = \SI 2{\volt}$ eingestellt. An
-die Stellen der waagerechten Doppelpfeile kommen einfache Kabelbrücken. Kanal~2
-des Osziloskops werden mit dem unteren Anschluss verbunden.
+Auf Schaltbrett~1 (Abbildung~\ref{fig:3-4}) wird ein Emitterfolger mit externem
+Offset aufgebaut. Dazu wird der Funktionsgenerator auf Sinussignal mit
+$U_\text{SS} = \SI{0.5}{\voltss}$ und Offset $\UB = \SI2{\volt}$ eingestellt.
+An die Stellen der waagerechten Doppelpfeile kommen einfache Kabelbrücken.
+Kanal~2 des Oszilloskops wird mit dem unteren Anschluss verbunden.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Anleitung/3-4.png}
 	\caption{%
-		Schaltbrett 1
+		Schaltbrett~1 \cite[Abbildung~3.4]{physik313-Anleitung}
 	}
 	\label{fig:3-4}
 \end{figure}
 
 Nun wird zunächst der Emitterwiderstand $\RE$ konstant gelassen und die
 Spannungsverstärkung für drei verschiedene Kollektorwiderstände $\RC$ gemessen,
-danach umgekehrt.
+danach umgekehrt. Die Messung ist in Tabelle~\ref{tab:4-1-1}.
 
-Die Messung ist in Tabelle~\ref{tab:4-1-1}.
-
-\begin{table}
+\begin{table}[htbp]
 	\centering
-	\begin{tabular}{SS|SSS}
-		{$\RE / \si{\ohm}$} & {$\RC / \si{\ohm}$} & {$\dif\UB / \si{\division}$}
-		& {$\dif\UE / \si{\division}$} & {$\del{\dif\UE / \dif\UB}$} \\
+	\begin{tabular}{SSSS|S}
+		{$\RE / \si{\ohm}$} &
+		{$\RC / \si{\ohm}$} &
+		{$\dif\UB / \si{\division}$} &
+		{$\dif\UE / \si{\division}$} &
+		{$v = \dif\UE / \dif\UB$} \\
 		\hline
+		%< for re, rc, dub, due, v in table412: >%
+		<< re >> & << rc >> & << dub >> & << due >> & << v >> \\
+		%< endfor >%
 	\end{tabular}
 	\caption{%
 		Abhängigkeit der Spannungsverstärkung von $\RE$ und $\RC$
@@ -333,8 +337,11 @@ Die Messung ist in Tabelle~\ref{tab:4-1-1}.
 
 Die Erwartung, dass sich die Verstärkung nicht nennenswert verändert, da sie in
 erster Näherung
-\[v = \frac{\gamma\RE}{r_\text{BE}+\gamma\RE} \approx 1\]
-unabhängig sein soll von $\RE$ und $\RC$ wurde $\messwert$.
+\[
+	v = \frac{\gamma\RE}{r_\text{BE}+\gamma\RE} \approx 1
+\]
+unabhängig sein soll von $\RE$ und $\RC$ wurde nicht bestätigt. Die Werte von
+$v$ schwanken schon deutlich.
 
 \TODO{Was passiert bei kleinen $\RE$, großen $\RC$?}
 
