@@ -33,7 +33,6 @@ def a4_1_1_spannungsverstaerkung(T):
 
 def a4_1_2_spannungsverstaerkung(T):
     data = np.genfromtxt("4-1-2-Spannungsverstaerkung.txt")
-    print(data)
 
     RE = data[:, 0]
     RC = data[:, 1]
@@ -47,11 +46,25 @@ def a4_1_2_spannungsverstaerkung(T):
     ew_dUC = -2.2
     v0 = ew_dUC / ew_dUB
 
-    x = 1/v0 - 1/RC * RE
+    x = 1/RC * RE
     y = 1/v
 
-    pl.plot(RE[5:], y[5:], linestyle="none", marker="o", color="red")
-    pl.xlabel(r"$R_\mathrm{E}$")
+    x_mean = x.mean()
+    y_mean = np.mean(y)
+    xy_mean = np.mean(x*y)
+    xx_mean = np.mean(x*x)
+    yy_mean = np.mean(y*y)
+
+    #v0_calc = 1 / ((xx_mean * y_mean - x_mean * xy_mean) / (xx_mean - x_mean ** 2))
+    #v0_calc_err = ((yy_mean - y_mean **2) * xx_mean) / (5 * (xx_mean - x_mean **2) * v0_calc ** 2)
+
+    print (x_mean)
+    print (y_mean)
+    #print (v0_calc)
+    #print (v0_calc_err)
+
+    pl.plot(x[5:], y[5:], linestyle="none", marker="o", color="red")
+    pl.xlabel(r"$R_\mathrm{E}/R_\mathrm{C}$")
     pl.ylabel(r"$\frac{1}{v}(R_\mathrm{E})$")
     pl.grid(True)
     pl.savefig("vRE.pdf")
