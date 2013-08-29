@@ -33,7 +33,6 @@ def a4_1_1_spannungsverstaerkung(T):
 
 def a4_1_2_spannungsverstaerkung(T):
     data = np.genfromtxt("4-1-2-Spannungsverstaerkung.txt")
-    print(data)
 
     RE = data[:, 0]
     RC = data[:, 1]
@@ -41,21 +40,41 @@ def a4_1_2_spannungsverstaerkung(T):
     dUC = data[:, 3]
 
     v = dUC / dUB
-    v_approx = RC / RE
+    v_approx = - RC / RE
 
     ew_dUB = .015
     ew_dUC = -2.2
     v0 = ew_dUC / ew_dUB
 
-    x = 1/v0 - 1/RC * RE
+    x = 1/RC * RE
     y = 1/v
 
+    x_mean = x.mean()
+    y_mean = np.mean(y)
+    xy_mean = np.mean(x*y)
+    xx_mean = np.mean(x*x)
+    yy_mean = np.mean(y*y)
+
+    #v0_calc = 1 / ((xx_mean * y_mean - x_mean * xy_mean) / (xx_mean - x_mean ** 2))
+    #v0_calc_err = ((yy_mean - y_mean **2) * xx_mean) / (5 * (xx_mean - x_mean **2) * v0_calc ** 2)
+
+    print (x_mean)
+    print (y_mean)
+    #print (v0_calc)
+    #print (v0_calc_err)
+
     pl.plot(x[5:], y[5:], linestyle="none", marker="o", color="red")
-    pl.plot(x[:5], y[:5], linestyle="none", marker="o", color="blue")
-    pl.xlabel(r"$\frac{1}{v_0} - \frac{1}{R_\mathrm{C}} R_\mathrm{E}$")
+    pl.xlabel(r"$R_\mathrm{E}/R_\mathrm{C}$")
     pl.ylabel(r"$\frac{1}{v}(R_\mathrm{E})$")
     pl.grid(True)
     pl.savefig("vRE.pdf")
+    pl.clf()
+
+    pl.plot(RC[:5], v[:5], linestyle="none", marker="o", color="blue")
+    pl.xlabel(r"$R_\mathrm{C}$")
+    pl.ylabel(r"$v(R_\mathrm{C})$")
+    pl.grid(True)
+    pl.savefig("vRC.pdf")
     pl.clf()
 
     T["ew_dUB"] = ew_dUB
