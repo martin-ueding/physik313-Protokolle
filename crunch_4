@@ -62,11 +62,15 @@ def a4_1_2_spannungsverstaerkung(T):
     abschnitt_val = popt[1]
     abschnitt_err = np.sqrt(pconv.diagonal())[1]
 
+    v0_abschnitt = 1 / abschnitt_val
+    v0_abschnitt_err = abschnitt_err / abschnitt_val **2
+
     print("Steigung", steigung_val, steigung_err)
     print("Achsenabschnitt", abschnitt_val, abschnitt_err)
 
     T["steigung"] = g(steigung_val, steigung_err)
     T["achsenabschnitt"] = g(abschnitt_val, abschnitt_err)
+    T["v0_abschnitt"] = g(v0_abschnitt, v0_abschnitt_err)
 
     pl.plot(x, y, linestyle="none", marker="o")
     pl.plot(fit_x, fit_y)
