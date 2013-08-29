@@ -41,7 +41,7 @@ def a4_1_2_spannungsverstaerkung(T):
     dUC = data[:, 3]
 
     v = dUC / dUB
-    v_approx = RC / RE
+    v_approx = - RC / RE
 
     ew_dUB = .015
     ew_dUC = -2.2
