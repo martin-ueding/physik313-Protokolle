@@ -644,7 +644,8 @@ geplottet.
 \FloatBarrier
 \subsection{Verstärker mit Spannungsgegenkopplung}
 
-\fehlt
+Wir bauen nun die Schaltung aus Abbildung~\ref{fig:4-1} auf. Wir stellen am
+Signalgenerator eine Frequenz von $f = \SI 1{\kilo\hertz}$ ein.
 
 \begin{figure}[htbp]
     \centering
@@ -654,6 +655,44 @@ geplottet.
     }
     \label{fig:4-1}
 \end{figure}
+
+Nun wird zunächst die Spannungsverstärkung vermessen, indem wir das
+Eingangssignal vor dem Eingangswiderstand $R_\text{in}$ abnehmen. Dabei messen
+wir einmal mit $R = \SI {100}{\kilo\ohm}$ und einmal mit $R = \SI
+{33.9}{\kilo\ohm}$, da dieser den \SI
+{33}{\kilo\ohm}, die in der Anleitung gefordert wurden, am nächsten kam.
+
+Unsere Messung befindet sich in Tabelle~\ref{tab:415}. Es ist deutlich zu sehen
+wie die Verstärkung anwächst, wenn man hinter dem Eingangswiderstand misst.
+Dies ist durch den Spannungsabfall über $R_\text{in}$ einfach zu erklären.
+
+Ebenfalls zu erkennen ist, dass die Verstärkung größer wird, je größer der
+Widerstand $R$ ist.
+
+\begin{table}
+    \centering
+    \begin {tabular}{SSSSS|S|r}
+        {$R / \si{\kilo\ohm}$} & 
+        {$\dif U_\text{in} / \si\division$} &
+        {\si{\milli\volt\per\division}}&
+        {$\dif U_\text{out} / \si\division$} &
+        {\si{\milli\volt\per\division}} &
+        {$\abs v$} &
+        vor/hinter $R_\text{in}$\\
+        \hline
+        100 & -3.5 & 100 & 2.9 & 1\si{\kilo} & 8.286 & vor \\
+        100 & 2.6 & 20 & 2.6 & 1\si{\kilo} & 50 & hinter \\
+        \hline
+        33.9 & -3.5 & 100 & 2.25 & 500 & 3.214 & vor \\
+        33.9 & 2.8 & 20 & 2.2 & 500 & 19.643 & hinter \\
+    \end{tabular}
+    \caption{%
+        Spannungsverstärkung bei Spannungsgegenkopplung
+    }
+    \label{tab:415}
+\end{table}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
