@@ -65,15 +65,18 @@ def a4_1_2_spannungsverstaerkung(T):
     print("Steigung", steigung_val, steigung_err)
     print("Achsenabschnitt", abschnitt_val, abschnitt_err)
 
-    pl.plot(x, y, linestyle="none", marker="o", color="red")
-    pl.plot(fit_x, fit_y, color="red")
+    T["steigung"] = g(steigung_val, steigung_err)
+    T["achsenabschnitt"] = g(abschnitt_val, abschnitt_err)
+
+    pl.plot(x, y, linestyle="none", marker="o")
+    pl.plot(fit_x, fit_y)
     pl.xlabel(r"$R_\mathrm{E}/R_\mathrm{C}$")
     pl.ylabel(r"$\frac{1}{v}(R_\mathrm{E})$")
     pl.grid(True)
     pl.savefig("vRE.pdf")
     pl.clf()
 
-    pl.plot(RC[:5], v[:5], linestyle="none", marker="o", color="blue")
+    pl.plot(RC[:5], v[:5], linestyle="none", marker="o")
     pl.xlabel(r"$R_\mathrm{C}$")
     pl.ylabel(r"$v(R_\mathrm{C})$")
     pl.grid(True)
