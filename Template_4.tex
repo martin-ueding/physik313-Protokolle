@@ -73,7 +73,7 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 		\url{https://github.com/martin-ueding/physik313-3_4/blob/master/Template_4.tex}
 \end{enumerate}
 
-%\newpage
+\newpage
 \tableofcontents
 
 \listoftodo
@@ -292,21 +292,22 @@ Frequenzen und wirkt in beide Richtungen.
 \FloatBarrier
 \section{Durchführung}
 
+\FloatBarrier
 \subsection{Fortsetung Emitterfolger}
 
 \subsubsection{Spannungsverstärkung des Emitterfolgers}
 
-Auf Schaltbrett 1 (Abbildung \ref{fig:3-4}) wird ein Emitterfolger mit
-externem Offset aufgebaut. Dazu wird der Funktionsgenerator auf Sinussignal mit
-$U_\text{SS} = \SI{0.5}{\volt}$ und Offset $\UB = \SI 2{\volt}$ eingestellt. An
-die Stellen der waagerechten Doppelpfeile kommen einfache Kabelbrücken. Kanal~2
-des Osziloskops werden mit dem unteren Anschluss verbunden.
+Auf Schaltbrett~1 (Abbildung~\ref{fig:3-4}) wird ein Emitterfolger mit externem
+Offset aufgebaut. Dazu wird der Funktionsgenerator auf Sinussignal mit
+$U_\text{SS} = \SI{0.5}{\voltss}$ und Offset $\UB = \SI2{\volt}$ eingestellt.
+An die Stellen der waagerechten Doppelpfeile kommen einfache Kabelbrücken.
+Kanal~2 des Oszilloskops wird mit dem unteren Anschluss verbunden.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Anleitung/3-4.png}
 	\caption{%
-		Schaltbrett 1
+		Schaltbrett~1 \cite[Abbildung~3.4]{physik313-Anleitung}
 	}
 	\label{fig:3-4}
 \end{figure}
@@ -317,17 +318,17 @@ danach umgekehrt.
 
 Die Messung ist in Tabelle~\ref{tab:411}.
 
-\begin{table}
+\begin{table}[htbp]
 	\centering
-	\begin{tabular}{SSSSS}
+	\begin{tabular}{SSSS|S}
 		{$\RE / \si{\ohm}$} &
 		{$\RC / \si{\ohm}$} &
 		{$\dif\UB / \si{\division}$} &
 		{$\dif\UE / \si{\division}$} &
-		{$v$} \\
+		{$v = \dif\UE / \dif\UB$} \\
 		\hline
 		%< for re, rc, dub, due, v in table411: >%
-		<< re >> & << rc >> & << dub >> & << due >> & << v >>\\
+		<< re >> & << rc >> & << dub >> & << due >> & << v >> \\
 		%< endfor >%
 	\end{tabular}
 	\caption{%
@@ -337,100 +338,249 @@ Die Messung ist in Tabelle~\ref{tab:411}.
 \end{table}
 
 Die Erwartung, dass sich die Verstärkung nicht nennenswert verändert, da sie in
-erster Näherung
-\[v = \frac{\gamma\RE}{r_\text{BE}+\gamma\RE} \approx 1\]
-unabhängig sein soll von $\RE$ und $\RC$ wurde erfüllt. Nur bei kleinen $\RE$
-und großen $\RC$ ist die Näherung nicht mehr gültig. Es gibt Abweichungen.
+erster Näherung 
+\[
+	v = \frac{\gamma\RE}{r_\text{BE}+\gamma\RE} \approx 1
+\]
+unabhängig sein soll von $\RE$ und $\RC$ wurde nur für kleine $\RC$ und große
+$\RE$ bestätigt. Die Werte von $v$ schwanken insgesamt aber deutlich. Bei sehr
+kleinem $\RE$ wurde die Verstärkung groß, während bei sehr großem $\RC$ die
+Verstärkung kleiner wurde.
 
 \subsubsection{Emitterfolger als Impedanzwandler}
 
 Nun wird ein invertierender Transistorverstärker aufgebaut, indem in
-Abbildung~\ref{fig:3-4} $\RC = \SI {22}{\kilo\ohm}$ und $\RE = \SI
-1{\kilo\ohm}$ gesetzt werden. Als Eingangssignal wird ein Sinussignal mit
-$U_\text{SS} = \SI {0.5}{\volt}$, $\UB = \SI 1{\volt}$ und $f =
-\SI{800}{\hertz}$ gewählt.
+Abbildung~\ref{fig:3-4} $\RC = \SI{22}{\kilo\ohm}$ und $\RE = \SI1{\kilo\ohm}$
+gesetzt werden. Als Eingangssignal wird ein Sinussignal mit $U_\text{SS} = \SI
+{0.5}{\voltss}$, $\UB = \SI1{\volt}$ und $f = \SI{800}{\hertz}$ gewählt.
 
 Nun wird an den Kollektor ein Lautsprecher mit $R \approx \SI{300}{\ohm}$
 angeschlossen. 
 
-\TODO{Warum ist nichts zu hören?}
+Wir hören fast nichts, da die Emitterschaltung nur die Spannung verstärkt,
+jedoch nicht die Leistung.
 
-Mit dem Schaltbrett~2 (Abbildung~\ref{fig:3-5} wird ein Emitterfolger zwischen
+Mit dem Schaltbrett~2 (Abbildung~\ref{fig:3-5}) wird ein Emitterfolger zwischen
 Transistorverstärker und Lautsprecher eingebaut. Dazu wird die
 Gleichspannungsversorgung von Brett~1 übernommen und der Lautsprecher wird an
-den Emitter der npn-Bipolar-Transistors geschlossen.
+den Emitter des npn-Bipolar-Transistors angeschlossen.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{Anleitung/3-5.png}
 	\caption{%
-		Schaltbrett 2
+		Schaltbrett~2 \cite[Abbildung~3.5]{physik313-Anleitung}
 	}
 	\label{fig:3-5}
 \end{figure}
 
-\TODO{Warum ist hier ein Signal zu hören}
+Jetzt ist ein Ton zu hören. Die Kollektorschaltung lässt die Spannung gleich,
+diese wurde allerdings schon verstärkt. Jetzt wird der Strom verstärkt. Nach
+beiden Stufen wurde somit die Leistung verstärkt, diese reicht jetzt für den
+Lautsprecher aus.
 
+\FloatBarrier
 \subsection{Invertierender Transistorverstärker (Emitterschaltung)}
 
+\FloatBarrier
 \subsubsection{Phasenbeziehung zwischen Ein- und Ausgang}
 
-Auf Schaltbrett 1 (Abbildung~\ref{fig:3-4}) wird nun eine Emitterschaltung
+Auf Schaltbrett~1 (Abbildung~\ref{fig:3-4}) wird nun eine Emitterschaltung
 aufgebaut, indem Kanal~2 des Oszilloskops an den oberen Ausgang geschlossen
-wird. Für Kollektor- und Emitterwiderstand soll gelten $\RC = \RE =
+wird. Für Kollektor- und Emitterwiderstand soll gelten: $\RC = \RE =
 \SI{390}{\ohm}$.
 
-Das Basispotenzial wird mit dem Spannungsteiler (senkrechter Doppelpfeil
-überbrückt) so eingestellt, dass $\UB = \SI {1.5}{\volt}$ ist.  Eine der
+Das Basispotential wird mit dem Spannungsteiler (senkrechter Doppelpfeil
+überbrückt) so eingestellt, dass $\UB = \SI{1.5}{\volt}$ ist. Eine der
 waagerechten Kabelbrücken aus dem vorherigen Versuch muss durch einen möglichst
 großen Kondensator ersetzt werden, damit der Gleichspannungsanteil aus dem
 Signal des Generators gefiltert wird. Letzterer soll ein
-$U_\text{SS}=\SI{0.5}{\volt}$-Sinussignal ausgeben.
+\SI{0.5}{\voltss}-Sinussignal ausgeben.
 
 Die Phasenbeziehung zwischen Eingangs- und Ausgangssignal ist hierbei $\pi$.
 
+\FloatBarrier
 \subsubsection{Spannungsverstärkung des invertierenden Verstärkers}
 
-Bei gleichem Aufbau soll nun die Spannungsverstärkung bei variierendem $\RE$
-und gleichbleibendem $\RC$ und anders herum vermessen werden. Die Messwerte
-sind in Tabelle~\ref{tab:412}. Zum Vergleich mit der Näherungsformel ist eine
-Spalte mit der genäherten Verstärkung eingefügt.
+Wir vermessen die Abhängigkeit der Spannungsverstärkung für verschiedene $\RC$
+und $\RE$, siehe Tabelle~\ref{tab:412}. Zum Vergleich mit der Näherungsformel
+ist eine Spalte mit der genäherten Verstärkung eingefügt.
 
 \begin{table}
 	\centering
-	\begin{tabular}{SSSSSS}
+	\begin{tabular}{SSSS|SS}
 		{$\RE / \si\ohm$} &
 		{$\RC / \si\ohm$} &
 		{$\dif\UB / \si\division$} &
-		{$\dif\UC / \si\division$} &
-		{$v = \dif\UC / \dif\UB$} &
-		{$v = -\RC / \RE$} \\
+		{$\dif\UE / \si\division$} &
+		{$v$} &
+		{$- \RC / \RE$} \\
 		\hline
-		%< for re, rc, dub, duc, v_mess, v_naeherung in table412: >%
-		<< re >> & << rc >> & << dub >> & << duc >> & << v_mess >> & << v_naeherung
-		>> \\
+		%< for re, rc, dub, due, v, rcre in table412: >%
+		<< re >> & << rc >> & << dub >> & << due >> & << v >> & << rcre >> \\
 		%< endfor >%
 	\end{tabular}
 	\caption{%
-		Abhängigkeit der Spannungsverstärkung von $\RE$ und $\RC$
+		Abhängigkeit der Spannungsverstärkung. Vor der vertikalen Linie sind
+		Messwerte, dahinter berechnete Werte.
 	}
 	\label{tab:412}
 \end{table}
 
-\fehlt
+Die Näherungsformel ist für große $\RE$ ziemlich gut, für große $\RC$ ziemlich
+schlecht.
 
+\FloatBarrier
 \subsubsection{Bestimmung des Transistoreingangswiderstands}
 
+Wir bestimmen die Spannungsverstärkung für den Spezialfall:
+\[
+	\RE = \SI0\ohm
+	\eqnsep
+	\RC = \SI{390}\ohm
+	\eqnsep
+	\dif\UB = \SI{.05}\voltss
+	\eqnsep
+	U = \SI{.7}V
+\]
+
+Dabei haben wir die Leerlaufverstärkung erhalten:
+\[
+	\dif\UB = \SI{<< ew_dUB >>}\division
+	\eqnsep
+	\dif\UC = \SI{<< ew_dUC >>}\division
+	\eqnsep
+	v_0 = \dod\UC\UB = \num{<< ew_v0 >>}
+\]
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{vRE.pdf}
+	\caption{%
+		Erstes Diagramm zur Auswertung. Dabei sind in rot die ersten Einträge
+		aus Tabelle~\ref{tab:412}, Letzten in blau.
+	}
+	\label{fig:}
+\end{figure}
+
 \fehlt
 
+\FloatBarrier
 \subsection{Wechselstrommäßige Aufhebung der Gegenkopplung}
 
-\fehlt
+Wir betrachten den Spielraum der Basisvorspannung bei der vorherigen Schaltung.
 
+Bei $\RE = 0$ haben wir bei einer Basisvorspannung im Bereich
+\SIrange{.6}{.8}{\volt} noch eine Sinuskurve im Ausgang sehen können. Bei
+\SI{390}{\ohm} für $\RE$ und $\RC$ haben wir als minimale Basisvorspannung
+\SI{.8}{\volt} erhalten, ein Maximum konnten wir jedoch nicht finden, da das
+Potentiometer am Anschlag war.
+
+Nun schalten wir einen Kondensator parallel zu $\RE$, die Gegenkopplung für
+Wechselströme aufzuheben. Dies bedeutet, dass der Kondensator möglichst klein
+sein muss, um für große Frequenzen einen kleinen Widerstand darzustellen ($X =
+1/(\ii \omega C)$). Wir wählen \SI{3300}{\pico\farad}. Für ein Frequenzspektrum
+über fast alle möglichen Frequenzen des Generator nehmen wir die Verstärkung
+auf. Diese Daten sind in Tabelle~\ref{tab:413}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SSS|S}
+		{$f / \si\hertz$} &
+		{$\dif\UB / \si\division$} &
+		{$\dif\UE / \si\division$} &
+		{$|v|$} \\
+		\hline
+		%< for f, dub, due, v in table413: >%
+		<< f >> & << dub >> & << due >> & << v >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für die Wechselspannungsverstärkung mit einer parallelen
+		Kapazität.
+	}
+	\label{tab:413}
+\end{table}
+
+Die hohe Verstärkung von \num{<< ew_v0 >>} haben wir nicht wieder erreichen
+können. Jedenfalls ist ab einer Frequenz von ungefähr \SI{500}{\kilo\hertz} die
+Verstärkung größer als 1, so dass die wechselstrommäßige Aufhebung
+funktioniert. Dass die letzte Verstärkung wieder kleiner wird, liegt daran,
+dass hier die Grenze des Verstärkers erreicht ist, siehe nächste Aufgabe.
+
+\FloatBarrier
 \subsection{Frequenzverhalten und Kaskodenschaltung}
 
+Wir bauen eine Verstärkerschaltung auf dem Schaltbrett~2 auf. Dazu wählen wir
+$\RE = \SI{100}\ohm$ und, um eine Verstärkung von 10 zu erreichen, $\RC =
+\SI1{\kilo\ohm}$. Das Eingangssignal ist ein Sinus mit
+$\SI{100}{\milli\voltss}$, den Arbeitspunkt stellen wir mit dem Offset am
+Generator ein.
+
+Da Schaltbrett~2, im Gegensatz zu Schalbrett~1 an dieser Stelle über keinen
+\SI{10}{\kilo\ohm}-Einganswiderstand verfügt, benutzen wir noch einen solchen
+Widerstand mit BNC-Anschluss.
+
+Ab einer Frequenz von \SI{100}{\hertz} untersuchen wir die
+Spannungsabhängigkeit dieser Schaltung. Die Daten sind in
+Tabelle~\ref{tab:414normal}.
+
+\begin{table}
+	\centering
+	\begin{tabular}{SSS|S}
+		{$f / \si\hertz$} &
+		{$\dif\UB / \si\division$} &
+		{$\dif\UE / \si\division$} &
+		{$|v|$} \\
+		\hline
+		%< for f, dub, due, v in table414normal: >%
+		<< f >> & << dub >> & << due >> & << v >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für die Wechselspannungsverstärkung.
+	}
+	\label{tab:414normal}
+\end{table}
+
+Anschließend erweitern wir die Schaltung zu einer Kaskodenschaltung. Die
+Messung wiederholen wir. Die entsprechenden Daten sind in
+Tabelle~\ref{tab:414normal}.
+
+\begin{table}
+	\centering
+	\begin{tabular}{SSS|S}
+		{$f / \si\hertz$} &
+		{$\dif\UB / \si\division$} &
+		{$\dif\UE / \si\division$} &
+		{$|v|$} \\
+		\hline
+		%< for f, dub, due, v in table414Kaskode: >%
+		<< f >> & << dub >> & << due >> & << v >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für die Wechselspannungsverstärkung der Kaskodenschaltung
+	}
+	\label{tab:414Kaskode}
+\end{table}
+
+Die Daten aus beiden Messungen haben wir in Abbildung~\ref{fig:414plot}
+geplottet.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{4-1-4-Plot.pdf}
+	\caption{%
+		Bode-Plot für die Verstärkerschaltungen. In rot die Werte für den
+		normalen Verstärker, in blau mit Kaskode.
+	}
+	\label{fig:414plot}
+\end{figure}
+
 \fehlt
 
+\FloatBarrier
 \subsection{Verstärker mit Spannungsgegenkopplung}
 
 \fehlt
