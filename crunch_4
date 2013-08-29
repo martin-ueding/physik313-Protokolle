@@ -57,10 +57,13 @@ def a4_1_2_spannungsverstaerkung(T):
     fit_x = np.linspace(np.min(x), np.max(x), 10)
     fit_y = linear(fit_x, *popt)
 
+    steigung_val = popt[0]
+    steigung_err = np.sqrt(pconv.diagonal())[0]
     abschnitt_val = popt[1]
     abschnitt_err = np.sqrt(pconv.diagonal())[1]
 
-    print("Achsenabschnitt", g(abschnitt_val, abschnitt_err))
+    print("Steigung", steigung_val, steigung_err)
+    print("Achsenabschnitt", abschnitt_val, abschnitt_err)
 
     pl.plot(x, y, linestyle="none", marker="o", color="red")
     pl.plot(fit_x, fit_y, color="red")
