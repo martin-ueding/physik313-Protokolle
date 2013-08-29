@@ -49,9 +49,6 @@ def a4_1_2_spannungsverstaerkung(T):
     x = (1/RC * RE)[5:]
     y = (1/v)[5:]
 
-    def linear(x, a, b):
-        return a*x + b
-
     popt, pconv = op.curve_fit(linear, x, y)
 
     fit_x = np.linspace(np.min(x), np.max(x), 10)
@@ -109,9 +106,20 @@ def a4_1_4(T):
     dUB = data[:, 1]
     dUE = data[:, 2]
 
-    v = np.abs(dUE/dUB)
+    v = np.abs(dUE/dUB) * 100
 
-    pl.loglog(f, v, linestyle="none", marker="o", color="red")
+    pl.loglog(f, v, linestyle="none", marker="o", label="ohne Kaskode")
+
+
+    x = np.linspace(np.min(f), np.max(f))
+    db0_y = np.ones(x.shape) * v[0]
+    pl.loglog(x, db0_y, label=r"$0 \, \mathrm{dB}$-Linie")
+
+    db3_y = np.ones(x.shape) * v[0] / np.sqrt(2)
+    pl.loglog(x, db3_y, label=r"$-3 \, \mathrm{dB}$-Linie")
+
+    transit_y = np.ones(x.shape)
+    pl.loglog(x, transit_y, label="$v = 1$")
 
     T["table414normal"] = np.column_stack([f, dUB, dUE, np.round(v, 3)])
 
@@ -121,16 +129,23 @@ def a4_1_4(T):
     dUB = data[:, 1]
     dUE = data[:, 2]
 
-    v = np.abs(dUE/dUB)
+    v = np.abs(dUE/dUB) * 100
 
-    pl.loglog(f, v, linestyle="none", marker="o", color="blue")
+    pl.loglog(f, v, linestyle="none", marker="o", label="mit Kaskode")
     pl.xlabel(r"Frequenz $f / \mathrm{Hz}$")
     pl.ylabel(r"Wechselspannungsverstärkung $v$")
     pl.grid(True)
+    pl.legend(loc="lower left")
     pl.savefig("4-1-4-Plot.pdf")
     pl.clf()
 
     T["table414Kaskode"] = np.column_stack([f, dUB, dUE, np.round(v, 3)])
+
+def linear(x, a, b):
+    return a*x + b
+
+def exponential(x, a, b):
+    return a* (x**b)
 
 def g(value, error=None, digits=3):
     if error is None:
