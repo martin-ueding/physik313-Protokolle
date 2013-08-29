@@ -50,12 +50,18 @@ def a4_1_2_spannungsverstaerkung(T):
     x = 1/v0 - 1/RC * RE
     y = 1/v
 
-    pl.plot(x[5:], y[5:], linestyle="none", marker="o", color="red")
-    pl.plot(x[:5], y[:5], linestyle="none", marker="o", color="blue")
-    pl.xlabel(r"$\frac{1}{v_0} - \frac{1}{R_\mathrm{C}} R_\mathrm{E}$")
+    pl.plot(RE[5:], y[5:], linestyle="none", marker="o", color="red")
+    pl.xlabel(r"$R_\mathrm{E}$")
     pl.ylabel(r"$\frac{1}{v}(R_\mathrm{E})$")
     pl.grid(True)
     pl.savefig("vRE.pdf")
+    pl.clf()
+
+    pl.plot(RC[:5], v[:5], linestyle="none", marker="o", color="blue")
+    pl.xlabel(r"$R_\mathrm{C}$")
+    pl.ylabel(r"$v(R_\mathrm{C})$")
+    pl.grid(True)
+    pl.savefig("vRC.pdf")
     pl.clf()
 
     T["ew_dUB"] = ew_dUB

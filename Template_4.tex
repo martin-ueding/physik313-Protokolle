@@ -8,14 +8,14 @@
 \ifoot{Lino Lemmer}
 
 \hypersetup{
-	pdftitle={Transistorverstärker}
+    pdftitle={Transistorverstärker}
 }
 
 \subject{Praktikumsprotokoll}
 \title{Transistorverstärker}
 \subtitle{physik313 – Versuch 4}
 \author{
-	Lino Lemmer \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
+    Lino Lemmer \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
 }
 
 %\setcounter{tocdepth}{2}
@@ -44,11 +44,11 @@
 \newcommand{\FRAGE}[1]{\printTODO{Rückfrage: #1}}
 
 \newcommand{\printTODO}[1]{
-	\par%
-	\textcolor{OrangeRed}{\textsf{#1}}%
-	\par%
-	\refstepcounter{todo}
-	\addcontentsline{lotd}{todo}{#1}
+    \par%
+    \textcolor{OrangeRed}{\textsf{#1}}%
+    \par%
+    \refstepcounter{todo}
+    \addcontentsline{lotd}{todo}{#1}
 }
 
 
@@ -62,15 +62,15 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 \ref{it:github/template} generiert.
 
 \begin{enumerate}
-	\item
-		\label{it:mu}
-		\url{http://martin-ueding.de/de/university/physik313/}
-	\item
-		\label{it:github/alles}
-		\url{https://github.com/martin-ueding/physik313-3_4/}
-	\item
-		\label{it:github/template}
-		\url{https://github.com/martin-ueding/physik313-3_4/blob/master/Template_4.tex}
+    \item
+        \label{it:mu}
+        \url{http://martin-ueding.de/de/university/physik313/}
+    \item
+        \label{it:github/alles}
+        \url{https://github.com/martin-ueding/physik313-3_4/}
+    \item
+        \label{it:github/template}
+        \url{https://github.com/martin-ueding/physik313-3_4/blob/master/Template_4.tex}
 \end{enumerate}
 
 \newpage
@@ -87,7 +87,7 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 \section{Einleitung}
 
 \TODO{
-	Einleitung für den zweiten Tag schreiben.
+    Einleitung für den zweiten Tag schreiben.
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,49 +101,49 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 \subsection{Aufgabe O}
 
 \begin{problem}
-	Zeigen Sie, dass genauer gilt:
-	\begin{equation}
-		\label{eq:3_4-14}
-		v = - \frac{\beta \RC}{r_\text{BE} + \gamma \RE}
-	\end{equation}
+    Zeigen Sie, dass genauer gilt:
+    \begin{equation}
+        \label{eq:3_4-14}
+        v = - \frac{\beta \RC}{r_\text{BE} + \gamma \RE}
+    \end{equation}
 \end{problem}
 
 \begin{align*}
-	v &= \dod \UC\UB\\
-	  &= -\frac{\dif\IC\RC}{\dif\UBE + \dif\UE}\\
-	  &= -\frac{\dif\IC\RC}{\dif\UBE + \dif\IE\RE}\\
-	  &= -\frac{\od\IC\IB\RC}{\od\UBE\IB+\od\IE\IB\RE}\\
-	  &= -\frac{\beta\RC}{r_\text{BE}+\gamma\RE}
+    v &= \dod \UC\UB\\
+      &= -\frac{\dif\IC\RC}{\dif\UBE + \dif\UE}\\
+      &= -\frac{\dif\IC\RC}{\dif\UBE + \dif\IE\RE}\\
+      &= -\frac{\od\IC\IB\RC}{\od\UBE\IB+\od\IE\IB\RE}\\
+      &= -\frac{\beta\RC}{r_\text{BE}+\gamma\RE}
 \end{align*}
 
 \FloatBarrier
 \subsection{Aufgabe P}
 
 \begin{problem}
-	Beweisen Sie \eqref{eq:3_4-17}.
+    Beweisen Sie \eqref{eq:3_4-17}.
 \end{problem}
 
 Die zitierte Gleichung ist:
 \begin{equation}
-	\label{eq:3_4-17}
-	\frac{\dif  v} v
-	= \frac{\dif  v_0}{v_0} \frac{1}{k v_0 + 1}
-	= \frac{\dif  v_0}{v_0} \frac{v}{v_0}
+    \label{eq:3_4-17}
+    \frac{\dif  v} v
+    = \frac{\dif  v_0}{v_0} \frac{1}{k v_0 + 1}
+    = \frac{\dif  v_0}{v_0} \frac{v}{v_0}
 \end{equation}
 
 Aus 
 
 \begin{align*}
-	\frac 1v &= \frac 1{v_0} + k
-	\intertext{folgt:}
-	v &= \frac {v_0}{1+kv_0}
-	\intertext{Daraus ergibt sich}
-	\dod {v}{v_0} &= \frac {1+kv_0-kv_0}{\del{1+kv_0}^2}\\
-	&= \frac 1{\del{1+kv_0}^2}\\
-	&= \frac {v_0}{1+kv_0} \frac 1{v_0\del{1+kv_0}}\\
-	&= \frac v{v_0} \frac 1{1+kv_0}
-	\intertext{Hieraus erhält man die gesuchte Gleichung}
-	\frac {\dif v}v &= \frac {\dif v_0}{v_0} \frac 1{1+kv_0} = \frac {\dif
+    \frac 1v &= \frac 1{v_0} + k
+    \intertext{folgt:}
+    v &= \frac {v_0}{1+kv_0}
+    \intertext{Daraus ergibt sich}
+    \dod {v}{v_0} &= \frac {1+kv_0-kv_0}{\del{1+kv_0}^2}\\
+    &= \frac 1{\del{1+kv_0}^2}\\
+    &= \frac {v_0}{1+kv_0} \frac 1{v_0\del{1+kv_0}}\\
+    &= \frac v{v_0} \frac 1{1+kv_0}
+    \intertext{Hieraus erhält man die gesuchte Gleichung}
+    \frac {\dif v}v &= \frac {\dif v_0}{v_0} \frac 1{1+kv_0} = \frac {\dif
 v_0}{v_0} \frac v{v_0}
 \end{align*}
 
@@ -151,8 +151,8 @@ v_0}{v_0} \frac v{v_0}
 \subsection{Aufgabe Q}
 
 \begin{problem}
-	Erklären sie, wieso die Kapazität $C_\text{CB}$ Einfluss auf die
-	Verstärkung hat.
+    Erklären sie, wieso die Kapazität $C_\text{CB}$ Einfluss auf die
+    Verstärkung hat.
 \end{problem}
 
 Bei einer Verstärkung $\beta$ wird durch den Miller-Effekt wird die anfänglich
@@ -165,19 +165,19 @@ Unterdrückung wirkt stärker.
 \subsection{Aufgabe R}
 
 \begin{problem}
-	Erklären Sie die Funktionsweise der Schaltung in
-	Abbildung~\ref{fig:3_4-15}! Wie groß ist die Spannungsänderung im Punkt P
-	bei einer Stromänderung $\dif  \IE(T2)$ und welche
-	Transistorgröße bestimmt diesen Wert?
+    Erklären Sie die Funktionsweise der Schaltung in
+    Abbildung~\ref{fig:3_4-15}! Wie groß ist die Spannungsänderung im Punkt P
+    bei einer Stromänderung $\dif  \IE(T2)$ und welche
+    Transistorgröße bestimmt diesen Wert?
 \end{problem}
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=.6\textwidth]{Anleitung/3_4-15.png}
-	\caption{%
-		\cite[Abbildung~3/4.15]{physik313-Anleitung}
-	}
-	\label{fig:3_4-15}
+    \centering
+    \includegraphics[width=.6\textwidth]{Anleitung/3_4-15.png}
+    \caption{%
+        \cite[Abbildung~3/4.15]{physik313-Anleitung}
+    }
+    \label{fig:3_4-15}
 \end{figure}
 
 An $T_2$ liegt eine konstante Spannung an. Durch die Diodeneigenschaft des
@@ -192,16 +192,16 @@ bewirkt.
 \subsection{Aufgabe S}
 
 \begin{problem}
-	Leiten Sie \eqref{eq:3_4-18} her. Hinweise: Da die Gegenkopplung bei
-	Betrachtung im Frequenzraum auf der Addition von Sinusschwingungen beruht
-	und wir in diesem Kapitel die Phasen ignoriert haben, ist hier
-	$v(f_\text{grenz gk}) = 2v(f=0)$ statt korrekterweise $\sqrt 2 v (f = 0)$.
+    Leiten Sie \eqref{eq:3_4-18} her. Hinweise: Da die Gegenkopplung bei
+    Betrachtung im Frequenzraum auf der Addition von Sinusschwingungen beruht
+    und wir in diesem Kapitel die Phasen ignoriert haben, ist hier
+    $v(f_\text{grenz gk}) = 2v(f=0)$ statt korrekterweise $\sqrt 2 v (f = 0)$.
 \end{problem}
 
 Die zitierte Gleichung ist:
 \begin{equation}
-	\label{eq:3_4-18}
-	f_\text{grenz gk} = f_\text{grenz} \frac{v_0}{v(f=0)}
+    \label{eq:3_4-18}
+    f_\text{grenz gk} = f_\text{grenz} \frac{v_0}{v(f=0)}
 \end{equation}
 
 Die Transitfrequenz $f_\text{T}$ bleibt, trotz der durch die Gegenkopplung
@@ -213,19 +213,19 @@ Hieraus folgt sofort die gesuchte Gleichung \eqref{eq:3_4-18}.
 \subsection{Aufgabe T}
 
 \begin{problem}
-	Erläutern Sie die Wirkungsweise der Art der Stabilisierung des
-	Basispotentials durch den Widerstand $R$ in Abbildung~\ref{fig:3_4-16}.
-	Überlegen Sie dazu, was passiert, wenn das Basispotential aus irgend einem
-	(äußeren) Grund „wegläuft“!
+    Erläutern Sie die Wirkungsweise der Art der Stabilisierung des
+    Basispotentials durch den Widerstand $R$ in Abbildung~\ref{fig:3_4-16}.
+    Überlegen Sie dazu, was passiert, wenn das Basispotential aus irgend einem
+    (äußeren) Grund „wegläuft“!
 \end{problem}
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=.6\textwidth]{Anleitung/3_4-16.png}
-	\caption{%
-		\cite[Abbildung~3/4.16]{physik313-Anleitung}
-	}
-	\label{fig:3_4-16}
+    \centering
+    \includegraphics[width=.6\textwidth]{Anleitung/3_4-16.png}
+    \caption{%
+        \cite[Abbildung~3/4.16]{physik313-Anleitung}
+    }
+    \label{fig:3_4-16}
 \end{figure}
 
 Da kein Emitterwiderstand in dieser Schaltung vorhanden ist, trennt Basis und
@@ -236,18 +236,18 @@ wird jedoch durch $R_\text{in}$ aus $U_\text{in}$ begrenzt.
 Durch den Widerstand $R$ wird eine Basisvorspannung angelegt, die jedoch vom
 Kollektorstrom abhängt. Im Arbeitspunkt stellt sich folgende Basisspannung ein:
 \[
-	\UB = U_\text{in} - R_\text{in} I_\text{B in}
-	+ U_0 - \RC \IC - R I_R
+    \UB = U_\text{in} - R_\text{in} I_\text{B in}
+    + U_0 - \RC \IC - R I_R
 \]
 
 Der Strom $I_\text{B in}$ sollte unabhängig vom Strom $I_R$ sein und somit:
 \[
-	I_\text{B in} = \frac{U_\text{in} - \SI{.6}\volt}{R_\text{in}}
+    I_\text{B in} = \frac{U_\text{in} - \SI{.6}\volt}{R_\text{in}}
 \]
 
 Eingesetzt bleibt von $\UB$ nur noch folgendes übrig:
 \[
-	\UB = \SI{.6}\volt + U_0 - \RC \IC - R I_R
+    \UB = \SI{.6}\volt + U_0 - \RC \IC - R I_R
 \]
 
 Das liegt daran, dass $U_\text{in}$ einen so hohen Basistrom erzeugen würde,
@@ -274,9 +274,9 @@ Zerstörung des Transistors, verhindert werden.
 \subsection{Aufgabe U}
 
 \begin{problem}
-	An welche Stelle der Schaltung [Abbildung~\ref{fig:3_4-16}] würden Sie den
-	Kondensator setzen [, um die Rückkopplung wechselspannungsmäßig
-	aufzuheben]? (Tip: Man kann einen Widerstand teilen!)
+    An welche Stelle der Schaltung [Abbildung~\ref{fig:3_4-16}] würden Sie den
+    Kondensator setzen [, um die Rückkopplung wechselspannungsmäßig
+    aufzuheben]? (Tip: Man kann einen Widerstand teilen!)
 \end{problem}
 
 Um die Rückkopplung für Wechselspannungen aufzuheben, muss die Leitfähigkeit
@@ -304,12 +304,12 @@ An die Stellen der waagerechten Doppelpfeile kommen einfache Kabelbrücken.
 Kanal~2 des Oszilloskops wird mit dem unteren Anschluss verbunden.
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{Anleitung/3-4.png}
-	\caption{%
-		Schaltbrett~1 \cite[Abbildung~3.4]{physik313-Anleitung}
-	}
-	\label{fig:3-4}
+    \centering
+    \includegraphics[width=\textwidth]{Anleitung/3-4.png}
+    \caption{%
+        Schaltbrett~1 \cite[Abbildung~3.4]{physik313-Anleitung}
+    }
+    \label{fig:3-4}
 \end{figure}
 
 Nun wird zunächst der Emitterwiderstand $\RE$ konstant gelassen und die
@@ -319,28 +319,28 @@ danach umgekehrt.
 Die Messung ist in Tabelle~\ref{tab:411}.
 
 \begin{table}[htbp]
-	\centering
-	\begin{tabular}{SSSS|S}
-		{$\RE / \si{\ohm}$} &
-		{$\RC / \si{\ohm}$} &
-		{$\dif\UB / \si{\division}$} &
-		{$\dif\UE / \si{\division}$} &
-		{$v = \dif\UE / \dif\UB$} \\
-		\hline
-		%< for re, rc, dub, due, v in table411: >%
-		<< re >> & << rc >> & << dub >> & << due >> & << v >> \\
-		%< endfor >%
-	\end{tabular}
-	\caption{%
-		Abhängigkeit der Spannungsverstärkung von $\RE$ und $\RC$
-	}
+    \centering
+    \begin{tabular}{SSSS|S}
+        {$\RE / \si{\ohm}$} &
+        {$\RC / \si{\ohm}$} &
+        {$\dif\UB / \si{\division}$} &
+        {$\dif\UE / \si{\division}$} &
+        {$v = \dif\UE / \dif\UB$} \\
+        \hline
+        %< for re, rc, dub, due, v in table411: >%
+        << re >> & << rc >> & << dub >> & << due >> & << v >> \\
+        %< endfor >%
+    \end{tabular}
+    \caption{%
+        Abhängigkeit der Spannungsverstärkung von $\RE$ und $\RC$
+    }
 \label{tab:411}
 \end{table}
 
 Die Erwartung, dass sich die Verstärkung nicht nennenswert verändert, da sie in
 erster Näherung 
 \[
-	v = \frac{\gamma\RE}{r_\text{BE}+\gamma\RE} \approx 1
+    v = \frac{\gamma\RE}{r_\text{BE}+\gamma\RE} \approx 1
 \]
 unabhängig sein soll von $\RE$ und $\RC$ wurde nur für kleine $\RC$ und große
 $\RE$ bestätigt. Die Werte von $v$ schwanken insgesamt aber deutlich. Bei sehr
@@ -366,12 +366,12 @@ Gleichspannungsversorgung von Brett~1 übernommen und der Lautsprecher wird an
 den Emitter des npn-Bipolar-Transistors angeschlossen.
 
 \begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{Anleitung/3-5.png}
-	\caption{%
-		Schaltbrett~2 \cite[Abbildung~3.5]{physik313-Anleitung}
-	}
-	\label{fig:3-5}
+    \centering
+    \includegraphics[width=\textwidth]{Anleitung/3-5.png}
+    \caption{%
+        Schaltbrett~2 \cite[Abbildung~3.5]{physik313-Anleitung}
+    }
+    \label{fig:3-5}
 \end{figure}
 
 Jetzt ist ein Ton zu hören. Die Kollektorschaltung lässt die Spannung gleich,
@@ -407,61 +407,61 @@ und $\RE$, siehe Tabelle~\ref{tab:412}. Zum Vergleich mit der Näherungsformel
 ist eine Spalte mit der genäherten Verstärkung eingefügt.
 
 \begin{table}
-	\centering
-	\begin{tabular}{SSSS|SS}
-		{$\RE / \si\ohm$} &
-		{$\RC / \si\ohm$} &
-		{$\dif\UB / \si\division$} &
-		{$\dif\UE / \si\division$} &
-		{$v$} &
-		{$- \RC / \RE$} \\
-		\hline
-		%< for re, rc, dub, due, v, rcre in table412: >%
-		<< re >> & << rc >> & << dub >> & << due >> & << v >> & << rcre >> \\
-		%< endfor >%
-	\end{tabular}
-	\caption{%
-		Abhängigkeit der Spannungsverstärkung. Vor der vertikalen Linie sind
-		Messwerte, dahinter berechnete Werte.
-	}
-	\label{tab:412}
+    \centering
+    \begin{tabular}{SSSS|SS}
+        {$\RE / \si\ohm$} &
+        {$\RC / \si\ohm$} &
+        {$\dif\UB / \si\division$} &
+        {$\dif\UE / \si\division$} &
+        {$v$} &
+        {$- \RC / \RE$} \\
+        \hline
+        %< for re, rc, dub, due, v, rcre in table412: >%
+        << re >> & << rc >> & << dub >> & << due >> & << v >> & << rcre >> \\
+        %< endfor >%
+    \end{tabular}
+    \caption{%
+        Abhängigkeit der Spannungsverstärkung. Vor der vertikalen Linie sind
+        Messwerte, dahinter berechnete Werte.
+    }
+    \label{tab:412}
 \end{table}
 
 Die Näherungsformel ist für große $\RE$ ziemlich gut, für große $\RC$ ziemlich
 schlecht. Wobei dies auch an starken Schwankungen und damit verbundenen
-Ableseschwierigkeiten im Bereich der großen $\RC$ liegen könnte,
+Ableseschwierigkeiten im Bereich der großen $\RC$ liegen könnte.
 
 \FloatBarrier
 \subsubsection{Bestimmung des Transistoreingangswiderstands}
 
 Wir bestimmen die Spannungsverstärkung für den Spezialfall:
 \[
-	\RE = \SI0\ohm
-	\eqnsep
-	\RC = \SI{390}\ohm
-	\eqnsep
-	\dif\UB = \SI{.05}\voltss
-	\eqnsep
-	U = \SI{.7}V
+    \RE = \SI0\ohm
+    \eqnsep
+    \RC = \SI{390}\ohm
+    \eqnsep
+    \dif\UB = \SI{.05}\voltss
+    \eqnsep
+    U = \SI{.7}V
 \]
 
 Dabei haben wir die Leerlaufverstärkung erhalten:
 \[
-	\dif\UB = \SI{<< ew_dUB >>}\division
-	\eqnsep
-	\dif\UC = \SI{<< ew_dUC >>}\division
-	\eqnsep
-	v_0 = \dod\UC\UB = \num{<< ew_v0 >>}
+    \dif\UB = \SI{<< ew_dUB >>}\division
+    \eqnsep
+    \dif\UC = \SI{<< ew_dUC >>}\division
+    \eqnsep
+    v_0 = \dod\UC\UB = \num{<< ew_v0 >>}
 \]
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{vRE.pdf}
-	\caption{%
-		Erstes Diagramm zur Auswertung. Dabei sind in rot die ersten Einträge
-		aus Tabelle~\ref{tab:412}, Letzten in blau.
-	}
-	\label{fig:}
+    \centering
+    \includegraphics[width=\textwidth]{vRE.pdf}
+    \caption{%
+        Erstes Diagramm zur Auswertung. Dabei sind in rot die ersten Einträge
+        aus Tabelle~\ref{tab:412}, Letzten in blau.
+    }
+    \label{fig:}
 \end{figure}
 
 \fehlt
@@ -485,22 +485,22 @@ sein muss, um für große Frequenzen einen kleinen Widerstand darzustellen ($X =
 auf. Diese Daten sind in Tabelle~\ref{tab:413}.
 
 \begin{table}[htbp]
-	\centering
-	\begin{tabular}{SSS|S}
-		{$f / \si\hertz$} &
-		{$\dif\UB / \si\division$} &
-		{$\dif\UE / \si\division$} &
-		{$|v|$} \\
-		\hline
-		%< for f, dub, due, v in table413: >%
-		<< f >> & << dub >> & << due >> & << v >> \\
-		%< endfor >%
-	\end{tabular}
-	\caption{%
-		Messwerte für die Wechselspannungsverstärkung mit einer parallelen
-		Kapazität.
-	}
-	\label{tab:413}
+    \centering
+    \begin{tabular}{SSS|S}
+        {$f / \si\hertz$} &
+        {$\dif\UB / \si\division$} &
+        {$\dif\UE / \si\division$} &
+        {$|v|$} \\
+        \hline
+        %< for f, dub, due, v in table413: >%
+        << f >> & << dub >> & << due >> & << v >> \\
+        %< endfor >%
+    \end{tabular}
+    \caption{%
+        Messwerte für die Wechselspannungsverstärkung mit einer parallelen
+        Kapazität.
+    }
+    \label{tab:413}
 \end{table}
 
 Die hohe Verstärkung von \num{<< ew_v0 >>} haben wir nicht wieder erreichen
@@ -527,21 +527,21 @@ Spannungsabhängigkeit dieser Schaltung. Die Daten sind in
 Tabelle~\ref{tab:414normal}.
 
 \begin{table}
-	\centering
-	\begin{tabular}{SSS|S}
-		{$f / \si\hertz$} &
-		{$\dif\UB / \si\division$} &
-		{$\dif\UE / \si\division$} &
-		{$|v|$} \\
-		\hline
-		%< for f, dub, due, v in table414normal: >%
-		<< f >> & << dub >> & << due >> & << v >> \\
-		%< endfor >%
-	\end{tabular}
-	\caption{%
-		Messwerte für die Wechselspannungsverstärkung.
-	}
-	\label{tab:414normal}
+    \centering
+    \begin{tabular}{SSS|S}
+        {$f / \si\hertz$} &
+        {$\dif\UB / \si\division$} &
+        {$\dif\UE / \si\division$} &
+        {$|v|$} \\
+        \hline
+        %< for f, dub, due, v in table414normal: >%
+        << f >> & << dub >> & << due >> & << v >> \\
+        %< endfor >%
+    \end{tabular}
+    \caption{%
+        Messwerte für die Wechselspannungsverstärkung.
+    }
+    \label{tab:414normal}
 \end{table}
 
 Anschließend erweitern wir die Schaltung zu einer Kaskodenschaltung. Die
@@ -549,34 +549,34 @@ Messung wiederholen wir. Die entsprechenden Daten sind in
 Tabelle~\ref{tab:414normal}.
 
 \begin{table}
-	\centering
-	\begin{tabular}{SSS|S}
-		{$f / \si\hertz$} &
-		{$\dif\UB / \si\division$} &
-		{$\dif\UE / \si\division$} &
-		{$|v|$} \\
-		\hline
-		%< for f, dub, due, v in table414Kaskode: >%
-		<< f >> & << dub >> & << due >> & << v >> \\
-		%< endfor >%
-	\end{tabular}
-	\caption{%
-		Messwerte für die Wechselspannungsverstärkung der Kaskodenschaltung
-	}
-	\label{tab:414Kaskode}
+    \centering
+    \begin{tabular}{SSS|S}
+        {$f / \si\hertz$} &
+        {$\dif\UB / \si\division$} &
+        {$\dif\UE / \si\division$} &
+        {$|v|$} \\
+        \hline
+        %< for f, dub, due, v in table414Kaskode: >%
+        << f >> & << dub >> & << due >> & << v >> \\
+        %< endfor >%
+    \end{tabular}
+    \caption{%
+        Messwerte für die Wechselspannungsverstärkung der Kaskodenschaltung
+    }
+    \label{tab:414Kaskode}
 \end{table}
 
 Die Daten aus beiden Messungen haben wir in Abbildung~\ref{fig:414plot}
 geplottet.
 
 \begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{4-1-4-Plot.pdf}
-	\caption{%
-		Bode-Plot für die Verstärkerschaltungen. In rot die Werte für den
-		normalen Verstärker, in blau mit Kaskode.
-	}
-	\label{fig:414plot}
+    \centering
+    \includegraphics[width=\linewidth]{4-1-4-Plot.pdf}
+    \caption{%
+        Bode-Plot für die Verstärkerschaltungen. In rot die Werte für den
+        normalen Verstärker, in blau mit Kaskode.
+    }
+    \label{fig:414plot}
 \end{figure}
 
 \fehlt
@@ -587,12 +587,12 @@ geplottet.
 \fehlt
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=.6\textwidth]{Anleitung/4-1.png}
-	\caption{
-		\cite[Abbildung~4.1]{physik313-Anleitung}
-	}
-	\label{fig:4-1}
+    \centering
+    \includegraphics[width=.6\textwidth]{Anleitung/4-1.png}
+    \caption{
+        \cite[Abbildung~4.1]{physik313-Anleitung}
+    }
+    \label{fig:4-1}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -601,7 +601,7 @@ geplottet.
 
 \FloatBarrier
 \IfFileExists{\bibliographyfile}{
-	\bibliography{\bibliographyfile}
+    \bibliography{\bibliographyfile}
 }{}
 
 \end{document}
