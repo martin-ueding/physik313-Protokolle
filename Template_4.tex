@@ -398,6 +398,18 @@ Signal des Generators gefiltert wird. Letzterer soll ein
 \SI{0.5}{\voltss}-Sinussignal ausgeben.
 
 Die Phasenbeziehung zwischen Eingangs- und Ausgangssignal ist hierbei $\pi$.
+Dazu haben wir noch ein Foto, siehe Abbildung~\ref{fig:799}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.45\linewidth]{Oszi_Foto/4-799.jpg}
+	\caption{%
+		Verstärkung \SI{50}{\milli\volt\per\division},
+		Zeitbasis \SI{.2}{\milli\second\per\division},
+		AC~Kopplung
+	}
+	\label{fig:799}
+\end{figure}
 
 \FloatBarrier
 \subsubsection{Spannungsverstärkung des invertierenden Verstärkers}
@@ -406,7 +418,7 @@ Wir vermessen die Abhängigkeit der Spannungsverstärkung für verschiedene $\RC
 und $\RE$, siehe Tabelle~\ref{tab:412}. Zum Vergleich mit der Näherungsformel
 ist eine Spalte mit der genäherten Verstärkung eingefügt.
 
-\begin{table}
+\begin{table}[htbp]
     \centering
     \begin{tabular}{SSSS|SS}
         {$\RE / \si\ohm$} &
@@ -547,9 +559,13 @@ Widerstand mit BNC-Anschluss.
 
 Ab einer Frequenz von \SI{100}{\hertz} untersuchen wir die
 Spannungsabhängigkeit dieser Schaltung. Die Daten sind in
-Tabelle~\ref{tab:414normal}.
+Tabelle~\ref{tab:414normal}. Dabei scheint das Netzgerät ein Sägezahnmuster mit
+einer recht hohen Frequenz zu haben. Dadurch wurde die Betriebsspannung leicht
+varriiert, wodurch die Verstärkung auch variiert ist, siehe
+Abbildung~\ref{fig:800}. Dieser Effekt ist auch in anderen Gruppen aufgetaucht.
+Für die Messung haben wir den Mittelwert des Musters genommen.
 
-\begin{table}
+\begin{table}[htbp]
     \centering
     \begin{tabular}{SSS|S}
         {$f / \si\hertz$} &
@@ -567,11 +583,32 @@ Tabelle~\ref{tab:414normal}.
     \label{tab:414normal}
 \end{table}
 
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.3\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/4-800.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.3\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/4-801.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.3\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/4-802.jpg}
+	\end{minipage}
+	\caption{%
+		Links:~Verstärkungen~\SI{50}{\milli\volt\per\division}~und~\SI{.5}{\milli\volt\per\division},~Zeitbasis~\SI{.5}{\milli\second\per\division}.
+		Mitte:~Verstärkungen~\SI{20}{\milli\volt\per\division}~und~\SI{.2}{\milli\volt\per\division},~Zeitbasis~\SI{50}{\micro\second\per\division}.
+		Rechts:~Verstärkungen~\SI{10}{\milli\volt\per\division}~und~\SI{.1}{\milli\volt\per\division},~Zeitbasis~\SI{.1}{\micro\second\per\division}.
+	}
+	\label{fig:800}
+\end{figure}
+
 Anschließend erweitern wir die Schaltung zu einer Kaskodenschaltung. Die
 Messung wiederholen wir. Die entsprechenden Daten sind in
 Tabelle~\ref{tab:414normal}.
 
-\begin{table}
+\begin{table}[htbp]
     \centering
     \begin{tabular}{SSS|S}
         {$f / \si\hertz$} &
