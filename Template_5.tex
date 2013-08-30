@@ -117,7 +117,17 @@ $v_0 = 10^5$.
     Verstärker mit $k = 0.1$, $v_0 = 10^5$, $\Uin = \SI 1{\volt}$?
 \end{problem}
 
-
+Es gilt
+\begin{align*}
+    U_x &= \Uin - k\Uout \\
+        &= \Uin - kv_0U_x
+    \intertext{Hieraus folgt}
+    \Uin &= \del{1+kv_0}U_x
+    \intertext{und daraus erhält man sofort die gesuchte Beziehung}
+    U_x &= \frac {\Uin}{1+kv_0}
+    \intertext{Für den oben betrachteten Verstärker ergibt sich}
+    U_x &= \SI{e-4}{\volt}
+\end{align*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
