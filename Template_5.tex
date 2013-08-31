@@ -8,11 +8,11 @@
 \ifoot{Lino Lemmer}
 
 \hypersetup{
-	pdftitle={Transistor}
+	pdftitle={Operationsverstärker}
 }
 
 \subject{Praktikumsprotokoll}
-\title{Transistor}
+\title{Operationsverstärker}
 \subtitle{physik313 – Versuch 5}
 \author{
 	Lino Lemmer \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
@@ -36,6 +36,8 @@
 \newcommand\UG{U_\text{G}}
 \newcommand\UGS{U_\text{GS}}
 \newcommand\UDS{U_\text{DS}}
+\newcommand\Uin{U_\text{in}}
+\newcommand\Uout{U_\text{out}}
 
 \begin{document}
 
@@ -62,6 +64,70 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 \tableofcontents
 \newpage
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Einleitung                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Einleitung}
+
+In diesem Versuch beschäftigen wir uns mit verschiedenen Arten von
+Operationsverstärkern. Dabei untersuchen wir einen nicht invertierenden
+Verstärker, Addierer, Integratoren und Differenzverstärker.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Theorie                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Theorie}
+
+%\TODO{Theorieteil}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Aufgaben                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Aufgaben}
+
+\FloatBarrier
+\subsection{Aufgabe A}
+
+\begin{problem}
+    Berechnen Sie $v$ für $k = 0.1$, $v_0 = 10^4$ und $v_0 = 10^5$. Um
+    wieviel Prozent weicht $v$ jeweils vom angestrebten Wert $1 / k$ ab?
+\end{problem}
+
+\begin{align*}
+    v_\text{opt} &= \frac 1k = 10\\
+    v_{v_0 = 10^4} &= \frac 1{0.1 + 10^{-4}} \approx 9.990\\
+    v_{v_0 = 10^5} &= \frac 1{0.1 + 10^{-5}} \approx 9.999
+\end{align*}
+
+Dies entspricht einer Abweichung von $0.1\%$ für $v_0 = 10^4$ und $0.01\%$ für
+$v_0 = 10^5$.
+
+\FloatBarrier
+\subsection{Aufgabe B}
+
+\begin{problem}
+    Zeigen Sie, dass die Eingangsspannung des Verstärkers allgemein
+    $U_x = \Uin / (1+kv_0)$ ist. Wie groß ist sie für den oben betrachteten
+    Verstärker mit $k = 0.1$, $v_0 = 10^5$, $\Uin = \SI 1{\volt}$?
+\end{problem}
+
+Es gilt
+\begin{align*}
+    U_x &= \Uin - k\Uout \\
+        &= \Uin - kv_0U_x
+    \intertext{Hieraus folgt}
+    \Uin &= \del{1+kv_0}U_x
+    \intertext{und daraus erhält man sofort die gesuchte Beziehung}
+    U_x &= \frac {\Uin}{1+kv_0}
+    \intertext{Für den oben betrachteten Verstärker ergibt sich}
+    U_x &= \SI{e-4}{\volt}
+\end{align*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
