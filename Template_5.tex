@@ -180,6 +180,33 @@ Der Ausgangswiderstand ist, nach den Formeln:
 	\frac\Uout{I_2} = - Z_2
 \]
 
+\subsection{Aufgabe F}
+
+\begin{problem}
+	Zeigen Sie, dass die Schaltung in Abbildung~\ref{fig:5_6-6} die
+	Eingangsspannungen folgendermaßen addiert:
+	\[
+		\Uout = c_1 U_1 + c_2 U_2 + \ldots + c_n U_n
+		\quad \text{mit} \quad
+		c_n = - \frac{R_0}{R_n}
+	\]
+
+	Berechnen Sie dazu wie oben die Ströme am invertierenden Eingang und
+	benutzen Sie $U_+ = U_-$.
+\end{problem}
+
+\textcolor{darkred}{Zeichnungen einfügen}
+
+Es herrscht ein Potentialgefälle $\U_i - 0$ an jedem Widerstand. Die 0 ist
+durch die Rückkopplung fix. Es fließen Ströme $I_i = U_i / R_i$.
+
+Diese Ströme addieren sich auf, werden durch den Operationsverstärker durch den
+Widerstand $R_0$ gezogen, wodurch ein Potential von
+\[
+	\Uout = - R_0 \sum_i \frac{U_i}{R_i}
+\]
+benötigt wird.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
