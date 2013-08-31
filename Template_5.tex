@@ -129,6 +129,45 @@ Es gilt
     U_x &= \SI{e-4}{\volt}
 \end{align*}
 
+\FloatBarrier
+\subsection{Aufgabe C}
+
+\begin{problem}
+    Berechnen Sie nun die Verstärkung eines Gleichtaktsignals (common mode
+    signal, CM), also $\Delta U_+ = \Delta U_- = +\Delta \Uin$. Betrachten Sie
+    dazu wieder die Änderung der Emitterspannungen und die daraus
+    resultierenden Änderungen des Stromes durch $R_1$ (näherungsweise: $R_1 \gg
+    \RE$). Zeigen Sie, dass $v_\text{CM} \approx -\RC / (2R_1)$. Wie ist die
+    Gleichtaktunterdrückung einer solchen Schaltung für $\RE = \SI
+    1{\kilo\ohm}$, $\RC = R_1 = \SI{100}{\kilo\ohm}$?
+\end{problem}
+
+Ändert man an beiden Eingängen die Spannung gleichermaßen um $+\Delta\Uin$,
+hebt man auf beiden Seiten ebenfalls die Emitterspannungen um diesen Betrag.
+Der zusätzliche Spannungsabfall an den Widerständen $\RE$ und $R_1$ findet
+wegen $R_1 \gg \RE$ fast vollständig in $R_1$ statt. Der Strom, der dadurch
+zusätzlich durch $R_1$ fließt, ist $\Delta I_1 = \Delta\Uin / R_1$. Die
+Spannung, die über $\RC$ abfällt ändert sich dadurch um
+
+\[
+    \Delta\UC = \RC\Delta\IC = \half\RC\Delta I_1 = \frac \RC {2R_1} \Delta\Uin
+\]
+
+$\Uout$ sinkt entsprechend um diesen Betrag.
+
+Für die Gleichtaktverstärkung ergibt sich daher 
+
+\[
+    v_\text{CM} = \frac{\Uout}{\Uin} = -\frac \RC {2R_1}
+\]
+
+Die Gleichtaktunterdrückung ist dabei
+
+\[
+    \Text{CMRR} = \frac {v_\text{CM}}{v_\text{diff}} = -\frac
+    {\frac{\RC}{2R_1}}{\frac{\RC}{2\RE} = -\frac{\RE}{R_1} = -0.01
+\]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
