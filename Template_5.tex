@@ -130,6 +130,56 @@ Es gilt
     U_x &= \SI{e-4}{\volt}
 \end{align*}
 
+\subsection{Aufgabe E}
+
+\begin{problem}
+	\[
+		v = \frac\Uout\Uin = - \frac{Z_2}{Z_1}
+	\]
+
+	Woher kommt das Minuszeichen? Machen Sie sich auch hier die Wirkungsweise
+	der Gegenkopplung klar! Verstehen Sie, warum $I_2$ \emph{nicht} von $Z_2$
+	abhängt! Wie sind Eingagns- und Ausgangswiderstand dieser Schaltung?
+\end{problem}
+
+Der Strom $I_1$ wird durch die Potentialdifferenz zwischen Eingang und
+virtueller Masse getrieben. Die Spannung ist $\Uin - 0$.
+
+Der Strom muss durch $Z_2$ fließen, da die Eingänge des Operationsverstärkers
+sehr hochohmig sind. Dazu muss der Operatorsverstärker Arbeit leisten, in dem
+er mit Hilfe seiner Versorgungsspannung die Spannung am Ausgang so hält, dass
+der Strom $I_1$ auch durch $Z_2$ gezogen werden kann. Dazu erzeugt der
+Operationsverstärker eine Potentialdifferenz von $0 - \Uout$. Die
+Ausgangsspannung $\Uout$ wird festgelegt durch:
+\[
+	|\Uout| = I_2 Z_2 = I_1 Z_2
+\]
+
+Das Minuszeichen kommt daher, dass das Potential von Eingang zur virtuellen
+Masse fällt, von der virtuellen Masse zum Ausgang jedoch weiter ins Negative
+fällt. Es handelt sich ja um einen invertierenden Verstärker.
+
+Die Gegenkopplung funktioniert so, dass einen kleine Erhöhung der
+Eingangsspannung zu einem höheren Gradient im Widerstand $Z_1$ führt. Dadurch
+wird mehr Strom $I_1$ angetrieben, der vom Operationsverstärker durch ein
+ausreichend negatives Potential $\Uout$ durch $Z_2$ weiter getrieben wird.
+Würde der Strom nicht weiter getrieben, so baut sich am invertierenden Eingang
+eine positive Spannung auf, was den Operationsverstärker dazu bringt, mehr
+negatives Potential an den Ausgang zu legen.
+
+$I_2$ hängt nicht von $Z_2$ ab, da $I_1$ (mit der Betriebsspannung des
+Operationsverstärkers) erzwungen wird. 
+
+Der Eingangswiderstand ist:
+\[
+	\frac\Uin{I_1} = Z_1
+\]
+
+Der Ausgangswiderstand ist, nach den Formeln:
+\[
+	\frac\Uout{I_2} = - Z_2
+\]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
