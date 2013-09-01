@@ -197,7 +197,7 @@ Der Ausgangswiderstand ist, nach den Formeln:
 
 \textcolor{darkred}{Zeichnungen einfügen}
 
-Es herrscht ein Potentialgefälle $\U_i - 0$ an jedem Widerstand. Die 0 ist
+Es herrscht ein Potentialgefälle $U_i - 0$ an jedem Widerstand. Die 0 ist
 durch die Rückkopplung fix. Es fließen Ströme $I_i = U_i / R_i$.
 
 Diese Ströme addieren sich auf, werden durch den Operationsverstärker durch den
@@ -212,6 +212,69 @@ benötigt wird.
 \begin{problem}
 	Erklären Sie die einzelnen Schritte und rechnen Sie das Endergebnis nach!
 \end{problem}
+
+Schritt:
+\begin{equation}
+	\label{eq:G1}
+	U_+ = U_2 \frac{R_2}{R_1 + R_2}
+\end{equation}
+
+Dies ist ein unbelasteter Spannungsteiler von $U_2$ mit der Masse.
+
+Schritt:
+\begin{equation}
+	\label{eq:G2}
+	U_- = U_+
+\end{equation}
+
+Dies ist die Gleichgewichtseinstellung des Operationsverstärkers.
+
+Schritt:
+\begin{equation}
+	\label{eq:G3}
+	I_1 = \frac{U_1 - U_-}{R_1}
+\end{equation}
+
+$U_-$ ist das Potential am invertierenden Eingang. Die Potentialdifferenz
+zwischen dem äußeren Eingang und dem Operationsverstärker zieht einen Strom
+$I_1$ durch den Widerstand.
+
+Schritt:
+\begin{equation}
+	\label{eq:G4}
+	I_2 = I_1
+\end{equation}
+
+Operationsverstärker-Eingänge lassen keinen Strom zu. Daher wird der Strom
+durch $R_2$ gezwungen.
+
+Schritt:
+\begin{equation}
+	\label{eq:G5}
+	I_2 = \frac{U_- - \Uout}{R_2}
+\end{equation}
+
+Umformen: $I_2 R_2$ erzeugt Potential $U_- - \Uout$.
+
+\paragraph{Endergebnis}
+\[
+	\Uout = \frac{R_2}{R_1} \cdot (U_2 - U_1)
+\]
+
+Beginne mit \eqref{eq:G5}:
+\begin{align*}
+	I_2 &= \frac{U_- - \Uout}{R_2} \\
+	R_2 I_2 &= U_- - \Uout \\
+	\intertext{%
+		Setze \eqref{eq:G2} für $U_-$ ein. Setze \eqref{eq:G1} für $U_+$ ein.
+	}
+	\Uout
+	&= \del{1 + \frac{R_2}{R_1}} U_- - \frac{R_2}{R_1} U_1 \\
+	&= \del{1 + \frac{R_2}{R_1}} U_2 \frac{R_2}{R_1 + R_2} - \frac{R_2}{R_1} U_1 \\
+	&= \frac{R_1 + R_2}{R_1} U_2 \frac{R_2}{R_1 + R_2} - \frac{R_2}{R_1} U_1 \\
+	&= \frac{R_2}{R_1} U_2 - \frac{R_2}{R_1} U_1 \\
+	&= \frac{R_2}{R_1} \cdot (U_2 - U_1)
+\end{align*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
