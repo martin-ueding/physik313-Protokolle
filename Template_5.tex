@@ -366,26 +366,61 @@ Abbildung~\ref{fig:K} skizziert.
 \FloatBarrier
 \subsection{Nicht invertierender Verstärker}
 
-Abbildung~\ref{fig:5_6-4}
+Dadurch, dass wir eine Verstärkung $v$ einstellen, jedoch auch eine Verstärkung
+$v$ messen, kommt es zum Benennungskonflikt. Daher wollen wir die
+Soll-Verstärkung mit $V$ bezeichnen, während wir die gemessene Verstärkung aus
+den Amplituden mit $v$ bezeichnen.
+
+Wir bauen einen nicht invertierenden Verstärker auf, siehe
+Abbildung~\ref{fig:5_6-4}. 
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=.6\linewidth]{Anleitung/5_6-4.png}
+	\includegraphics[width=.4\linewidth]{Anleitung/5_6-4.png}
 	\caption{%
 		\cite[Abbildung~5/6.4]{physik313-Anleitung}
 	}
 	\label{fig:5_6-4}
 \end{figure}
 
-\subsubsection{Frequenzgang für $v = 11$}
+\subsubsection{Frequenzgang für $V = 11$}
 
-\subsubsection{Frequenzgang für $v = 101$}
+Hier wählen wir die Widerstände so, dass eine Verstärkung von $V = 11$
+eingestellt wird. In der Anleitung wird $R_1 = \SI{1}{\kilo\ohm}$ vorgegeben.
 
-\subsubsection{Frequenzgang für $v = 2$}
+Die Verstärkung ist gegeben durch: \cite[Formel~5/6.6]{physik313-Anleitung}:
+\[
+	V = 1 + \frac{Z_2}{Z_1}
+\]
 
-\subsubsection{Slew Rate mit $v = 101$}
+Die zu erreichende Verstärkung von $V = 11$ mit $R_1 = \SI{1}{\kilo\ohm}$
+erreichen wir, indem wir $R_2 = \SI{10}{\kilo\ohm}$ wählen.
 
-\subsubsection{Kapazität in Serie mit $v = 11$}
+Als Eingangssignal wählen wir ein Sinussignal mit \SI{100}{\milli\voltss}
+Amplitude.
+
+Um die Signalverstärkung $v$ direkt ablesen zu können, stellen wir Eingangs-
+und Ausgangssignal gleichzeitig auf dem Oszillographen dar. Die Verstärkung am
+Oszillographen wird so eingestellt, dass das Eingangssignal ein Kästchen groß
+ist. Das Ausgangssignal wird auf die unterste Linie zentriert und gleich
+skaliert.
+
+Das Ablesen der Verstärkung $v$ beginnen wir bei der Transitfrequenz, um den
+Abfall im Bode-Diagramm genauer als das Plateau vermessen zu können.
+
+\textcolor{darkred}{Messwerten in Tabelle einfügen}
+
+\subsubsection{Frequenzgang für $V = 101$}
+
+Nun verändern wir die Widerstände so, dass $V = 101$. Dies erreichen wir mit
+$R_2 = \SI{100}{\kilo\ohm}$. Wir fahren die Frequenzen so hoch, dass wir die
+gemessenen Verstärkungen $v$ aus \numlist{80;60;40;20;10} abfahren.
+
+\subsubsection{Frequenzgang für $V = 2$}
+
+\subsubsection{Slew Rate mit $V = 101$}
+
+\subsubsection{Kapazität in Serie mit $V = 11$}
 
 \FloatBarrier
 \subsection{Addierer}
