@@ -10,6 +10,24 @@ import matplotlib.pyplot as pl
 import numpy as np
 import scipy.optimize as op
 
+def verstaerker(T):
+    data = np.genfromtxt("Verstaerker-11.txt")
+
+    f = data[:, 0]
+    uin = data[:, 1]
+    uout = data[:, 2]
+    v = uin/uout
+
+    T["table_verstaerker_11"] = np.column_stack([f, uin, uout, np.round(v, 3)])
+
+    pl.loglog(f, v, label="$V = 11$", linestyle="none", marker="o")
+    pl.xlabel(r"$f / \mathrm{Hz}$")
+    pl.ylabel(r"$v$")
+    pl.grid(True)
+    pl.legend(loc="best")
+    pl.savefig("Plot-Verstaerker.pdf")
+    pl.clf()
+
 def addierer(T):
     x = np.linspace(0, 2*np.pi, 1000)
 
@@ -69,6 +87,7 @@ def render_template(T):
 def main():
     T = {}
 
+    verstaerker(T)
     addierer(T)
 
     render_template(T)

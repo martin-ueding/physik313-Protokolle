@@ -408,9 +408,37 @@ ist. Das Ausgangssignal wird auf die unterste Linie zentriert und gleich
 skaliert.
 
 Das Ablesen der Verstärkung $v$ beginnen wir bei der Transitfrequenz, um den
-Abfall im Bode-Diagramm genauer als das Plateau vermessen zu können.
+Abfall im Bode-Diagramm genauer als das Plateau vermessen zu können. Unsere
+Messdaten sind in Tabelle~\ref{tab:Verstaerker-11}
 
-\textcolor{darkred}{Messwerten in Tabelle einfügen}
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SSS|S}
+		{$f / \si\hertz$} &
+		{$\Uin / \si\division$} &
+		{$\Uout / \si\division$} &
+		{$v$} \\
+		\hline
+		%< for f, uin, uout, v in table_verstaerker_11: >%
+		<< f >> & << uin >> & << uout >> & << v >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für den Verstärker mit $V = 11$
+	}
+	\label{tab:Verstaerker-11}
+\end{table}
+
+Diese Daten sind in Abbildung~\ref{fig:Verstaerker-Bode} geplottet.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{Plot-Verstaerker.pdf}
+	\caption{%
+		Bode-Plot für den nicht invertierenden Verstärker
+	}
+	\label{fig:Verstaerker-Bode}
+\end{figure}
 
 \subsubsection{Frequenzgang für $V = 101$}
 
@@ -420,8 +448,9 @@ gemessenen Verstärkungen $v$ aus \numlist{80;60;40;20;10} abfahren.
 
 \textcolor{darkred}{Messwerte in Tabelle einfügen}
 
-Diese Messpunkte tragen wir auch in das Diagramm ein. Wir bestimmen die
-Transit- und Grenzfrequenz.
+Diese Messpunkte tragen wir auch in das Diagramm
+(Abbildung~\ref{fig:Verstaerker-Bode}) ein. Wir bestimmen die Transit- und
+Grenzfrequenz.
 
 \textcolor{darkred}{Transit- und Grenzfrequenz ablesen/fitten.}
 
