@@ -371,6 +371,8 @@ $v$ messen, kommt es zum Benennungskonflikt. Daher wollen wir die
 Soll-Verstärkung mit $V$ bezeichnen, während wir die gemessene Verstärkung aus
 den Amplituden mit $v$ bezeichnen.
 
+\subsubsection{Aufbau}
+
 Wir bauen einen nicht invertierenden Verstärker auf, siehe
 Abbildung~\ref{fig:5_6-4}. 
 
@@ -511,6 +513,8 @@ Sägezahn, der allerdings noch deutlich runde Ecken hat.
 \FloatBarrier
 \subsection{Konstantstromquelle}
 
+\subsubsection{Aufbau}
+
 Wir bauen die Konstantstromquelle aus Abbildung~\ref{fig:5-1} auf. Dabei sind
 $R_1 = \SI{47}{\kilo\ohm}$ und $R_2 = \SI{10}{\kilo\ohm}$ in der Anleitung
 vorgegeben.
@@ -524,6 +528,8 @@ vorgegeben.
 	\label{fig:5-1}
 \end{figure}
 
+\subsubsection{Strom durch Rückkopplungszweig}
+
 Bei einer Eingangsspannung von \SI{9.4}{\volt} sollte der Strom im
 Rückkopplungszweig ($I_2$) der Strom sein, der auch durch $R_1$ fließt. Also:
 \[
@@ -535,6 +541,8 @@ Rückkopplungszweig ($I_2$) der Strom sein, der auch durch $R_1$ fließt. Also:
 \]
 
 \textcolor{darkred}{Nachmessen}
+
+\subsubsection{Variable Last}
 
 $R_2$ wird durch ein Potentiometer ersetzt. Wir variieren $R_2$ und beobachten
 den Strom. Zu erwarten ist, dass der Strom konstant bleibt, da der
@@ -552,6 +560,8 @@ Multimeter über dem Widerstand abgreifen, oder direkt $\Uout$ zwischen Ausgang
 und Masse abgreifen.
 
 \textcolor{darkred}{Beweis ausmessen}
+
+\subsubsection{Halbieren des Stroms}
 
 Der Strom kann halbiert werden, indem die Eingangsspannung halbiert wird, oder
 $R_1$ verdoppelt wird.
@@ -618,7 +628,9 @@ Phasenverschiebung gibt, sind es Ellipsen.
 \FloatBarrier
 \subsection{Differenzverstärker}
 
-Abbildung~\ref{fig:5_6-7}
+\subsubsection{Aufbau}
+
+Gemäß Abbildung~\ref{fig:5_6-7} bauen wir einen Differenzverstärker auf.
 
 \begin{figure}[htbp]
 	\centering
@@ -628,6 +640,21 @@ Abbildung~\ref{fig:5_6-7}
 	}
 	\label{fig:5_6-7}
 \end{figure}
+
+\subsubsection{Funktionsüberprüfung}
+
+Wir überprüfen die Funktion mit einem Sinussignal auf dem einen Eingang und
+einer Gleichspannung auf dem anderen Eingang. Die Gleichspannung wird von uns
+variiert. Zuletzt vertauschen wir die Eingänge.
+
+\textcolor{darkred}{Beobachtung}
+
+\subsubsection{Schwebung}
+
+Mit Hilfe des separaten Sinusgenerators, den wir bereits beim Addierer benutzt
+haben, und dem variablen Funktionsgenerator erzeugen wir eine Schwebung.
+
+\textcolor{darkred}{Beobachtung}
 
 \FloatBarrier
 \subsection{Freiwillige Aufgabe}
