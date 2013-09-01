@@ -425,9 +425,65 @@ Transit- und Grenzfrequenz.
 
 \subsubsection{Frequenzgang für $V = 2$}
 
+Da der Operationsverstärker die Verstärkung limitiert, und zwar auf 11, sollte
+bei einer Soll-Verstärkung von $V = 2$ dies über eine deutlich größeren
+Frequenzbereich möglich sein.
+
+\textcolor{darkred}{Ausprobieren und Beobachtung einfügen}
+
 \subsubsection{Slew Rate mit $V = 101$}
 
+In diesem Teil wählen wir als Eingangssignal ein Rechtecksignal mit einer
+Frequenz von \SI{1}{\kilo\hertz}. Die Amplitude des Eingangssignals stellen wir
+so ein, dass das Ausgangssignal eine Amplitude von \SI{20}{\voltss} hat.
+
+An den Flanken des Ausgangssignals messen wir die slew rate, sie beträgt
+$\messwert$.
+
+Aus \cite[Tabelle~5/6.1]{physik313-Anleitung} ist ein Wert von
+\SI{20}{\volt\per\micro\second} für den AD~711 zu erwarten, den wir auf unseren
+Schaltbrettern haben.
+
+Wir erhöhen die Frequenz, dabei achten wir auf die Ausgangsamplitude und
+Signalform.
+
+\textcolor{darkred}{Beobachtungen einfügen}
+
+Nun schalten wir auf ein Sinussignal und vergleichen mit dem Rechtecksignal.
+
+\textcolor{darkred}{%
+	Erklären Sie die Unterschiede. Hat das etwas mit Bandbreite oder slew rate
+	zu tun?
+}
+
 \subsubsection{Kapazität in Serie mit $V = 11$}
+
+Zuletzt stellen wir $V = 11$ ein, in dem wir die in der Aufgabenstellung
+angegebenen Werte für die Widerstände benutzen: $R_1 = \SI{10}{\kilo\ohm}$ und
+$R_2 = \SI{100}{\kilo\ohm}$. Außerdem schalten wir eine Kapazität von
+\SI{.1}{\micro\farad} in Serie mit $R_1$.
+
+Theoretisch erwarten wir, dass $Z_1 = R_1 + 1/(\ii \omega C)$ für kleine
+Frequenzen groß, für große jedoch bis auf $R_1$ klein wird. Die Verstärkung war
+mit gegeben als:
+\[
+	V = 1 + \frac{Z_2}{Z_1}
+\]
+
+Damit wird gilt für die Verstärkung:
+\[
+	\lim_{f \to 0} V = 1
+	\eqnsep
+	\lim_{f \to \infty} V = 1 + \frac{R_2}{R_1}
+\]
+
+Der Kondensator sollte sich bei einer Frequenz von $1/(\omega C) = R_1$
+bemerkbar machen. Dies ist:
+\[
+	\omega = \frac1{R_1 C} = \SI{1000}{\radian\per\second} = \SI{6200}\hertz
+\]
+
+\textcolor{darkred}{Beobachtung aufschreiben und in das Diagramm einfügen}
 
 \FloatBarrier
 \subsection{Addierer}
