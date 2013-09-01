@@ -11,7 +11,7 @@ import numpy as np
 import scipy.optimize as op
 
 def addierer(T):
-    x = np.linspace(0, 10, 1000)
+    x = np.linspace(0, 2*np.pi, 1000)
 
     y1 = np.sin(x)
     y2 = 1/2 * np.sin(2*x)
