@@ -321,6 +321,7 @@ Das sind \SI{28}{\volt} pro Schaltvorgang. Die slew rate ist mit
 	f = \frac{\SI{2e7}{\volt\per\second}}{\SI{28}\volt} = \SI{714}{\kilo\hertz}
 \]
 
+\FloatBarrier
 \subsection{Aufgabe K}
 
 \begin{problem}
@@ -330,12 +331,20 @@ Das sind \SI{28}{\volt} pro Schaltvorgang. Die slew rate ist mit
 \end{problem}
 
 Da der Aufbau einen invertierenden Schmitt-Trigger enthält, ist der Ausgang
-$\Uout$ mit einem Rechteck belegt.
+$\Uout$ mit einem Rechteck belegt. Der Kondensator wird mit einer konstanten
+Spannung aufgeladen, die Ladekurve ist also exponentiell. Beides ist in
+Abbildung~\ref{fig:K} skizziert.
 
-Der Kondensator wird mit einer konstanten Spannung aufgeladen, die Ladekurve
-ist also exponentiell.
-
-\textcolor{darkred}{Skizze einfügen}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics{K.pdf}
+	\caption{%
+		Spannungsverlauf. In rot die Spannung $\Uout$ am Ausgang des
+		Operationsverstärkers. In blau die Spannung über dem Kondensator, die
+		proportional zu seiner Ladung ist.
+	}
+	\label{fig:K}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
