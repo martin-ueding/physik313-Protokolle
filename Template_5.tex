@@ -511,7 +511,9 @@ Sägezahn, der allerdings noch deutlich runde Ecken hat.
 \FloatBarrier
 \subsection{Konstantstromquelle}
 
-Abbildung~\ref{fig:5-1}
+Wir bauen die Konstantstromquelle aus Abbildung~\ref{fig:5-1} auf. Dabei sind
+$R_1 = \SI{47}{\kilo\ohm}$ und $R_2 = \SI{10}{\kilo\ohm}$ in der Anleitung
+vorgegeben.
 
 \begin{figure}[htbp]
 	\centering
@@ -521,6 +523,38 @@ Abbildung~\ref{fig:5-1}
 	}
 	\label{fig:5-1}
 \end{figure}
+
+Bei einer Eingangsspannung von \SI{9.4}{\volt} sollte der Strom im
+Rückkopplungszweig ($I_2$) der Strom sein, der auch durch $R_1$ fließt. Also:
+\[
+	I_2
+	= I_1
+	= \frac\Uin{R_1}
+	= \frac{\SI{9.4}\volt}{\SI{47}{\kilo\ohm}}
+	= \SI{200}{\micro\ampere}
+\]
+
+\textcolor{darkred}{Nachmessen}
+
+$R_2$ wird durch ein Potentiometer ersetzt. Wir variieren $R_2$ und beobachten
+den Strom. Zu erwarten ist, dass der Strom konstant bleibt, da der
+Operationsverstärker die Ausgangsspannung so regelt, dass der Strom durch $R_2$
+konstant bleibt. Wenn die benötigte Spannung über die Versorgungsspannung geht,
+kann der Operationsverstärker jedoch nicht mehr weiter regeln, der Strom nimmt
+ab.
+
+\textcolor{darkred}{Beobachtung}
+
+Dies widerspricht nicht dem Ohm'schen Gesetz, im Gegenteil. Die Spannung wird
+vom Operationsverstärker so verändert, dass $I = U/R$ konstant bleibt. Es ist
+also die Spannung, die sich ändert. Die können wir Prüfen, indem wir mit einem
+Multimeter über dem Widerstand abgreifen, oder direkt $\Uout$ zwischen Ausgang
+und Masse abgreifen.
+
+\textcolor{darkred}{Beweis ausmessen}
+
+Der Strom kann halbiert werden, indem die Eingangsspannung halbiert wird, oder
+$R_1$ verdoppelt wird.
 
 \FloatBarrier
 \subsection{Integrator}
