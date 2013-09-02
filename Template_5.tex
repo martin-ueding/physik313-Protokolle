@@ -82,7 +82,26 @@ Verstärker, Addierer, Integratoren und Differenzverstärker.
 \FloatBarrier
 \section{Theorie}
 
-%\TODO{Theorieteil}
+\subsection{Eigenschaften von Operationsverstärkern}
+
+Ein Operationsverstärker (kurz: OV) ist ein elektrisches Bauteil, welches zwei
+Anschlüsse für eine Versorgungsspannung, zwei Spannungseingänge ($U_+$, den
+nicht invertierenden und $U_-$, den invertierenden Eingang) und einen
+-ausgang hat.
+
+Dabei wird die Differenz der Eingangsspannungen um die Leerlaufverstärkung
+$v_0$ verstärkt am Ausgang ausgegeben. Da diese im Allgemeinen sehr groß ist
+($v_0 > \num{e5}$), kann der OV nur gegengekoppelt sinnvoll eingesetzt werden,
+da so $U_+ = U_-$ gilt. Daraus folgt auch direkt die erste \emph{goldene
+Regel}:
+\begin{quote}
+    In einer gegengekoppelten Schaltung, stellt der OV seinen Ausgang so ein,
+    dass die Eingangsspannungen gleich sind
+\end{quote}
+Die zweite \emph{goldene Regel} lautet:
+\begin{quote}
+    In die Eingänge des OV fließt fast kein Strom ($I_+ = I_- = 0$).
+\end{quote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Aufgaben                                   %
@@ -212,7 +231,7 @@ Eine Skizze der Abhängigkeit befindet sich in Abbildung~\ref{fig:5_6-D}.
     \label{fig:5_6-D}
 \end{figure}
 
-\FloarBarrier
+\FloatBarrier
 \subsection{Aufgabe E}
 
 \begin{problem}
