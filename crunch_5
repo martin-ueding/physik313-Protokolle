@@ -40,7 +40,7 @@ def verstaerker_part(T, filename, color, label, table_key, f_T_key, f_grenz_key)
 
     # Messwerte interpolieren.
     inter = scipy.interpolate.interp1d(f, v, kind='linear')
-    x = np.linspace(np.min(f), np.max(f), 100)
+    x = np.logspace(np.log(np.min(f)), np.log(np.max(f)), 100, base=np.e)
     y = inter(x)
     pl.loglog(x, y, color=color)
 
