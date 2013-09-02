@@ -536,7 +536,7 @@ skaliert.
 
 Das Ablesen der Verstärkung $v$ beginnen wir bei der Transitfrequenz, um den
 Abfall im Bode-Diagramm genauer als das Plateau vermessen zu können. Unsere
-Messdaten sind in Tabelle~\ref{tab:Verstaerker-11}
+Messdaten sind in Tabelle~\ref{tab:Verstaerker-11}.
 
 \begin{table}[htbp]
 	\centering
@@ -641,7 +641,8 @@ Tabelle~\ref{tab:Verstaerker-2} und Abbildung~\ref{fig:Verstaerker-Bode}.
 	\label{tab:Verstaerker-2}
 \end{table}
 
-\textcolor{darkred}{Ausprobieren und Beobachtung einfügen}
+Für kleine Werte ist die Verstärkung $v = 2$. Für größere Frequenzen geht dies
+in die restlichen Linien über.
 
 Die Transitfrequenz ist: $\fT = \SI{<< f_T_2 >>}{\hertz}$. Die Grenzfrequenz
 ist: $f_\text{grenz} = \SI{<< f_grenz_2 >>}\hertz$.
@@ -653,23 +654,54 @@ Frequenz von \SI{1}{\kilo\hertz}. Die Amplitude des Eingangssignals stellen wir
 so ein, dass das Ausgangssignal eine Amplitude von \SI{20}{\voltss} hat.
 
 An den Flanken des Ausgangssignals messen wir die slew rate, sie beträgt
-$\messwert$.
+\SI{2.2}{\division} bei einer Zeitauflösung
+\SI{.5}{\micro\second\per\division}, also \SI{1.1}{\micro\second}.
 
 Aus \cite[Tabelle~5/6.1]{physik313-Anleitung} ist ein Wert von
 \SI{20}{\volt\per\micro\second} für den AD~711 zu erwarten, den wir auf unseren
 Schaltbrettern haben.
 
 Wir erhöhen die Frequenz, dabei achten wir auf die Ausgangsamplitude und
-Signalform.
+Signalform. Ab einer Frequenz von \SI{100}{\kilo\hertz} wird der Effekt sehr
+deutlich. Das Ausgangssignal sieht Trapezförmig aus. Siehe
+Abbildungen~\ref{fig:807} und \ref{fig:809}.
 
-\textcolor{darkred}{Beobachtungen einfügen}
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/5-807.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/5-808.jpg}
+	\end{minipage}
+	\caption{%
+		Von links nach rechts: \SIlist{100;250}{\kilo\hertz}.
+	}
+	\label{fig:807}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/5-809.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/5-810.jpg}
+	\end{minipage}
+	\caption{%
+		Von links nach rechts: \SIlist{500;1000}{\kilo\hertz}.
+	}
+	\label{fig:809}
+\end{figure}
 
 Nun schalten wir auf ein Sinussignal und vergleichen mit dem Rechtecksignal.
 
-\textcolor{darkred}{%
-	Erklären Sie die Unterschiede. Hat das etwas mit Bandbreite oder slew rate
-	zu tun?
-}
+Bei einem Sinussignal sieht das Ausgangssignal genauso aus wie beim
+Rechtecksignal. Wir glauben, dass das daran liegt, dass bei einem
+Eingangssignal von \SI{20}{\volt} die Betriebsspannung des
+Operationsverstärkers sehr schnell an ihr Maximum kommt.
 
 \subsubsection{Kapazität in Serie mit $V = 11$}
 
@@ -723,7 +755,8 @@ Tabelle~\ref{tab:Verstaerker-c} und in Abbildung~\ref{fig:Verstaerker-Bode}.
 Die Transitfrequenz ist: $\fT = \SI{<< f_T_c >>}{\hertz}$ Die Grenzfrequenz
 ist: $f_\text{grenz} = \SI{<< f_grenz_c >>}\hertz$.
 
-\textcolor{darkred}{Beobachtung aufschreiben}
+Die Grenzen für große und kleine Frequenzen stimmen überein. Der Kondensator
+hat wirklich einen Einfluss ab der berechneten Frequenz.
 
 \subsubsection{Zusammenfassung}
 
@@ -766,7 +799,13 @@ Sägezahn, der allerdings noch deutlich runde Ecken hat.
 	\label{fig:saegezahn}
 \end{figure}
 
-\textcolor{darkred}{Foto von Oszillogramm einfügen}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.45\linewidth]{Oszi_Foto/5-811.jpg}
+	\caption{%
+	}
+	\label{fig:811}
+\end{figure}
 
 \FloatBarrier
 \subsection{Konstantstromquelle}
@@ -798,7 +837,8 @@ Rückkopplungszweig ($I_2$) der Strom sein, der auch durch $R_1$ fließt. Also:
 	= \SI{200}{\micro\ampere}
 \]
 
-\textcolor{darkred}{Nachmessen}
+Wir messen mit einem Digitalmultimeter nach und erhalten
+\SI{.195}{\milli\ampere}.
 
 \subsubsection{Variable Last}
 
@@ -809,15 +849,14 @@ konstant bleibt. Wenn die benötigte Spannung über die Versorgungsspannung geht
 kann der Operationsverstärker jedoch nicht mehr weiter regeln, der Strom nimmt
 ab.
 
-\textcolor{darkred}{Beobachtung}
-
 Dies widerspricht nicht dem Ohm'schen Gesetz, im Gegenteil. Die Spannung wird
 vom Operationsverstärker so verändert, dass $I = U/R$ konstant bleibt. Es ist
 also die Spannung, die sich ändert. Die können wir Prüfen, indem wir mit einem
 Multimeter über dem Widerstand abgreifen, oder direkt $\Uout$ zwischen Ausgang
 und Masse abgreifen.
 
-\textcolor{darkred}{Beweis ausmessen}
+Die Spannung über dem Potentiometer variiert im Bereich
+\SIrange{0}{8.85}{\volt}.
 
 \subsubsection{Halbieren des Stroms}
 
@@ -845,13 +884,26 @@ vorgegeben. Der Eingang wird mit einem symmetrischen Rechtecksignal mit
 
 Auf dem Oszillographen beobachten wir Ein- und Ausgang gleichzeitig.
 
-\textcolor{darkred}{Beobachtung}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.45\linewidth]{Oszi_Foto/5-813.jpg}
+	\caption{%
+	}
+	\label{fig:813}
+\end{figure}
+
+Dabei sehen wir, dass der Kondensator mit einem konstanten Strom auf- und
+entladen wird. Dadurch wird die Ladekurve gerade, siehe
+Abbildung~\ref{fig:813}.
 
 \subsubsection{Verschiedene Eingangswerte}
 
 Wir verändern die Eingangsfrequenz- und Spannung und beobachten.
 
-\textcolor{darkred}{Beobachtung}
+Die Eingangsamplitude ist proportional zur Maximalladung des Kondensators. Bei
+verschiedenen Frequenzen bleibt die Steigung der Ladekurve konstant, da ja der
+Strom gleich bleibt. Bei einer höheren Frequenz ist die Ladezeit jedoch
+geringer, so dass die Maximalladung geringer wird.
 
 \subsubsection{Weglassen von $R_2$}
 
@@ -875,13 +927,19 @@ Somit ist der Widerstand $R_2$ bereits nicht mehr vorhanden.
 Wie geben ein Sinussignal auf den Eingang und betrachten die Phasenverschiebung
 zwischen Ein- und Ausgang.
 
-\textcolor{darkred}{Beobachtung}
+Der Ausgang ist um $\piup/2$ voraus.
 
 Nun schalten wir den Oszillographen in den XY-Betrieb und beobachten
 Lissajous-Figuren. Da die Frequenzen gleich sind und es nur eine
-Phasenverschiebung gibt, sind es Ellipsen.
+Phasenverschiebung gibt, sind es Ellipsen, siehe Abbildung~\ref{fig:814}.
 
-\textcolor{darkred}{Beobachtung}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.45\linewidth]{Oszi_Foto/5-814.jpg}
+	\caption{%
+	}
+	\label{fig:814}
+\end{figure}
 
 \FloatBarrier
 \subsection{Differenzverstärker}
@@ -905,19 +963,23 @@ Wir überprüfen die Funktion mit einem Sinussignal auf dem einen Eingang und
 einer Gleichspannung auf dem anderen Eingang. Die Gleichspannung wird von uns
 variiert. Zuletzt vertauschen wir die Eingänge.
 
-\textcolor{darkred}{Beobachtung}
+Mit der Spannungseinstellung am Netzteil können wir in der Tat die Höhe des
+Ausgangssignal verschieben.
 
 \subsubsection{Schwebung}
 
 Mit Hilfe des separaten Sinusgenerators, den wir bereits beim Addierer benutzt
 haben, und dem variablen Funktionsgenerator erzeugen wir eine Schwebung.
 
-\textcolor{darkred}{Beobachtung}
+Es kommt zu einer Schwebung. Um dies gut sichtbar zu machen, haben wir ein
+kleines Video bereitgestellt:
+
+\textcolor{darkred}{Video hochladen und einfügen}
 
 \FloatBarrier
 \subsection{Freiwillige Aufgabe}
 
-Abbildung~\ref{fig:5-2}
+Die freiwillige Aufgabe (Abbildung~\ref{fig:5-2}) lassen wir aus.
 
 \begin{figure}[htbp]
 	\centering
