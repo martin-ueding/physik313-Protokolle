@@ -131,6 +131,7 @@ Eigenschaften:
         Gleichtaktverstärkung nennt man Gleichtaktunterdrückung.
 \end{itemize}
 
+\FloatBarrier
 \subsection{Gegenkopplung}
 
 Bei Gegenkopplung wird ein bestimmter Anteil $k$ der Ausgangsspannung auf den
@@ -151,8 +152,10 @@ näherungsweise:
     v = \frac 1k
 \]
 
+\FloatBarrier
 \subsection{Grundschaltungen mit Operationsverstärkern}
 
+\FloatBarrier
 \subsubsection{Nicht invertierender Verstärker}
 
 \begin{figure}[htbp]
@@ -167,7 +170,25 @@ näherungsweise:
 In Abbildung~\ref{fig:5_6-4} ist die Schaltung eines nicht invertierenden
 Verstärkers zu sehen. Die Verstärkung ist bei diesem:
 \[
-    v = \frac{\Uout}{\Uin} = 1 + \frac{Z_2}{Z_1}
+    v = \frac{\Uout}{\Uin} = \frac 1k = 1 + \frac{Z_2}{Z_1}
+\]
+
+\FloatBarrier
+\subsubsection{Invertierender Verstärker}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.4\linewidth]{Anleitung/5_6-5.png}
+	\caption{%
+		\cite[Abbildung~5/6.5]{physik313-Anleitung}
+	}
+	\label{fig:5_6-5}
+\end{figure}
+
+Die Schaltung eines invertierenden Verstärkers ist in
+Abbildung~\ref{fig:5_6-5} zu sehen. Die Verstärkung ist in diesem Fall:
+\[
+    v = -\frac{Z_2}{Z_1}
 \]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
