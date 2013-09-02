@@ -546,9 +546,26 @@ Diese Daten sind in Abbildung~\ref{fig:Verstaerker-Bode} geplottet.
 
 Nun verändern wir die Widerstände so, dass $V = 101$. Dies erreichen wir mit
 $R_2 = \SI{100}{\kilo\ohm}$. Wir fahren die Frequenzen so hoch, dass wir die
-gemessenen Verstärkungen $v$ aus \numlist{80;60;40;20;10} abfahren.
+gemessenen Verstärkungen $v$ aus \numlist{80;60;40;20;10} abfahren. Unsere
+Messwerte sind in Tabelle~\ref{tab:Verstaerker-101}.
 
-\textcolor{darkred}{Messwerte in Tabelle einfügen}
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SSS|S}
+		{$f / \si\hertz$} &
+		{$\Uin / \si\division$} &
+		{$\Uout / \si\division$} &
+		{$v$} \\
+		\hline
+		%< for f, uin, uout, v in table_verstaerker_101: >%
+		<< f >> & << uin >> & << uout >> & << v >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für den Verstärker mit $V = 101$
+	}
+	\label{tab:Verstaerker-101}
+\end{table}
 
 Diese Messpunkte tragen wir auch in das Diagramm
 (Abbildung~\ref{fig:Verstaerker-Bode}) ein. Wir bestimmen die Transit- und

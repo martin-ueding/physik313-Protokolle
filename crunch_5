@@ -23,15 +23,23 @@ def skizze_d(T):
 
 def verstaerker(T):
     data = np.genfromtxt("Verstaerker-11.txt")
-
     f = data[:, 0]
     uin = data[:, 1]
     uout = data[:, 2]
     v = uin/uout
 
     T["table_verstaerker_11"] = np.column_stack([f, uin, uout, np.round(v, 3)])
-
     pl.loglog(f, v, label="$V = 11$", linestyle="none", marker="o")
+
+    data = np.genfromtxt("Verstaerker-101.txt")
+    f = data[:, 0]
+    uin = data[:, 1]
+    uout = data[:, 2]
+    v = uin/uout
+
+    T["table_verstaerker_101"] = np.column_stack([f, uin, uout, np.round(v, 3)])
+    pl.loglog(f, v, label="$V = 101$", linestyle="none", marker="o")
+
     pl.xlabel(r"$f / \mathrm{Hz}$")
     pl.ylabel(r"$v$")
     pl.grid(True)
