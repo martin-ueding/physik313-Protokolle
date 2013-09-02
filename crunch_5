@@ -10,6 +10,7 @@ import matplotlib.pyplot as pl
 import numpy as np
 import scipy.optimize as op
 
+<<<<<<< HEAD
 def skizze_d(T):
     f = np.linspace(1, 1e4, 1e4)
     v = np.sqrt(1 + 4 * np.pi**2 * 100e3**2 * 100e-9**2 * f**2)
@@ -20,6 +21,45 @@ def skizze_d(T):
     pl.grid(True)
     pl.savefig("5_6-D.pdf")
     pl.clf
+=======
+def verstaerker(T):
+    data = np.genfromtxt("Verstaerker-11.txt")
+
+    f = data[:, 0]
+    uin = data[:, 1]
+    uout = data[:, 2]
+    v = uin/uout
+
+    T["table_verstaerker_11"] = np.column_stack([f, uin, uout, np.round(v, 3)])
+
+    pl.loglog(f, v, label="$V = 11$", linestyle="none", marker="o")
+    pl.xlabel(r"$f / \mathrm{Hz}$")
+    pl.ylabel(r"$v$")
+    pl.grid(True)
+    pl.legend(loc="best")
+    pl.savefig("Plot-Verstaerker.pdf")
+    pl.clf()
+
+def addierer(T):
+    x = np.linspace(0, 2*np.pi, 1000)
+
+    y1 = np.sin(x)
+    y2 = 1/2 * np.sin(2*x)
+    y3 = 1/3 * np.sin(3*x)
+
+    y = 2 / np.pi * (y1 + y2 + y3)
+
+    pl.plot(x, y1, label=r"$\sin(x)$")
+    pl.plot(x, y2, label=r"$\sin(2x)$")
+    pl.plot(x, y3, label=r"$\sin(3x)$")
+    pl.plot(x, y, label="Summe", linewidth=3, color="black")
+    pl.xlabel("$x$")
+    pl.ylabel("$f(t)$")
+    pl.grid(True)
+    pl.legend(loc="best")
+    pl.savefig("Plot-Saegezahn.pdf")
+    pl.clf()
+>>>>>>> 1263d44c03e710e3aa135ade8c02e26fe05826dc
 
 def g(value, error=None, digits=3):
     if error is None:
@@ -60,7 +100,13 @@ def render_template(T):
 def main():
     T = {}
 
+<<<<<<< HEAD
     skizze_d(T)
+=======
+    verstaerker(T)
+    addierer(T)
+
+>>>>>>> 1263d44c03e710e3aa135ade8c02e26fe05826dc
     render_template(T)
 
 if __name__ == "__main__":

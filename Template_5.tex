@@ -54,10 +54,10 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 		\url{http://martin-ueding.de/de/university/physik313/}
 	\item
 		\label{it:github/alles}
-		\url{https://github.com/martin-ueding/physik313-3_4/}
+		\url{https://github.com/martin-ueding/physik313-5_6/}
 	\item
 		\label{it:github/template}
-		\url{https://github.com/martin-ueding/physik313-3_4/blob/master/Template_4.tex}
+		\url{https://github.com/martin-ueding/physik313-5_6/blob/master/Template_5.tex}
 \end{enumerate}
 
 \newpage
@@ -95,26 +95,27 @@ Verstärker, Addierer, Integratoren und Differenzverstärker.
 \subsection{Aufgabe A}
 
 \begin{problem}
-    Berechnen Sie $v$ für $k = 0.1$, $v_0 = 10^4$ und $v_0 = 10^5$. Um
-    wieviel Prozent weicht $v$ jeweils vom angestrebten Wert $1 / k$ ab?
+	Berechnen Sie $v$ für $k = \num{0.1}$, $v_0 = \num{e4}$ und $v_0 =
+	\num{e5}$. Um wieviel Prozent weicht $v$ jeweils vom angestrebten Wert $1 /
+	k$ ab?
 \end{problem}
 
 \begin{align*}
-    v_\text{opt} &= \frac 1k = 10\\
-    v_{v_0 = 10^4} &= \frac 1{0.1 + 10^{-4}} \approx 9.990\\
-    v_{v_0 = 10^5} &= \frac 1{0.1 + 10^{-5}} \approx 9.999
+    v_\text{opt} &= \frac 1k = 10 \\
+	v_{v_0 = 10^4} &= \frac 1{\num{0.1} + 10^{-4}} \approx \num{9.990} \\
+	v_{v_0 = 10^5} &= \frac 1{\num{0.1} + 10^{-5}} \approx \num{9.999}
 \end{align*}
 
-Dies entspricht einer Abweichung von $0.1\%$ für $v_0 = 10^4$ und $0.01\%$ für
-$v_0 = 10^5$.
+Dies entspricht einer Abweichung von $\SI{0.1}\percent$ für $v_0 = \num{e4}$
+und $\SI{.01}\percent$ für $v_0 = \num{e5}$.
 
 \FloatBarrier
 \subsection{Aufgabe B}
 
 \begin{problem}
-    Zeigen Sie, dass die Eingangsspannung des Verstärkers allgemein
-    $U_x = \Uin / (1+kv_0)$ ist. Wie groß ist sie für den oben betrachteten
-    Verstärker mit $k = 0.1$, $v_0 = 10^5$, $\Uin = \SI 1{\volt}$?
+	Zeigen Sie, dass die Eingangsspannung des Verstärkers allgemein $U_x =
+	\Uin / (1+kv_0)$ ist. Wie groß ist sie für den oben betrachteten Verstärker
+	mit $k = \num{0.1}$, $v_0 = \num{e5}$, $\Uin = \SI 1{\volt}$?
 \end{problem}
 
 Es gilt
@@ -209,6 +210,574 @@ Eine Skizze der Abhängigkeit befindet sich in Abbildung~\ref{fig:5_6-D}.
         Abhängigkeit der Verstärkung von der Frequenz
     }
     \label{fig:5_6-D}
+
+\subsection{Aufgabe E}
+
+\begin{problem}
+	\[
+		v = \frac\Uout\Uin = - \frac{Z_2}{Z_1}
+	\]
+
+	Woher kommt das Minuszeichen? Machen Sie sich auch hier die Wirkungsweise
+	der Gegenkopplung klar! Verstehen Sie, warum $I_2$ \emph{nicht} von $Z_2$
+	abhängt! Wie sind Eingangs- und Ausgangswiderstand dieser Schaltung?
+\end{problem}
+
+Der Strom $I_1$ wird durch die Potentialdifferenz zwischen Eingang und
+virtueller Masse getrieben. Die Spannung ist $\Uin - 0$.
+
+Der Strom muss durch $Z_2$ fließen, da die Eingänge des Operationsverstärkers
+sehr hochohmig sind. Dazu muss der Operationsverstärker Arbeit leisten, in dem
+er mit Hilfe seiner Versorgungsspannung die Spannung am Ausgang so hält, dass
+der Strom $I_1$ auch durch $Z_2$ gezogen werden kann. Dazu erzeugt der
+Operationsverstärker eine Potentialdifferenz von $0 - \Uout$. Die
+Ausgangsspannung $\Uout$ wird festgelegt durch:
+\[
+	|\Uout| = I_2 Z_2 = I_1 Z_2
+\]
+
+Das Minuszeichen kommt daher, dass das Potential von Eingang zur virtuellen
+Masse fällt, von der virtuellen Masse zum Ausgang jedoch weiter ins Negative
+fällt. Es handelt sich ja um einen invertierenden Verstärker.
+
+Die Gegenkopplung funktioniert so, dass einen kleine Erhöhung der
+Eingangsspannung zu einem höheren Gradient im Widerstand $Z_1$ führt. Dadurch
+wird mehr Strom $I_1$ angetrieben, der vom Operationsverstärker durch ein
+ausreichend negatives Potential $\Uout$ durch $Z_2$ weiter getrieben wird.
+Würde der Strom nicht weiter getrieben, so baut sich am invertierenden Eingang
+eine positive Spannung auf, was den Operationsverstärker dazu bringt, mehr
+negatives Potential an den Ausgang zu legen.
+
+$I_2$ hängt nicht von $Z_2$ ab, da $I_1$ (mit der Betriebsspannung des
+Operationsverstärkers) erzwungen wird. 
+
+Der Eingangswiderstand ist:
+\[
+	\frac\Uin{I_1} = Z_1
+\]
+
+Der Ausgangswiderstand ist, nach den Formeln:
+\[
+	\frac\Uout{I_2} = - Z_2
+\]
+
+\subsection{Aufgabe F}
+
+\begin{problem}
+	Zeigen Sie, dass die Schaltung in Abbildung~\ref{fig:5_6-6} die
+	Eingangsspannungen folgendermaßen addiert:
+	\[
+		\Uout = c_1 U_1 + c_2 U_2 + \ldots + c_n U_n
+		\quad \text{mit} \quad
+		c_n = - \frac{R_0}{R_n}
+	\]
+
+	Berechnen Sie dazu wie oben die Ströme am invertierenden Eingang und
+	benutzen Sie $U_+ = U_-$.
+\end{problem}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.7\linewidth]{Anleitung/5_6-6.png}
+	\caption{%
+		\cite[Abbildung~5/6.6]{physik313-Anleitung}
+	}
+	\label{fig:5_6-6}
+\end{figure}
+
+Es herrscht ein Potentialgefälle $U_i - 0$ an jedem Widerstand. Die 0 ist
+durch die Rückkopplung fix. Es fließen Ströme $I_i = U_i / R_i$.
+
+Diese Ströme addieren sich auf, werden durch den Operationsverstärker durch den
+Widerstand $R_0$ gezogen, wodurch ein Potential von
+\[
+	\Uout = - R_0 \sum_i \frac{U_i}{R_i}
+\]
+benötigt wird.
+
+\subsection{Aufgabe G}
+
+\begin{problem}
+	Erklären Sie die einzelnen Schritte und rechnen Sie das Endergebnis nach!
+\end{problem}
+
+Schritt:
+\begin{equation}
+	\label{eq:G1}
+	U_+ = U_2 \frac{R_2}{R_1 + R_2}
+\end{equation}
+
+Dies ist ein unbelasteter Spannungsteiler von $U_2$ mit der Masse.
+
+Schritt:
+\begin{equation}
+	\label{eq:G2}
+	U_- = U_+
+\end{equation}
+
+Dies ist die Gleichgewichtseinstellung des Operationsverstärkers.
+
+Schritt:
+\begin{equation}
+	\label{eq:G3}
+	I_1 = \frac{U_1 - U_-}{R_1}
+\end{equation}
+
+$U_-$ ist das Potential am invertierenden Eingang. Die Potentialdifferenz
+zwischen dem äußeren Eingang und dem Operationsverstärker zieht einen Strom
+$I_1$ durch den Widerstand.
+
+Schritt:
+\begin{equation}
+	\label{eq:G4}
+	I_2 = I_1
+\end{equation}
+
+Operationsverstärker-Eingänge lassen keinen Strom zu. Daher wird der Strom
+durch $R_2$ gezwungen.
+
+Schritt:
+\begin{equation}
+	\label{eq:G5}
+	I_2 = \frac{U_- - \Uout}{R_2}
+\end{equation}
+
+Umformen: $I_2 R_2$ erzeugt Potential $U_- - \Uout$.
+
+\paragraph{Endergebnis}
+\[
+	\Uout = \frac{R_2}{R_1} \cdot (U_2 - U_1)
+\]
+
+Beginne mit \eqref{eq:G5}:
+\begin{align*}
+	I_2 &= \frac{U_- - \Uout}{R_2} \\
+	R_2 I_2 &= U_- - \Uout \\
+	\intertext{%
+		Setze \eqref{eq:G2} für $U_-$ ein. Setze \eqref{eq:G1} für $U_+$ ein.
+	}
+	\Uout
+	&= \del{1 + \frac{R_2}{R_1}} U_- - \frac{R_2}{R_1} U_1 \\
+	&= \del{1 + \frac{R_2}{R_1}} U_2 \frac{R_2}{R_1 + R_2} - \frac{R_2}{R_1} U_1 \\
+	&= \frac{R_1 + R_2}{R_1} U_2 \frac{R_2}{R_1 + R_2} - \frac{R_2}{R_1} U_1 \\
+	&= \frac{R_2}{R_1} U_2 - \frac{R_2}{R_1} U_1 \\
+	&= \frac{R_2}{R_1} \cdot (U_2 - U_1)
+\end{align*}
+
+\subsection{Aufgabe H}
+
+\begin{problem}
+	Erklären Sie, was bei einer konstanten negativen Eingangsspannung in der
+	Schaltung und am Ausgang passiert.
+\end{problem}
+
+Der Eingang ist konstant negativ. Es fließt ein konstanter Strom $\Uin/R_1$.
+Damit wird der Kondensator geladen. Die Spannung steigt. Bei konstanter $\Uin$
+wird die Spannung von $C$ bis zur Betriebsspannung aufgeladen, dann kann
+$\Uout$ nicht mehr positiv genug sein, um $C$ aufzuladen.
+
+\subsection{Aufgabe I}
+
+\begin{problem}
+	Betrachten Sie die Schaltung als invertierenden Verstärker mit $Z_1 = R$.
+	Bauen Sie für $Z_2$ einen Kondensator ein und berechnen Sie den
+	Frequenzgang $v(\omega)$ und die Phasenbeziehung $\Phi(\omega)$ zwischen
+	Ausgangs- und Eingangssignal.
+\end{problem}
+
+\begin{gather*}
+	v = - \frac{Z_2}{Z_1} \\
+	Z_1 = R \\
+	Z_2 = \frac{1}{\ii \omega C} \\
+	v = \ii \frac{1}{\omega RC}
+\end{gather*}
+
+Phase ist $\piup/2$, $v(\omega) = 1 / (\omega RC)$.
+
+\subsection{Aufgabe J}
+
+\begin{problem}
+	Wie groß ist die zu erwartende maximale Schaltfrequenz für den im Praktikum
+	verwendeten Operationsverstärker AD711 ($U_\text{max/min} = \pm
+	\SI{14}\volt$)?
+\end{problem}
+
+Das sind \SI{28}{\volt} pro Schaltvorgang. Die slew rate ist mit
+\SI{20}{\volt\per\milli\second} angegeben. Dies sind
+\SI{2e7}{\volt\per\second}. Die zu erreichende Frequenz ist:
+\[
+	f = \frac{\SI{2e7}{\volt\per\second}}{\SI{28}\volt} = \SI{714}{\kilo\hertz}
+\]
+
+\FloatBarrier
+\subsection{Aufgabe K}
+
+\begin{problem}
+	Skizzieren Sie den Spannungsverlauf am Ausgang und am Kondensator für $R_1
+	= R_2$, $U_\text{max, min} = \pm \SI{14}\volt$. Durch welche Mathematische
+	Funktion wird die Lade-/Entladekurve beschrieben?
+\end{problem}
+
+Da der Aufbau einen invertierenden Schmitt-Trigger enthält, ist der Ausgang
+$\Uout$ mit einem Rechteck belegt. Der Kondensator wird mit einer konstanten
+Spannung aufgeladen, die Ladekurve ist also exponentiell. Beides ist in
+Abbildung~\ref{fig:K} skizziert.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics{K.pdf}
+	\caption{%
+		Spannungsverlauf. In rot die Spannung $\Uout$ am Ausgang des
+		Operationsverstärkers. In blau die Spannung über dem Kondensator, die
+		proportional zu seiner Ladung ist.
+	}
+	\label{fig:K}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                Durchführung                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Durchführung}
+
+\FloatBarrier
+\subsection{Gruppeneinteilung für Versuch 6}
+
+\FloatBarrier
+\subsection{Nicht invertierender Verstärker}
+
+Dadurch, dass wir eine Verstärkung $v$ einstellen, jedoch auch eine Verstärkung
+$v$ messen, kommt es zum Benennungskonflikt. Daher wollen wir die
+Soll-Verstärkung mit $V$ bezeichnen, während wir die gemessene Verstärkung aus
+den Amplituden mit $v$ bezeichnen.
+
+\subsubsection{Aufbau}
+
+Wir bauen einen nicht invertierenden Verstärker auf, siehe
+Abbildung~\ref{fig:5_6-4}. 
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.4\linewidth]{Anleitung/5_6-4.png}
+	\caption{%
+		\cite[Abbildung~5/6.4]{physik313-Anleitung}
+	}
+	\label{fig:5_6-4}
+\end{figure}
+
+\subsubsection{Frequenzgang für $V = 11$}
+
+Hier wählen wir die Widerstände so, dass eine Verstärkung von $V = 11$
+eingestellt wird. In der Anleitung wird $R_1 = \SI{1}{\kilo\ohm}$ vorgegeben.
+
+Die Verstärkung ist gegeben durch: \cite[Formel~5/6.6]{physik313-Anleitung}:
+\[
+	V = 1 + \frac{Z_2}{Z_1}
+\]
+
+Die zu erreichende Verstärkung von $V = 11$ mit $R_1 = \SI{1}{\kilo\ohm}$
+erreichen wir, indem wir $R_2 = \SI{10}{\kilo\ohm}$ wählen.
+
+Als Eingangssignal wählen wir ein Sinussignal mit \SI{100}{\milli\voltss}
+Amplitude.
+
+Um die Signalverstärkung $v$ direkt ablesen zu können, stellen wir Eingangs-
+und Ausgangssignal gleichzeitig auf dem Oszillographen dar. Die Verstärkung am
+Oszillographen wird so eingestellt, dass das Eingangssignal ein Kästchen groß
+ist. Das Ausgangssignal wird auf die unterste Linie zentriert und gleich
+skaliert.
+
+Das Ablesen der Verstärkung $v$ beginnen wir bei der Transitfrequenz, um den
+Abfall im Bode-Diagramm genauer als das Plateau vermessen zu können. Unsere
+Messdaten sind in Tabelle~\ref{tab:Verstaerker-11}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SSS|S}
+		{$f / \si\hertz$} &
+		{$\Uin / \si\division$} &
+		{$\Uout / \si\division$} &
+		{$v$} \\
+		\hline
+		%< for f, uin, uout, v in table_verstaerker_11: >%
+		<< f >> & << uin >> & << uout >> & << v >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für den Verstärker mit $V = 11$
+	}
+	\label{tab:Verstaerker-11}
+\end{table}
+
+Diese Daten sind in Abbildung~\ref{fig:Verstaerker-Bode} geplottet.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{Plot-Verstaerker.pdf}
+	\caption{%
+		Bode-Plot für den nicht invertierenden Verstärker
+	}
+	\label{fig:Verstaerker-Bode}
+\end{figure}
+
+\subsubsection{Frequenzgang für $V = 101$}
+
+Nun verändern wir die Widerstände so, dass $V = 101$. Dies erreichen wir mit
+$R_2 = \SI{100}{\kilo\ohm}$. Wir fahren die Frequenzen so hoch, dass wir die
+gemessenen Verstärkungen $v$ aus \numlist{80;60;40;20;10} abfahren.
+
+\textcolor{darkred}{Messwerte in Tabelle einfügen}
+
+Diese Messpunkte tragen wir auch in das Diagramm
+(Abbildung~\ref{fig:Verstaerker-Bode}) ein. Wir bestimmen die Transit- und
+Grenzfrequenz.
+
+\textcolor{darkred}{Transit- und Grenzfrequenz ablesen/fitten.}
+
+\subsubsection{Frequenzgang für $V = 2$}
+
+Da der Operationsverstärker die Verstärkung limitiert, und zwar auf 11, sollte
+bei einer Soll-Verstärkung von $V = 2$ dies über eine deutlich größeren
+Frequenzbereich möglich sein.
+
+\textcolor{darkred}{Ausprobieren und Beobachtung einfügen}
+
+\subsubsection{Slew Rate mit $V = 101$}
+
+In diesem Teil wählen wir als Eingangssignal ein Rechtecksignal mit einer
+Frequenz von \SI{1}{\kilo\hertz}. Die Amplitude des Eingangssignals stellen wir
+so ein, dass das Ausgangssignal eine Amplitude von \SI{20}{\voltss} hat.
+
+An den Flanken des Ausgangssignals messen wir die slew rate, sie beträgt
+$\messwert$.
+
+Aus \cite[Tabelle~5/6.1]{physik313-Anleitung} ist ein Wert von
+\SI{20}{\volt\per\micro\second} für den AD~711 zu erwarten, den wir auf unseren
+Schaltbrettern haben.
+
+Wir erhöhen die Frequenz, dabei achten wir auf die Ausgangsamplitude und
+Signalform.
+
+\textcolor{darkred}{Beobachtungen einfügen}
+
+Nun schalten wir auf ein Sinussignal und vergleichen mit dem Rechtecksignal.
+
+\textcolor{darkred}{%
+	Erklären Sie die Unterschiede. Hat das etwas mit Bandbreite oder slew rate
+	zu tun?
+}
+
+\subsubsection{Kapazität in Serie mit $V = 11$}
+
+Zuletzt stellen wir $V = 11$ ein, in dem wir die in der Aufgabenstellung
+angegebenen Werte für die Widerstände benutzen: $R_1 = \SI{10}{\kilo\ohm}$ und
+$R_2 = \SI{100}{\kilo\ohm}$. Außerdem schalten wir eine Kapazität von
+\SI{.1}{\micro\farad} in Serie mit $R_1$.
+
+Theoretisch erwarten wir, dass $Z_1 = R_1 + 1/(\ii \omega C)$ für kleine
+Frequenzen groß, für große jedoch bis auf $R_1$ klein wird. Die Verstärkung war
+mit gegeben als:
+\[
+	V = 1 + \frac{Z_2}{Z_1}
+\]
+
+Damit wird gilt für die Verstärkung:
+\[
+	\lim_{f \to 0} V = 1
+	\eqnsep
+	\lim_{f \to \infty} V = 1 + \frac{R_2}{R_1}
+\]
+
+Der Kondensator sollte sich bei einer Frequenz von $1/(\omega C) = R_1$
+bemerkbar machen. Dies ist:
+\[
+	\omega = \frac1{R_1 C} = \SI{1000}{\radian\per\second} = \SI{6200}\hertz
+\]
+
+\textcolor{darkred}{Beobachtung aufschreiben und in das Diagramm einfügen}
+
+\FloatBarrier
+\subsection{Addierer}
+
+Wir bauen einen Addierer mit drei Eingängen auf, wie in
+Abbildung~\ref{fig:5_6-6} schematisch dargestellt. Als Eingangsquelle benutzen
+dir den Dreifachsinusgenerator. Dieser liefert die Frequenzen
+\SIlist{50;100;150;200}{\hertz}. Da wir für die Fourierreihe des Sägezahns
+(Abbildung~\ref{fig:saegezahn}) ganzzahlige, aufeinanderfolgende Vielfache
+brauchen, benutzen wir die Eingänge mit \SIlist{50;100;150}{\hertz}. Die
+Amplituden wählen wir relativ $1$, $1/2$ und $1/3$. Daraus ergibt sich ein
+Sägezahn, der allerdings noch deutlich runde Ecken hat.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{Plot-Saegezahn.pdf}
+	\caption{%
+		Darstellung des Sägezahns in Fourierkomponenten.
+	}
+	\label{fig:saegezahn}
+\end{figure}
+
+\textcolor{darkred}{Foto von Oszillogramm einfügen}
+
+\FloatBarrier
+\subsection{Konstantstromquelle}
+
+\subsubsection{Aufbau}
+
+Wir bauen die Konstantstromquelle aus Abbildung~\ref{fig:5-1} auf. Dabei sind
+$R_1 = \SI{47}{\kilo\ohm}$ und $R_2 = \SI{10}{\kilo\ohm}$ in der Anleitung
+vorgegeben.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.6\linewidth]{Anleitung/5-1.png}
+	\caption{%
+		\cite[Abbildung~5.1]{physik313-Anleitung}
+	}
+	\label{fig:5-1}
+\end{figure}
+
+\subsubsection{Strom durch Rückkopplungszweig}
+
+Bei einer Eingangsspannung von \SI{9.4}{\volt} sollte der Strom im
+Rückkopplungszweig ($I_2$) der Strom sein, der auch durch $R_1$ fließt. Also:
+\[
+	I_2
+	= I_1
+	= \frac\Uin{R_1}
+	= \frac{\SI{9.4}\volt}{\SI{47}{\kilo\ohm}}
+	= \SI{200}{\micro\ampere}
+\]
+
+\textcolor{darkred}{Nachmessen}
+
+\subsubsection{Variable Last}
+
+$R_2$ wird durch ein Potentiometer ersetzt. Wir variieren $R_2$ und beobachten
+den Strom. Zu erwarten ist, dass der Strom konstant bleibt, da der
+Operationsverstärker die Ausgangsspannung so regelt, dass der Strom durch $R_2$
+konstant bleibt. Wenn die benötigte Spannung über die Versorgungsspannung geht,
+kann der Operationsverstärker jedoch nicht mehr weiter regeln, der Strom nimmt
+ab.
+
+\textcolor{darkred}{Beobachtung}
+
+Dies widerspricht nicht dem Ohm'schen Gesetz, im Gegenteil. Die Spannung wird
+vom Operationsverstärker so verändert, dass $I = U/R$ konstant bleibt. Es ist
+also die Spannung, die sich ändert. Die können wir Prüfen, indem wir mit einem
+Multimeter über dem Widerstand abgreifen, oder direkt $\Uout$ zwischen Ausgang
+und Masse abgreifen.
+
+\textcolor{darkred}{Beweis ausmessen}
+
+\subsubsection{Halbieren des Stroms}
+
+Der Strom kann halbiert werden, indem die Eingangsspannung halbiert wird, oder
+$R_1$ verdoppelt wird.
+
+\FloatBarrier
+\subsection{Integrator}
+
+\subsubsection{Aufbau}
+
+Wir bauen einen Integrator nach Abbildung~\ref{fig:5_6-11} auf. Die
+Dimensionierung ist mit $C = \SI{100}{\nano\farad}$ und $R = \SI1{\mega\ohm}$
+vorgegeben. Der Eingang wird mit einem symmetrischen Rechtecksignal mit
+\SI{100}{\hertz} und \SI{1}{\voltss} belegt.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.6\linewidth]{Anleitung/5_6-11.png}
+	\caption{%
+		\cite[Abbildung~5/6.11]{physik313-Anleitung}
+	}
+	\label{fig:5_6-11}
+\end{figure}
+
+Auf dem Oszillographen beobachten wir Ein- und Ausgang gleichzeitig.
+
+\textcolor{darkred}{Beobachtung}
+
+\subsubsection{Verschiedene Eingangswerte}
+
+Wir verändern die Eingangsfrequenz- und Spannung und beobachten.
+
+\textcolor{darkred}{Beobachtung}
+
+\subsubsection{Weglassen von $R_2$}
+
+In der Anleitung steht nun:
+
+\begin{quote}
+	Was geschieht, wenn Sie $R_2$ weglassen?
+\end{quote}
+
+Davor stand jedoch:
+
+\begin{quote}
+	Ersetzen Sie in Abbildung~\ref{fig:5-1} den Widerstand $R_2$ und das
+	Amperemeter durch eine Parallelschaltung von $C$ […] und $R$ […].
+\end{quote}
+
+Somit ist der Widerstand $R_2$ bereits nicht mehr vorhanden.
+
+\subsubsection{Sinussignal auf den Eingang}
+
+Wie geben ein Sinussignal auf den Eingang und betrachten die Phasenverschiebung
+zwischen Ein- und Ausgang.
+
+\textcolor{darkred}{Beobachtung}
+
+Nun schalten wir den Oszillographen in den XY-Betrieb und beobachten
+Lissajous-Figuren. Da die Frequenzen gleich sind und es nur eine
+Phasenverschiebung gibt, sind es Ellipsen.
+
+\textcolor{darkred}{Beobachtung}
+
+\FloatBarrier
+\subsection{Differenzverstärker}
+
+\subsubsection{Aufbau}
+
+Gemäß Abbildung~\ref{fig:5_6-7} bauen wir einen Differenzverstärker auf.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.6\linewidth]{Anleitung/5_6-7.png}
+	\caption{%
+		\cite[Abbildung~5/6.7]{physik313-Anleitung}
+	}
+	\label{fig:5_6-7}
+\end{figure}
+
+\subsubsection{Funktionsüberprüfung}
+
+Wir überprüfen die Funktion mit einem Sinussignal auf dem einen Eingang und
+einer Gleichspannung auf dem anderen Eingang. Die Gleichspannung wird von uns
+variiert. Zuletzt vertauschen wir die Eingänge.
+
+\textcolor{darkred}{Beobachtung}
+
+\subsubsection{Schwebung}
+
+Mit Hilfe des separaten Sinusgenerators, den wir bereits beim Addierer benutzt
+haben, und dem variablen Funktionsgenerator erzeugen wir eine Schwebung.
+
+\textcolor{darkred}{Beobachtung}
+
+\FloatBarrier
+\subsection{Freiwillige Aufgabe}
+
+Abbildung~\ref{fig:5-2}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.6\linewidth]{Anleitung/5-2.png}
+	\caption{%
+		\cite[Abbildung~5.2]{physik313-Anleitung}
+	}
+	\label{fig:5-2}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
