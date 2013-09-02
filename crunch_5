@@ -39,25 +39,30 @@ def verstaerker_part(T, filename, color, label, table_key, f_T_key, f_grenz_key)
     pl.loglog(f, v, label=label, linestyle="none", marker="o", color=color)
 
     # Messwerte interpolieren.
-    inter = scipy.interpolate.interp1d(f, v, kind='linear')
-    x = np.logspace(np.log(np.min(f)), np.log(np.max(f)), 100, base=np.e)
-    y = inter(x)
-    pl.loglog(x, y, color=color)
+    try:
+        inter = scipy.interpolate.interp1d(f, v, kind='linear')
+        x = np.logspace(np.log(np.min(f)), np.log(np.max(f)), 100, base=np.e)
+        y = inter(x)
+        pl.loglog(x, y, color=color)
 
-    # Transitfrequenz bestimmen.
-    f_T = scipy.optimize.brentq(lambda x: inter(x) - 1, np.min(f), np.max(f))
-    pl.loglog(f_T, inter(f_T), linestyle="none", marker="d", color=color)
+        # Transitfrequenz bestimmen.
+        f_T = scipy.optimize.brentq(lambda x: inter(x) - 1, np.min(f), np.max(f))
+        pl.loglog(f_T, inter(f_T), linestyle="none", marker="d", color=color,
+                  markersize=10)
 
-    # Grenzfrequenz bestimmen.
-    def grenz(x):
-        return inter(x) - np.max(v) / np.sqrt(2)
-    f_grenz = scipy.optimize.brentq(grenz, np.min(f), np.max(f))
-    pl.loglog(f_grenz , inter(f_grenz ), linestyle="none", marker="*", color=color, markersize=10)
+        # Grenzfrequenz bestimmen.
+        def grenz(x):
+            return inter(x) - np.max(v) / np.sqrt(2)
+        f_grenz = scipy.optimize.brentq(grenz, np.min(f), np.max(f))
+        pl.loglog(f_grenz , inter(f_grenz ), linestyle="none", marker="*", color=color, markersize=15)
+
+        T[f_T_key] = g(f_T)
+        T[f_grenz_key] = g(f_grenz)
+    except ValueError as e:
+        print(e)
 
     # Daten exporieren.
     T[table_key] = np.column_stack([f, uin, uout, np.round(v, 3)])
-    T[f_T_key] = g(f_T)
-    T[f_grenz_key] = g(f_grenz)
 
 def verstaerker(T):
     verstaerker_part(T, "Verstaerker-11.txt", "red", "$V = 11$",
