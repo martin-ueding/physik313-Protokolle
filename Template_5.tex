@@ -131,6 +131,45 @@ Eigenschaften:
         Gleichtaktverstärkung nennt man Gleichtaktunterdrückung.
 \end{itemize}
 
+\subsection{Gegenkopplung}
+
+Bei Gegenkopplung wird ein bestimmter Anteil $k$ der Ausgangsspannung auf den
+invertierenden Eingang zurückgeführt. Die Eigenschaften einer Schaltung sind
+dadurch fast ausschließlich durch den gegenkoppelnden Schaltungsteil bestimmt
+und fast unabhängig von den Eigenschaften des OV.
+
+Die Gegenkopplung sorgt dafür, dass der OV seinen Ausgang derart einstellt,
+dass $U_+ = U_-$ gilt.
+
+Für die Verstärkung gilt in einer gegengekoppelten Schaltung
+\[
+    \frac 1v = \frac 1{v_0} + k
+\]
+Da die Leerlaufverstärkung $v_0$ in vielen Fällen sehr groß ist, gilt
+näherungsweise:
+\[
+    v = \frac 1k
+\]
+
+\subsection{Grundschaltungen mit Operationsverstärkern}
+
+\subsubsection{Nicht invertierender Verstärker}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.4\linewidth]{Anleitung/5_6-4.png}
+	\caption{%
+		\cite[Abbildung~5/6.4]{physik313-Anleitung}
+	}
+	\label{fig:5_6-4}
+\end{figure}
+
+In Abbildung~\ref{fig:5_6-4} ist die Schaltung eines nicht invertierenden
+Verstärkers zu sehen. Die Verstärkung ist bei diesem:
+\[
+    v = \frac{\Uout}{\Uin} = 1 + \frac{Z_2}{Z_1}
+\]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Aufgaben                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -502,15 +541,6 @@ den Amplituden mit $v$ bezeichnen.
 
 Wir bauen einen nicht invertierenden Verstärker auf, siehe
 Abbildung~\ref{fig:5_6-4}. 
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=.4\linewidth]{Anleitung/5_6-4.png}
-	\caption{%
-		\cite[Abbildung~5/6.4]{physik313-Anleitung}
-	}
-	\label{fig:5_6-4}
-\end{figure}
 
 \subsubsection{Frequenzgang für $V = 11$}
 
