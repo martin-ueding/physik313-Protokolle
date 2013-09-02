@@ -27,7 +27,6 @@ def verstaerker(T):
     uin = data[:, 1]
     uout = data[:, 2]
     v = uin/uout
-
     T["table_verstaerker_11"] = np.column_stack([f, uin, uout, np.round(v, 3)])
     pl.loglog(f, v, label="$V = 11$", linestyle="none", marker="o")
 
@@ -36,9 +35,24 @@ def verstaerker(T):
     uin = data[:, 1]
     uout = data[:, 2]
     v = uin/uout
-
     T["table_verstaerker_101"] = np.column_stack([f, uin, uout, np.round(v, 3)])
     pl.loglog(f, v, label="$V = 101$", linestyle="none", marker="o")
+
+    data = np.genfromtxt("Verstaerker-2.txt")
+    f = data[:, 0]
+    uin = data[:, 1]
+    uout = data[:, 2]
+    v = uin/uout
+    T["table_verstaerker_2"] = np.column_stack([f, uin, uout, np.round(v, 3)])
+    pl.loglog(f, v, label="$V = 2$", linestyle="none", marker="o")
+
+    data = np.genfromtxt("Verstaerker-Kondensator.txt")
+    f = data[:, 0]
+    uin = data[:, 1]
+    uout = data[:, 2]
+    v = uin/uout
+    T["table_verstaerker_c"] = np.column_stack([f, uin, uout, np.round(v, 3)])
+    pl.loglog(f, v, label="$V = 11$, Kondensator", linestyle="none", marker="o")
 
     pl.xlabel(r"$f / \mathrm{Hz}$")
     pl.ylabel(r"$v$")

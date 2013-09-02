@@ -574,7 +574,26 @@ Grenzfrequenz.
 
 Da der Operationsverstärker die Verstärkung limitiert, und zwar auf 11, sollte
 bei einer Soll-Verstärkung von $V = 2$ dies über eine deutlich größeren
-Frequenzbereich möglich sein.
+Frequenzbereich möglich sein. Entsprechende Messwerte sind in
+Tabelle~\ref{tab:Verstaerker-2} und Abbildung~\ref{fig:Verstaerker-Bode}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SSS|S}
+		{$f / \si\hertz$} &
+		{$\Uin / \si\division$} &
+		{$\Uout / \si\division$} &
+		{$v$} \\
+		\hline
+		%< for f, uin, uout, v in table_verstaerker_2: >%
+		<< f >> & << uin >> & << uout >> & << v >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für den Verstärker mit $V = 2$
+	}
+	\label{tab:Verstaerker-2}
+\end{table}
 
 \textcolor{darkred}{Ausprobieren und Beobachtung einfügen}
 
@@ -630,7 +649,29 @@ bemerkbar machen. Dies ist:
 	\omega = \frac1{R_1 C} = \SI{1000}{\radian\per\second} = \SI{6200}\hertz
 \]
 
-\textcolor{darkred}{Beobachtung aufschreiben und in das Diagramm einfügen}
+Wir messen für einige Frequenzen die Verstärkung. Die Messwerte sind in
+Tabelle~\ref{tab:Verstaerker-c} und in Abbildung~\ref{fig:Verstaerker-Bode}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SSS|S}
+		{$f / \si\hertz$} &
+		{$\Uin / \si\division$} &
+		{$\Uout / \si\division$} &
+		{$v$} \\
+		\hline
+		%< for f, uin, uout, v in table_verstaerker_c: >%
+		<< f >> & << uin >> & << uout >> & << v >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für den Verstärker mit $V = 11$ und einer Kapazität von
+		\SI{.1}{\micro\farad} in Serie
+	}
+	\label{tab:Verstaerker-c}
+\end{table}
+
+\textcolor{darkred}{Beobachtung aufschreiben}
 
 \FloatBarrier
 \subsection{Addierer}
