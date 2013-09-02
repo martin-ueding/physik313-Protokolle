@@ -97,12 +97,39 @@ da so $U_+ = U_-$ gilt. Daraus folgt auch direkt die erste \emph{goldene
 Regel}:
 \begin{quote}
     In einer gegengekoppelten Schaltung, stellt der OV seinen Ausgang so ein,
-    dass die Eingangsspannungen gleich sind
+    dass die Eingangsspannungen gleich sind.
 \end{quote}
 Die zweite \emph{goldene Regel} lautet:
 \begin{quote}
     In die Eingänge des OV fließt fast kein Strom ($I_+ = I_- = 0$).
 \end{quote}
+
+Operationsverstärker haben noch eine Reihe weiterer charakteristische
+Eigenschaften:
+\begin{itemize}
+    \item 
+        Die maximale Ausgangsspannung ist durch die Versorgungsspannung
+        begrenzt: Sie kann diese nicht übersteigen, bzw. erreicht diese meist
+        nicht ganz.
+    \item
+        Durch parasitäre Millerkapazitäten innerhalb des OVs, kann sich die
+        Ausgangsspannung nicht beliebig schnell verändern. Die
+        Anstiegsgeschwindigkeit ist dabei die schnellst mögliche
+        Spannungsänderung.
+    \item
+        Bei steigender Eingangssignal-Frequenz nimmt die Leerlaufverstärkung
+        ab. Dabei werden die Grenz- und Transitfrequenz wie üblich als Maß
+        verwendet.
+    \item
+        Die erwarteten \SI{0}{\volt} Outputspannung bei $U_+ = U_-$, stimmen in
+        der Praxis meist nicht. Sie werden erst bei einer kleinen Differenz
+        erreicht. Daher haben einige OV eine Offset-Möglichkeit
+    \item
+        Werden die Eingangsspannungen um den gleichen Wert geändert, sollte
+        sich am Ausgang nichts ändern. In der Praxis ändert sich etwas, aber um
+        einen Faktor unterdrückt. Das Verhältnis zwischen differentieller und
+        Gleichtaktverstärkung nennt man Gleichtaktunterdrückung.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Aufgaben                                   %
