@@ -25,6 +25,7 @@ def skizze_d(T):
 def verstaerker_part(T, filename, color, label, table_key, f_T_key, f_grenz_key):
     # Daten einlesen.
     data = np.genfromtxt(filename)
+    data = data[data[:,0].argsort()]
 
     # Daten mappen.
     f = data[:, 0]
@@ -38,7 +39,7 @@ def verstaerker_part(T, filename, color, label, table_key, f_T_key, f_grenz_key)
     pl.loglog(f, v, label=label, linestyle="none", marker="o", color=color)
 
     # Messwerte interpolieren.
-    inter = scipy.interpolate.interp1d(f, v, kind='quadratic')
+    inter = scipy.interpolate.interp1d(f, v, kind='linear')
     x = np.linspace(np.min(f), np.max(f), 100)
     y = inter(x)
     pl.loglog(x, y, color=color)
