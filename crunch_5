@@ -22,54 +22,52 @@ def skizze_d(T):
     pl.savefig("5_6-D.pdf")
     pl.clf()
 
+def verstaerker_part(T, filename, color, label, table_key, f_T_key, f_grenz_key):
+    # Daten einlesen.
+    data = np.genfromtxt(filename)
+
+    # Daten mappen.
+    f = data[:, 0]
+    uin = data[:, 1]
+    uout = data[:, 2]
+
+    # Weitere Daten ausrechnen.
+    v = uout/uin
+
+    # Messwerte plotten.
+    pl.loglog(f, v, label=label, linestyle="none", marker="o", color=color)
+
+    # Messwerte interpolieren.
+    inter = scipy.interpolate.interp1d(f, v, kind='quadratic')
+    x = np.linspace(np.min(f), np.max(f), 100)
+    y = inter(x)
+    pl.loglog(x, y, color=color)
+
+    # Transitfrequenz bestimmen.
+    f_T = scipy.optimize.brentq(lambda x: inter(x) - 1, np.min(f), np.max(f))
+    pl.loglog(f_T, inter(f_T), linestyle="none", marker="d", color=color)
+
+    # Grenzfrequenz bestimmen.
+    def grenz(x):
+        return inter(x) - np.max(v) / np.sqrt(2)
+    f_grenz = scipy.optimize.brentq(grenz, np.min(f), np.max(f))
+    pl.loglog(f_grenz , inter(f_grenz ), linestyle="none", marker="*", color=color, markersize=10)
+
+    # Daten exporieren.
+    T[table_key] = np.column_stack([f, uin, uout, np.round(v, 3)])
+    T[f_T_key] = g(f_T)
+    T[f_grenz_key] = g(f_grenz)
+
 def verstaerker(T):
-    data = np.genfromtxt("Verstaerker-11.txt")
-    f = data[:, 0]
-    uin = data[:, 1]
-    uout = data[:, 2]
-    v = uin/uout
-    T["table_verstaerker_11"] = np.column_stack([f, uin, uout, np.round(v, 3)])
-    inter = scipy.interpolate.interp1d(f, v, kind='cubic')
-    x = np.linspace(np.min(f), np.max(f), 100)
-    y = inter(x)
-    pl.loglog(f, v, label="$V = 11$", linestyle="none", marker="o", color="red")
-    pl.loglog(x, y, color="red")
-
-    data = np.genfromtxt("Verstaerker-101.txt")
-    f = data[:, 0]
-    uin = data[:, 1]
-    uout = data[:, 2]
-    v = uin/uout
-    T["table_verstaerker_101"] = np.column_stack([f, uin, uout, np.round(v, 3)])
-    inter = scipy.interpolate.interp1d(f, v, kind='cubic')
-    x = np.linspace(np.min(f), np.max(f), 100)
-    y = inter(x)
-    pl.loglog(f, v, label="$V = 101$", linestyle="none", marker="o", color="green")
-    pl.loglog(x, y, color="green")
-
-    data = np.genfromtxt("Verstaerker-2.txt")
-    f = data[:, 0]
-    uin = data[:, 1]
-    uout = data[:, 2]
-    v = uin/uout
-    T["table_verstaerker_2"] = np.column_stack([f, uin, uout, np.round(v, 3)])
-    inter = scipy.interpolate.interp1d(f, v, kind='cubic')
-    x = np.linspace(np.min(f), np.max(f), 100)
-    y = inter(x)
-    pl.loglog(f, v, label="$V = 2$", linestyle="none", marker="o", color="blue")
-    pl.loglog(x, y, color="blue")
-
-    data = np.genfromtxt("Verstaerker-Kondensator.txt")
-    f = data[:, 0]
-    uin = data[:, 1]
-    uout = data[:, 2]
-    v = uin/uout
-    T["table_verstaerker_c"] = np.column_stack([f, uin, uout, np.round(v, 3)])
-    inter = scipy.interpolate.interp1d(f, v, kind='cubic')
-    x = np.linspace(np.min(f), np.max(f), 100)
-    y = inter(x)
-    pl.loglog(f, v, label="$V = 11$, Kondensator", linestyle="none", marker="o", color="purple")
-    pl.loglog(x, y, color="purple")
+    verstaerker_part(T, "Verstaerker-11.txt", "red", "$V = 11$",
+                     "table_verstaerker_11", "f_T_11", "f_grenz_11")
+    verstaerker_part(T, "Verstaerker-101.txt", "green", "$V = 101$",
+                     "table_verstaerker_101", "f_T_101", "f_grenz_101")
+    verstaerker_part(T, "Verstaerker-2.txt", "blue", "$V = 2$",
+                     "table_verstaerker_2", "f_T_2", "f_grenz_2")
+    verstaerker_part(T, "Verstaerker-Kondensator.txt", "purple",
+                     "$V = 11$, Kondensator", "table_verstaerker_c", "f_T_c",
+                     "f_grenz_c")
 
     pl.xlabel(r"$f / \mathrm{Hz}$")
     pl.ylabel(r"$v$")

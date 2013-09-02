@@ -20,6 +20,7 @@
 
 %\setcounter{tocdepth}{2}
 
+\newcommand\fT{f_\text{T}}
 \newcommand\IB{I_\text{B}}
 \newcommand\IC{I_\text{C}}
 \newcommand\ID{I_\text{D}}
@@ -30,12 +31,12 @@
 \newcommand\RE{R_\text{E}}
 \newcommand\UBE{U_\text{BE}}
 \newcommand\UB{U_\text{B}}
-\newcommand\UC{U_\text{C}}
 \newcommand\UCE{U_\text{CE}}
-\newcommand\UE{U_\text{E}}
-\newcommand\UG{U_\text{G}}
-\newcommand\UGS{U_\text{GS}}
+\newcommand\UC{U_\text{C}}
 \newcommand\UDS{U_\text{DS}}
+\newcommand\UE{U_\text{E}}
+\newcommand\UGS{U_\text{GS}}
+\newcommand\UG{U_\text{G}}
 \newcommand\Uin{U_\text{in}}
 \newcommand\Uout{U_\text{out}}
 
@@ -539,6 +540,24 @@ Diese Daten sind in Abbildung~\ref{fig:Verstaerker-Bode} geplottet.
 	\label{fig:Verstaerker-Bode}
 \end{figure}
 
+Die Daten lassen wir mit Splines interpolieren. Dazu benutzen wir aus SciPy die
+eindimensionale Interpolation\footnote{\texttt{scipy.interpolate.interp1d}}.
+Diese Splines sind im Plot als durchgezogene Linie eingezeichnet.
+
+Von dieser Funktion lassen wir mit dem
+Brent-Algorithmus\footnote{\texttt{scipy.optimize.brentq}} die Stelle finden,
+bei der sie den Wert 1 hat. Die Frequenz ist dann die Transitfrequenz $\fT$.
+Für die erste Messung erhalten wir eine Transitfrequenz von \SI{<< f_T_11
+>>}{\hertz}.
+
+Die Grenzfrequenz lassen wir ähnlich errechnen, dabei suchen wir die Frequenz,
+bei der die Verstärkung von ihrem maximalen Wert auf $1/\sqrt2$ abgefallen ist.
+Als maximalen Wert benutzen wir den maximalen Messwert. So erhalten wir hier
+eine Grenzfrequenz von $f_\text{grenz} = \SI{<< f_grenz_11 >>}\hertz$.
+
+Im Plot sind Transit- und Grenzfrequenz mit einer Raute bzw. einem Stern
+markiert.
+
 \subsubsection{Frequenzgang für $V = 101$}
 
 Nun verändern wir die Widerstände so, dass $V = 101$. Dies erreichen wir mit
@@ -566,9 +585,8 @@ Messwerte sind in Tabelle~\ref{tab:Verstaerker-101}.
 
 Diese Messpunkte tragen wir auch in das Diagramm
 (Abbildung~\ref{fig:Verstaerker-Bode}) ein. Wir bestimmen die Transit- und
-Grenzfrequenz.
-
-\textcolor{darkred}{Transit- und Grenzfrequenz ablesen/fitten.}
+Grenzfrequenz. Die Transitfrequenz ist: $\fT = \SI{<< f_T_101 >>}{\hertz}$. Die
+Grenzfrequenz ist: $f_\text{grenz} = \SI{<< f_grenz_101 >>}\hertz$.
 
 \subsubsection{Frequenzgang für $V = 2$}
 
@@ -596,6 +614,9 @@ Tabelle~\ref{tab:Verstaerker-2} und Abbildung~\ref{fig:Verstaerker-Bode}.
 \end{table}
 
 \textcolor{darkred}{Ausprobieren und Beobachtung einfügen}
+
+Die Transitfrequenz ist: $\fT = \SI{<< f_T_2 >>}{\hertz}$. Die Grenzfrequenz
+ist: $f_\text{grenz} = \SI{<< f_grenz_2 >>}\hertz$.
 
 \subsubsection{Slew Rate mit $V = 101$}
 
@@ -670,6 +691,9 @@ Tabelle~\ref{tab:Verstaerker-c} und in Abbildung~\ref{fig:Verstaerker-Bode}.
 	}
 	\label{tab:Verstaerker-c}
 \end{table}
+
+Die Transitfrequenz ist: $\fT = \SI{<< f_T_c >>}{\hertz}$ Die Grenzfrequenz
+ist: $f_\text{grenz} = \SI{<< f_grenz_c >>}\hertz$.
 
 \textcolor{darkred}{Beobachtung aufschreiben}
 
