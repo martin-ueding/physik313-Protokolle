@@ -9,6 +9,7 @@ import math
 import matplotlib.pyplot as pl
 import numpy as np
 import scipy.optimize as op
+import scipy.interpolate
 
 def skizze_d(T):
     f = np.linspace(1, 1e4, 1e4)
@@ -28,7 +29,11 @@ def verstaerker(T):
     uout = data[:, 2]
     v = uin/uout
     T["table_verstaerker_11"] = np.column_stack([f, uin, uout, np.round(v, 3)])
-    pl.loglog(f, v, label="$V = 11$", linestyle="none", marker="o")
+    inter = scipy.interpolate.interp1d(f, v, kind='cubic')
+    x = np.linspace(np.min(f), np.max(f), 100)
+    y = inter(x)
+    pl.loglog(f, v, label="$V = 11$", linestyle="none", marker="o", color="red")
+    pl.loglog(x, y, color="red")
 
     data = np.genfromtxt("Verstaerker-101.txt")
     f = data[:, 0]
@@ -36,7 +41,11 @@ def verstaerker(T):
     uout = data[:, 2]
     v = uin/uout
     T["table_verstaerker_101"] = np.column_stack([f, uin, uout, np.round(v, 3)])
-    pl.loglog(f, v, label="$V = 101$", linestyle="none", marker="o")
+    inter = scipy.interpolate.interp1d(f, v, kind='cubic')
+    x = np.linspace(np.min(f), np.max(f), 100)
+    y = inter(x)
+    pl.loglog(f, v, label="$V = 101$", linestyle="none", marker="o", color="green")
+    pl.loglog(x, y, color="green")
 
     data = np.genfromtxt("Verstaerker-2.txt")
     f = data[:, 0]
@@ -44,7 +53,11 @@ def verstaerker(T):
     uout = data[:, 2]
     v = uin/uout
     T["table_verstaerker_2"] = np.column_stack([f, uin, uout, np.round(v, 3)])
-    pl.loglog(f, v, label="$V = 2$", linestyle="none", marker="o")
+    inter = scipy.interpolate.interp1d(f, v, kind='cubic')
+    x = np.linspace(np.min(f), np.max(f), 100)
+    y = inter(x)
+    pl.loglog(f, v, label="$V = 2$", linestyle="none", marker="o", color="blue")
+    pl.loglog(x, y, color="blue")
 
     data = np.genfromtxt("Verstaerker-Kondensator.txt")
     f = data[:, 0]
@@ -52,7 +65,11 @@ def verstaerker(T):
     uout = data[:, 2]
     v = uin/uout
     T["table_verstaerker_c"] = np.column_stack([f, uin, uout, np.round(v, 3)])
-    pl.loglog(f, v, label="$V = 11$, Kondensator", linestyle="none", marker="o")
+    inter = scipy.interpolate.interp1d(f, v, kind='cubic')
+    x = np.linspace(np.min(f), np.max(f), 100)
+    y = inter(x)
+    pl.loglog(f, v, label="$V = 11$, Kondensator", linestyle="none", marker="o", color="purple")
+    pl.loglog(x, y, color="purple")
 
     pl.xlabel(r"$f / \mathrm{Hz}$")
     pl.ylabel(r"$v$")
