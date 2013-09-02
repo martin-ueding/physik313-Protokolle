@@ -19,7 +19,7 @@ def skizze_d(T):
     pl.ylabel(r"$v$")
     pl.grid(True)
     pl.savefig("5_6-D.pdf")
-    pl.clf
+    pl.clf()
 
 def verstaerker(T):
     data = np.genfromtxt("Verstaerker-11.txt")
