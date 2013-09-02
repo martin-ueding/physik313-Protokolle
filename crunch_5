@@ -19,7 +19,7 @@ def skizze_d(T):
     pl.xlabel(r"$f$/ Hz")
     pl.ylabel(r"$v$")
     pl.grid(True)
-    pl.savefig("5_6-D.pdf")
+    pl.savefig("5_6-D.pdf", bbox_inches='tight')
     pl.clf()
 
 def verstaerker_part(T, filename, color, label, table_key, f_T_key, f_grenz_key):
@@ -73,7 +73,7 @@ def verstaerker(T):
     pl.ylabel(r"$v$")
     pl.grid(True)
     pl.legend(loc="best")
-    pl.savefig("Plot-Verstaerker.pdf")
+    pl.savefig("Plot-Verstaerker.pdf", bbox_inches='tight')
     pl.clf()
 
 def addierer(T):
@@ -93,7 +93,7 @@ def addierer(T):
     pl.ylabel("$f(t)$")
     pl.grid(True)
     pl.legend(loc="best")
-    pl.savefig("Plot-Saegezahn.pdf")
+    pl.savefig("Plot-Saegezahn.pdf", bbox_inches='tight')
     pl.clf()
 
 def g(value, error=None, digits=3):
