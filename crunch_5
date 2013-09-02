@@ -16,7 +16,7 @@ def skizze_d(T):
     v = np.sqrt(1 + 4 * np.pi**2 * 100e3**2 * 100e-9**2 * f**2)
 
     pl.loglog(f, v)
-    pl.xlabel(r"$f$/ Hz")
+    pl.xlabel(r"$f/ \mathrm{Hz}$")
     pl.ylabel(r"$v$")
     pl.grid(True)
     pl.savefig("5_6-D.pdf", bbox_inches='tight')
