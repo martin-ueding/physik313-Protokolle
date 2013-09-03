@@ -1180,6 +1180,9 @@ können wir so den Kondensator gleichmäßig laden. An dieser Stelle erzeugen wi
 nur eine auf- oder absteigende Flanke. Wenn wir regelmäßig umpolen, erzeugen
 wir ein Dreiecksignal.
 
+Wenn die Widerstände $R_3$ und $R_4$ nicht das Verhältnis $1:2$ haben, ist der
+Lade- und Entladestrom nicht gleich groß, das Dreieck ist nicht symmetrisch.
+
 \FloatBarrier
 \subsection{Umpolen mit Schmitt-Trigger}
 
@@ -1352,6 +1355,49 @@ sinusförmig ist.
 
 \FloatBarrier
 \subsection{Testen der Schaltung}
+
+Wir variieren die Eingangsspannung im Bereich \SIrange{0}{10}{\volt} und
+betrachten das Ausgangssignal. Wir können einen Frequenzbereich von
+\SIrange{0}{0}{\hertz} einstellen.
+
+\textcolor{darkred}{Frequenzbereich eintragen}
+
+\subsection{Frequenzgang ausmessen}
+
+Als letzte Aufgabe, die wir alleine machen, messen wir den Frequenzgang per
+Hand aus. Dazu messen wir die Eingangsspannung mit einem Digitalmultimeter und
+zählen die Periode ab. Unsere Messungen sind in Tabelle~\ref{tab:Frequenzgang}
+und in Abbildung~\ref{ref:Frequenzgang}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SSS|SS}
+		{$\Uin / \si\volt$} &
+		{$\text{Zeitbasis} / \si{\second\per\division}$} &
+		{$T / \si{\division}$} &
+		{$T / \si{\second}$} &
+		{$f / \si\hertz$} \\
+		\hline
+		%< for uin, tdiv, t_raw, t, f in table_sinus: >%
+		<< uin >> & << tdiv >> & << t_raw >> & << t >> & << f >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für den Frequenzgang unseres Sinusgenerators. Hinter der
+		vertikalen Linie sind berechnete Größen.
+	}
+	\label{tab:Frequenzgang}
+\end{table}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{Plot-Frequenzgang.pdf}
+	\caption{%
+		Bode-Plot für unseren Sinusgenerator. Messungen aus
+		Tabelle~\ref{tab:Frequenzgang}.
+	}
+	\label{fig:Frequenzgang}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
