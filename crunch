@@ -41,9 +41,7 @@ def verstaerker_part(T, filename, color, label, table_key, f_T_key, f_grenz_key)
     # Messwerte interpolieren.
     inter = scipy.interpolate.interp1d(f, v, kind='linear')
     x = np.logspace(np.log(np.min(f)), np.log(np.max(f)), 100, base=np.e)
-    print("Davor", len(x))
     x = [xx for xx in x if np.min(f) <= xx <= np.max(f)]
-    print("Danach", len(x))
     y = inter(x)
     pl.loglog(x, y, color=color)
 
@@ -61,7 +59,6 @@ def verstaerker_part(T, filename, color, label, table_key, f_T_key, f_grenz_key)
         x = x[1:]
         a = np.min(x)
         b = np.max(x)
-    print("Später", len(x))
     f_grenz = scipy.optimize.brentq(grenz, a, b)
     pl.loglog(f_grenz , inter(f_grenz ), linestyle="none", marker="*", color=color, markersize=15)
 
@@ -147,9 +144,16 @@ def render_template(T):
 def main():
     T = {}
 
+    print("Skizze D …")
     skizze_d(T)
+
+    print("5: Verstärker …")
     verstaerker(T)
+
+    print("5: Addierer …")
     addierer(T)
+
+    print("Fertig.")
 
     render_template(T)
 
