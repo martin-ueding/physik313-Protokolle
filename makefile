@@ -6,7 +6,7 @@ SHELL = /bin/bash
 all: _build/physik313-5_6-Ueding_Lemmer.pdf
 
 %.pdf: %.tex submodules
-	cd _build && latexmk -pdf $$(basename $<)
+	cd _build && latexmk -pdflatex='pdflatex -halt-on-error $$O $$S' -pdf $$(basename $<)
 
 _build/physik313-5_6-Ueding_Lemmer.tex: crunch Template.tex
 	mkdir -p _build
