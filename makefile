@@ -21,4 +21,4 @@ clean:
 	$(RM) *.o *.out
 	$(RM) *.pyc *.pyo
 	$(RM) *.orig
-	$(RM) -f _build
+	$(RM) -r _build
