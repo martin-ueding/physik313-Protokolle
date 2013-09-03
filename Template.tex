@@ -1088,6 +1088,33 @@ Die freiwillige Aufgabe (Abbildung~\ref{fig:5-2}) lassen wir aus.
 \FloatBarrier
 \section{Durchführung – zweiter Versuchstag}
 
+Unsere Gruppe hat sich den Spannungs-Frequenz-Generator ausgesucht.
+
+\subsection{Vorstellung der Schaltung}
+
+Hier möchten wir unsere Schaltung vorstellen. Außerdem beantworten wir hier die
+Fragen, die im Text gestellt worden sind.
+
+Der Plan für unsere Schaltung ist folgender:
+\begin{enumerate}
+	\item
+		Erzeugen einer auf- oder absteigenden Flanke mit einem invertierbaren
+		Integrator.
+	\item
+		Umschalten zwischen auf- und absteigender Flanke mit einem
+		Schmitt-Trigger, der über die Ausgangsspannung $U_\triangle$ des obigen
+		Integrators gesteuert wird. Dabei schaltet der Schmitt-Trigger einen
+		Transistor durch oder nicht, wodurch der Integrator umgeschaltet.
+	\item
+		Die produzierte Dreieckfunktion wird mit zwei Dioden so abgeschnitten,
+		dass eine Trapezfunktion herauskommt.
+	\item
+		Die Trapezfunktion ist relativ nahe an einem Sinus dran, wenn man sich
+		die Fourierreihe anschaut. Laut \cite[§6.1.3]{physik313-Anleitung} ist
+		die nächste Komponente die fünfte Oberschwingung und mit einer
+		Amplitude von \SI{7}{\percent} auch relativ klein.
+\end{enumerate}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
