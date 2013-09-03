@@ -3,12 +3,12 @@
 
 SHELL = /bin/bash
 
-all: physik313-5-Ueding_Lemmer.pdf physik313-6-Ueding_Lemmer.pdf
+all: physik313-5_6-Ueding_Lemmer.pdf
 
 %.pdf: %.tex
 	latexmk -pdf $<
 
-physik313-%-Ueding_Lemmer.tex: crunch_% Template_%.tex
+physik313-5_6-Ueding_Lemmer.tex: crunch Template.tex
 	./$^
 
 .PHONY: clean
