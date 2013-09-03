@@ -5,14 +5,14 @@ SHELL = /bin/bash
 
 all: _build/physik313-5_6-Ueding_Lemmer.pdf
 
-%.pdf: %.tex pre
+%.pdf: %.tex submodules
 	cd _build && latexmk -pdf $$(basename $<)
 
 _build/physik313-5_6-Ueding_Lemmer.tex: crunch Template.tex
 	mkdir -p _build
 	./$^
 
-pre:
+submodules:
 	git submodule update --init
 
 .PHONY: clean
