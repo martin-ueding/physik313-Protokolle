@@ -1115,6 +1115,100 @@ Der Plan für unsere Schaltung ist folgender:
 		Amplitude von \SI{7}{\percent} auch relativ klein.
 \end{enumerate}
 
+\subsubsection{Invertierbarer Integrator}
+
+Der invertierbare Integrator ist in Abbildung~\ref{fig:6-6} gezeigt. Dabei
+sollen die Widerstände wie folgt gewählt werden: $R_1 = R_2$ und $2 R_3 = R_4$.
+
+Der Spannungsteiler aus $R_1$ und $R_2$ teilt die Eingangsspannung $\Uin$ genau
+in der Hälfte auf. Dadurch wird auf den normalen Eingang die halbe
+Eingangsspannung gelegt. Es gilt also: $U_+ = \Uin/2$. An den invertierenden
+Eingang ist die Gegenkopplung angeschlossen, so dass der Operationsverstärker
+dafür sorgen wird, dass $U_- = U_+$ eingestellt wird. Dies dürfen wir im
+weiteren Verlauf als gegeben annehmen.
+
+Dadurch, dass $U_-$ auf einem bestimmten Potential ist, wird der
+Potentialgradient zwischen $\Uin$ und $U_-$ einen Strom durch $R_4$ erzeugen.
+Dieser Strom ist:
+\[
+	I_4 = \frac{\Uin - U_-}{R_4}
+\]
+
+Bei geschlossenem Schalter fließt ein weiterer Strom durch $R_3$:
+\[
+	I_3 = \frac{0 - U_-}{R_3}
+\]
+
+Wir wollen die Ströme genauer betrachten. Und zwar wissen wir aus unseren
+vorhergehenden Überlegungen, was das Potential an $U_-$ ist. Dadurch ist die
+Spannung an $R_4$ gegeben durch:
+\[
+	\Uin - U_- = \frac\Uin2
+\]
+
+Und die Spannung an $R_3$:
+\[
+	0 - U_- = - \frac\Uin2
+\]
+
+Somit können wir den Gesamtstrom, den der Operationsverstärker durch den
+Kondensator zieht, ausrechnen zu:
+\[
+	I_\text{offen}
+	= \frac{\Uin}{2 R_4}
+\]
+
+Und für den geschlossenen Schalter:
+\[
+	I_\text{geschlossen}
+	= \frac{\Uin}{2 R_4} - \frac{\Uin}{2 R_3}
+	= \frac{\Uin}{2 R_4} - \frac{\Uin}{R_4}
+	= - \frac{\Uin}{2 R_4}
+	= - I_\text{offen}
+\]
+
+Da der Strom in beiden Fällen gleich ist, sich nur im Vorzeichen unterscheidet,
+können wir so den Kondensator gleichmäßig laden. An dieser Stelle erzeugen wir
+nur eine auf- oder absteigende Flanke. Wenn wir regelmäßig umpolen, erzeugen
+wir ein Dreiecksignal.
+
+\subsubsection{Umpolen mit Schmitt-Trigger}
+
+Das Umpolen muss automatisch passieren, also brauchen wir noch ein Bauteil, das
+dies für uns übernimmt. Als Schalter benutzen wir einen, im Vergleich zur
+restlichen Schaltung einfach wirkenden, Transistor. Dieser wird entweder
+gesperrt oder durchgeschaltet. Die Basisspannung liefert ein invertierender
+Schmitt-Trigger (Abbildung~\ref{fig:5/6-13}), der durch die Flanke des
+Integrators getriggert wird.
+
+Wir wollen einen Zyklus durchgehen. Angenommen, der Kondensator ist ungeladen
+und der Schalter ist offen.
+Es liegt eine positive Spannung $\Uin$ an. Diese wird den Kondensator, wobei
+der Operationsverstärker die Ausgangsspannung immer negativer machen muss,
+damit der Strom fließt.
+
+An einem Punkt wird die Ausgangsspannung des
+Integrators, die die Eingangsspannung des Schmitt-Triggers ist, so negativ,
+dass dieser umschaltet. Somit wird die Ausgangsspannung des Triggers positiv.
+Diese Spannung ist wiederrum $\UB$ für den Schalttransistor, der damit den
+Schalter schließt.
+
+Der Integrator ist umgeschaltet, der Kondensator wird entladen, danach weiter
+umgeladen, bis seine Ladung in die andere Richtung so groß ist, dass der
+Trigger wieder umschaltet.
+
+Die Schaltschwelle des Triggers wird durch das Verhältnis der Widerstände in
+Abbildung~\ref{fig:5/6-13} bestimmt. Die Grenzen sind:
+\cite[(5/6.18)]{physik313-Anleitung}
+\begin{gather*}
+	U_\text{Trigger positiv} = \frac{R_1}{R_1 + R_2} U_\text{max} \\
+	U_\text{Trigger negativ} = \frac{R_1}{R_1 + R_2} U_\text{min}
+\end{gather*}
+
+Wobei $U_\text{max}$ die obere Aussteuergrenze des Operationsverstärkers ist.
+
+Nach diesem Schritt haben wir eine richtige Dreieckfunktion erzeugt.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
