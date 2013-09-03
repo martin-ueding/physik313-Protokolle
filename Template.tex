@@ -1082,15 +1082,12 @@ Die freiwillige Aufgabe (Abbildung~\ref{fig:5-2}) lassen wir aus.
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                Durchführung                                %
+%                         Präsentation der Schaltung                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\FloatBarrier
-\section{Durchführung – zweiter Versuchstag}
+\section{Präsentation des Spannungs-Frequenz-Wandlers}
 
 Unsere Gruppe hat sich den Spannungs-Frequenz-Generator ausgesucht.
-
-\subsection{Vorstellung der Schaltung}
 
 Hier möchten wir unsere Schaltung vorstellen. Außerdem beantworten wir hier die
 Fragen, die im Text gestellt worden sind.
@@ -1115,7 +1112,7 @@ Der Plan für unsere Schaltung ist folgender:
 		Amplitude von \SI{7}{\percent} auch relativ klein.
 \end{enumerate}
 
-\subsubsection{Invertierbarer Integrator}
+\subsection{Invertierbarer Integrator}
 
 Der invertierbare Integrator ist in Abbildung~\ref{fig:6-6} gezeigt. Dabei
 sollen die Widerstände wie folgt gewählt werden: $R_1 = R_2$ und $2 R_3 = R_4$.
@@ -1172,7 +1169,7 @@ können wir so den Kondensator gleichmäßig laden. An dieser Stelle erzeugen wi
 nur eine auf- oder absteigende Flanke. Wenn wir regelmäßig umpolen, erzeugen
 wir ein Dreiecksignal.
 
-\subsubsection{Umpolen mit Schmitt-Trigger}
+\subsection{Umpolen mit Schmitt-Trigger}
 
 Das Umpolen muss automatisch passieren, also brauchen wir noch ein Bauteil, das
 dies für uns übernimmt. Als Schalter benutzen wir einen, im Vergleich zur
@@ -1208,6 +1205,45 @@ Abbildung~\ref{fig:5/6-13} bestimmt. Die Grenzen sind:
 Wobei $U_\text{max}$ die obere Aussteuergrenze des Operationsverstärkers ist.
 
 Nach diesem Schritt haben wir eine richtige, lineare, Dreiecksfunktion erzeugt.
+
+\subsection{Trapezsignal}
+
+Ein weiterer Schritt zum Sinussignal ist das Umwandeln in ein Trapezsignal.
+Dazu wird das Signal mit zwei Dioden, die gegensätzlich gepolt sind und jeweils
+zwischen Ausgang und Masse angeschlossen sind, beschnitten. Oberhalb von
+\SI{.7}{\volt} werden die Dioden niederohmig und leiten die überschüssige
+Spannung ab. Da das Signal positiv und negativ ist, werden zwei Dioden
+gebraucht.
+
+Dieses Signal ist ausreichend sinusförmig und kann benutzt werden.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                Durchführung                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Durchführung – zweiter Versuchstag}
+
+Wir bauen unseren Spannungs-Frequenz-Wandler auf. Dabei sollen wir die
+Schaltung inkrementell aufbauen.
+
+\subsection{Umpolbarer Integrator}
+
+Wir beginnen also mit dem Aufbau des umpolbaren Integrators
+(Abbildung~\ref{fig:6-6}) auf dem ersten Operationsverstärkerschaltbrett
+(Abbildung~\ref{fig:6-8}).
+
+Dabei sind vorgegeben:
+\[
+	R_1 = \SI{47}{\kilo\ohm} \eqnsep
+	R_2 = \SI{47}{\kilo\ohm} \eqnsep
+	R_3 = \SI{100}{\kilo\ohm} \eqnsep
+	R_4 = \SI{220}{\kilo\ohm} \eqnsep
+	C = \SI{.1}{\micro\farad}
+\] 
+
+Abbildung~\ref{fig:6-9}
+gezeigt.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
