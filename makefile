@@ -3,12 +3,13 @@
 
 SHELL = /bin/bash
 
-all: physik313-5_6-Ueding_Lemmer.pdf
+all: _build/physik313-5_6-Ueding_Lemmer.pdf
 
 %.pdf: %.tex
-	latexmk -pdf $<
+	cd _build && latexmk -pdf $$(basename $<)
 
-physik313-5_6-Ueding_Lemmer.tex: crunch Template.tex
+_build/physik313-5_6-Ueding_Lemmer.tex: crunch Template.tex
+	mkdir -p _build
 	./$^
 
 .PHONY: clean
@@ -17,4 +18,4 @@ clean:
 	$(RM) *.o *.out
 	$(RM) *.pyc *.pyo
 	$(RM) *.orig
-	latexmk -C
+	$(RM) -f _build

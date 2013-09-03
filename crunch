@@ -19,7 +19,7 @@ def skizze_d(T):
     pl.xlabel(r"$f/ \mathrm{Hz}$")
     pl.ylabel(r"$v$")
     pl.grid(True)
-    pl.savefig("5_6-D.pdf", bbox_inches='tight')
+    pl.savefig("_build/5_6-D.pdf", bbox_inches='tight')
     pl.clf()
 
 def verstaerker_part(T, filename, color, label, table_key, f_T_key, f_grenz_key):
@@ -82,7 +82,7 @@ def verstaerker(T):
     pl.ylabel(r"$v$")
     pl.grid(True)
     pl.legend(loc="best")
-    pl.savefig("Plot-Verstaerker.pdf", bbox_inches='tight')
+    pl.savefig("_build/Plot-Verstaerker.pdf", bbox_inches='tight')
     pl.clf()
 
 def addierer(T):
@@ -102,7 +102,7 @@ def addierer(T):
     pl.ylabel("$f(t)$")
     pl.grid(True)
     pl.legend(loc="best")
-    pl.savefig("Plot-Saegezahn.pdf", bbox_inches='tight')
+    pl.savefig("_build/Plot-Saegezahn.pdf", bbox_inches='tight')
     pl.clf()
 
 def g(value, error=None, digits=3):
@@ -138,7 +138,7 @@ def render_template(T):
     template = env.get_template("Template.tex")
 
     # Rendering LaTeX document with values.
-    with open("physik313-5_6-Ueding_Lemmer.tex", "w") as f:
+    with open("_build/physik313-5_6-Ueding_Lemmer.tex", "w") as f:
         f.write(template.render(**T))
 
 def main():
