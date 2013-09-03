@@ -1085,6 +1085,7 @@ Die freiwillige Aufgabe (Abbildung~\ref{fig:5-2}) lassen wir aus.
 %                         Präsentation der Schaltung                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\FloatBarrier
 \section{Präsentation des Spannungs-Frequenz-Wandlers}
 
 Unsere Gruppe hat sich den Spannungs-Frequenz-Generator ausgesucht.
@@ -1112,10 +1113,20 @@ Der Plan für unsere Schaltung ist folgender:
 		Amplitude von \SI{7}{\percent} auch relativ klein.
 \end{enumerate}
 
+\FloatBarrier
 \subsection{Invertierbarer Integrator}
 
 Der invertierbare Integrator ist in Abbildung~\ref{fig:6-6} gezeigt. Dabei
 sollen die Widerstände wie folgt gewählt werden: $R_1 = R_2$ und $2 R_3 = R_4$.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.5\linewidth]{../Anleitung/6-6.png}
+	\caption{%
+		\cite[Abbildung~6.6]{physik313-Anleitung}
+	}
+	\label{fig:6-6}
+\end{figure}
 
 Der Spannungsteiler aus $R_1$ und $R_2$ teilt die Eingangsspannung $\Uin$ genau
 in der Hälfte auf. Dadurch wird auf den normalen Eingang die halbe
@@ -1169,14 +1180,24 @@ können wir so den Kondensator gleichmäßig laden. An dieser Stelle erzeugen wi
 nur eine auf- oder absteigende Flanke. Wenn wir regelmäßig umpolen, erzeugen
 wir ein Dreiecksignal.
 
+\FloatBarrier
 \subsection{Umpolen mit Schmitt-Trigger}
 
 Das Umpolen muss automatisch passieren, also brauchen wir noch ein Bauteil, das
 dies für uns übernimmt. Als Schalter benutzen wir einen, im Vergleich zur
 restlichen Schaltung einfach wirkenden, Transistor. Dieser wird entweder
 gesperrt oder durchgeschaltet. Die Basisspannung liefert ein invertierender
-Schmitt-Trigger (Abbildung~\ref{fig:5/6-13}), der durch die Flanke des
+Schmitt-Trigger (Abbildung~\ref{fig:5_6-13}), der durch die Flanke des
 Integrators getriggert wird.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.4\linewidth]{../Anleitung/5_6-13.png}
+	\caption{%
+		\cite[Abbildung~5/6.13]{physik313-Anleitung}
+	}
+	\label{fig:5_6-13}
+\end{figure}
 
 Wir wollen einen Zyklus durchgehen. Angenommen, der Kondensator ist ungeladen
 und der Schalter ist offen.
@@ -1195,17 +1216,31 @@ umgeladen, bis seine Ladung in die andere Richtung so groß ist, dass der
 Trigger wieder umschaltet.
 
 Die Schaltschwelle des Triggers wird durch das Verhältnis der Widerstände in
-Abbildung~\ref{fig:5/6-13} bestimmt. Die Grenzen sind:
+Abbildung~\ref{fig:6-7} bestimmt. Die Grenzen sind:
 \cite[(5/6.18)]{physik313-Anleitung}
 \begin{gather*}
-	U_\text{Trigger positiv} = \frac{R_1}{R_1 + R_2} U_\text{max} \\
-	U_\text{Trigger negativ} = \frac{R_1}{R_1 + R_2} U_\text{min}
+	U_\text{Trigger positiv} = \frac{R_6}{R_6 + R_5} U_\text{max} \\
+	U_\text{Trigger negativ} = \frac{R_6}{R_6 + R_5} U_\text{min}
 \end{gather*}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../Anleitung/6-7.png}
+	\caption{%
+		\cite[Abbildung~6.7]{physik313-Anleitung}
+	}
+	\label{fig:6-7}
+\end{figure}
 
 Wobei $U_\text{max}$ die obere Aussteuergrenze des Operationsverstärkers ist.
 
 Nach diesem Schritt haben wir eine richtige, lineare, Dreiecksfunktion erzeugt.
 
+Im späteren Aufbau wird $R_5$ durch ein Potentiometer ersetzt. Dies sorgt
+dafür, dass die Triggerspannungen eingestellt werden. Dadurch wird länger oder
+kürzer geladen, was sowohl die Amplitude, als auch die Frequenz verändert.
+
+\FloatBarrier
 \subsection{Trapezsignal}
 
 Ein weiterer Schritt zum Sinussignal ist das Umwandeln in ein Trapezsignal.
@@ -1225,13 +1260,25 @@ Dieses Signal ist ausreichend sinusförmig und kann benutzt werden.
 \section{Durchführung – zweiter Versuchstag}
 
 Wir bauen unseren Spannungs-Frequenz-Wandler auf. Dabei sollen wir die
-Schaltung inkrementell aufbauen.
+Schaltung inkrementell aufbauen. In diesem Abschnitt gehen wir nicht weiter auf
+die Funktionsweise der Schaltung auf, da wir dies bereits im vorherigen
+Abschnitt getan haben.
 
+\FloatBarrier
 \subsection{Umpolbarer Integrator}
 
 Wir beginnen also mit dem Aufbau des umpolbaren Integrators
 (Abbildung~\ref{fig:6-6}) auf dem ersten Operationsverstärkerschaltbrett
 (Abbildung~\ref{fig:6-8}).
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../Anleitung/6-8.png}
+	\caption{%
+		\cite[Abbildung~6.8]{physik313-Anleitung}
+	}
+	\label{fig:6-8}
+\end{figure}
 
 Dabei sind vorgegeben:
 \[
@@ -1240,10 +1287,71 @@ Dabei sind vorgegeben:
 	R_3 = \SI{100}{\kilo\ohm} \eqnsep
 	R_4 = \SI{220}{\kilo\ohm} \eqnsep
 	C = \SI{.1}{\micro\farad}
-\] 
+\]
 
-Abbildung~\ref{fig:6-9}
-gezeigt.
+Wir legen eine Gleichspannung von \SI{3}{\volt} an und betrachten die
+Ausgangsspannung. Außerdem untersuchen wir das Verhalten des Systems beim
+Zuschalten von $R_3$. Zuletzt verändern wir die Eingangsspannung und achten
+darauf, ob wir die Anstiegsgeschwindigkeit verändern können.
+
+\textcolor{darkred}{Beobachtung einfügen.}
+
+\FloatBarrier
+\subsection{Transistor als Schalter}
+
+Nun fügen wir den Transistor an die Stelle des Schalters ein. Mit der
+Eingangsspannung schalten wir den Transistor durch.
+
+\FloatBarrier
+\subsection{Schmitt-Trigger}
+
+Mit Hilfe eines zweiten Operationsverstärkerschaltbretts bauen wir gemäß
+Abbildung~\ref{fig:6-9} einen Schmitt-Trigger auf. Die beiden Schaltbretter
+verbinden wir mit einem BNC-Kabel.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{../Anleitung/6-9.png}
+	\caption{%
+		\cite[Abbildung~6.9]{physik313-Anleitung}
+	}
+	\label{fig:6-9}
+\end{figure}
+
+Vorgegeben Dimensionierung:
+\[
+	R_5 = \SI{10}{\kilo\ohm} \eqnsep
+	R_6 = \SI{1}{\kilo\ohm} \eqnsep
+\]
+
+Mit dem Oszillographen prüfen wir, ob die Schaltung nun schwingt.
+
+\textcolor{darkred}{Beobachtung einfügen.}
+
+Wir verändern nun die Dimensionierung um höhere Frequenzen zu erreichen:
+\[
+	R_3 = \SI{1}{\kilo\ohm} \eqnsep
+	R_4 = \SI{2.2}{\kilo\ohm} \eqnsep
+	C = \SI{10}{\nano\farad}
+\]
+
+\FloatBarrier
+\subsection{Begrenzungsschaltung}
+
+Die Dioden werden an die entsprechende Stelle eingesetzt und mit $R_7$ an die
+Schaltung angeschlossen.
+
+Vorgegebene Dimensionierung:
+\[
+	R_7 = \SI{470}\ohm
+\]
+
+Zuletzt ersetzen wir $R_5$ durch ein Potentiometer und stellen es im Bereich
+\SIrange{0}{47}{\kilo\ohm} so ein, dass das Ausgangssignal möglichst
+sinusförmig ist.
+
+\FloatBarrier
+\subsection{Testen der Schaltung}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
