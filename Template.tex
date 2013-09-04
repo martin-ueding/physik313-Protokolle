@@ -1327,9 +1327,18 @@ Vorgegeben Dimensionierung:
 	R_6 = \SI{1}{\kilo\ohm} \eqnsep
 \]
 
-Mit dem Oszillographen prüfen wir, ob die Schaltung nun schwingt.
+Mit dem Oszillographen prüfen wir, ob die Schaltung nun schwingt. In der Tat
+erhalten wir eine Dreieckfunktion, siehe Abbildung~\ref{fig:815}.
 
-\textcolor{darkred}{Beobachtung einfügen.}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.45\linewidth]{../Oszi_Foto/6-815.jpg}
+	\caption{%
+		Zeitbasis \SI{10}{\micro\second\per\division},
+		Verstärkung \SI{.5}{\volt\per\division}
+	}
+	\label{fig:815}
+\end{figure}
 
 Wir verändern nun die Dimensionierung um höhere Frequenzen zu erreichen:
 \[
@@ -1351,7 +1360,25 @@ Vorgegebene Dimensionierung:
 
 Zuletzt ersetzen wir $R_5$ durch ein Potentiometer und stellen es im Bereich
 \SIrange{0}{47}{\kilo\ohm} so ein, dass das Ausgangssignal möglichst
-sinusförmig ist.
+sinusförmig ist. Das Signal ist einigermaßen Sinusförmig, siehe
+Abbildung~\ref{fig:820}.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{../Oszi_Foto/6-820.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{../Oszi_Foto/6-821.jpg}
+	\end{minipage}
+	\caption{%
+		Ohne und mit Dioden.
+		Zeitbasis \SI{.1}{\milli\second\per\division},
+		Verstärkungen \SIlist{2;.2}{\volt\per\division}.
+	}
+	\label{fig:820}
+\end{figure}
 
 \FloatBarrier
 \subsection{Testen der Schaltung}
@@ -1397,6 +1424,63 @@ und in Abbildung~\ref{fig:Frequenzgang}.
 		Tabelle~\ref{tab:Frequenzgang}.
 	}
 	\label{fig:Frequenzgang}
+\end{figure}
+
+\FloatBarrier
+\subsection{Gesamtschaltung}
+
+Nachdem wir mit unserer Schaltung fertig sind, setzen wir unsere Schaltung mit
+den Schaltungen der anderen Gruppen zusammen.
+
+Das Ausgangssignal des Exponenzierers ist in Abbildung~\ref{fig:823}
+dargestellt. Zusammen mit dem Signal aus unserem Sinusgenerator ist der Sweep
+zu erkennen, siehe Abbildung~\ref{fig:824}. Um den Tiefpass durchzutesten,
+haben wir einen Sweep mit dem Hameg Funktionsgenerator erzeugt, siehe
+Abbildung~\ref{fig:826}. Beim Bandfilter (Abbildung~\ref{fig:832}) ist das
+Ergebnis gut zu erkennen.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.45\linewidth]{../Oszi_Foto/6-823.jpg}
+	\caption{%
+		Zeitbasis \SI{10}{\micro\second\per\division},
+		Verstärkung \SI{5}{\volt\per\division}
+	}
+	\label{fig:823}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{../Oszi_Foto/6-824.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{../Oszi_Foto/6-825.jpg}
+	\end{minipage}
+	\caption{%
+		Zeitbasis \SI{10}{\micro\second\per\division},
+		Verstärkungen \SIlist{10;5}{\volt\per\division}
+	}
+	\label{fig:824}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.45\linewidth]{../Oszi_Foto/6-826.jpg}
+	\caption{%
+		Tiefpass im Sweep des (off-the-shelf) Hameg Funktionsgenerators.
+	}
+	\label{fig:826}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.45\linewidth]{../Oszi_Foto/6-832.jpg}
+	\caption{%
+		Exponenzierter Sägezahn und Ausgang des Bandfilters.
+	}
+	\label{fig:832}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
