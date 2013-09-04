@@ -121,7 +121,7 @@ def frequenzgang(T):
     pl.savefig("_build/Plot-Frequenzgang.pdf", bbox_inches='tight')
     pl.clf()
 
-    T["table_sinus"] = np.column_stack([u, div, t_raw, np.round(t, 3), np.round(f, 3)])
+    T["table_sinus"] = np.column_stack([u, div, t_raw, np.round(t*1000, 3), np.round(f, 3)])
 
 def g(value, error=None, digits=3):
     if error is None:
