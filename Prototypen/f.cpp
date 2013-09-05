@@ -6,7 +6,7 @@
 int main() {
 	char a;
 	char b;
-	char out;
+	char x;
 	char isset;
 	a = 0x08; // Meine Test-Schablone.
 	b = 0xFF; // Ein Beispielwert für das Register B.
@@ -15,13 +15,13 @@ int main() {
 		goto is_set;
 	goto is_not_set;
 is_set:
-	out = 0xFF;
+	x = 0xFF;
 	goto end;
 is_not_set:
-	out = 0x00;
+	x = 0x00;
 	goto end;
 end:
 
-	std::cout << (unsigned short) out << std::endl;
+	std::cout << (unsigned short) x << std::endl;
 	return 0;
 }
