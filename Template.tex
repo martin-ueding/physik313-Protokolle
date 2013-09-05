@@ -58,6 +58,8 @@
 \newcommand\tand {\textsc{and}}
 \newcommand\thigh{\textsc{high}}
 \newcommand\tlow {\textsc{low}}
+\newcommand\tmand{\mathsc{nand}}
+\newcommand\tnand{\textsc{nand}}
 \newcommand\tnor {\textsc{nor}}
 \newcommand\tnot {\textsc{not}}
 \newcommand\tor  {\textsc{or}}
@@ -145,6 +147,74 @@ Mit einer Stromverstärkung von $\beta = 100$ sind dies $\IB =
 \SI{40}{\milli\ampere}$. Dabei würde an $\RC$ eine Spannung von \SI{40}{\volt}
 abfallen. Da nur \SI{5}{\volt} anliegen, wird sicher ein \thigh{} am Ausgang
 anliegen.
+
+\subsection{Aufgabe L}
+
+\fehlt
+
+\subsection{Aufgabe M}
+
+\begin{problem}
+	Wie funktioniert der CMOS-Inverter (Abbildung~\ref{fig:7.9})? Benutzen Sie
+	die angegebenen Kennlinien.
+\end{problem}
+
+Wenn eine Eingangsspannung anliegt, also ein \thigh, sperrt der obere FET, der
+untere FET wird durchgeschaltet. Somit fällt die Betriebsspannung am oberen FET
+ab, Ausgang ist ein \tlow.
+
+Wenn keine Eingangsspannung anliegt, also ein \tlow, wird der Obere
+durchgeschaltet, der Untere gesperrt. Damit fällt die Betriebsspannung am
+unteren ab, Ausgang ist ein \thigh.
+
+Die Kennlinien sind so extrem, dass sich hier ein digitales Verhalten zeigt.
+
+\subsection{Aufgabe N}
+
+\begin{problem}
+	Welche logische Funktion ist mit dem Gatter in Abbildung~\ref{fig:7-10}
+	realisiert?
+\end{problem}
+
+Legen wir doch eine Tabelle an. Dazu gehen wir Schritt für Schritt durch:
+
+\paragraph{A und B \tlow}
+
+n-MOS links und rechts sind durchgeschaltet. Daher fällt über ihnen keine
+Spannung ab. Die p-MOS oben und unten sind gesperrt, daher fällt über ihnen
+Spannung ab. Ausgang ist \thigh.
+
+\paragraph{A und B \thigh}
+
+Genau invers, also fällt die Spannung über den ersten MOSFETs ab, womit der
+Ausgang \tlow ist.
+
+\paragraph{A \thigh{} und B \tlow}
+
+n-MOS links ist offen, n-MOS rechts ist gesperrt. p-MOS oben ist offen, p-MOS
+unten ist gesperrt.
+
+Somit fällt viel Spannung unten ab, oben ist ein Weg offen. Ausgang ist \thigh.
+
+\paragraph{A \tlow{} und B \thigh}
+
+n-MOS links ist gesperrt, rechts ist offen. p-MOS oben ist gesperrt, unten ist
+offen.
+
+Somit wie oben, \thigh
+
+\paragraph{Zusammenfassung}
+
+Wir erhalten:
+
+\begin{tabular}{c|cc}
+	A \textbackslash{} B & 0 & 1 \\
+	\hline
+	0 & 1 & 1 \\
+	1 & 1 & 0
+\end{tabular}
+
+Somit handelt es sich um ein \tnand-Gatter.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
