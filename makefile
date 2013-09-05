@@ -5,7 +5,7 @@ SHELL = /bin/bash
 
 all: _build/physik313-8-Ueding_Lemmer.pdf
 
-%.pdf: %.tex submodules
+%.pdf: %.tex submodules prototypen
 	cd _build && latexmk -pdflatex='pdflatex -halt-on-error -shell-escape $$O $$S' -pdf $$(basename $<)
 
 _build/physik313-8-Ueding_Lemmer.tex: crunch Template.tex
@@ -14,6 +14,9 @@ _build/physik313-8-Ueding_Lemmer.tex: crunch Template.tex
 
 submodules:
 	git submodule update --init
+
+prototypen:
+	make -C Prototypen
 
 .PHONY: clean
 clean:

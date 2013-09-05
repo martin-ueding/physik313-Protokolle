@@ -4,6 +4,7 @@
 
 \usepackage{placeins}
 \usepackage{minted}
+\usepackage{multicol}
 
 \ihead{physik313 – Versuch 8}
 \ifoot{Lino Lemmer, Martin Ueding}
@@ -233,6 +234,35 @@ Stromversorgung die Daten verloren.
 
 Man braucht ADC, die jedoch bei $b$ Bytes pro Messwert nur $2^b$ Stufen
 abbilden können.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                Durchführung                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Durchführung}
+
+\subsection{Umgang mit System 3}
+
+\subsubsection{Erzeugung eines Sägezahns}
+
+Um ein Gefühl für das Programm zu bekommen, und um es schon vorher zuhause zu
+testen, habe ich es in C++ nachgebaut. Dabei habe ich ausgenutzt, dass C
+eigentlich nur Assembler mit Makros ist und auch über ein \texttt{goto}
+verfügt. Die Ausgabe erfolgt in eine Textdatei.
+
+\inputminted[fontsize=\small]{cpp}{../Prototypen/saegezahn.cpp}
+
+Die \textit{if}-Abfrage musste nur rein, damit das Programm auch terminiert.
+Die Ausgabe ist wie folgt, von oben nach unten, von links nach rechts:
+
+\begin{multicols}{9}
+	\inputminted[fontsize=\footnotesize]{text}{saegezahn.txt}
+\end{multicols}
+
+Zu erkennen ist der Sägezahn, der durch den (hier gewollten) Überlauf zustande
+kommt.
+
+\subsection{Versuchsaufgabe 5}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
