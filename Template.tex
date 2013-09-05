@@ -116,6 +116,23 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 
 Die die logische Funktion des Schaltung ist eine \tnor-Funktion.
 
+Die Dioden
+haben die Funktion die einkommenden Spannungen nur an das Gatter
+weiterzuleiten. Die Eingangsspannung soll von beiden Eingängen auf $\UEH$
+gezogen werden können, jedoch sollen die Eingänge voneinander entkoppelt sein,
+sie sollen ja Eingänge sein.
+
+\paragraph{Spannungslevel}
+
+Wenn nur $\UL$ auf beiden Eingängen ist, liegt eine maximale Spannung von
+\SI{.2}{\volt} an, da die Siliziumdioden schon \SI{.6}{\volt} verschlingen.
+Dies reicht nicht mehr aus, um den Transistor zu schalten, am Ausgang werden
+fast die vollen \SI{5}{\volt} anliegen.
+
+Wenn einer der der Eingänge auf $\UL$ geschaltet ist, dann mindestens
+\SI{2.4}{\volt}. Nach der Diode sind immer noch \SI{1.8}{\volt} da. Dies sollte
+reichen, um den Transistor zu schalten. 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
