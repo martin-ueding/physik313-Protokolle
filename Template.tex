@@ -243,7 +243,13 @@ abbilden können.
 
 \subsection{Umgang mit System 3}
 
-\subsubsection{Erzeugung eines Sägezahns}
+\subsection{Versuchsaufgabe 5}
+
+\subsubsection{Beschreiben der Funktionen}
+
+\begin{problem}
+	Beschreiben Sie die Funktionen des Programmes.
+\end{problem}
 
 Um ein Gefühl für das Programm zu bekommen, und um es schon vorher zuhause zu
 testen, habe ich es in C++ nachgebaut. Dabei habe ich ausgenutzt, dass C
@@ -262,7 +268,18 @@ Die Ausgabe ist wie folgt, von oben nach unten, von links nach rechts:
 Zu erkennen ist der Sägezahn, der durch den (hier gewollten) Überlauf zustande
 kommt.
 
-\subsection{Versuchsaufgabe 5}
+\subsubsection{Ändern der Periode}
+
+Um die Periode zu ändern, inkrementieren wir nicht, sondern addieren einen Wert
+aus Register b. Dies habe ich in folgendem, leicht modifiziertem Programm
+gemacht:
+
+\inputminted[fontsize=\small, linenos]{cpp}{../Prototypen/d.cpp}
+
+\begin{multicols}{9}
+	\inputminted[fontsize=\footnotesize]{text}{d.txt}
+\end{multicols}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
