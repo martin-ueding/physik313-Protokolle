@@ -1,7 +1,7 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 // Licensed under The GNU Public License Version 2 (or later)
 
-#include <iostream>
+#include <cstdio>
 
 int main() {
 	int iterations = 30;
@@ -11,7 +11,7 @@ int main() {
 	b = 0x10;
 f1:
 	a += b;
-	std::cout << (short) a << std::endl;
+	printf("%02x\n", a & 0xFF);
 
 	if (iterations--)
 		goto f1;

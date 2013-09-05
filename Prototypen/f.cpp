@@ -1,7 +1,7 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 // Licensed under The GNU Public License Version 2 (or later)
 
-#include <iostream>
+#include <cstdio>
 
 int main() {
 	char a;
@@ -22,6 +22,6 @@ is_not_set:
 	goto end;
 end:
 
-	std::cout << (unsigned short) x << std::endl;
+	printf("%02x\n", x & 0xFF);
 	return 0;
 }

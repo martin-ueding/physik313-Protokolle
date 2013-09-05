@@ -18,6 +18,6 @@ top:
 	x = temp;
 	r = temp >> 8;
 
-	printf("%02x %02x", r, x);
+	printf("%02x %02x\n", r & 0xFF, x & 0xFF);
 	return 0;
 }
