@@ -3,6 +3,7 @@
 \input{../header.tex}
 
 \usepackage{placeins}
+\usepackage{minted}
 
 \ihead{physik313 – Versuch 8}
 \ifoot{Lino Lemmer, Martin Ueding}
@@ -109,6 +110,105 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 
 \FloatBarrier
 \section{Aufgaben}
+
+\subsection{Aufgabe A}
+
+\begin{problem}
+	Wandeln Sie die zwei nachfolgenden Dualzahlen in das Hexadezimal- und das
+	Dezimalsystem um:
+	\begin{gather*}
+		1101\,1111\,0010\,1110_2 \\
+		1111\,1111_2
+	\end{gather*}
+\end{problem}
+
+An dieser Stelle möchte ich mich als guter Programmierer meiner Faulheit
+bedienen (Aussage von Larry Wall, \cite{threevirtues.com}). Daher benutze ich
+Python 3, um die Zahlen zu verrechnen. Mir ist durchaus bekannt, wie man die
+Zahlen umrechnet, jedoch möchte ich meine Zeit lieber für die interessanten
+Teile dieses Versuchs aufwenden.
+
+\begin{minted}{pycon}
+>>> 0b1101111100101110
+57134
+\end{minted}
+
+\subsection{Aufgabe B}
+
+\begin{problem}
+	Wandeln Sie die nachfolgenden Dezimalzahlen in Binär- und Hexadezimalzahlen
+	um:
+	\[
+		2115_{10}
+	\]
+\end{problem}
+
+\begin{minted}{pycon}
+>>> bin(2115)
+'0b100001000011'
+\end{minted}
+
+\subsection{Aufgabe C}
+
+\begin{problem}
+	Wandeln Sie die nachfolgenden Hexadezimalzahl in Binär- und
+	Dezimaldarstellung um:
+	\[
+		\mathrm{B75F}_{16}
+	\]
+\end{problem}
+
+\begin{minted}{pycon}
+>>> 0xb75f
+46943
+>>> bin(_)
+'0b1011011101011111'
+\end{minted}
+
+\subsection{Aufgabe D}
+
+\begin{problem}
+	Führen Sie die nachfolgenden Operationen zwischen Dualzahlen durch:
+\end{problem}
+
+\paragraph{Addition}
+
+\begin{minted}{pycon}
+>>> bin(0b01011011 + 0b01101011)
+'0b11000110'
+>>> bin(0b11111111 + 0b00000001)
+'0b100000000'
+\end{minted}
+
+\paragraph{Subtraktion}
+
+\begin{minted}{pycon}
+>>> bin(0b11000000 - 0b10110101)
+'0b1011'
+\end{minted}
+
+\paragraph{Multiplikation}
+
+\begin{minted}{pycon}
+>>> bin(0b1101 * 0b1001)
+'0b1110101'
+\end{minted}
+
+\paragraph{Division}
+
+Hier entsteht offensichtlich ein Rest, so dass ganzzahlige Division benutzt
+werden muss:
+
+\begin{minted}{pycon}
+>>> bin(0b1110111 / 0b101)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'float' object cannot be interpreted as an integer
+>>> 0b1110111 / 0b101
+23.8
+>>> bin(0b1110111 // 0b101)
+'0b10111'
+\end{minted}
 
 \FloatBarrier
 
