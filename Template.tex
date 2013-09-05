@@ -258,7 +258,7 @@ verfügt. Die Ausgabe erfolgt in eine Textdatei.
 
 \inputminted[fontsize=\small, linenos]{cpp}{../Prototypen/saegezahn.cpp}
 
-Die \textit{if}-Abfrage musste nur rein, damit das Programm auch terminiert.
+Die \texttt{if}-Abfrage musste nur rein, damit das Programm auch terminiert.
 Die Ausgabe ist wie folgt, von oben nach unten, von links nach rechts:
 
 \begin{multicols}{9}
@@ -267,6 +267,42 @@ Die Ausgabe ist wie folgt, von oben nach unten, von links nach rechts:
 
 Zu erkennen ist der Sägezahn, der durch den (hier gewollten) Überlauf zustande
 kommt.
+
+\paragraph{Konvertieren zu Assembly}
+
+Um so richtig zu verstehen und zu dokumentieren, wie ich ein derartiges
+Programm in 8080-Assembly übersetze, übersetze ich dieses Programm, das ich vom
+Assembly abgelesen habe, wieder zurück in Assembly und dokumentiere dabei genau
+die Schritte, die ich gemacht habe.
+
+Zuerst muss die \texttt{0x00} in das Register A geschrieben werden. Dazu
+benutze ich den Befehl \texttt{MVI~r}. Dieser hat einen Maschinencode von
+\texttt{0b00ddd110}. Dabei ist das Ziel („Destination“, „d“) das Register A, der
+Akkumulator. In der letzten Seite ist dessen Adresse mit 0b111 angegeben. Somit
+setze ich meinen Befehl zusammen: \texttt{0b00111110} und noch das \texttt{0x00}.
+Die erste Zahl lasse ich Python nach Hex konvertieren und erhalte
+\texttt{0x3e}. Dies ist meine Zeile \texttt{0x00}.
+
+Als nächstes kommt die Erhöhung von A. DAzu benutze ich den Befehl
+\texttt{INR~r}. Dessen Maschinencode ist \texttt{0b00ddd100}, wobei ich wieder
+\texttt{0b111} als Ziel einsetze. Konvertiert ist das ganze dann \texttt{0x3c}.
+
+Jetzt folgt die Ausgabe auf den DAC-Wandler. Das Ausgabekommando ist
+\texttt{OUT} und bekommt als zweites Byte das Zielregister. Dieses ist
+\texttt{0x04}. Also \texttt{0xd3~0x04}.
+
+Zuletzt kommt der Sprung zurück in Zeile \texttt{0x02}. Dazu benutze ich
+\texttt{JMP}. Warum dieser Befehl zwei Bytes bekommt, und nicht nur ein Byte,
+ist mir (noch) nicht klar. Das erste Byte ist jedenfalls die Zieladresse, das
+Zweite ist im Programm aus der Aufgabenstellung einfach \texttt{0x00}. Dann
+lasse ich das auch so.
+
+So sieht das fertige Programm aus:
+
+\inputminted[fontsize=\small, linenos]{text}{../Assembly/a.s}
+
+Es ist genau gleich mit der Aufgabenstellung, so dass die obige Erklärung
+wahrscheinlich richtig ist.
 
 \subsubsection{Ändern der Periode}
 
