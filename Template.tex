@@ -254,6 +254,57 @@ Wir erhalten:
 
 Somit handelt es sich um ein \tnand-Gatter.
 
+\subsection{Aufgabe O}
+
+\begin{problem}
+	Wie lauten die Bool'schen Ausdrücke für Summe und Übertrag eines
+	Halbaddierers?
+\end{problem}
+
+Einen Übertrag gibt es nur, wenn beide Summanden \thigh{} sind. Somit ist der
+Übertrag:
+\[
+	U := a \mand b
+\]
+
+Die Summe ist ein \txor. Also:
+\[
+	S := a \mxor b
+\]
+
+\subsection{Aufgabe P}
+
+\begin{problem}
+	Schreiben Sie die Funktionstafel auf für einen Volladdierer, der auch den
+	Übertrag des vorhergehenden Bits mit verarbeitet.
+\end{problem}
+
+Der Volladdierer bekommt nicht nur die beiden Stellen $a$ und $b$ geliefert,
+sondern auch $\Uin$, den Übertrag der vorherigen Rechnung. Der Volladdierer
+addiert diese drei Zahlen auf. Da sie im Bereich 0 bis 3 liegen, braucht er
+zwei Stellen als Ausgabe. Das ist einmal Summe und $\Uout$, der Übertrag des
+Ergebnisses.
+
+\begin{tabular}{ccc|cc}
+	$a$ & $b$ & $\Uin$ & $\Uout$ & $S$ \\
+	\hline
+	0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 1 & 0 & 1 \\
+	0 & 1 & 0 & 0 & 1 \\
+	0 & 1 & 1 & 1 & 0 \\
+	1 & 0 & 0 & 0 & 1 \\
+	1 & 0 & 1 & 1 & 0 \\
+	1 & 1 & 0 & 1 & 0 \\
+	1 & 1 & 1 & 1 & 1 \\
+\end{tabular}
+
+\begin{small}
+	Für die Bearbeitung dieser Aufgabe habe ich mir
+	\cite{wikipedia/Volladdierer} angeschaut. Die Tabelle habe ich jedoch nicht
+	kopiert, sondern aus der Erklärung im ersten Absatz des Artikels selbst
+	erstellt.
+\end{small}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
