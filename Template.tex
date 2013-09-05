@@ -270,6 +270,11 @@ kommt.
 
 \subsubsection{Ändern der Periode}
 
+\begin{problem}
+	Ändern Sie das Programm so, dass die Möglichkeit besteht, über die
+	B-Register die Periodendauer variabel zu verlängern.
+\end{problem}
+
 Um die Periode zu ändern, inkrementieren wir nicht, sondern addieren einen Wert
 aus Register b. Dies habe ich in folgendem, leicht modifiziertem Programm
 gemacht:
@@ -281,6 +286,12 @@ gemacht:
 \end{multicols}
 
 \subsubsection{Anderes Signal}
+
+\begin{problem}
+	Versuchen [S]ie nun mit Hilfe des DACs ein anderes Signal, wie z.\,B. ein
+	Dreieck- oder Rechtecksignal zu erzeugen. Lassen Sie dabei Ihrer Phantasie
+	freien Lauf.
+\end{problem}
 
 Für ein Rechtecksignal könnte man einen Zähler verwenden, und dann die Ausgabe
 umschalten, wenn dieser heruntergezählt ist. Ich möchte hier ein wenig binäre
@@ -294,6 +305,12 @@ als Ausgabe nutzen.
 \end{multicols}
 
 \subsubsection{Bit überprüfen}
+
+\begin{problem}
+	Überlegen Sie sich ein Programm, welches in der Lage ist zu erkennen, ob
+	das 4.te Bit des B-Registers gesetzt ist. Ist das 4te Bit gesetzt (also
+	„1“), so soll das gesamte X-Register der LED Matrix aufleuchten.
+\end{problem}
 
 Um ein Bit zu überprüfen, schaue ich mit einer Art Schablone und \txor, ob das
 entsprechende Bit gesetzt ist. Mit einem Sprungbefehl, der mit 0 vergleicht,
@@ -309,6 +326,14 @@ Diese Ausgabe sind binär nur Einsen, also wurde das entsprechende Bit gefunden.
 Bei FF als Eingabe war dies auch zu erwarten.
 
 \subsubsection{Multiplikation}
+
+\begin{problem}
+	Schreiben Sie ein Programm zur Multiplikation zweiter 8-Bit-Zahlen. Der
+	Multiplikand und der Multiplikator sollen an den A- und B-Registern
+	eingegeben werden. Das Ergebnis (16 Bit) soll von zwei Registern der LED
+	Matrix (X und R) angezeigt wwerden. HInweis: Nutzen Sie die
+	Doppelgenauigkeits-Arithmetikbefehle.
+\end{problem}
 
 Für diese Aufgabe wähle ich einen einfachen Algorithmus, und zwar:
 \[
