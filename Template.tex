@@ -1,0 +1,137 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+\input{../header.tex}
+
+\usepackage{placeins}
+
+\ihead{physik313 – Versuch 8}
+\ifoot{Lino Lemmer, Martin Ueding}
+
+\subject{Praktikumsprotokoll}
+\title{Mikroprozessor}
+\subtitle{physik313 – Versuch 8}
+\author{
+	Lino Lemmer
+    \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
+	\and
+	Martin Ueding
+    \footnote{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+}
+
+%\setcounter{tocdepth}{2}
+
+\newcommand\fT{f_\text{T}}
+\newcommand\IB{I_\text{B}}
+\newcommand\IC{I_\text{C}}
+\newcommand\ID{I_\text{D}}
+\newcommand\IE{I_\text{E}}
+\newcommand\IS{I_\text{S}}
+\newcommand\RC{R_\text{C}}
+\newcommand\RD{R_\text{D}}
+\newcommand\RE{R_\text{E}}
+\newcommand\UBE{U_\text{BE}}
+\newcommand\UB{U_\text{B}}
+\newcommand\UCE{U_\text{CE}}
+\newcommand\UC{U_\text{C}}
+\newcommand\UD{U_\text{D}}
+\newcommand\UDS{U_\text{DS}}
+\newcommand\UE{U_\text{E}}
+\newcommand\UGS{U_\text{GS}}
+\newcommand\UG{U_\text{G}}
+\newcommand\Uin{U_\text{in}}
+\newcommand\Uout{U_\text{out}}
+
+\newcommand\UEH{U_\text{E H}}
+\newcommand\UEL{U_\text{E L}}
+\newcommand\UH{U_\text{H}}
+\newcommand\UL{U_\text{L}}
+\newcommand\UQH{U_\text{Q H}}
+\newcommand\UQL{U_\text{Q L}}
+
+\newcommand\mand {\wedge}
+\newcommand\mhigh{\top}
+\newcommand\mlow {\bot}
+\newcommand\mnand{\bar\wedge}
+\newcommand\mnor {\bar\vee}
+\newcommand\mnot {\neg}
+\newcommand\mor  {\vee}
+\newcommand\mxor {\veebar}
+\newcommand\tand {\textsc{and}}
+\newcommand\thigh{\textsc{high}}
+\newcommand\tlow {\textsc{low}}
+\newcommand\tnand{\textsc{nand}}
+\newcommand\tnor {\textsc{nor}}
+\newcommand\tnot {\textsc{not}}
+\newcommand\tor  {\textsc{or}}
+\newcommand\txor {\textsc{xor}}
+
+\begin{document}
+
+\maketitle
+
+\[
+	\mand
+	\mhigh
+	\mlow
+	\mnand
+	\mnor
+	\mnot
+	\mor
+	\mxor
+\]
+
+Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
+\ref{it:mu} eingesehen werden. Die Quellen für dieses Protokoll können auf
+\ref{it:github/alles} eingesehen werden. Die \LaTeX-Datei wird aus
+\ref{it:github/template} generiert.
+
+\begin{enumerate}
+	\item
+		\label{it:mu}
+		\url{http://martin-ueding.de/de/university/physik313/}
+	\item
+		\label{it:github/alles}
+		\url{https://github.com/martin-ueding/physik313-8/}
+	\item
+		\label{it:github/template}
+		\url{https://github.com/martin-ueding/physik313-8/blob/master/Template.tex}
+\end{enumerate}
+
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Einleitung                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Einleitung}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Theorie                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Theorie}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Aufgaben                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Aufgaben}
+
+\FloatBarrier
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Literatur                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de tw=79
