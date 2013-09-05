@@ -134,7 +134,17 @@ fast die vollen \SI{5}{\volt} anliegen.
 
 Wenn einer der der Eingänge auf $\UL$ geschaltet ist, dann mindestens
 \SI{2.4}{\volt}. Nach der Diode sind immer noch \SI{1.8}{\volt} da. Dies sollte
-reichen, um den Transistor zu schalten. 
+reichen, um den Transistor zu schalten. $\UBE$ ist dann nur noch
+\SI{.7}{\volt}, so dass folgender Strom fließt:
+\[
+	\IB = \frac{\SI{1.8}\volt - 2 \cdot \SI{.7}\volt}{\SI1{\kilo\ohm}}
+	= \SI{.4}{\milli\ampere}
+\]
+
+Mit einer Stromverstärkung von $\beta = 100$ sind dies $\IB =
+\SI{40}{\milli\ampere}$. Dabei würde an $\RC$ eine Spannung von \SI{40}{\volt}
+abfallen. Da nur \SI{5}{\volt} anliegen, wird sicher ein \thigh{} am Ausgang
+anliegen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
