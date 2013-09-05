@@ -1,4 +1,5 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+// Licensed under The GNU Public License Version 2 (or later)
 
 #include <iostream>
 
@@ -10,8 +11,6 @@ f1:
 	++a;
 	std::cout << (short) a << std::endl;
 
-	// This if clause is only to make this program terminate eventually. In the
-	// original problem, it would run on and on and jump every time.
 	if (iterations--)
 		goto f1;
 
