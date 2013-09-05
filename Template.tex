@@ -308,6 +308,23 @@ springe ich an die entsprechende Stelle und setze meine Ausgabe entsprechend.
 Diese Ausgabe sind binär nur Einsen, also wurde das entsprechende Bit gefunden.
 Bei FF als Eingabe war dies auch zu erwarten.
 
+\subsubsection{Multiplikation}
+
+Für diese Aufgabe wähle ich einen einfachen Algorithmus, und zwar:
+\[
+	a \cdot b = \sum_{i = 1}^{a} b
+\]
+
+Das Problem ist, dass negative Zahlen so nicht berücksichtigt werden.
+
+\inputminted[fontsize=\small, linenos]{cpp}{../Prototypen/g.cpp}
+
+Die Ausgabe in den zwei Registern ist, wie erwartet:
+
+\begin{multicols}{9}
+	\inputminted[fontsize=\footnotesize]{text}{g.txt}
+\end{multicols}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
