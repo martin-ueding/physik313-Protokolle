@@ -168,10 +168,12 @@ Mit einer Stromverstärkung von $\beta = 100$ sind dies $\IB =
 abfallen. Da nur \SI{5}{\volt} anliegen, wird sicher ein \thigh{} am Ausgang
 anliegen.
 
+\FloatBarrier
 \subsection{Aufgabe L}
 
 \fehlt
 
+\FloatBarrier
 \subsection{Aufgabe M}
 
 \begin{problem}
@@ -198,6 +200,7 @@ unteren ab, Ausgang ist ein \thigh.
 
 Die Kennlinien sind so extrem, dass sich hier ein digitales Verhalten zeigt.
 
+\FloatBarrier
 \subsection{Aufgabe N}
 
 \begin{problem}
@@ -254,6 +257,7 @@ Wir erhalten:
 
 Somit handelt es sich um ein \tnand-Gatter.
 
+\FloatBarrier
 \subsection{Aufgabe O}
 
 \begin{problem}
@@ -272,6 +276,7 @@ Die Summe ist ein \txor. Also:
 	S := a \mxor b
 \]
 
+\FloatBarrier
 \subsection{Aufgabe P}
 
 \begin{problem}
@@ -304,6 +309,32 @@ Ergebnisses.
 	kopiert, sondern aus der Erklärung im ersten Absatz des Artikels selbst
 	erstellt.
 \end{small}
+
+\FloatBarrier
+\subsection{Aufgabe Q}
+
+\begin{problem}
+	Geben Sie ein Blockschaltbild an für einen Volladdierer, der aus zwei
+	Halbaddierern zusammengesetzt ist.
+\end{problem}
+
+Der Volladdierer soll, wie in der vorherigen Aufgabe beschrieben, drei Zahlen
+addieren. Dazu werden erst einmal $a$ und $b$ addiert, zur Zwischensumme $Z$
+und ihrem Übertrag $U_Z$. Anschließend werden werden der vorherige Übertrag
+$\Uin$ mit der Zwischensumme addiert. Als Ergebnis kommen die Summe $S$ und ein
+weiterer Übertrag $U_S$ heraus. Die beiden Überträge können jedoch nicht beide
+\thigh{} sein. Somit reicht es, sie mit einem \tor-Gatter zu verknüpfen.
+
+Dies ist in Abbildung~\ref{fig:Q-Volladdierer} gezeigt.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics{../Zeichnungen/Q-Volladdierer.pdf}
+	\caption{%
+		Blockschaltbild für den Volladdierer.
+	}
+	\label{fig:Q-Volladdierer}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
