@@ -44,7 +44,7 @@ def render_template(T):
     template = env.get_template("Template.tex")
 
     # Rendering LaTeX document with values.
-    with open("_build/physik313-5_6-Ueding_Lemmer.tex", "w") as f:
+    with open("_build/physik313-7-Ueding_Lemmer.tex", "w") as f:
         f.write(template.render(**T))
 
 def main():
