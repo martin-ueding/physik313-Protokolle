@@ -8,7 +8,8 @@
 00	3e	MVI A, 00
 01	00
 
-# Inkrementiere A. Dabei ist die nächste Zeile auch direkt eine Sprungmarke. Die Zeilennummer wird also noch mal wichtig.'
+# Inkrementiere A. Dabei ist die nächste Zeile auch direkt eine Sprungmarke.
+# Die Zeilennummer wird also noch mal wichtig.
 02	3c	INR A
 
 # Gebe Register A aus, und zwar auf den DAC Ausgang.
