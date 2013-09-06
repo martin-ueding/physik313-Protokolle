@@ -124,6 +124,35 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 Mit $n$ Eingangsvariablen gibt es $2^{2^n}$ Schaltfunktionen.
 
 \FloatBarrier
+\subsection{Aufgabe B}
+
+\begin{problem}
+    Prüfen Sie die obigen Ausdrücke anhand einer Funktionstafel nach.
+    \textit{Gemeint sind folgende Ausdrücke:}
+        \begin{align*}
+            a \mor 1 &= 1 \quad a \mor 0 = a \quad a \mor \bar a = 1\\
+            a \mand 1 &= a \quad a \mand 0 = 0 \quad a \mand \bar a = 0
+        \end{align*}
+\end{problem}
+
+\begin{table}
+    \centering
+    \begin{tabular}{c|cccccc}
+        $a$ & $a \mor 0$ & $a \mor 1$ & $a \mor \bar a$ & $a \mand 0$ & $a
+        \mand 1$ & $a \mand \bar a$ \\
+        \hline
+        0 & 0 & 1 & 1 & 0 & 0 & 0\\
+        1 & 1 & 1 & 1 & 0 & 1 & 0
+    \end{tabular}
+    \caption{%
+        Funktionstafel zu Aufgabe B
+    }
+    \label{tab:Aufgabe_B}
+\end{table}
+
+Wie in Tabelle~\ref{tab:Aufgabe_B} zu sehen ist stimmen die Ausdrücke.
+
+\FloatBarrier
 \subsection{Aufgabe K}
 
 \begin{problem}
