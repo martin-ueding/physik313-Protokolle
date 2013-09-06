@@ -135,6 +135,12 @@ Teile dieses Versuchs aufwenden.
 \begin{minted}{pycon}
 >>> 0b1101111100101110
 57134
+>>> hex(57134)
+'0xdf2e'
+>>> 0b11111111
+255
+>>> hex(_)
+'0xff'
 \end{minted}
 
 \subsection{Aufgabe B}
@@ -150,6 +156,8 @@ Teile dieses Versuchs aufwenden.
 \begin{minted}{pycon}
 >>> bin(2115)
 '0b100001000011'
+>>> hex(2115)
+'0x843'
 \end{minted}
 
 \subsection{Aufgabe C}
@@ -200,16 +208,7 @@ Teile dieses Versuchs aufwenden.
 
 \paragraph{Division}
 
-Hier entsteht offensichtlich ein Rest, so dass ganzzahlige Division benutzt
-werden muss:
-
 \begin{minted}{pycon}
->>> bin(0b1110111 / 0b101)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: 'float' object cannot be interpreted as an integer
->>> 0b1110111 / 0b101
-23.8
 >>> bin(0b1110111 // 0b101)
 '0b10111'
 \end{minted}
