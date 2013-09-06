@@ -19,8 +19,8 @@
 
 # Springe jetzt zu is_not_set. Falls es gesetzt war, wird der Programmfluss
 # hier nicht ankommen.
-0a	c3	JMP 13
-0b	13
+0a	c3	JMP 12
+0b	12
 0c	00
 
 # is_set:
@@ -29,24 +29,24 @@
 0e	ff
 
 # Springe zu end.
-10	c3	JMP 18
-11	18
-12	00
+0f	c3	JMP 17
+10	17
+11	00
 
 # is_not_set:
 # Schreibe FF in A.
-13	3e	MVI A, 00
-14	00
+12	3e	MVI A, 00
+13	00
 
 # Springe zu end.
-15	c3	JMP 18
-16	18
-17	00
+14	c3	JMP 17
+15	17
+16	00
 
 # end:
 
 # Gebe auf Register X (00) aus
-18	d3	OUT, 00
-19	00
+17	d3	OUT, 00
+18	00
 
 # vim: noet ts=8 sw=8 list
