@@ -274,16 +274,24 @@ abbilden können.
 	abspeichern?
 \end{problem}
 
-\fehlt
+Die ALU muss arithmetische und logische Funktionen erfüllen, daher auch der
+Name. Alleine kann sie allerdings noch keine Ergebnisse zwischenspeichern.
+Daher braucht es noch ein Register, mit dem ein Zwischenwert geparkt werden
+kann und wieder geladen werden kann. Da die ALU immer nur ein Bit, also eine
+Binärstelle verarbeiten kann, muss sie jede Stelle einzeln berechnen und in das
+Register schreiben.
 
 \subsection{Aufgabe H}
 
 \begin{problem}
 	Mit welchen zusätzlichen Schaltungsgruppen können Sie aus einem
-	Akkumulator  mit Zwischenzpeicher einen vollständigen Rechner aufbauen?
+	Akkumulator mit Zwischenzpeicher einen vollständigen Rechner aufbauen?
 \end{problem}
 
-\fehlt
+Es fehlen noch mehr Register und RAM, falls diese getrennt sind. Ansonsten
+einfach nur RAM, wie es hier der Fall zu sein scheint. Außerdem braucht es noch
+einen Programmspeicher, damit der Rechner mehrere Befehle hintereinander
+ausführen kann. Sonst wäre er nicht programmierbar und nur ein Taschenrechner.
 
 \subsection{Aufgabe I}
 
@@ -293,7 +301,15 @@ abbilden können.
 	Digitalrechner?
 \end{problem}
 
-\fehlt
+Ein Bus ist eine Verbindung zwischen den Komponenten. Ohne Bus müsste jede
+Komponente mit jeder verbunden sein. Dies ist ab einer gewissen Anzahl
+Elementen nicht mehr Skalierbar, da die Anzahl mit $\mathcal O(n^2)$ skaliert.
+Daher werden alle Komponenten mit einem Strang verbunden. Ein weiterer Strang
+regelt, welche Komponente gerade dran ist. Daher gibt es eine Daten- und
+Steuerbus.
+
+Ein Digitalrechner arbeitet, wie im Wort „digital“ schon steckt, mit zwei
+Zuständen. Das ist dann das Dual- oder Binärsystem.
 
 \subsection{Aufgabe J}
 
@@ -301,7 +317,16 @@ abbilden können.
 	Erklären Sie die Begriffe Takt-, Befehls- und Operationszyklus.
 \end{problem}
 
-\fehlt
+Der Taktzyklus gibt einen kleinen Schritt vor. Dieser setzt alle Flip-Flops,
+die in den einzelnen Komponenten drin ist.
+
+Ein Befehlszyklus ist nach der
+vollständigen Abarbeitung eines Befehls, wie einer Addition, beendet. Danach
+springt der Befehlszähler um eins weiter. Dieser Zyklus kann durchaus viele
+Taktzyklen brauchen.
+
+Der Operationszyklus ist für eine Rechen- oder Logikoperation da. Diese kann
+wiederum mehrere Takte brauchen.
 
 \subsection{Aufgabe K}
 
@@ -310,7 +335,12 @@ abbilden können.
 	Operations-Code? Wieviele Befehle hat der 8080?
 \end{problem}
 
-\fehlt
+Da er 8-Bit Wörter als Befehle bekommt, sind 256 Befehle möglich. Der
+Operationscode ist der Code, der zu einem Befehl gehört, wie zum Beispiel
+\texttt{HLT}.
+
+Die Befehle des 8080 stehen in der Tabelle und können im Prinzip gezählt
+werden. Es sind aber weniger als 256, glaube ich.
 
 \subsection{Aufgabe L}
 
@@ -345,7 +375,9 @@ wenn sie mit zwei Wörtern durchgeführt werden muss, also nur mit einem.
 	Welche Aufgaben haben der Befehlszähler und der Stackpointer?
 \end{problem}
 
-\fehlt
+Der Befehlszähler verwaltet die Position im aktuellen Programm. Der
+Stackpointer gibt indirekt an, wie viele Elemente auf dem Stack liegen. Er
+zeigt auf das oberste Element.
 
 \subsection{Aufgabe P}
 
@@ -353,7 +385,12 @@ wenn sie mit zwei Wörtern durchgeführt werden muss, also nur mit einem.
 	Wozu benutzt man einen Stack, welche Eigenschaften hat er.
 \end{problem}
 
-\fehlt
+Der Stack wird in C++ dafür benutzt, Parameter für eine Funktion für diese
+bereitzulegen.
+
+Ein Stack ist eine FILO-Datenstruktur, also „First In, Last Out“. Elemente
+werden wie bei einem Stapel oben aufgelegt und von oben abgenommen. Operationen
+sind „pop“ und „push“.
 
 \subsection{Aufgabe Q}
 
@@ -362,7 +399,12 @@ wenn sie mit zwei Wörtern durchgeführt werden muss, also nur mit einem.
 	benutzt? Erklären Sie ihre Funktion.
 \end{problem}
 
-\fehlt
+Man kann direkt die Speicheradresse angeben. Man kann eine Speicheradresse
+angeben, in der die Speicheradresse steht (Zeiger, Pointer, einfache
+Indirektion). Dies kann man beliebig weit treiben.
+
+Der 8080 unterstützt die Angabe einer Adresse, wie eines Registers, kann aber
+auch im Speicher nach Adressen schauen.
 
 \subsection{Aufgabe R}
 
@@ -378,7 +420,7 @@ wenn sie mit zwei Wörtern durchgeführt werden muss, also nur mit einem.
 	Welche Aufgabe hat der erste Operationszyklus eines Befehlszyklus?
 \end{problem}
 
-\fehlt
+Dieser stellt durch den Bus alle Bauteile auf die geforderte Aktion ein.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                Durchführung                                %
