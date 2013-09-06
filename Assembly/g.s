@@ -36,4 +36,7 @@
 11	7c	MOV H, A
 12	d3	OUT 01
 
+# Ende
+13	76	HLT
+
 # vim: noet ts=8 sw=8 list

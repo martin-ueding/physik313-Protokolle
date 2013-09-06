@@ -49,4 +49,7 @@
 17	d3	OUT, 00
 18	00
 
+# Ende
+19	76	HLT
+
 # vim: noet ts=8 sw=8 list

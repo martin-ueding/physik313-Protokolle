@@ -30,4 +30,7 @@
 0b	04
 0c	00
 
+# Ende
+0d	76	HLT
+
 # vim: noet ts=8 sw=8 list

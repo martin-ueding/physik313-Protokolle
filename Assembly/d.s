@@ -22,4 +22,7 @@
 08	04
 09	00
 
+# Ende
+0a	76	HLT
+
 # vim: noet ts=8 sw=8 list
