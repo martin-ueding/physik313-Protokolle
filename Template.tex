@@ -153,6 +153,55 @@ Mit $n$ Eingangsvariablen gibt es $2^{2^n}$ Schaltfunktionen.
 Wie in Tabelle~\ref{tab:Aufgabe_B} zu sehen ist stimmen die Ausdrücke.
 
 \FloatBarrier
+\subsection{Aufgabe C}
+
+\begin{problem}
+    Prüfen Sie das Distributivgesetz und die Sätze von \textsc{De-Morgan} mit einer
+    Funktionstafel nach.
+\end{problem}
+
+Wie in Tabelle~\ref{tab:Aufgabe_C_dist} und \ref{tab:Aufgabe_C_demo} zu sehen
+ist stimmen die Ausdrücke.
+
+\begin{table}
+    \centering
+    \begin{tabular}{ccc|c|c}
+        $a$ & $b$ & $c$ & $(a + b) \cdot c$ & $(a \cdot c) + (b \cdot c)$
+        \\
+        \hline
+        0 & 0 & 0 & $0 \cdot 0 = 0$ & $0 + 0 = 0$\\
+        1 & 0 & 0 & $1 \cdot 0 = 0$ & $0 + 0 = 0$\\
+        0 & 1 & 0 & $1 \cdot 0 = 0$ & $0 + 0 = 0$\\
+        0 & 0 & 1 & $0 \cdot 1 = 0$ & $0 + 0 = 0$\\
+        1 & 1 & 0 & $1 \cdot 0 = 0$ & $0 + 0 = 0$\\
+        1 & 0 & 1 & $1 \cdot 1 = 1$ & $1 + 0 = 1$\\
+        0 & 1 & 1 & $1 \cdot 1 = 1$ & $0 + 1 = 1$\\
+        1 & 1 & 1 & $1 \cdot 1 = 1$ & $1 + 1 = 1$
+    \end{tabular}
+    \caption{%
+        Funktionstafel zum Distributivgesetz
+    }
+    \label{tab:Aufgabe_C_dist}
+\end{table}
+
+\begin{table}
+    \centering
+    \begin{tabular}{cc|cc|cc}
+        $a$ & $b$ & $\bar{a \cdot b}$ & $\bar a + \bar b$ & $\bar{a + b}$ & $
+        \bar a \cdot \bar b$\\
+        \hline
+        0 & 0 & $\bar 0 = 1$ & $1 + 1 = 1$ & $\bar 0 = 1$ & $1 \cdot 1 = 1$\\
+        1 & 0 & $\bar 0 = 1$ & $0 + 1 = 1$ & $\bar 1 = 0$ & $0 \cdot 1 = 0$\\
+        0 & 1 & $\bar 0 = 1$ & $1 + 0 = 1$ & $\bar 1 = 0$ & $1 \cdot 0 = 0$\\
+        1 & 1 & $\bar 1 = 0$ & $0 + 0 = 0$ & $\bar 1 = 0$ & $0 \cdot 0 = 0$
+    \end{tabular}
+    \caption{%
+        Funktionstafel zu den Sätzen von \sc{De-Morgan}
+    }
+    \label{tab:Aufgabe_C_demo}
+\end{table}
+
+\FloatBarrier
 \subsection{Aufgabe K}
 
 \begin{problem}
