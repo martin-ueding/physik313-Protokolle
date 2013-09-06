@@ -4,15 +4,19 @@
 #include <cstdio>
 
 int main() {
-	int iterations = 30;
+	int iterations = 300;
 	char a;
 	char b;
 	char out;
+	char c;
 	a = 0x00;
-	b = 0x04;
+	b = 0x80;
 f1:
-	++a;
-	out = a & b;
+	++a; // Inkrementiere A.
+	c = a; // Speichere A in ein C ab, da nur in A gerechnet werden kann.
+	a = a & b; // Logisches AND.
+	out = a; // Gebe A aus.
+	a = c; // Lade A aus C.
 	printf("%02x\n", out & 0xFF);
 
 	if (iterations--)
