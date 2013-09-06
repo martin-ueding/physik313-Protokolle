@@ -293,9 +293,10 @@ Jetzt folgt die Ausgabe auf den DAC-Wandler. Das Ausgabekommando ist
 
 Zuletzt kommt der Sprung zurück in Zeile \texttt{0x02}. Dazu benutze ich
 \texttt{JMP}. Warum dieser Befehl zwei Bytes bekommt, und nicht nur ein Byte,
-ist mir (noch) nicht klar. Das erste Byte ist jedenfalls die Zieladresse, das
-Zweite ist im Programm aus der Aufgabenstellung einfach \texttt{0x00}. Dann
-lasse ich das auch so.
+ist mir (noch) nicht klar. Das erste Byte ist jedenfalls die relevante
+Zieladresse, das Zweite ist im Programm aus der Aufgabenstellung einfach
+\texttt{0x00}. Dann lasse ich das auch so. Ich gehe davon aus, dass beide Bytes
+die Zieladresse sind, und das ganze in Little Endian.
 
 So sieht das fertige Programm aus:
 
