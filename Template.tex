@@ -435,24 +435,55 @@ Zuerst benutzen wir das System 0, das einfache Addier- und Subtrahierwerk. In
 sollen anhand weniger Beispiele die Funktion überprüfen und dabei unsere
 Schritte dokumentieren.
 
-Vorher haben wir uns einige Funktionen ausgesucht und schon deren Ergebnisse
-für bestimmte Eingaben berechnet. Dadurch konnten wir am Versuchstag schnell
-sehen, ob die Schaltung das erwartete Ergebnis liefert.
+Vorher haben wir uns einige Funktionen (siehe Tabelle~\ref{tab:1}) ausgesucht
+und schon deren Ergebnisse für bestimmte Eingaben berechnet. Dadurch konnten
+wir am Versuchstag schnell sehen, ob die Schaltung das erwartete Ergebnis
+liefert.
 
 Als Eingaben benutzen wir in Register A \texttt{0b00001111} und in Register B
 \texttt{0b00110101}.
 
-\begin{tabular}{lll}
-	Steuerwort C (\texttt{0b}) & Ausgangsfunktion & erwartetes Ergebnis
-	(\texttt{0b}) \\
-	\hline
-	00000 & $0$ & 0000 0000 \\
-	01000 & $B$ & 0011 0101 \\
-	11000 & $A + B$ & 0100 0100 \\
-	11101 & $B - A$ & 0010 0110
-\end{tabular}
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{lll}
+		Steuerwort C (\texttt{0b}) & Ausgangsfunktion & erwartetes Ergebnis
+		(\texttt{0b}) \\
+		\hline
+		00000 & $0$ & 0000 0000 \\
+		01000 & $B$ & 0011 0101 \\
+		11000 & $A + B$ & 0100 0100 \\
+		11101 & $B - A$ & 0010 0110
+	\end{tabular}
+	\caption{%
+		Steuercodes für die erste Aufgabe
+	}
+	\label{tab:1}
+\end{table}
 
-\textcolor{darkred}{Schritte einfügen}
+Unsere Schritte:
+
+\begin{enumerate}
+	\item
+		Wir verbinden das Netzteil mit dem USB-Port und legen somit die
+		benötigte Versorgungsspannung an.
+
+		Die LED leuchtet auf und es wird \texttt{0x00} auf dem Hex-Display
+		angezeigt.
+
+	\item
+		Um unsere Werte einzugeben, drücken wir die Registerwahltaste auf A und
+		geben den Wert \texttt{0b00001111} an der Tastenleiste ein. Somit ist
+		der Wert in Register A gespeichert. Danach stellen wir auf B und und
+		wiederholen das Verfahren für \texttt{0b00001111}.
+
+	\item
+		Nun geben wir den Befehl ein. Dazu stellen wir auf Register C und geben
+		das erste Steuerwort aus der Tabelle~\ref{tab:1} ein.
+
+	\item
+		Das Ergebnis erscheint in der Zeile der LED-Matrix die zu Register R
+		gehört. Dies lesen wir ab und vergleichen mit unserer Tabelle.
+\end{enumerate}
 
 \subsection{Versuchsaufgabe 2}
 
