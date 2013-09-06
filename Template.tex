@@ -371,6 +371,56 @@ also \texttt{0x2b} oder \texttt{0b101011}.
 
 \subsection{Versuchsaufgabe 4}
 
+Es soll die prinzipielle Wirkungsweise der Schaltungen in den
+Abbildungen~\ref{fig:8-8} und \ref{fig:8-9} verstanden werden.
+
+\subsubsection{Schaltung \ref{fig:8-8}}
+
+Um in einem Computer eine große Anzahl Daten zu verarbeiten, braucht man einen
+Platz, in dem man viele Daten ablegen kann. Bisher hatten wir nur einige,
+einzelne Register, in denen Zwischenergebnisse oder weitere Werte für eine
+Rechnung abgelegt werde können. Wie zum Beispiel die Eingabewerte oder die
+Schablone, mit der wir in einer späteren Aufgabe ein Bitmuster suchen werden.
+Jedoch können so keine Arrays mit vielen ($\gtrsim 5$) Einträgen gespeichert
+werden.
+
+Daher ist ein nötig, eine Reihe an Speicherzellen zu haben, die man bei Bedarf
+in Register laden kann. In diesem Praktikumsversuch brauchen wir den RAM jedoch
+nicht für Daten, da ich alle Programme mit den Registern alleine schreiben
+konnte.
+
+Ich bin mir nicht sicher, ob in dieser Aufgabe mehrere Register, oder direkt
+schon viel RAM gemeint ist. Wenn mehrere Register gemeint waren: Die Register
+sind nötig, damit man nicht nur eine Zahl auf eine andere Addieren kann,
+sondern Rechnungen mit mehreren ($\lesssim 5$) Zwischenergebnissen ausführen zu
+können.
+
+\subsubsection{Schaltung \ref{fig:8-9}}
+
+Der Programmspeicher ermöglicht die wirkliche Programmierung des Prozessors.
+Automatisierung zeichnet sich gerade dadurch aus, dass das Gerät dann autonom
+läuft, daher muss es auch Schritte nacheinander abarbeiten können, ohne dass
+ein Benutzer die Befehle nacheinander eingibt. Dies würde auch die Taktrate
+deutlich limitieren.
+
+Aus diesem Grund werden die Befehle vorher zu einem Programm gebündelt und je
+ein Befehl in eine Speicherzelle (bei mehreren Wörtern pro Befehl auch mehere
+Zellen) geschrieben. Der Befehlszähler gibt an, bei welchem Befehl das Programm
+gerade ist. Der Programmspeicher gibt auf seinen Ausgängen den aktuellen Befehl
+an der vorgegebenen Stelle aus. Der Akkumulator mit Datenspeicher sieht diesen
+Befehl auf seinem Befehlseingang und führt ihn aus. Somit wird der Benutzer,
+der sie in Echtzeit eingibt, nicht mehr gebraucht, siehe
+Abbildung~\ref{fig:compiling}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.5\linewidth]{../compiling.png}
+	\caption{%
+		Compiling. \cite{xkcd/303}
+	}
+	\label{fig:compiling}
+\end{figure}
+
 \subsection{Umgang mit System 3}
 
 \subsection{Versuchsaufgabe 5}
