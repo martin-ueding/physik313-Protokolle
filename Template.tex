@@ -380,7 +380,7 @@ In Assembly:
 	Schreiben Sie ein Programm zur Multiplikation zweiter 8-Bit-Zahlen. Der
 	Multiplikand und der Multiplikator sollen an den A- und B-Registern
 	eingegeben werden. Das Ergebnis (16 Bit) soll von zwei Registern der LED
-	Matrix (X und R) angezeigt wwerden. HInweis: Nutzen Sie die
+	Matrix (X und R) angezeigt wwerden. Hinweis: Nutzen Sie die
 	Doppelgenauigkeits-Arithmetikbefehle.
 \end{problem}
 
@@ -389,15 +389,33 @@ Für diese Aufgabe wähle ich einen einfachen Algorithmus, und zwar:
 	a \cdot b = \sum_{i = 1}^{a} b
 \]
 
-Das Problem ist, dass negative Zahlen so nicht berücksichtigt werden.
+Das Problem ist, dass negative Zahlen so nicht berücksichtigt werden. Ich
+hoffe, dass das hier in Ordnung ist.
+
+Dieser Rechner sieht nach Big Endian, so dass H vor L kommt. Für Intel ist das
+aber eigentlich ungewöhnlich. In der C++ Version muss ich etwas basteln, um
+zwei nebeneinander liegende Speicherzellen zu bekommen, die ich dann einzeln
+ansprechen kann. In Assembly brauche ich das nicht, weil die Register fest
+sind.
 
 \inputminted[fontsize=\small, linenos]{cpp}{../Prototypen/g.cpp}
 
-Die Ausgabe in den zwei Registern ist, wie erwartet:
+Die Ausgabe in den zwei Registern ist, wie erwartet (jedoch als Little Endian):
 
-\begin{multicols}{9}
+\begin{multicols}{3}
 	\inputminted[fontsize=\footnotesize]{text}{g.txt}
 \end{multicols}
+
+Hier ist der Assembly-Quelltext:
+
+\inputminted[fontsize=\small, linenos]{text}{../Assembly/g.s}
+
+Man hätte es sich sparen können, den Zähler aus C nach A zu holen um ihn zu
+dekrementieren. Jedoch hatte ich schon alle anderen Rechenschritte in A, so
+dass ich dies einfach auch so gemacht habe.
+
+Vor dem Sprungbefehl brauche ich hier keinen Vergleich, weil der
+\texttt{DCR}-Befehl schon das Flag \texttt Z setzt.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
