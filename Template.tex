@@ -7,17 +7,17 @@
 \usepackage{multicol}
 
 \ihead{physik313 – Versuch 8}
-\ifoot{Lino Lemmer, Martin Ueding}
+\ifoot{Martin Ueding, Lino Lemmer}
 
 \subject{Praktikumsprotokoll}
 \title{Mikroprozessor}
 \subtitle{physik313 – Versuch 8}
 \author{
-	Lino Lemmer
-    \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
-	\and
 	Martin Ueding
     \footnote{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+	\and
+	Lino Lemmer
+    \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
 }
 
 %\setcounter{tocdepth}{2}
@@ -71,6 +71,8 @@
 
 \maketitle
 
+\section*{\LaTeX-Quelltext}
+
 Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 \ref{it:mu} eingesehen werden. Die Quellen für dieses Protokoll können auf
 \ref{it:github/alles} eingesehen werden. Die \LaTeX-Datei wird aus
@@ -88,6 +90,12 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 		\url{https://github.com/martin-ueding/physik313-8/blob/master/Template.tex}
 \end{enumerate}
 
+\section*{Notation}
+
+Ich benutze Hexadezimalzahlen eher am Computer als in der Mathematik, so dass
+ich häufiger \texttt{0xff} als $\mathrm{ff_{16}}$ schreiben werde. Binärzahlen
+werde ich mit \texttt{0b10} schreiben, so wie es in Python 3 auch gemacht wird.
+
 \newpage
 \tableofcontents
 \newpage
@@ -96,8 +104,14 @@ Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
 %                                 Einleitung                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\FloatBarrier
 \section{Einleitung}
+
+In diesem Versuch werden wir von dem Addierer, den wir im Versuch 7 konstruiert
+haben, ausgehen und ein Addier- und Subtrahierwerk benutzen. Dies wird mit
+Hilfe von Logikbausteinen zu einer ALU erweitert. Im dritten Schritt fügen wir
+ein Register hinzu, um Zwischenergebnisse festzuhalten. Als letzten Schritt
+benutzen wir einen 8080 Prozessor, den wir selbst mit entsprechendem
+Assembly-Code programmieren.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Theorie                                    %
@@ -256,6 +270,102 @@ abbilden können.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Durchführung}
+
+\subsection{Versuchsaufgabe 1}
+
+Zuerst benutzen wir das System 0, das einfache Addier- und Subtrahierwerk. In
+\cite[Tabelle~8.1]{physik313-Anleitung} sind dessen Befehle aufgelistet. Wir
+sollen anhand weniger Beispiele die Funktion überprüfen und dabei unsere
+Schritte dokumentieren.
+
+Vorher haben wir uns einige Funktionen ausgesucht und schon deren Ergebnisse
+für bestimmte Eingaben berechnet. Dadurch konnten wir am Versuchstag schnell
+sehen, ob die Schaltung das erwartete Ergebnis liefert.
+
+Als Eingaben benutzen wir in Register A \texttt{0b00001111} und in Register B
+\texttt{0b00110101}.
+
+\begin{tabular}{lll}
+	Steuerwort C (\texttt{0b}) & Ausgangsfunktion & erwartetes Ergebnis
+	(\texttt{0b}) \\
+	\hline
+	00000 & $0$ & 0000 0000 \\
+	01000 & $B$ & 0011 0101 \\
+	11000 & $A + B$ & 0100 0100 \\
+	11101 & $B - A$ & 0010 0110
+\end{tabular}
+
+\textcolor{darkred}{Schritte einfügen}
+
+\subsection{Versuchsaufgabe 2}
+
+Wir stellen nun den Rechner auf das System 2 ein, die ALU.
+
+\subsubsection{Teil a: Überprüfung der Schaltung}
+
+Aus \cite[Tabelle~8.2]{physik313-Anleitung} suchen wir uns, wie schon in der
+ersten Versuchsaufgabe, einige Programmcodes aus und berechnen schon vorher das
+Ergebnis, um schnell vergleichen zu können. Als Werte für A und B sind in der
+Anleitung \texttt{0b01111010} bzw. \texttt{0b10000111}.
+
+\begin{tabular}{lll}
+	Steuerwort C (\texttt{0b}) & Ausgangsfunktion & erwartetes Ergebnis
+	(\texttt{0b}) \\
+	\hline
+	0000 & $A$ & 0111 1010 \\
+	1001 & $A \wedge B$ & 0000 0010 \\
+	0111 & $A \vee B$ 1111 1111 \\
+	1100 & \num{-1} & 1111 1111 \\
+	0101 & $A + 1$ & 0111 1011
+\end{tabular}
+
+\textcolor{darkred}{Schritte einfügen}
+
+\subsubsection{Existenz des 8. Bits}
+
+Das ROM hat noch ein 8. Bit, mit dem der Übertrag unterdrückt werden kann. Der
+Addierer wird bei der Addition von Zahlen, die einen Überlauf verursachen, das
+Übertragsbit aktivieren. Dies ist bei der Addition wichtig, weil dadurch
+gezeigt wird, dass das Rechenergebnis nicht stimmt. Zum Beispiel ist
+\texttt{0xff} und \texttt{0x01} addiert \texttt{0x00}. Eigentlich sollte jedoch
+\texttt{0x100} herauskommen, was ein 8-Bit-Rechner jedoch nicht darstellen
+kann. Dafür ist dieses 9. Übertragsbit da. Es gibt jedoch Rechenoperationen, in
+denen es irrelevant ist, zum Beispiel bei logischen Operationen. Es könnte
+sinnvoll sein, dass aus einer vorherigen Rechnung das Bit erhalten werden
+sollte, so dass es unterdrückt wird.
+
+\subsection{Versuchsaufgabe 3}
+
+\subsubsection{Teil a: Subtraktion}
+
+Es soll \texttt{0xb1 - 0x18} gerechnet werden. Dabei sind die Zahlen ohne
+Vorzeichen zu interpretieren (entspricht \texttt{unsigned char} in C++).
+
+So interpretiert sind sie 177 und 24, die Differenz ist also 153
+(\texttt{0x99}).
+
+Werden die Zahlen jedoch als vorzeichenbehaftet (\texttt{char}) interpretiert,
+sieht die Sache anders aus. Da der erste Summand großer als 127 ist, wird er
+als negative Zahl interpretiert. Der zweite Summand ist jedoch eine positive
+Zahl.
+
+Interpretiert man den ersten Summanden als Zweierkomplement, so ist dies
+\num{-79}. Das Ergebnis der Subtraktion mit 24 ist dann \num{-103}. Das
+Ergebnis stimmt dann also nicht mehr, denn 153 als Zweierkompliment
+interpretiert ergibt gerade einmal -101. Entweder habe ich mich beim
+Zweierkompliment bilden verrechnet, oder es geht einfach nicht auf.
+
+Wir erwarten also, dass bei dieser Rechnung 153, also \texttt{0b10011001}
+herauskommt.
+
+\subsubsection{Teil b: Schritte}
+
+\fehlt
+
+\subsubsection{Teil c: Vier Summanden}
+
+Es soll \texttt{0x22 - 0x08 + 0x01 + 0x10} gerechnet werden. Wir erwarten 43,
+also \texttt{0x2b} oder \texttt{0b101011}.
 
 \subsection{Umgang mit System 3}
 
