@@ -6,22 +6,22 @@
 int main() {
 	char a;
 	char b;
-	char x;
-	char isset;
-	a = 0x08; // Meine Test-Schablone.
+	char c;
+	c = 0x08; // Meine Test-Schablone.
 	b = 0xFF; // Ein Beispielwert für das Register B.
-	isset = a ^ b; // Überprüfe, ob das Bit gesetzt ist.
-	if (isset)
+	a = c; // Lade Wert.
+	a = a & b; // Überprüfe, ob das Bit gesetzt ist.
+	if (a)
 		goto is_set;
 	goto is_not_set;
 is_set:
-	x = 0xFF;
+	a = 0xFF;
 	goto end;
 is_not_set:
-	x = 0x00;
+	a = 0x00;
 	goto end;
 end:
 
-	printf("%02x\n", x & 0xFF);
+	printf("%02x\n", a & 0xFF);
 	return 0;
 }
