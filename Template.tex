@@ -528,6 +528,8 @@ sollte, so dass es unterdrückt wird.
 
 \subsection{Versuchsaufgabe 3}
 
+Wir stellen auf System 2 (\texttt{0b10}) um.
+
 \subsubsection{Teil a: Subtraktion}
 
 Es soll \texttt{0xb1 - 0x18} gerechnet werden. Dabei sind die Zahlen ohne
@@ -552,14 +554,91 @@ herauskommt.
 
 \subsubsection{Teil b: Schritte}
 
-\fehlt
+\begin{enumerate}
+	\item
+		Wir wählen das Register B aus. Dann geben die Zahl \texttt{0xb1}, also
+		\texttt{0b10110001} auf der Tastenreihe ein.
+
+	\item
+		Der erste Wert muss erstmal in den Akkumulator gebracht werden. Dazu
+		stellen wir den \texttt{LDA} Befehl ein, in dem wir den Registerschalter
+		auf C stellen und \texttt{0b0011} über die Tasten eingeben.
+
+	\item
+		Wir takten einmal mit dem CLK-Schalter. Der Wert von B wird bitweise in
+		den Akkumulator kopiert.
+
+	\item
+		Nun geben wir den zweiten Wert in das Register B ein. Dieser ist
+		\texttt{0x18}, also \texttt{0b00011000}.
+
+	\item
+		Nachdem wir auf Register C umgeschaltet haben, geben wir den
+		gewünschten Befehl, \texttt{SUB}, \texttt{0b1000}, auf der Tastenleiste
+		ein.
+
+	\item
+		Wir takten erneut mit CLK. Der Wert von B wird von A abgezogen und
+		während der Rechnung bitweise in das Register geschrieben.
+
+	\item
+		Das Ergebnis lesen wir von Register R ab.
+\end{enumerate}
 
 \subsubsection{Teil c: Vier Summanden}
 
 Es soll \texttt{0x22 - 0x08 + 0x01 + 0x10} gerechnet werden. Wir erwarten 43,
 also \texttt{0x2b} oder \texttt{0b101011}.
 
-\textcolor{darkred}{Schritte dokumentieren}
+Die Schritte sind hier analog zur Subtraktion zweiter Zahlen und wird daher
+abgekürzt aufgelistet:
+
+\begin{enumerate}
+	\item
+		Register B wählen. Summand \texttt{0x22}, \texttt{0b100010} eingeben.
+
+	\item
+		Register C wählen. Operationscode \texttt{LDA}, \texttt{0b11}
+		eingeben.
+
+	\item
+		Takten.
+
+	\item
+		Register B wählen. Zweiten Summanden, \texttt{0x08}, \texttt{0b1000},
+		eingeben.
+
+	\item
+		Register C wählen. Operationscode \texttt{SUB}, \texttt{0b1000},
+		eingeben.
+
+	\item
+		Takten.
+
+	\item
+		Register B wählen. Dritten Summanden, \texttt{0x1}, \texttt{0b1},
+		eingeben.
+
+	\item
+		Register C wählen. Operationscode \texttt{ADD}, \texttt{0b111},
+		eingeben.
+
+	\item
+		Takten.
+
+	\item
+		Register B wählen. Vierten Summanden, \texttt{0x10}, \texttt{0b10000},
+		eingeben.
+
+	\item
+		Erneut \texttt{ADD} in Register C eingeben, falls dies entleert ist.
+
+	\item
+		Takten.
+
+	\item
+		Ergebnis ablesen.
+\end{enumerate}
 
 \subsection{Versuchsaufgabe 4}
 
