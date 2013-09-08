@@ -398,6 +398,11 @@ auf 1, wenn alle FFs vor ihm auf 1 stehen. Im gleichen Moment springen alle vor
 ihm zurück auf 0. Daraus folgt die Schaltung, wie sie in
 Abbildung~\ref{fig:J-Dualzähler} zu sehen ist.
 
+Wenn nun z.B. $Q_0 = 1$ und $Q_1 = 0$ übergibt die \textsc{xor}-Schaltung eine
+1 an $Q_1$. Ist  $Q_0 = Q_1 = 1$ gibt die \tand-Schaltung eine 1 weiter. Ist
+nun $Q_2 = 0$ springt dieses aufgrund der zweiten \txor-Schaltung auf 1. Die
+anderen beiden springen auf 0.
+
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{../Zeichnungen/J-Dualzaehler.pdf}
