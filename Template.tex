@@ -335,6 +335,36 @@ Abbildung~\ref{fig:G-Schieberegister} gezeigte seriell geladene Schieberegister.
 \end{figure}
 
 \FloatBarrier
+\subsection{Aufgabe I}
+
+\begin{problem}
+    Entwerfen Sie einen 4-Bit-Dualzähler, bei dem der Ausgang eines FFs jeweils
+    den Takteingang des nächsten FFs steuert. Tipp: Verbinden Sie bei jedem
+    Flip-Flop $\overline Q$ mit $D$.
+\end{problem}
+
+Der Aufbau des Dualzählers ist in Abbildung~\ref{fig:I-Dualzähler} zu sehen.
+
+Da der Eingang der FFs mit ihrem negierendem Ausgang verbunden sind, wechseln
+alle beim Taktsignal ihr Ausgangssignal. Dabei wechselt jedes FF nur noch halb
+so häufig das Signal wie sein Vorgänger, da das Taktsignal nur beim Wechsel von
+z.B. \textsc{high} zu \textsc{low} ausgelöst wird, daher den anderen Wechsel
+auslässt.
+
+Die Bits schalten hierbei nicht alle gleichzeitig, da das Schaltsignal
+gewissermaßen durchgereicht wird und sich daher interne Schaltzeiten
+Aufsummieren.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../Zeichnungen/I-Dualzaehler.pdf}
+    \caption{%
+        Asynchroner 4-Bit-Dualzähler
+    }
+    \label{fig:I-Dualzähler}
+\end{figure}
+
+\FloatBarrier
 \subsection{Aufgabe K}
 
 \begin{problem}
