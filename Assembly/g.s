@@ -16,7 +16,6 @@
 07	58	MOV B, E
 
 # top:
-
 # Addierschritt HL += DE
 08	19	DAD D
 
