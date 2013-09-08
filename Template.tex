@@ -252,6 +252,42 @@ gewünschte Form entsteht:
 Wie aus Tabelle~\ref{tab:Aufgabe_E} ersichtlich wird, folgt eine mögliche
 Nummerierung aus der binären Kodierung der Eingangsvariablen.
 
+\subsection{Aufgabe F}
+
+\begin{problem}
+    Stellen Sie eine Funktionstafel (Eingänge $a$, $b$, Ausgänge $Q_1$, $Q_2$)
+    dieses Flip-Flops [Abbildung~\ref{fig:7-1}] auf. Für welchen
+    Eingangszustand gibt es mehrere Möglichkeiten für die Ausgänge?
+\end{problem}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{../Anleitung/7-1.png}
+    \caption{%
+		\cite[Abbildung~7.1]{physik313-Anleitung}
+    }
+    \label{fig:7-1}
+\end{figure}
+
+\begin{table}
+    \centering
+    \begin{tabular}{cc|cc}
+        $a$ & $b$ & $Q_1$ & $Q_2$ \\
+        \hline
+        0 & 0 & 1 & 1 \\
+        0 & 1 & 1 & 0 \\
+        1 & 0 & 0 & 1 \\
+        1 & 1 & 1/0 & 0/1
+    \end{tabular}
+    \caption{%
+        Funktionstafel für das in Abbildung~\ref{fig:7-1} gezeigte Flip-Flop 
+    }
+    \label{tab:Aufgabe_F}
+\end{table}
+
+Wie in Tabelle~\ref{tab:Aufgabe_F} zu sehen ist, gibt es für $a = b = 1$ zwei
+mögliche Ausgangseinstellungen.
+
 \FloatBarrier
 \subsection{Aufgabe K}
 
