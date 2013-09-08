@@ -308,6 +308,33 @@ Abbildung~\ref{fig:G-Schieberegister} zu sehen.
 \end{figure}
 
 \FloatBarrier
+\subsection{Aufgabe H}
+
+\begin{problem}
+    Entwerfen Sie ein 4-Bit-Schieberegister, das parallel geladen werden kann
+    (d.h. alle Bits gleichzeitig, wenn eine Steuerleitung „\textsc{load}“ auf 1
+    ist). Benutzen Sie dazu die unten [Abbildung~\ref{fig:7-H}] abgebildeten
+    kombinierten Schaltelemente, die auch auf dem Schaltbrett zur Verfügung
+    stehen.
+\end{problem}
+
+Die Schaltung ist in Abbildung~\ref{fig:H-Schieberegister} zu sehen.
+
+Steht \textsc{load} auf 1 wird beim entsprechenden Takt jedes Bit gleichzeitig
+von $D_i$ aus geladen, da der Multiplexer diese Quelle auswählt. Steht
+\textsc{load} auf 0, wirkt diese Schaltung wie das in
+Abbildung~\ref{fig:G-Schieberegister} gezeigte seriell geladene Schieberegister.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../Zeichnungen/H-Schieberegister.pdf}
+    \caption{%
+        Parallel und seriell ladbares Schieberegister
+    }
+    \label{fig:H-Schieberegister}
+\end{figure}
+
+\FloatBarrier
 \subsection{Aufgabe K}
 
 \begin{problem}
