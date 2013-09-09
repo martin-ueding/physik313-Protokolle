@@ -23,6 +23,24 @@ def aufgabe_a(T):
     pl.savefig("_build/7-a.pdf", bbox_inches='tight')
     pl.clf()
 
+def aufgabe_b(T):
+    data_high = np.genfromtxt("Daten-b-high.txt")
+    Uin_high = data_high[:, 0]
+    Uout_high = data_high[:, 1]
+
+    data_low = np.genfromtxt("Daten-b-low.txt")
+    Uin_low = data_low[:, 0]
+    Uout_low = data_low[:, 1]
+
+    pl.plot(Uin_high, Uout_high, linestyle="-", marker="o", label="Eingang B high")
+    pl.plot(Uin_low, Uout_low, linestyle="-", marker="o", label="Eingang B low")
+    pl.xlabel(r"$U_\mathrm{E} / \mathrm{V}$")
+    pl.ylabel(r"$U_\mathrm{Q} / \mathrm{V}$")
+    pl.legend(loc="best")
+    pl.grid(True)
+    pl.savefig("_build/7-b.pdf", bbox_inches='tight')
+    pl.clf()
+
 def g(value, error=None, digits=3):
     if error is None:
         return ("{:."+str(digits)+"g}").format(value)
@@ -63,6 +81,7 @@ def main():
     T = {}
 
     aufgabe_a(T)
+    aufgabe_b(T)
     render_template(T)
 
 if __name__ == "__main__":
