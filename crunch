@@ -23,6 +23,8 @@ def aufgabe_a(T):
     pl.savefig("_build/7-a.pdf", bbox_inches='tight')
     pl.clf()
 
+    T["a"] = np.column_stack([Uin, Uout])
+
 def aufgabe_b(T):
     data_high = np.genfromtxt("Daten-b-high.txt")
     Uin_high = data_high[:, 0]
@@ -40,6 +42,9 @@ def aufgabe_b(T):
     pl.grid(True)
     pl.savefig("_build/7-b.pdf", bbox_inches='tight')
     pl.clf()
+
+    T["b_high"] = np.column_stack([Uin_high, Uout_high])
+    T["b_low"] = np.column_stack([Uin_low, Uout_low])
 
 def g(value, error=None, digits=3):
     if error is None:
