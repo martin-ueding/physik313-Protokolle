@@ -706,7 +706,55 @@ Versorgungsspannung von \SI 5{\volt} um Bereich $\UE = \SI 0{\volt}$ bis $\UE =
 \FloatBarrier
 \subsection{Aufgabe b}
 
-Wir bauen nun ein \tnand-Gatter mit der Schaltung aus Aufgabe L auf.
+Wir bauen nun ein \tnand-Gatter mit der Schaltung aus Aufgabe L auf. Die
+Hubdioden ersetzen den Vorwiderstand und sorgen dafür, dass die \thigh- und
+\tlow-Level richtig herauskommen.
+
+Die Messwerte für die Übertragungskennlinie beim zweiten Eingang auf \thigh{}
+haben wir in Tabelle~\ref{tab:b-high} aufgelistet und in Abbildung~\ref{fig:b}
+geplottet. Für \tlow{} auf dem zweiten Eingang erhalten wir eine andere
+Kennlinie, siehe Tabelle~\ref{tab:b-low} und Abbildung~\ref{fig:b}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SS}
+		{$U_\text E$} & {$U_\text O$} \\
+		\hline
+		%< for ue, uo in : %<
+		<< ue >> & << uo >> \\
+		%< endfor %<
+	\end{tabular}
+	\caption{%
+		Messwerte für die Kennlinie eines \nand-Gatters mit Transistor. Der
+		zweite Eingang ist auf \thigh{} gesetzt.
+	}
+	\label{tab:b-high}
+\end{table}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SS}
+		{$U_\text E$} & {$U_\text O$} \\
+		\hline
+		%< for ue, uo in : %<
+		<< ue >> & << uo >> \\
+		%< endfor %<
+	\end{tabular}
+	\caption{%
+		Messwerte für die Kennlinie eines \nand-Gatters mit Transistor. Der
+		zweite Eingang ist auf \tlow{} gesetzt.
+	}
+	\label{tab:b-low}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{7-b.pdf}
+    \caption{%
+        Übertragungskennlinie eines \nand-Gatters mit Transistor
+    }
+    \label{fig:b}
+\end{figure}
 
 \FloatBarrier
 \subsection{Aufgabe d}
