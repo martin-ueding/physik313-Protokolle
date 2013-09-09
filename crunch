@@ -20,7 +20,7 @@ def aufgabe_a(T):
     pl.xlabel(r"$U_\mathrm{E} / \mathrm{V}$")
     pl.ylabel(r"$U_\mathrm{Q} / \mathrm{V}$")
     pl.grid(True)
-    pl.savefig("_build/7-a.pdf")
+    pl.savefig("_build/7-a.pdf", bbox_inches='tight')
     pl.clf()
 
 def g(value, error=None, digits=3):
