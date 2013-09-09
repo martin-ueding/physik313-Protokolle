@@ -462,7 +462,39 @@ anliegen.
 \FloatBarrier
 \subsection{Aufgabe L}
 
-\fehlt
+\begin{problem}
+    Was passiert, wenn man die Dioden umpolt? Zeichnen Sie die Schaltung auf.
+    Funktioniert die Schaltung sinnvoll? Kann man mit einem \SI{2.2}{\kilo\ohm}
+    Widerstand nach +\SI 5{\volt} etwas erreichen? Begründen Sie, warum es hier
+    ein Problem für $\UE = U_\text{E L max}$ gibt.
+\end{problem}
+
+Die Schaltung ist in Abbildung~\ref{fig:L-NAND} zu sehen. Ohne den
+\SI{2.2}{\kilo\ohm} Widerstand, wäre der Ausgang konstant \thigh. Mit dem
+Widerstand erhält der Punkt $P$ ein Potenzial $\UE$:
+\[
+    \UE = \frac {\SI{1}{\kilo\ohm} + \SI{1}{\kilo\ohm}} {\SI{2.2}{\kilo\ohm} +
+    \SI{1}{\kilo\ohm} + \SI{1}{\kilo\ohm}}\SI 5{\volt} = \SI{2.4}{\volt}
+\]
+Daraus ergeben sich drei Fälle:
+\begin{itemize}
+    \item
+        $E_1 = E_2 = \UL$: Die Dioden leiten beide. Der verbleibende Basisstrom
+        reicht nicht aus um den Transistor durchzuschalten. Es fließt kein
+        Kollektorstrom, daher ist der Ausgang \thigh.
+    \item
+        $E_1 = \UL$ und $E_2 = \UH$ oder andersherum: Eine Diode leitet, die
+        Folgen sind die Gleichen wie im ersten Fall, der Ausgang ist also
+        \thigh.
+    \item
+        $E_1 = E_2 = \UH$: Die Dioden sperren beide. Der Basisstrom ist groß
+        genug um den Transistor durchzuschalten. Der Ausgang wird \tlow.
+\end{itemize}
+Wäre $\UE$ nicht \SI{2.4}{\volt} sondern \SI{0.8}{\volt} würde beim letzten
+genannten Fall die Spannung nicht ausreichen um den Transistor durchzuschalten.
+Wir hätten auch hier als Ausgang ein \thigh-Signal.
+
+Es handelt sich um eine \tnand-Schaltung.
 
 \FloatBarrier
 \subsection{Aufgabe M}
