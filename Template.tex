@@ -692,7 +692,23 @@ Dies ist in Abbildung~\ref{fig:Q-Volladdierer} gezeigt.
 
 Wir messen die Übertragungskennlinie eines Inverters bei einer
 Versorgungsspannung von \SI 5{\volt} um Bereich $\UE = \SI 0{\volt}$ bis $\UE =
-\SI 5{\volt}$. Unsere Messung ist in Abbildung~\ref{fig:7-a}
+\SI 5{\volt}$. Unsere Messung ist in Tabelle~\ref{tab:a} und
+Abbildung~\ref{fig:7-a}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SS}
+		{$U_\text E$} & {$U_\text O$} \\
+		\hline
+		%< for ue, uo in a: %<
+		<< ue >> & << uo >> \\
+		%< endfor %<
+	\end{tabular}
+	\caption{%
+		Messwerte für die Kennlinie eines Inverters.
+	}
+	\label{tab:a}
+\end{table}
 
 \begin{figure}[htbp]
     \centering
@@ -720,7 +736,7 @@ Kennlinie, siehe Tabelle~\ref{tab:b-low} und Abbildung~\ref{fig:b}.
 	\begin{tabular}{SS}
 		{$U_\text E$} & {$U_\text O$} \\
 		\hline
-		%< for ue, uo in : %<
+		%< for ue, uo in b_high: %<
 		<< ue >> & << uo >> \\
 		%< endfor %<
 	\end{tabular}
@@ -736,7 +752,7 @@ Kennlinie, siehe Tabelle~\ref{tab:b-low} und Abbildung~\ref{fig:b}.
 	\begin{tabular}{SS}
 		{$U_\text E$} & {$U_\text O$} \\
 		\hline
-		%< for ue, uo in : %<
+		%< for ue, uo in b_low: %<
 		<< ue >> & << uo >> \\
 		%< endfor %<
 	\end{tabular}
