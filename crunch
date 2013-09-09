@@ -16,7 +16,7 @@ def aufgabe_a(T):
     Uin = data[:, 0]
     Uout = data[:, 1]
 
-    pl.plot(Uin, Uout, linestyle="None", marker="x")
+    pl.errorbar(Uin, Uout, yerr=0.25, linestyle="None", marker="x")
     pl.xlabel(r"$U_\mathrm{E} / \mathrm{V}$")
     pl.ylabel(r"$U_\mathrm{Q} / \mathrm{V}$")
     pl.grid(True)
