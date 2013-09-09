@@ -135,7 +135,7 @@ Mit $n$ Eingangsvariablen gibt es $2^{2^n}$ Schaltfunktionen.
         \end{align*}
 \end{problem}
 
-\begin{table}
+\begin{table}[htbp]
     \centering
     \begin{tabular}{c|cccccc}
         $a$ & $a \mor 0$ & $a \mor 1$ & $a \mor \bar a$ & $a \mand 0$ & $a
@@ -163,7 +163,7 @@ Wie in Tabelle~\ref{tab:Aufgabe_B} zu sehen ist stimmen die Ausdrücke.
 Wie in Tabelle~\ref{tab:Aufgabe_C_dist} und \ref{tab:Aufgabe_C_demo} zu sehen
 ist stimmen die Ausdrücke.
 
-\begin{table}
+\begin{table}[htbp]
     \centering
     \begin{tabular}{ccc|c|c}
         $a$ & $b$ & $c$ & $(a + b) \cdot c$ & $(a \cdot c) + (b \cdot c)$
@@ -184,7 +184,7 @@ ist stimmen die Ausdrücke.
     \label{tab:Aufgabe_C_dist}
 \end{table}
 
-\begin{table}
+\begin{table}[htbp]
     \centering
     \begin{tabular}{cc|cc|cc}
         $a$ & $b$ & $\overline{a \cdot b}$ & $\bar a + \bar b$ & $\overline{a +
@@ -231,7 +231,7 @@ gewünschte Form entsteht:
     sinnvollerweise nummerieren?
 \end{problem}
 
-\begin{table}
+\begin{table}[htbp]
     \centering
         \begin{tabular}{ccc|ccc|c}
             $a$ & $b$ & $c$ & 0 & 0 & 0 & 0\\
@@ -260,7 +260,7 @@ Nummerierung aus der binären Kodierung der Eingangsvariablen.
     Eingangszustand gibt es mehrere Möglichkeiten für die Ausgänge?
 \end{problem}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{../Anleitung/7-1.png}
     \caption{%
@@ -269,7 +269,7 @@ Nummerierung aus der binären Kodierung der Eingangsvariablen.
     \label{fig:7-1}
 \end{figure}
 
-\begin{table}
+\begin{table}[htbp]
     \centering
     \begin{tabular}{cc|cc}
         $a$ & $b$ & $Q_1$ & $Q_2$ \\
@@ -298,7 +298,7 @@ mögliche Ausgangseinstellungen.
 Die Schaltung des seriell geladenen Schieberegisters ist in
 Abbildung~\ref{fig:G-Schieberegister} zu sehen.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{../Zeichnungen/G-Schieberegister.pdf}
     \caption{%
@@ -325,7 +325,7 @@ von $D_i$ aus geladen, da der Multiplexer diese Quelle auswählt. Steht
 \textsc{load} auf 0, wirkt diese Schaltung wie das in
 Abbildung~\ref{fig:G-Schieberegister} gezeigte seriell geladene Schieberegister.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{../Zeichnungen/H-Schieberegister.pdf}
     \caption{%
@@ -355,7 +355,7 @@ Die Bits schalten hierbei nicht alle gleichzeitig, da das Schaltsignal
 gewissermaßen durchgereicht wird und sich daher interne Schaltzeiten
 Aufsummieren.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{../Zeichnungen/I-Dualzaehler.pdf}
     \caption{%
@@ -373,7 +373,7 @@ Aufsummieren.
     und wann es auf 0 springen muss.
 \end{problem}
 
-\begin{table}
+\begin{table}[htbp]
     \centering
     \begin{tabular}{c|ccc}
         Takt & $Q_0$ & $Q_1$ & $Q_2$\\
@@ -403,7 +403,7 @@ Wenn nun z.B. $Q_0 = 1$ und $Q_1 = 0$ übergibt die \textsc{xor}-Schaltung eine
 nun $Q_2 = 0$ springt dieses aufgrund der zweiten \txor-Schaltung auf 1. Die
 anderen beiden springen auf 0.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{../Zeichnungen/J-Dualzaehler.pdf}
     \caption{%
@@ -694,7 +694,7 @@ Wir messen die Übertragungskennlinie eines Inverters bei einer
 Versorgungsspannung von \SI 5{\volt} um Bereich $\UE = \SI 0{\volt}$ bis $\UE =
 \SI 5{\volt}$. Unsere Messung ist in Abbildung~\ref{fig:7-a}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=.8\textwidth]{7-a.pdf}
     \caption{%
