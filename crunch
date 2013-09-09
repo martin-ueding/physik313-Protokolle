@@ -11,6 +11,18 @@ import numpy as np
 import scipy.optimize as op
 import scipy.interpolate
 
+def aufgabe_a(T):
+    data = np.genfromtxt("Daten-a.txt")
+    Uin = data[:, 0]
+    Uout = data[:, 1]
+
+    pl.plot(Uin, Uout, linestyle="None", marker="x")
+    pl.xlabel(r"$U_\mathrm{E} / \mathrm{V}$")
+    pl.ylabel(r"$U_\mathrm{Q} / \mathrm{V}$")
+    pl.grid(True)
+    pl.savefig("Plots/7-a.pdf")
+    pl.clf()
+
 def g(value, error=None, digits=3):
     if error is None:
         return ("{:."+str(digits)+"g}").format(value)
@@ -50,6 +62,7 @@ def render_template(T):
 def main():
     T = {}
 
+    aufgabe_a(T)
     render_template(T)
 
 if __name__ == "__main__":

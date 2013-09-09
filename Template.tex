@@ -252,6 +252,166 @@ gewünschte Form entsteht:
 Wie aus Tabelle~\ref{tab:Aufgabe_E} ersichtlich wird, folgt eine mögliche
 Nummerierung aus der binären Kodierung der Eingangsvariablen.
 
+\subsection{Aufgabe F}
+
+\begin{problem}
+    Stellen Sie eine Funktionstafel (Eingänge $a$, $b$, Ausgänge $Q_1$, $Q_2$)
+    dieses Flip-Flops [Abbildung~\ref{fig:7-1}] auf. Für welchen
+    Eingangszustand gibt es mehrere Möglichkeiten für die Ausgänge?
+\end{problem}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{../Anleitung/7-1.png}
+    \caption{%
+		\cite[Abbildung~7.1]{physik313-Anleitung}
+    }
+    \label{fig:7-1}
+\end{figure}
+
+\begin{table}
+    \centering
+    \begin{tabular}{cc|cc}
+        $a$ & $b$ & $Q_1$ & $Q_2$ \\
+        \hline
+        0 & 0 & 1 & 1 \\
+        0 & 1 & 1 & 0 \\
+        1 & 0 & 0 & 1 \\
+        1 & 1 & 1/0 & 0/1
+    \end{tabular}
+    \caption{%
+        Funktionstafel für das in Abbildung~\ref{fig:7-1} gezeigte Flip-Flop 
+    }
+    \label{tab:Aufgabe_F}
+\end{table}
+
+Wie in Tabelle~\ref{tab:Aufgabe_F} zu sehen ist, gibt es für $a = b = 1$ zwei
+mögliche Ausgangseinstellungen.
+
+\FloatBarrier
+\subsection{Aufgabe G}
+
+\begin{problem}
+    Zeichnen Sie ein 4-Bit-Schieberegister auf, das seriell geladen wird.
+\end{problem}
+
+Die Schaltung des seriell geladenen Schieberegisters ist in
+Abbildung~\ref{fig:G-Schieberegister} zu sehen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../Zeichnungen/G-Schieberegister.pdf}
+    \caption{%
+        Seriell geladenes Schieberegister
+    }
+    \label{fig:G-Schieberegister}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe H}
+
+\begin{problem}
+    Entwerfen Sie ein 4-Bit-Schieberegister, das parallel geladen werden kann
+    (d.h. alle Bits gleichzeitig, wenn eine Steuerleitung „\textsc{load}“ auf 1
+    ist). Benutzen Sie dazu die unten [Abbildung~\ref{fig:7-H}] abgebildeten
+    kombinierten Schaltelemente, die auch auf dem Schaltbrett zur Verfügung
+    stehen.
+\end{problem}
+
+Die Schaltung ist in Abbildung~\ref{fig:H-Schieberegister} zu sehen.
+
+Steht \textsc{load} auf 1 wird beim entsprechenden Takt jedes Bit gleichzeitig
+von $D_i$ aus geladen, da der Multiplexer diese Quelle auswählt. Steht
+\textsc{load} auf 0, wirkt diese Schaltung wie das in
+Abbildung~\ref{fig:G-Schieberegister} gezeigte seriell geladene Schieberegister.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../Zeichnungen/H-Schieberegister.pdf}
+    \caption{%
+        Parallel und seriell ladbares Schieberegister
+    }
+    \label{fig:H-Schieberegister}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe I}
+
+\begin{problem}
+    Entwerfen Sie einen 4-Bit-Dualzähler, bei dem der Ausgang eines FFs jeweils
+    den Takteingang des nächsten FFs steuert. Tipp: Verbinden Sie bei jedem
+    Flip-Flop $\overline Q$ mit $D$.
+\end{problem}
+
+Der Aufbau des Dualzählers ist in Abbildung~\ref{fig:I-Dualzähler} zu sehen.
+
+Da der Eingang der FFs mit ihrem negierendem Ausgang verbunden sind, wechseln
+alle beim Taktsignal ihr Ausgangssignal. Dabei wechselt jedes FF nur noch halb
+so häufig das Signal wie sein Vorgänger, da das Taktsignal nur beim Wechsel von
+z.B. \textsc{high} zu \textsc{low} ausgelöst wird, daher den anderen Wechsel
+auslässt.
+
+Die Bits schalten hierbei nicht alle gleichzeitig, da das Schaltsignal
+gewissermaßen durchgereicht wird und sich daher interne Schaltzeiten
+Aufsummieren.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../Zeichnungen/I-Dualzaehler.pdf}
+    \caption{%
+        Asynchroner 4-Bit-Dualzähler
+    }
+    \label{fig:I-Dualzähler}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe J}
+
+\begin{problem}
+    Entwerfen Sie einen Synchronen 3-Bit-Dualzähler. Stellen Sie dazu eine
+    Schalttafel auf, aus der Sie entnehmen können, wann ein bestimmtes FF auf 1
+    und wann es auf 0 springen muss.
+\end{problem}
+
+\begin{table}
+    \centering
+    \begin{tabular}{c|ccc}
+        Takt & $Q_0$ & $Q_1$ & $Q_2$\\
+        \hline
+        0 & 0 & 0 & 0\\
+        1 & 1 & 0 & 0\\
+        2 & 0 & 1 & 0\\
+        3 & 1 & 1 & 0\\
+        4 & 0 & 0 & 1\\
+        5 & 1 & 0 & 1\\
+        6 & 0 & 1 & 1\\
+        7 & 1 & 1 & 1\\
+    \end{tabular}
+    \caption{%
+        Schalttafel zum 3-Bit-Dualzähler
+    }
+    \label{tab:Aufgabe_J}
+\end{table}
+
+Wie aus Tabelle~\ref{tab:Aufgabe_J} ersichtlich wird, springt ein FF erst dann
+auf 1, wenn alle FFs vor ihm auf 1 stehen. Im gleichen Moment springen alle vor
+ihm zurück auf 0. Daraus folgt die Schaltung, wie sie in
+Abbildung~\ref{fig:J-Dualzähler} zu sehen ist.
+
+Wenn nun z.B. $Q_0 = 1$ und $Q_1 = 0$ übergibt die \textsc{xor}-Schaltung eine
+1 an $Q_1$. Ist  $Q_0 = Q_1 = 1$ gibt die \tand-Schaltung eine 1 weiter. Ist
+nun $Q_2 = 0$ springt dieses aufgrund der zweiten \txor-Schaltung auf 1. Die
+anderen beiden springen auf 0.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../Zeichnungen/J-Dualzaehler.pdf}
+    \caption{%
+        Synchroner 3-Bit-Dualzähler
+    }
+    \label{fig:J-Dualzähler}
+\end{figure}
+
 \FloatBarrier
 \subsection{Aufgabe K}
 
@@ -285,7 +445,7 @@ Wenn nur $\UL$ auf beiden Eingängen ist, liegt eine maximale Spannung von
 Dies reicht nicht mehr aus, um den Transistor zu schalten, am Ausgang werden
 fast die vollen \SI{5}{\volt} anliegen.
 
-Wenn einer der der Eingänge auf $\UL$ geschaltet ist, dann mindestens
+Wenn einer der der Eingänge auf $\UH$ geschaltet ist, dann mindestens
 \SI{2.4}{\volt}. Nach der Diode sind immer noch \SI{1.8}{\volt} da. Dies sollte
 reichen, um den Transistor zu schalten. $\UBE$ ist dann nur noch
 \SI{.7}{\volt}, so dass folgender Strom fließt:
@@ -296,13 +456,45 @@ reichen, um den Transistor zu schalten. $\UBE$ ist dann nur noch
 
 Mit einer Stromverstärkung von $\beta = 100$ sind dies $\IB =
 \SI{40}{\milli\ampere}$. Dabei würde an $\RC$ eine Spannung von \SI{40}{\volt}
-abfallen. Da nur \SI{5}{\volt} anliegen, wird sicher ein \thigh{} am Ausgang
+abfallen. Da nur \SI{5}{\volt} anliegen, wird sicher ein \tlow{} am Ausgang
 anliegen.
 
 \FloatBarrier
 \subsection{Aufgabe L}
 
-\fehlt
+\begin{problem}
+    Was passiert, wenn man die Dioden umpolt? Zeichnen Sie die Schaltung auf.
+    Funktioniert die Schaltung sinnvoll? Kann man mit einem \SI{2.2}{\kilo\ohm}
+    Widerstand nach +\SI 5{\volt} etwas erreichen? Begründen Sie, warum es hier
+    ein Problem für $\UE = U_\text{E L max}$ gibt.
+\end{problem}
+
+Die Schaltung ist in Abbildung~\ref{fig:L-NAND} zu sehen. Ohne den
+\SI{2.2}{\kilo\ohm} Widerstand, wäre der Ausgang konstant \thigh. Mit dem
+Widerstand erhält der Punkt $P$ ein Potenzial $\UE$:
+\[
+    \UE = \frac {\SI{1}{\kilo\ohm} + \SI{1}{\kilo\ohm}} {\SI{2.2}{\kilo\ohm} +
+    \SI{1}{\kilo\ohm} + \SI{1}{\kilo\ohm}}\SI 5{\volt} = \SI{2.4}{\volt}
+\]
+Daraus ergeben sich drei Fälle:
+\begin{itemize}
+    \item
+        $E_1 = E_2 = \UL$: Die Dioden leiten beide. Der verbleibende Basisstrom
+        reicht nicht aus um den Transistor durchzuschalten. Es fließt kein
+        Kollektorstrom, daher ist der Ausgang \thigh.
+    \item
+        $E_1 = \UL$ und $E_2 = \UH$ oder andersherum: Eine Diode leitet, die
+        Folgen sind die Gleichen wie im ersten Fall, der Ausgang ist also
+        \thigh.
+    \item
+        $E_1 = E_2 = \UH$: Die Dioden sperren beide. Der Basisstrom ist groß
+        genug um den Transistor durchzuschalten. Der Ausgang wird \tlow.
+\end{itemize}
+Wäre $\UE$ nicht \SI{2.4}{\volt} sondern \SI{0.8}{\volt} würde beim letzten
+genannten Fall die Spannung nicht ausreichen um den Transistor durchzuschalten.
+Wir hätten auch hier als Ausgang ein \thigh-Signal.
+
+Es handelt sich um eine \tnand-Schaltung.
 
 \FloatBarrier
 \subsection{Aufgabe M}
@@ -352,25 +544,25 @@ Legen wir doch eine Tabelle an. Dazu gehen wir Schritt für Schritt durch:
 
 \paragraph{A und B \tlow}
 
-n-MOS links und rechts sind durchgeschaltet. Daher fällt über ihnen keine
-Spannung ab. Die p-MOS oben und unten sind gesperrt, daher fällt über ihnen
+p-MOS links und rechts sind durchgeschaltet. Daher fällt über ihnen keine
+Spannung ab. Die n-MOS oben und unten sind gesperrt, daher fällt über ihnen
 Spannung ab. Ausgang ist \thigh.
 
 \paragraph{A und B \thigh}
 
 Genau invers, also fällt die Spannung über den ersten MOSFETs ab, womit der
-Ausgang \tlow ist.
+Ausgang \tlow{} ist.
 
 \paragraph{A \thigh{} und B \tlow}
 
-n-MOS links ist offen, n-MOS rechts ist gesperrt. p-MOS oben ist offen, p-MOS
+p-MOS links ist offen, p-MOS rechts ist gesperrt. n-MOS oben ist offen, n-MOS
 unten ist gesperrt.
 
 Somit fällt viel Spannung unten ab, oben ist ein Weg offen. Ausgang ist \thigh.
 
 \paragraph{A \tlow{} und B \thigh}
 
-n-MOS links ist gesperrt, rechts ist offen. p-MOS oben ist gesperrt, unten ist
+p-MOS links ist gesperrt, rechts ist offen. n-MOS oben ist gesperrt, unten ist
 offen.
 
 Somit wie oben, \thigh
@@ -392,7 +584,7 @@ Somit handelt es sich um ein \tnand-Gatter.
 \subsection{Aufgabe O}
 
 \begin{problem}
-	Wie lauten die Bool'schen Ausdrücke für Summe und Übertrag eines
+	Wie lauten die Boole'schen Ausdrücke für Summe und Übertrag eines
 	Halbaddierers?
 \end{problem}
 
@@ -492,9 +684,26 @@ Dies ist in Abbildung~\ref{fig:Q-Volladdierer} gezeigt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                Durchführung                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\FloatBarrier
 \section{Durchführung}
 
+\FloatBarrier
+\subsection{Aufgabe a}
+
+Wir messen die Übertragungskennlinie eines Inverters bei einer
+Versorgungsspannung von \SI 5{\volt} um Bereich $\UE = \SI 0{\volt}$ bis $\UE =
+\SI 5{\volt}$. Unsere Messung ist in Abbildung~\ref{fig:7-a}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.8\textwidth]{../Plots/7-a.pdf}
+    \caption{%
+        Übertragungskennlinie eines Inverters
+    }
+    \label{fig:7-a}
+\end{figure}
+
+\FloatBarrier
 \subsection{Aufgabe d}
 
 Wir sollen in diesem Versuch einen Halbaddierer aus \tnand-Gattern
