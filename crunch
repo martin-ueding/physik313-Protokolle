@@ -34,8 +34,8 @@ def aufgabe_b(T):
     Uin_low = data_low[:, 0]
     Uout_low = data_low[:, 1]
 
-    pl.plot(Uin_high, Uout_high, linestyle="-", marker="o", label="Eingang B high")
-    pl.plot(Uin_low, Uout_low, linestyle="-", marker="o", label="Eingang B low")
+    pl.errorbar(Uin_high, Uout_high, yerr=0.25,  linestyle="-", marker="o", label="Eingang B high")
+    pl.errorbar(Uin_low, Uout_low, yerr=0.25, linestyle="-", marker="o", label="Eingang B low")
     pl.xlabel(r"$U_\mathrm{E} / \mathrm{V}$")
     pl.ylabel(r"$U_\mathrm{Q} / \mathrm{V}$")
     pl.legend(loc="best")
