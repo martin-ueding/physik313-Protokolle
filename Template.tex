@@ -905,11 +905,11 @@ Für diese Aufgabe wähle ich einen einfachen Algorithmus, und zwar:
 Das Problem ist, dass negative Zahlen so nicht berücksichtigt werden. Ich
 hoffe, dass das hier in Ordnung ist.
 
-Dieser Rechner sieht nach Big Endian, so dass H vor L kommt. Für Intel ist das
-aber eigentlich ungewöhnlich. In der C++ Version muss ich etwas basteln, um
-zwei nebeneinander liegende Speicherzellen zu bekommen, die ich dann einzeln
-ansprechen kann. In Assembly brauche ich das nicht, weil die Register fest
-sind.
+Dieser Rechner sieht nach Big Endian aus, so dass H vor L kommt. Für Intel ist
+das aber eigentlich ungewöhnlich. In der C++ Version muss ich etwas basteln,
+um zwei nebeneinander liegende Speicherzellen zu bekommen, die ich dann
+einzeln ansprechen kann. In Assembly brauche ich das nicht, weil die Register
+fest sind.
 
 \inputminted[fontsize=\small, linenos]{cpp}{../Prototypen/g.cpp}
 
