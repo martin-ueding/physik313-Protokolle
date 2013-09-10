@@ -244,6 +244,21 @@ Teile dieses Versuchs aufwenden.
 '0b10111'
 \end{minted}
 
+\paragraph{Überlauf und Übertrag}
+
+\begin{problem}
+    Was ist bei arithmetischen Operationen ein Überlauf und was versteht man
+    unter einem Übertrag?
+\end{problem}
+
+Ein Übertrag ist genau das was man in der Schule unter diesem Begriff gelernt
+hat. Auch bekannt als „Eins im Sinn“.
+
+Ein Überlauf passiert, wenn man z.B. $127 + 1$ also $0111\,1111 + 0000\,0001$
+rechnen möchte, die Zahlen aber als vorzeichenbehaftet ansieht. Es kommt zwar
+auch $1000\,0000$ heraus, dies bedeutet in dem Fall aber \num{-128} und nicht
+wie gewollt 128.
+
 \subsection{Aufgabe E}
 
 \begin{problem}
@@ -569,7 +584,7 @@ herauskommt.
 
 	\item
 		Der erste Wert muss erstmal in den Akkumulator gebracht werden. Dazu
-		stellen wir den \texttt{LDA} Befehl ein, in dem wir den Registerschalter
+		stellen wir den \texttt{LDA} Befehl ein, indem wir den Registerschalter
 		auf C stellen und \texttt{0b0011} über die Tasten eingeben.
 
 	\item
