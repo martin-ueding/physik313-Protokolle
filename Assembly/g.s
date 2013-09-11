@@ -9,35 +9,40 @@
 04	00
 
 # Sichere den Zähler aus A (111) in C (001).
-04	4f	MOV A, C
+05	4f	MOV A, C
 
 # Initialisiere L (101), H (100), D (010) und E (011).
-05	14	MVI L, 00
-06	26	MVI H, 00
-07	16	MVI D, 00
-08	58	MOV B, E
+06	2e	MVI L, 00
+07	00
+08	26	MVI H, 00
+09	00
+0a	16	MVI D, 00
+0b	00
+0c	58	MOV B, E
 
 # top:
 # Addierschritt HL += DE
-09	19	DAD D
+10	19	DAD D
 
 # Hole Zähler, dekrementiere, speichern.
-0a	79	MOV C, A
-0b	3d	DCR A
-0c	4f	MOV A, C
+11	79	MOV C, A
+12	3d	DCR A
+13	4f	MOV A, C
 
 # Wiederhole, springe zu top.
-0e	c2  JNZ, 09
-0f	09
-10	00
+14	c2  JNZ, 10
+15	10
+16	00
 
 # Kopiere L (101) und H (100) in die Ausgaberegister.
-11	7d	MOV L, A
-12	d3	OUT 00
-13	7c	MOV H, A
-14	d3	OUT 01
+17	7d	MOV L, A
+18	d3	OUT 00
+19	00
+1a	7c	MOV H, A
+1b	d3	OUT 01
+1c	01
 
 # Ende
-15	76	HLT
+1d	76	HLT
 
 # vim: noet ts=8 sw=8 list
