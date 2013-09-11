@@ -3,51 +3,52 @@
 
 # Lade Eingabe B in Register B.
 00	db	IN, 01
-01	47	MOV A, B
+01	01
+02	47	MOV A, B
 
 # Schreibe eine 0x08 in das Register C (001).
-02	0e	MVI C, 08
-03	08
+03	0e	MVI C, 08
+04	08
 
 # Lade A aus C.
-04	79	MOV C, A
+05	79	MOV C, A
 
 # Ersetze A durch A & B.
-05	a0	ANA B
+06	a0	ANA B
 
 # Falls A ungleich 0 ist, was der Fall ist, falls das Bit gesetzt ist, springe
 # zu is_set.
-06	C2	JNZ 0c
-07	0d
-08	00
+07	C2	JNZ 0d
+08	0d
+09	00
 
 # Springe jetzt zu is_not_set. Falls es gesetzt war, wird der Programmfluss
 # hier nicht ankommen.
-09	c3	JMP 11
-0a	12
-0b	00
+0a	c3	JMP 12
+0b	12
+0c	00
 
 # is_set:
 # Schreibe FF in A.
-0c	3e	MVI A, ff
-0d	ff
+0d	3e	MVI A, ff
+0e	ff
 
 # Springe zu end.
-0e	c3	JMP 13
-0f	17
-10	00
+0f	c3	JMP 14
+10	14
+11	00
 
 # is_not_set:
 # Schreibe FF in A.
-11	3e	MVI A, 00
-12	00
+12	3e	MVI A, 00
+13	00
 
 # end:
 # Gebe auf Register X (00) aus
-13	d3	OUT, 00
-14	00
+14	d3	OUT, 00
+15	00
 
 # Ende
-15	76	HLT
+16	76	HLT
 
 # vim: noet ts=8 sw=8 list
