@@ -529,6 +529,8 @@ Unsere Schritte:
 		gehört. Dies lesen wir ab und vergleichen mit unserer Tabelle.
 \end{enumerate}
 
+Bei allen getesteten Operationen kommt das erwartete heraus.
+
 \subsection{Versuchsaufgabe 2}
 
 Wir stellen nun den Rechner auf das System 1 ein, die ALU. Dazu wählen wir mit
@@ -556,6 +558,10 @@ Dabei gehen wir genauso vor, wie in der ersten Aufgabe. Das heißt, dass wir die
 Daten in die Register A, B und C eingeben. Neu ist hier, dass wir mit dem
 Schalter CLK einen Takt ausführen müssen. Danach wird das Register R mit
 unserer Erwartung vergleichen.
+
+Hier kommt auch wieder bei fast allen heraus, was zu erwarten ist. Jedoch ist
+beim Steuerwort \texttt{0b0111} die Ausgabe nur \texttt{0x01}, und das erste
+Flag leuchtet auf.
 
 \subsubsection{Teil b: Existenz des 8. Bits}
 
@@ -683,6 +689,8 @@ abgekürzt aufgelistet:
 		Ergebnis ablesen.
 \end{enumerate}
 
+Wir erhalten das erwartete Ergebnis.
+
 \subsection{Versuchsaufgabe 4}
 
 Es soll die prinzipielle Wirkungsweise der Schaltungen in den
@@ -758,6 +766,7 @@ Abbildung~\ref{fig:compiling}.
 \FloatBarrier
 \subsection{Versuchsaufgabe 5}
 
+\FloatBarrier
 \subsubsection{Beschreiben der Funktionen}
 
 \begin{problem}
@@ -818,6 +827,23 @@ So sieht das fertige Programm aus:
 Es ist genau gleich mit der Aufgabenstellung, so dass die obige Erklärung
 wahrscheinlich richtig ist.
 
+\FloatBarrier
+\subsubsection{Bestimmung der Periode}
+
+Wir erhalten tatsächlich einen Sägezahn, siehe Abbildung~\ref{fig:foto1}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.45\linewidth]{../Oszi_Foto/DSC_0001.jpg}
+	\caption{%
+		Oszillogramm des Sägezahns
+	}
+	\label{fig:foto1}
+\end{figure}
+
+Am Oszillographen lesen wir die Periode ab: \SI{270}{\micro\second}.
+
+\FloatBarrier
 \subsubsection{Ändern der Periode}
 
 \begin{problem}
@@ -863,6 +889,16 @@ In Assembly:
 
 \inputminted[fontsize=\small, linenos]{python}{../Assembly/e.s}
 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.45\linewidth]{../Oszi_Foto/DSC_0003.jpg}
+	\caption{%
+		Oszillogramm des Rechtecksignals
+	}
+	\label{fig:foto3}
+\end{figure}
+
+\FloatBarrier
 \subsubsection{Bit überprüfen}
 
 \begin{problem}
@@ -929,6 +965,9 @@ dass ich dies einfach auch so gemacht habe.
 
 Vor dem Sprungbefehl brauche ich hier keinen Vergleich, weil der
 \texttt{DCR}-Befehl schon das Flag \texttt Z setzt.
+
+Dies haben wir mit einigen Zahlen ausprobiert und haben jedes Mal das richtige
+Ergebnis erhalten.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  Literatur                                  %
