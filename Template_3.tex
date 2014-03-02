@@ -1,0 +1,999 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+\input{header.tex}
+
+\usepackage{placeins}
+
+\ihead{physik313 – Versuch 3/4}
+\ifoot{Lino Lemmer}
+
+\hypersetup{
+	pdftitle={Transistor}
+}
+
+\subject{Praktikumsprotokoll}
+\title{Transistor}
+\subtitle{physik313 – Versuch 3}
+\author{
+	Lino Lemmer \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
+}
+
+%\setcounter{tocdepth}{2}
+
+\newcommand\IB{I_\text{B}}
+\newcommand\IC{I_\text{C}}
+\newcommand\ID{I_\text{D}}
+\newcommand\IE{I_\text{E}}
+\newcommand\IS{I_\text{S}}
+\newcommand\RC{R_\text{C}}
+\newcommand\RD{R_\text{D}}
+\newcommand\RE{R_\text{E}}
+\newcommand\UBE{U_\text{BE}}
+\newcommand\UB{U_\text{B}}
+\newcommand\UC{U_\text{C}}
+\newcommand\UCE{U_\text{CE}}
+\newcommand\UE{U_\text{E}}
+\newcommand\UG{U_\text{G}}
+\newcommand\UGS{U_\text{GS}}
+\newcommand\UDS{U_\text{DS}}
+
+\begin{document}
+
+\maketitle
+
+Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
+\ref{it:mu} eingesehen werden. Die Quellen für dieses Protokoll können auf
+\ref{it:github/alles} eingesehen werden. Die \LaTeX-Datei wird aus
+\ref{it:github/template} generiert.
+
+\begin{enumerate}
+	\item
+		\label{it:mu}
+		\url{http://martin-ueding.de/de/university/physik313/}
+	\item
+		\label{it:github/alles}
+		\url{https://github.com/martin-ueding/physik313-3_4/}
+	\item
+		\label{it:github/template}
+		\url{https://github.com/martin-ueding/physik313-3_4/blob/master/Template_4.tex}
+\end{enumerate}
+
+\newpage
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Einleitung                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Einleitung}
+
+In diesem Versuch betrachten wir zwei Arten von Transistoren, Bipolare und FET.
+
+Wir vermessen die Kennlinien der beiden Arten und bestimmen daraus
+Verstärkungswerte sowie Arbeitspunkte. Bei einer Emitterfolgerschaltung
+bestimmen wir die Strom- und Spannungsverstärkung für beide Arten. Zuletzt
+bestimmen wir den Eingangswiderstand des FET.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Aufgaben                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Aufgaben}
+
+\FloatBarrier
+\subsection{Aufgabe A}
+
+\begin{problem}
+	Welche Ströme treten beim Transistor außer dem Basis-Emitter-Durchlassstrom
+	und dem Emitter-Kollektor-Strom auf?
+\end{problem}
+
+Es treten noch Diffusionsströme auf, die jedoch so klein sind, dass sie
+vernachlässigt werden können.
+
+\FloatBarrier
+\subsection{Aufgabe B}
+
+\begin{problem}
+	Wie sieht der Potenzialverlauf im npn-Transistor aus
+	\begin{enumerate}
+		\item
+			ohne äußere Spannung
+		\item
+			bei außen angelegter Spannung?
+	\end{enumerate}
+\end{problem}
+
+Der Potenzialverlauf ist in Abbildung~\ref{fig:B_Zeichnung} zu sehen. Dabei ist
+der Verlauf bei angelegter Spannung durchgezogen.
+
+\begin{figure}
+	\centering
+	\includegraphics{Zeichnungen/B_Zeichnung.pdf}
+	\caption{%
+		Potenzialverlauf im npn-Transistor
+	}
+	\label{fig:B_Zeichnung}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe C}
+
+\begin{problem}
+	Wie sehen die Ladungsträgerkonzentrationen für Löcher und Elektronen im
+	npn-Transistor aus?
+\end{problem}
+
+Die Ladungsträgerkonzentration im npn-Transistor ist in
+Abbildung~\ref{fig:C_Zeichnung} zu sehen.
+
+\begin{figure}
+	\centering
+	\includegraphics{Zeichnungen/C_Zeichnung.pdf}
+	\caption{%
+		Ladungsträgerkonzentration im npn-Transistor
+	}
+	\label{fig:C_Zeichnung}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe D}
+
+\begin{problem}
+	Verifizieren Sie die Relationen zwischen $\alpha$, $\beta$ und $\gamma$.
+\end{problem}
+
+Zwischen $\alpha$ und $\beta$:
+
+\begin{align*}
+	\beta &= \dod{\IC}{\IB}\\
+	&= \dod{\IC}{\del{\IE-\IC}}\\
+	&= \frac{\dif\IC}{\dif\IE-\dif\IC}\\
+	&= \frac{\od\IC\IE}{\od\IE\IE-\od\IC\IE}\\
+	&=\frac{\alpha}{1-\alpha}
+	\intertext{Zwischen $\beta$ und $\gamma$:}
+	\beta &= \dod{\IC}{\IB}\\
+	&=\dod{\del{\IE-\IB}}\IB\\
+	&= \frac{\dif\IE-\dif\IB}{\dif\IB}\
+	&= \gamma-1
+\end{align*}
+
+\FloatBarrier
+\subsection{Aufgabe E}
+\label{ssec:Aufgabe_E}
+
+\begin{problem}
+	Welchen Ausgangsspannunsbereich ($U_\text{out min}, U_\text{out max}$)
+	(Aussteuerbereich) hat die Schaltung in Abbildung~\ref{fig:3_4-5}?
+	Vernachlässigen Sie hier $U_\text{CE sat}$.
+\end{problem}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.4\textwidth]{Anleitung/3_4-5.png}
+	\caption{%
+		\cite[Abbildung~3/4.5]{physik313-Anleitung}
+	}
+	\label{fig:3_4-5}
+\end{figure}
+
+Wir vernachlässigen $U_\text{CE sat}$, so dass der Transistor auch bei beliebig
+kleinen Spannungen $\UCE$ noch funktioniert. Die Ausgangsspannung, die gemessen
+wird, ist die Spannung zwischen Abgriff und Masse. Diese ist die
+Kollektorspannung $\UC$. Bei einem gegebenen Kollektorstrom $\IC$ kann die
+Ausgangsspannung auch berechnet werden durch:
+\[
+	U_\text{out} = U_0 - \IC\RC
+\]
+
+Die Frage ist nun also, welche Kollektorströme in dieser Schaltung fließen
+können.
+
+In der Anleitung steht, dass der Aussteuerbereich durch folgende
+Eckpunkte begrenzt wird:
+
+\begin{quote}
+	Die niedrigste Ausgangsspannung wird beim größtmöglichen Transistorstrom
+	$\IC$ und beim kleinstmöglichen Spannungsabfall am Transsistor $\UCE$
+	erreicht, und umgekehrt. \cite[§3/4.3.1]{physik313-Anleitung}
+\end{quote}
+
+Der größte Kollektorstrom, der fließen kann, wird durch $\RC$ und $\RE$
+begrenzt, wenn der Transistor eine unendliche Leitfähigkeit erreicht. Somit
+ist:
+\[
+	{\IC}_\text{max} = \frac{U_0}{\RC + \RE}
+\]
+
+Dadurch fällt eine minimale Spannung ab, nämlich:
+\[
+	{U_\text{out}}_\text{min} = U_0 \cdot \del{1 - \frac{\RC}{\RC + \RE}}
+\]
+
+Wenn wenn der Basisstrom $\IB$ minimal wird, weil durch das Signal $\UB$
+unter \SI{0.6}{\volt} fällt, wird der Widerstand des Transistors sehr groß.
+Wenn dieser dabei deutlich größer als $\RC$ wird, wird die rechte Seite der
+Schaltung zu einem unbelasteten Spannungsteiler, die Spannung $U_0$ fällt
+komplett über dem Transistor ab. Dadurch fällt keine Spannung über $\RC$ ab,
+die Ausgangsspannung ist die volle Eingangsspannung. Also:
+\[
+	{U_\text{out}}_\text{max} = U_0
+\]
+
+Somit ist der Aussteuerbereich:
+\[
+	\intcc{U_0; U_0 \cdot \del{1 - \frac{\RC}{\RC + \RE}}}
+\]
+
+\FloatBarrier
+\subsection{Aufgabe F}
+
+\begin{problem}
+	Welche Form hat die \emph{Eingangskennlinie} eines Transistors in
+	Emitterschaltung ($\IB$ als Funktion von $\UBE$)?
+\end{problem}
+
+Die Eingangskennlinie ist die Kennlinie einer Diode. Sie ist in
+Abbildung~\ref{fig:F_Zeichnung} zu sehen.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics{Zeichnungen/F_Zeichnung.pdf}
+	\caption{%
+		Einganskennlinie eines Transistors in Emitterschaltung
+	}
+	\label{fig:F_Zeichnung}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe G}
+
+\begin{problem}
+	Leiten Sie \eqref{eq:3_4-7} her!
+\end{problem}
+
+Die zitierte Gleichung ist:
+\begin{equation}
+	\label{eq:3_4-7}
+	\UB = U_0\frac{R_2}{R_1 + R_2} - \IB\frac{R_1 R_2}{R_1 + R_2}
+\end{equation}
+
+$\UB$ und $\IB$ sind in Abbildung~\ref{fig:3_4-5} die Spannung, die über $R_2$
+abfällt, bzw. der Strom der durch $R_2$ fließt. $U_1$ fällt über $R_1$ ab und
+der Strom $I_1$ fließt durch $R_2$ hindurch.
+
+\begin{align*}
+	U_0 &= U_1 + \UB\\
+		&= R_1I_1 + \UB\\
+	 &= R_1 (I_2 + \IB) + \UB\\
+	 &= R_1 \IB + R_1\frac{\UB}{R_2} + \UB\\
+	 &= \UB \frac{R_1+R_2}{R_2} + R_1 \IB
+	\intertext{hieraus folgt sofort}
+	\UB &= U_0\frac{R_2}{R_1 + R_2} - \IB\frac{R_1 R_2}{R_1 + R_2}
+\end{align*}
+
+\FloatBarrier
+\subsection{Aufgabe H}
+
+\begin{problem}
+	Was passiert, wenn man den Spannungsteiler zu niederohmig macht?
+\end{problem}
+
+Wenn der Spannungsteiler zu niederohmig ist, können große Ströme durch ihn
+fließen. Wenn die Betriebsspannung als ideale Spannungsquelle angenommen wird,
+ändert dies nichts an der Betriebsspannung. Jedoch wird so Basis und Emitter
+mit einer zu hohen Admittanz verbunden, das Eingangssignal wird geschwächt. Im
+extremen Fall liegt am Transistor gar kein Signal mehr an, die Verstärkung
+funktioniert nicht mehr.
+
+\FloatBarrier
+\subsection{Aufgabe I}
+
+\begin{problem}
+	Wie sieht die entsprechende Kennlinie beim bipolaren Transistor aus?
+	Welcher Spannung entspricht dort $U_\text{thr}$?
+\end{problem}
+
+Die „entsprechende Kennlinie“ ist der Graph von $\ID$ gegen $\UGS$. Bei einem
+bipolaren Transistor ist dies $\IC$ gegen $\UBE$.
+
+Die Kennlinie sieht genauso aus, wie die einer normalen Diode, da Basis und
+Emitter eine normale Diode sind. Der wichtige Unterschied ist, dass die Kurve
+eines FETs quadratisch ist, während die Kurve einer normalen Diode exponentiell
+ist. Die Kennlinie ist in Abbildung~\ref{fig:beuth-bild-16-9} gezeigt.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.5\textwidth]{beuth-bild-16-9.jpg}
+	\caption{%
+		\cite[Bild~16.9]{beuth/elementare_elektronik}
+	}
+	\label{fig:beuth-bild-16-9}
+\end{figure}
+
+Die Spannung $U_\text{thr}$ entspricht hier der Spannung, die die Diode
+braucht, bis sie leitend wird, also $\SI{.6}\volt$.
+
+\FloatBarrier
+\subsection{Aufgabe J}
+
+\begin{problem}
+	Was ändert sich, wenn man $\IS$ anstelle von $\ID$ aufträgt?
+\end{problem}
+
+Da $I_\text{G}\approx0$, ändert sich nichts signifikant.
+
+\FloatBarrier
+\subsection{Aufgabe K}
+
+\begin{problem}
+	Zeigen Sie, dass genauer gilt:
+	\begin{equation}
+		\label{eq:3_4-11}
+		v = \frac{\gamma \RE}{r_\text{BE} + \gamma \RE},
+	\end{equation}
+	wobei der differentielle Widerstand der Emitter-Basis-Diode $r_\text{BE} =
+	\dif  \UBE / \dif  \IB$ ist.
+\end{problem}
+
+Aus
+\begin{align*}
+	\UB &= \UBE + \UE
+	\intertext{folgt}
+	v &= \dod\UE\UB\\
+	&= \frac{\dif\UE}{\dif\UBE+\dif\UE}\\
+	&= \frac{\dif\IE\RE}{\dif\UBE+\dif\IE\RE}\\
+	&= \frac{\od\IE\IB\RE}{\od\UBE\IB+\od\IE\IB\RE}\\
+	&= \frac{\gamma\RE}{r_\text{BE}+\gamma\RE}
+\end{align*}
+
+\FloatBarrier
+\subsection{Aufgabe L}
+
+\begin{problem}
+	Welchen Zweck könnte der Kollektorwiderstand $\RC$ beim Emitterfolger
+	haben? Hinweis: Am Ausgang könnte eine niederohmige Last angeschlossen
+	sein.
+\end{problem}
+
+Angenommen, laut Hinweis, dass der die Last, $\RE$ niederohmig ist. Der
+Transistor wird bei großen Basisströmen auch niederohmig. Wenn dann kein
+Schutzwiderstand $\RC$ vorgeschaltet ist, fließt ein hoher Strom durch die
+Last.
+
+\FloatBarrier
+\subsection{Aufgabe M}
+
+\begin{problem}
+	Beweisen Sie \eqref{eq:3_4-12}.
+\end{problem}
+
+Die zitierte Gleichung ist:
+\begin{equation}
+	\label{eq:3_4-12}
+	\frac{r_\text{out}}{r_\text{in}}
+	= \frac{\gamma \RE}{r_\text{BE} + \gamma \RE}
+	\approx \frac 1\gamma
+\end{equation}
+
+Aus $r_\text{in}=\frac\UB\IB$ und $r_\text{out}=\frac\UE\IE$ folgt:
+\begin{align*}
+	\frac{r_\text{out}}{r_\text{in}} &= \dod\UE\IE \dod\IB\UB\\
+	&= \frac{\gamma\RE}{r_\text{BE}+\gamma\RE}\frac1\gamma\\
+	&= \frac{\RE}{r_\text{BE}+\gamma\RE}\\
+	&\approx \frac 1\gamma
+\end{align*}
+
+\FloatBarrier
+\subsection{Aufgabe N}
+
+\begin{problem}
+	Wie groß ist der Eingangswiderstand des unbelasteten Emitterfolgers?
+\end{problem}
+
+\begin{align*}
+	R_\text{in} &= \dod\UB\IB\\
+	&= \frac {\dif\UE+\dif\UBE}{\dif\IB}\\
+	&= r_\text{BE} + \dod \IE\IB \RE\\
+	&= r_\text{BE} + \gamma\RE
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   Durchführung: Transistoreigenschaften                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Durchführung}
+
+\FloatBarrier
+\subsection{Kennlinien und Arbeitspunkt}
+
+\subsubsection{Kennlinienschreiber}
+
+Um direkt mehrere Kennlinien auf dem Oszilloskop darstellen zu können, müssen
+wir schnell hintereinander verschiedene Basisströme $\IB$ auf den Transistor
+gegeben werden. Diese Umschaltung der Basisströme übernimmt der
+Kennlinienschreiber für uns. Das Schaltbild des Kennlinienschreibers ist in
+Abbildung~\ref{fig:3-1} dargestellt.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{Anleitung/3-1.png}
+	\caption{
+		Kennlinienschreiber \cite[Abbildung~3.1]{physik313-Anleitung}
+	}
+	\label{fig:3-1}
+\end{figure}
+
+Am linken Triggereingang wird ein
+Rechtecksignal zugeführt. Dieses wird durch den Kondensator differenziert. Die
+positiven Pulse, die durch den Transistor verstärkt werden, werden im Zählwerk
+gezählt. Dieses gibt die aktuelle Anzahl als vier Binärstellen durch vier
+Widerstandsketten. Die einzelnen Widerstände unterscheiden sich um einen Faktor
+2, so dass der Ausgangsstrom in 16 Stufen erhöht wird.
+
+\subsubsection{Inbetriebnahme des Kennlinienschreibers}
+
+Am rechten Ende ist ein Steckplatz für einen Transistor, der mit den oben
+beschriebene den Basisströmen versorgt wird. Der zweite Ausgang des
+Funktionsgenerators, der ein Dreiecksignal liefert, gibt eine kontinuierlich
+ändernde Betriebsspannung. Mit dem Oszilloskop nehmen wir die
+Kollektor-Emitter-Spannung $\UCE$ ab und geben es in Kanal~2 rein. Auf Kanal~1
+wird die Betriebsspannung vom Funktionsgenerator angelegt. Dieser Aufbau ist in
+Abbildung~\ref{fig:3-2} gezeigt.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{Anleitung/3-2.png}
+	\caption{
+		\cite[Abbildung~3.2]{physik313-Anleitung}
+	}
+	\label{fig:3-2}
+\end{figure}
+
+Damit auf dem Oszilloskop die Spannungsdifferenz angezeigt wird, invertieren
+wir Kanal~2 und addieren ihn auf Kanal~1. Für die Kennlinien stellen wir
+außerdem den XY-Betrieb ein.
+
+Wir schließen den Transistor vom \emph{Schaltbrett~1} (siehe
+Abbildung~\ref{fig:3-4}) an den Kennlinienschreiber an.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{Anleitung/3-4.png}
+	\caption{
+		\emph{Schaltbrett~1} \cite[Abbildung~3.4]{physik313-Anleitung}
+	}
+	\label{fig:3-4}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{Bipolarer Transistor}
+
+\paragraph{Aufnahme der Kennlinen}
+
+Wir lassen die Schaltung von unserem Assistenten überprüfen. Danach schalten
+wir das Netzgerät ein und erhalten nach Justierung das Kennlinienfeld, siehe
+Abbildung~\ref{fig:3}.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Hand/3-03.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/3-03.jpg}
+	\end{minipage}
+	\caption{%
+		Kennlinienfeld, $\IC$ gegen $\UCE$. Verstärkung
+		\SI{1}{\volt\per\division}, XY-Modus. Durch die Umwandlung des Stromes
+		$\IC$ in eine Spannung mit $\RC = \SI{500}\ohm$ entspricht ein
+		\si{\division} auf der $\IC$-Achse einem Strom von
+		\SI{2}{\milli\ampere}.
+	}
+	\label{fig:3}
+\end{figure}
+
+Den Kollektorstrom $\IC$ haben wir indirekt gemessen, in dem wir die
+Spannungsdifferenz vor und nach dem Widerstand $\RC$ mit dem Oszilloskop
+sichtbar gemacht haben. Da $\RC = \SI{500}\ohm$ ist, können wir die Spannung so
+in einen Strom umwandeln.
+
+\paragraph{Bestimmung von $\beta$}
+
+Aus dem Graph in Abbildung~\ref{fig:3} lesen den Abstand
+zwischen zwei Kennlinien, $\dif\IC$, ab. Wir wählen Kennline 5 und
+6 von unten, und erhalten eine Differenz von \SI{<< dIC >>}{\ampere}. Mit
+$\dif\IB = \SI{<< dIB >>}{\ampere}$ erhalten wir:
+\[
+	\beta = \dod\IC\IB = \num{<< beta >>}
+\]
+
+\paragraph{Arbeitspunkt}
+
+Die Arbeitsgerade ist in der Anleitung gegeben als:
+\cite[Formel~3/4.6]{physik313-Anleitung}
+\begin{equation}
+	\label{eq:3_4-6}
+	\IC = \frac{U_0 - \UCE}{\RC + \RE}
+\end{equation}
+
+Mit $\RC = \RE = \SI{390}\ohm$ und einer Betriebspannung von $U_0 =
+\SI{15}\volt$ können wir eine Gerade einzeichnen. Die Spurpunkte sind:
+\[
+	\del{\UCE = \SI0\volt; \IC = \frac{U_0}{\RC + \RE} = \SI{19.2}{\milli\ampere}}
+	\eqnsep
+	\del{\UCE = U_0 = \SI{15}\volt; \IC = \SI0\ampere}
+\]
+
+Aus diesem Grund sollten wir bereits beim Abzeichnen des Kennlinienfeldes
+darauf achten, dass $\UCE$ einen Bereich bis $\SI{15}\volt$ und $\IC$ einen
+Bereich bis $\SI{20}{\milli\ampere}$ umfasst.
+
+Diese Gerade ist in Abbildung \ref{fig:3} schon eingezeichnet.
+
+In der Anleitung war gegeben, dass die Kennlinien $(\SI{12}\volt -
+\SI{.7}\volt)/(4 \cdot \SI{470}{\kilo\ohm})$, also \SI{6.01}{\micro\ampere}
+auseinander liegen. Es soll die Spannung $\UCE$ für den Arbeitspunkt $\IB =
+\SI{60}{\micro\ampere}$ abgeschätzt werden, in dem die Linien im Kennlinienfeld
+verlängert werden. Die gewünschte Linie ist dann die zehnte Linie. Da wir
+davon ausgehen können, dass im Sättigungsbereich der Kollektorstrom
+näherungsweise konstant bleibt, lesen wir die Spannung
+$\UCE = \SI{7.4 \pm 0.1}{\volt}$ und den Strom $\IC = \SI{9.8 \pm
+0.2}{\milli\ampere}$ ab.
+
+\subsubsection{FET}
+
+\paragraph{Aufnahme der Kennlinien}
+
+Wir benutzen den gleichen Aufbau wie in der vorherigen Aufgabe. Den bipolaren
+Transistor ersetzen wir durch einen FET. Da dieser mit einer Spannung gesteuert
+wird, müssen wir den Basisstrom $\IB$ erst noch in eine Basis-Emitter-Spannung
+$\UBE$ umwandeln. Bei FETs heißt diese jedoch Gate-Source-Spannung, $\UGS$. Wir
+schließen also einen Widerstand $R$ zwischen Gate und Source an. Dazu benutzen
+wir ein \SI{470}{\kilo\ohm}-Potentiometer. Wir justieren das Potentiometer so,
+dass möglichst viele Linien auf dem Oszilloskop zu sehen sind. Leider haben wir
+es bei der Durchführung versäumt, den eingestellten Wert von $R$ zu messen.
+Daher können wir jetzt nur einen Wert zwischen \SIrange{0}{470}{\kilo\ohm}
+annehmen und damit rechnen.
+
+Den Spannungsabstand $\dif\UGS$ erhalten wir durch $R \cdot
+\SI{6}{\micro\ampere}$, da, wie schon im vorherigen Abschnitt berechnet, die
+Stromunterschiede $\dif\IB$ den Wert \SI{6}{\micro\ampere} haben. Über einem
+Widerstand $R$ fällt dann die Spannung $U = IR$ ab. Dies ist natürlich nicht
+ganz exakt, da der Widerstand nicht unendlich groß ist und so alle Ströme etwas
+verändert.
+
+\begin{figure}
+	\centering
+	\label{fig:4}
+	\begin{minipage}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Hand/3-04.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/3-04.jpg}
+	\end{minipage}
+	\caption{%
+		Kennlinienfeld, $\RD \ID$ gegen $\UDS$. Verstärkung $\SI
+		1{\volt\per\division}$, XY-Modus.
+	}
+	\label{fig:4}
+\end{figure}
+
+Das Kennlinienfeld des FET ist in Abbildung~\ref{fig:4} zu sehen.
+
+\paragraph{Bestimmung der Schwellenspannung und Transkonduktanz}
+\label{par:Schwellenspannung}
+
+Um die Schwellenspannung und die Transkonduktanz bestimmen zu können muss die
+Abhängigkeit des Drainstromes $\ID$ von $\UGS$ bei konstantem $\UDS$ untersucht
+werden.
+
+Als feste $\UDS$ wähle ich \SI 2\volt. Ich lese aus dem Plot die Werte für
+$\ID$ für die verschiedenen Linien ab, siehe Tabelle~\ref{tab:trans_raw}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SS}
+		{Liniennummer $n$} & {$\ID / \si\division$} \\
+		\hline
+		%< for n, id in trans_raw: >%
+		<< n >> & << id >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Abgelesene Daten aus Abbildung~\ref{fig:4}
+	}
+	\label{tab:trans_raw}
+\end{table}
+
+Mit einem angenommenen Widerstand von \SI{<< R >>}{\ohm} kann ich für die Linie
+$n$ die Gatespannung $\UG$ wie folgt ausrechnen:
+\[
+	\UG = R n \cdot \SI{6}{\micro\ampere}
+\]
+
+Die umgerechneten Daten sind in Tabelle~\ref{tab:trans}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SS}
+		{$\UG / \si\volt$} & {$\ID / \si\ampere$} \\
+		\hline
+		%< for ug, id in trans: >%
+		<< ug >> & << id >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Berechnete Daten aus Tabelle~\ref{tab:trans_raw}
+	}
+	\label{tab:trans}
+\end{table}
+
+Die Daten plotte ich einmal $\ID$ gegen $\UG$ in Abbildung~\ref{fig:ID_UG} und
+einmal als $\sqrt\ID$ gegen $\UG$ in Abbildung~\ref{fig:ID_UG_sqrt}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{ID_UG.pdf}
+	\caption{%
+		Drainstrom gegen Gatespannung bei konstanter Drainspannung
+	}
+	\label{fig:ID_UG}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{ID_UG_sqrt.pdf}
+	\caption{%
+		Drainstrom gegen Gatespannung bei konstanter Drainspannung
+	}
+	\label{fig:ID_UG_sqrt}
+\end{figure}
+
+Dies fitte ich mit $\ID = k (\UG - U_\text{thr})^2$ und erhalte $k = \SI{<< k
+>>}{\per\ohm}$ und $U_\text{thr} = \SI{<< Uthr >>}{\volt}$. Die Fits sind
+schon in den Abbildungen~\ref{fig:ID_UG} und \ref{fig:ID_UG_sqrt} eingetragen.
+
+%< if Uthr | float < 0: >%
+Es sollte keine negative Thresholdspannung herauskommen. In den weiteren
+Aufgaben hatten wir eine Spannung von \SI{1.4}{\volt} gemessen. Auch wenn wir
+den Widerstand $R$ nicht bestimmt hatten, sollte mindestens eine positive
+Spannung $U_\text{thr}$ herauskommen.
+%< endif >%
+
+\FloatBarrier
+\subsection{Emitterfolger}
+
+\subsubsection{Aufbau}
+
+Auf dem \emph{Schaltbrett~1} (Abbildung~\ref{fig:3-4}) bauen wir einen
+Emitterfolger (Kollektorschaltung) auf. Eine solche ist, mit Kapazitäten
+erweitert, in Abbildung~\ref{fig:beuth-bild-16-21} dargestellt.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.6\textwidth]{beuth-bild-16-21.jpg}
+	\caption{%
+		Verstärkerstufe in Kollektorschaltung (Emitterfolgerstufe)
+		\cite[Bild~16.21]{beuth/elementare_elektronik}
+	}
+	\label{fig:beuth-bild-16-21}
+\end{figure}
+
+Das Netzgerät mit $U_0 = \SI{15}\volt$ wird an das Schaltbrett angeschlossen.
+Wir setzen $\RC = \RE = \SI{390}\ohm$ ein, wie in der Anleitung beschrieben.
+Als Signal stellen wir ein Sinussignal mit $\dif\UBE = \SI{.5}{\voltss}$ und
+einer Frequenz $f = \SI{500}\hertz$ ein. Dazu kommt ein Offset von
+\SI{2}{\volt}.
+
+Das Oszilloskop wird mit Kanal~1 an das Signal des Funktionsgenerators
+angeschlossen. Kanal~2 kommt an den Emitter.
+
+Wir vergleichen die Eingangs- und Ausgangsspannung, $\UB$ bzw. $\UE$. auf dem
+Oszilloskop. Die Signale sind in Abbildung~\ref{fig:7} zu sehen.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Hand/3-07.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/3-07.jpg}
+	\end{minipage}
+	\caption{%
+		Eingangs- und Ausgangssignal beim Emitterfolger. Verstärkung auf beiden
+	Kanälen identisch.
+	}
+	\label{fig:7}
+\end{figure}
+
+Es ist deutlich zu erkennen, dass keine Phasenverschiebung stattgefunden hat.
+Dies ist klar, da die Ausgangsspannung $\UE$ mit der Eingangsspannung $\UB$
+über die Beziehung $\UB = \UE - \UBE = \UB - \SI {0.6}{\volt}$ zusammenhängt.
+
+\subsubsection{Spannungsverstärkung}
+
+Wir messen die Spannungsverstärkung $\dif\UE/\dif\UB$. Dazu lesen wir vom
+Oszilloskop die Spitze-Spitze-Spannung von beiden Kanälen ab und erhalten:
+\[
+	\dif\UE = \SI{<< dU_E >>}\voltss
+	\eqnsep
+	\dif\UB = \SI{<< dU_B >>}\voltss
+\]
+
+Daraus folgt die Spannungsverstärkung $\dif\UE/\dif\UB = \num{<<
+spannungsverstaerkung >>}$.
+
+\subsubsection{Aussteuergrenzen}
+
+Am Signalgenerator wird nun die Amplitude variiert um die untere und obere
+Aussteuergrenze zu ermitteln. Fällt das Eingangssignal dabei unter
+\SI{0.3}{\volt} wird das Ausgangssignal abgeschnitten.
+
+Durch weiteres Aufdrehen bis zur maximalen Amplitude des Generators konnten
+wir keine Signalverzerrung feststellen. Der Theorie nach hätten wir ab einer
+bestimmten Eingangssignalstärke eine einsetzende Gleichrichtung beobachten
+können müssen.
+
+Die untere Grenze konnten wir durch Vergrößerung des Offsets erhöhen.
+
+Nach unseren Vorüberlegungen in \ref{ssec:Aufgabe_E} sollte die untere Grenze
+bei $U/2$ liegen. Dies ist eindeutig nicht der Fall.
+
+\subsubsection{Arbeitspunkteinstellung}
+
+Wir ersetzen nun den DC-Offset am Funktionsgenerator mit einer
+Basisvorspannung, die wir mit dem Spannungsteiler erzeugen. In der Anleitung
+steht: „Fügen Sie dazu einen geeigneten Kondensator in Serie hinter dem
+\SI{10}{\kilo\ohm}-Widerstand ein.“ Auf \emph{Schaltbrett~1} gibt es jedoch
+drei solche Widerstände, wobei einer davon ein Potentiometer ist. Der
+Kondensator soll hinter den linken Widerstand. Dies habe ich in blau in
+Abbildung~\ref{fig:3-4_Arbeitspunkt} dargestellt. In rot und grün sind
+einfache Kabelbrücken.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{Anleitung/3-4_Arbeitspunkt.png}
+	\caption{
+		\emph{Schaltbrett~2} mit Beschaltung. Originalbild ist in
+		Abbildung~\ref{fig:3-4} und aus
+		\cite[Abbildung~3.4]{physik313-Anleitung}.
+	}
+	\label{fig:3-4_Arbeitspunkt}
+\end{figure}
+
+Der Kondensator hat nicht direkt etwas mit der Einstellung der Basisvorspannung
+zu tun. Diese ist mit dem roten Kontakt schon eingestellt. Der Kondensator
+dient dazu, den Funktionsgenerator von der Gleichspannung zu entkoppeln, sowie
+eine eventuell verbleibende Offsetspannung vom Signal zu trennen.
+
+Wenn der Kondensator zu klein ist, ist seine Impedanz zu hoch, das
+Eingangssignal wird zu stark geschwächt. Es findet eine Phasenverschiebung
+statt, die größer wird je kleiner der Kondensator ist.
+
+Bei einem \SI{10}{\micro\farad}-Kondensator war weder eine Dämpfung, noch eine
+Phasenverschiebung erkennbar. Beim \SI{100}{\nano\farad}-Kondensator waren
+beide zwar sichtbar, aber noch sehr klein.
+
+Wir verändern den Spannungsteiler um zu schauen, wann der Aussteuerungsbereich
+der Schaltung am größten ist.
+
+Beim \SI{100}{\nano\farad}-Kondensator war der Bereich am größten bei einer
+Basisspannung von \SI{1.2}{\volt}. Dies ist ein kleiner Wert im Gegensatz zu
+anliegenden Gesamtspannung von \SI{15}{\volt}. Daraus kann man folgern je
+größer $\RC$, desto größer der Aussteuerbereich.
+
+\FloatBarrier
+\subsection{FET}
+
+Auf dem \emph{Schaltbrett~2} (Abbildung~\ref{fig:3-5}) bauen wir eine
+Emitterfolgerschaltung (Kollektorschaltung) mit dem Bipolartransistor auf.
+Dabei setzen wir $\RC = \SI0\ohm$ und den Emitterwiderstand im Bereich
+\SIrange{1}{2}{\kilo\ohm}. Dazu setzen wir einen \SI{1.8}{\kilo\ohm} hinter den
+schon vorhandenen \SI{100}{\ohm} Widerstand.
+
+Die Schaltung wird mit \SI{10}{\volt} Gleichspannung versorgt. Als
+Eingangssignal in die Basis des Transistors geben wir ein Sinussignal mit
+\SI1{\kilo\hertz} und \SI{2}{\voltss}. Außerdem stellen wir einen Offset von
+etwa \SI5{\volt} ein.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{Anleitung/3-5.png}
+	\caption{
+		\emph{Schaltbrett~2} \cite[Abbildung~3.5]{physik313-Anleitung}
+	}
+	\label{fig:3-5}
+\end{figure}
+
+Wir beobachten das Eingangssignal sowie das Signal, das aus dem Emitter kommt,
+mit den beiden Kanälen des Oszilloskops. Dazu stellen wir auf beiden Kanälen
+die gleiche Verstärkung und den gleichen $y$-Offset ein. Die Kanäle werden auf
+DC gekoppelt, damit auch die Basisvorspannung zu sehen ist.
+
+Der Offset wird variiert, dabei beobachten wir, wie die Ausgangsspannung
+ungefähr \SI{.6}{\volt} unterhalb der Eingangsspannung liegt. Außerdem erhalten
+wir nur ein Ausgangssignal, wenn die Spannung oberhalb dieser Grenzspannung
+liegt. Siehe Abbildung~\ref{fig:Folger}.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.3\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/3-08.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.3\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/3-10.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.3\linewidth}
+		\includegraphics[width=\linewidth]{Oszi_Foto/3-11.jpg}
+	\end{minipage}
+	\caption{%
+		Variation des Offsets. Verstärkung \SI{1}{\volt\per\division}.
+	}
+	\label{fig:Folger}
+\end{figure}
+
+Als nächstes bauen wir eine vergleichbare Schaltung, diesmal allerdings mit dem
+FET. Die Schaltung heißt nicht mehr Emitterfolgerschaltung sondern
+Sourcefolgerschaltung, da beim FET die englischen Begriffe benutzt werden. Wir
+überprüfen die Funktion der Schaltung und verändern den DC-Offset und
+beobachten, dass die Schaltung im wesentlichen gleich funktioniert.
+
+Wir bestimmen $U_\text{thr}$ zu \SI{1.4}{\volt}. Im Vergleich zu der Messung
+der Schwellenspannung, die wir auf Seite~\pageref{par:Schwellenspannung}
+bestimmt haben, kommt hier etwas völlig anderes heraus. Dies liegt jedoch
+daran, dass wir den Widerstand $R$ nicht bestimmt haben, und dass der dort
+erhaltene Wert von \SI{<< Uthr >>}{\volt} negativ ist.
+
+\subsubsection{Eingangswiderstand}
+
+In dieser Versuchsaufgabe wollen wir die Eingangswiderstände der Transistoren
+als unbelastete Emitterfolger abschätzen.
+
+Den Sinusgenerator nehmen wir aus der Buchse~B1 heraus. Mit einer Drahtbrücke
+koppeln wir den \SI1{\micro\farad}-Kondensator ein. Das Oszilloskop hat einen
+Eingangswiderstand von \SI1{\mega\ohm}. Dadurch sollte die Zeitkonstante für
+die Entladung des Kondensators sein:
+\[
+	\tau = RC = \SI1{\second}
+\]
+
+Die Halbwertszeit $T_{1/2}$ ist um $1/\ln(2)$ kleiner, also $\SI{.69}\second$.
+Wir beobachten eine Halbwertszeit von \SI{0.64}{\second}.
+
+Der bipolare Transistor wird wieder als Emitterfolger eingesetzt. Buchse~1 wird
+mit einem kurzen BNC Kabel an die Basis angeschlossen. Mit dem Oszilloskop
+beobachten wir die Spannung am Emitter, also am Ausgang des Verstärkers. Der
+Transistor wird am Kollektor mit Strom versorgt, am Emitter haben wir keinen
+Widerstand eingesetzt. Die Entladung hat nur über den \SI{1}{\mega\ohm}
+Eingangswiderstand am Oszilloskop stattgefunden. In der Anleitung steht, dass
+man einen Widerstand im Bereich \SIrange{1}{2}{\kilo\ohm} als $\RE$ benutzen
+soll. Dies haben wir versucht, jedoch war die Entladung dann so schnell, dass
+sie nicht mehr sinnvoll zu beobachten war.
+
+Wir beobachten die neue Abfallzeit. Diese ist anders, da der Kondensator jetzt
+über einen anderen Widerstand entlädt, den Transistor. Wir beobachten eine
+Abfallzeit von \SI{76}{\second}.
+
+Aus diesem Verhältnis bestimmen wir die Stromverstärkung. Diese ist definiert
+als:
+\[
+	B := \frac\IC\IB
+	\eqnsep
+	\beta := \frac{\dif\IC}{\dif\IB}
+\]
+
+Um die Halbwertszeit zu halbieren, muss ein doppelt so hoher Strom fließen. Da
+jedoch die Halbwertszeit beim Bipolartransistor größer geworden ist, floss
+weniger Strom. Dies bedeutet, dass der Strom nicht verstärkt worden ist,
+sondern abgeschwächt. Dies wäre mit einem $\RE$ im Bereich \SI{1}{\kilo\ohm}
+wahrscheinlich anders gewesen, jedoch haben wir dort die Halbwertszeit nicht
+mehr sinnvoll messen können.
+
+Beim FET sind die Zeiten so groß wie beim Oszilloskop alleine, der Strom wurde
+also nicht wirklich verändert. Dies ist gerade beim FET sehr seltsam.
+
+Bei kleineren Kapazitäten wurde die Halbwertszeit deutlich geringer. Bei den
+kleinsten Kapazitäten soweit, dass sie mit dem Auge als instantan wahrgenommen
+worden sind. Wir haben die Zeitbasis am Oszilloskop so eingestellt, dass wir
+die Entladekurve beobachten konnte. Da keine Triggerung eingestellt worden ist,
+war die Entladung an einer beliebigen Stelle auf dem Schirm und hat nur
+aufgeblitzt. Wir haben versucht abzuschätzen, wie lange die Halbwertszeit ist,
+jedoch sind unsere Messungen nur Größenordnungen. Siehe
+Tabelle~\ref{tab:Halbwertszeiten}.
+
+Zuletzt bauen wir mit dem FET einen Sourcefolger auf, der ebenfalls am Drain
+mit Spannung versorgt wird. Die Entladung findet nur über das Oszilloskop
+statt, auch hier haben wir keinen Emitterwiderstand benutzt. Die Entladezeiten
+waren alle extrem kurz. Zu erwarten wäre, laut Tutor, dass sich die Spannung
+selbst bei der kleinsten Kapazität nicht verändert. Bei unserem FET
+unterscheiden sich die Entladezeiten allerdings nicht von den Entladezeiten des
+Oszilloskops alleine.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{S|SSS}
+		{Kapazität / \si{\farad}} & {Oszilloskop alleine / \si\second} &
+		{Bipoltransistor / \si\second} & {FET / \si\second} \\
+		\hline
+		%< for c, o, b, f in halbwertszeiten: >%
+		<< c >> & << o >> & << b >> & << f >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{
+		Halbwertszeiten bei den verschiedenen Transistoren
+	}
+	\label{tab:Halbwertszeiten}
+\end{table}
+
+Aus den Halbwertszeiten können wir die Widerstände errechnen:
+\[
+	R = \frac{T_{1/2}}{C \ln(2)}
+\]
+
+Die errechneten Widerstände sind in Tabelle~\ref{tab:Eingangswiderstaende}. Der
+\SI{1}{\mega\ohm}-Widerstand des Oszilloskop ist in der entsprechenden Spalte
+zu erkennen. Bei der letzten Kapazität ist unser Wert allerdings weniger genau.
+Der Bipolartransistor hat einen \emph{höheren} Widerstand als das Oszilloskop
+alleine. Dies ist zu erwarten, da wir nur über das Oszilloskop entladen haben.
+Um den eigentlichen Widerstand zu erhalten, muss man den gemessenen Wert vom
+Widerstand des Oszilloskops abziehen. Allerdings bleibt auch dann immer noch
+ein Widerstand in der Größenordnung \SI{1e8}{\ohm} übrig.
+
+Der gemessene Widerstand beim FET ist jedoch nur wenig größer als der des
+Oszilloskops. Dies bedeutet, dass der FET keinen besonders hohen
+Eingangswiderstand hat. In der Anleitung sind Widerstände von
+\SIrange{e12}{e15}{\ohm} angegeben. \cite[§3/4.4]{physik313-Anleitung}. In
+anderen Gruppen war die Entladezeit deutlich höher. Der von uns benutzte FET
+hatte wahrscheinlich einen defekt.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{S|SSS}
+		{Kapazität / \si{\farad}} & {Oszilloskop alleine / \si\ohm} &
+		{Bipoltransistor / \si\ohm} & {FET / \si\ohm} \\
+		\hline
+		%< for c, o, b, f in widerstaende: >%
+		<< "%.3g" % c >> & << "%.3g" % o >> & << "%.3g" % b >> & << "%.3g" % f >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{
+		Eingangswiderstände bei den verschiedenen Transistoren
+	}
+	\label{tab:Eingangswiderstaende}
+\end{table}
+
+Die Entladung mit der Kapazität vom BNC Kabel war noch deutlich schneller als
+bei der \SI{100}{\pico\farad}-Kapazität. In Simons Gruppe war zu sehen, dass
+die Kapazität des Kabels wohl in der gleichen Größenordnung wie
+\SI{100}{\pico\farad} ist. Sie hatten das Kabel auf Seite des Kondensators
+abgesteckt, entladen und wieder angesteckt. Die Spannung auf dem Oszilloskop
+war noch ungefähr halb so groß.
+
+In der Tabelle~1.1 aus der Anleitung ist eine spezifische Kapazität von
+\SI{100}{\pico\farad\per\meter} für RG-58C/U-Kabel gegeben. Das kurze Kabel war
+jedoch nur ungefähr \SI{15}{\centi\meter} lang. Wahrscheinlich haben Stecker
+und das Gate selbst noch eine Kapazität, so dass die Summe in der Größenordnung
+von \SI{100}{\pico\farad} liegt.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Literatur                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de tw=79
