@@ -1,0 +1,983 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+\input{../header.tex}
+
+\usepackage{placeins}
+\usepackage{minted}
+\usepackage{multicol}
+
+\ihead{physik313 – Versuch 8}
+\ifoot{Martin Ueding, Lino Lemmer}
+
+\subject{Praktikumsprotokoll}
+\title{Mikroprozessor}
+\subtitle{physik313 – Versuch 8}
+\author{
+	Martin Ueding
+    \footnote{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+	\and
+	Lino Lemmer
+    \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
+}
+
+%\setcounter{tocdepth}{2}
+
+\newcommand\fT{f_\text{T}}
+\newcommand\IB{I_\text{B}}
+\newcommand\IC{I_\text{C}}
+\newcommand\ID{I_\text{D}}
+\newcommand\IE{I_\text{E}}
+\newcommand\IS{I_\text{S}}
+\newcommand\RC{R_\text{C}}
+\newcommand\RD{R_\text{D}}
+\newcommand\RE{R_\text{E}}
+\newcommand\UBE{U_\text{BE}}
+\newcommand\UB{U_\text{B}}
+\newcommand\UCE{U_\text{CE}}
+\newcommand\UC{U_\text{C}}
+\newcommand\UD{U_\text{D}}
+\newcommand\UDS{U_\text{DS}}
+\newcommand\UE{U_\text{E}}
+\newcommand\UGS{U_\text{GS}}
+\newcommand\UG{U_\text{G}}
+\newcommand\Uin{U_\text{in}}
+\newcommand\Uout{U_\text{out}}
+
+\newcommand\UEH{U_\text{E H}}
+\newcommand\UEL{U_\text{E L}}
+\newcommand\UH{U_\text{H}}
+\newcommand\UL{U_\text{L}}
+\newcommand\UQH{U_\text{Q H}}
+\newcommand\UQL{U_\text{Q L}}
+
+\newcommand\mand {\wedge}
+\newcommand\mhigh{\top}
+\newcommand\mlow {\bot}
+\newcommand\mnand{\bar\wedge}
+\newcommand\mnor {\bar\vee}
+\newcommand\mnot {\neg}
+\newcommand\mor  {\vee}
+\newcommand\mxor {\veebar}
+\newcommand\tand {\textsc{and}}
+\newcommand\thigh{\textsc{high}}
+\newcommand\tlow {\textsc{low}}
+\newcommand\tnand{\textsc{nand}}
+\newcommand\tnor {\textsc{nor}}
+\newcommand\tnot {\textsc{not}}
+\newcommand\tor  {\textsc{or}}
+\newcommand\txor {\textsc{xor}}
+
+\begin{document}
+
+\maketitle
+
+\section*{\LaTeX-Quelltext}
+
+Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
+\ref{it:mu} eingesehen werden. Die Quellen für dieses Protokoll können auf
+\ref{it:github/alles} eingesehen werden. Die \LaTeX-Datei wird aus
+\ref{it:github/template} generiert.
+
+\begin{enumerate}
+	\item
+		\label{it:mu}
+		\url{http://martin-ueding.de/de/university/physik313/}
+	\item
+		\label{it:github/alles}
+		\url{https://github.com/martin-ueding/physik313-8/}
+	\item
+		\label{it:github/template}
+		\url{https://github.com/martin-ueding/physik313-8/blob/master/Template.tex}
+\end{enumerate}
+
+\section*{Notation}
+
+Ich benutze Hexadezimalzahlen eher am Computer als in der Mathematik, so dass
+ich häufiger \texttt{0xff} als $\mathrm{ff_{16}}$ schreiben werde. Binärzahlen
+werde ich mit \texttt{0b10} schreiben, so wie es in Python 3 auch gemacht wird.
+
+\newpage
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Einleitung                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Einleitung}
+
+In diesem Versuch werden wir von dem Addierer, den wir im Versuch 7 konstruiert
+haben, ausgehen und ein Addier- und Subtrahierwerk benutzen. Dies wird mit
+Hilfe von Logikbausteinen zu einer ALU erweitert. Im dritten Schritt fügen wir
+ein Register hinzu, um Zwischenergebnisse festzuhalten. Als letzten Schritt
+benutzen wir einen 8080 Prozessor, den wir selbst mit entsprechendem
+Assembly-Code programmieren.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Theorie                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Theorie}
+
+\subsection{8080}
+
+\subsubsection{Flags}
+
+In den Tabellen mit den 8080-Mikroprozessor-Befehlen sind zwar die Flags
+aufgelistet, allerdings habe ich an keiner Stelle eine Übersicht gefunden, wie
+diese genau definiert sind. Daher hier zusammengetragen aus den impliziten
+Definitionen quer durch die Anleitung:
+
+\begin{tabular}{ll}
+	Flag & Bedeutung \\
+	\hline
+	N & Zahl ist negativ \\
+	Z & Zahl ist Null \\
+	H & sekundärer Übertrag \cite[Abschnitt~„Flags“]{wikipedia/8080} \\
+	P & Zahl ist gerade \\
+	C & Übertrag \\
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Aufgaben                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Aufgaben}
+
+\subsection{Aufgabe A}
+
+\begin{problem}
+	Wandeln Sie die zwei nachfolgenden Dualzahlen in das Hexadezimal- und das
+	Dezimalsystem um:
+	\begin{gather*}
+		1101\,1111\,0010\,1110_2 \\
+		1111\,1111_2
+	\end{gather*}
+\end{problem}
+
+An dieser Stelle möchte ich mich als guter Programmierer meiner Faulheit
+bedienen (Aussage von Larry Wall, \cite{threevirtues.com}). Daher benutze ich
+Python 3, um die Zahlen zu verrechnen. Mir ist durchaus bekannt, wie man die
+Zahlen umrechnet, jedoch möchte ich meine Zeit lieber für die interessanten
+Teile dieses Versuchs aufwenden.
+
+\begin{minted}{pycon}
+>>> 0b1101111100101110
+57134
+>>> hex(57134)
+'0xdf2e'
+>>> 0b11111111
+255
+>>> hex(_)
+'0xff'
+\end{minted}
+
+\subsection{Aufgabe B}
+
+\begin{problem}
+	Wandeln Sie die nachfolgenden Dezimalzahlen in Binär- und Hexadezimalzahlen
+	um:
+	\[
+		2115_{10}
+	\]
+\end{problem}
+
+\begin{minted}{pycon}
+>>> bin(2115)
+'0b100001000011'
+>>> hex(2115)
+'0x843'
+\end{minted}
+
+\subsection{Aufgabe C}
+
+\begin{problem}
+	Wandeln Sie die nachfolgenden Hexadezimalzahl in Binär- und
+	Dezimaldarstellung um:
+	\[
+		\mathrm{B75F}_{16}
+	\]
+\end{problem}
+
+\begin{minted}{pycon}
+>>> 0xb75f
+46943
+>>> bin(_)
+'0b1011011101011111'
+\end{minted}
+
+\subsection{Aufgabe D}
+
+\begin{problem}
+	Führen Sie die nachfolgenden Operationen zwischen Dualzahlen durch:
+\end{problem}
+
+\paragraph{Addition}
+
+\begin{minted}{pycon}
+>>> bin(0b01011011 + 0b01101011)
+'0b11000110'
+>>> bin(0b11111111 + 0b00000001)
+'0b100000000'
+\end{minted}
+
+\paragraph{Subtraktion}
+
+\begin{minted}{pycon}
+>>> bin(0b11000000 - 0b10110101)
+'0b1011'
+\end{minted}
+
+\paragraph{Multiplikation}
+
+\begin{minted}{pycon}
+>>> bin(0b1101 * 0b1001)
+'0b1110101'
+\end{minted}
+
+\paragraph{Division}
+
+\begin{minted}{pycon}
+>>> bin(0b1110111 // 0b101)
+'0b10111'
+\end{minted}
+
+\paragraph{Überlauf und Übertrag}
+
+\begin{problem}
+    Was ist bei arithmetischen Operationen ein Überlauf und was versteht man
+    unter einem Übertrag?
+\end{problem}
+
+Ein Übertrag ist genau das was man in der Schule unter diesem Begriff gelernt
+hat. Auch bekannt als „Eins im Sinn“.
+
+Ein Überlauf passiert, wenn man z.B. $127 + 1$ also $0111\,1111 + 0000\,0001$
+rechnen möchte, die Zahlen aber als vorzeichenbehaftet ansieht. Es kommt zwar
+auch $1000\,0000$ heraus, dies bedeutet in dem Fall aber \num{-128} und nicht
+wie gewollt 128.
+
+\subsection{Aufgabe E}
+
+\begin{problem}
+	Erklären Sie den Unterschied von ROM und RAM. Wo liegen die Vorteile der
+	beiden Typen?
+\end{problem}
+
+ROM ist nur lesbar, meistens langsam jedoch ohne Stromversorgung stabil. RAM
+ist auch schreibbar, sehr schnell, jedoch gehen ohne kontinuierliche
+Stromversorgung die Daten verloren.
+
+\subsection{Aufgabe F}
+
+\begin{problem}
+	Kann man mit Digitalrechnern analoge Signale verarbeiten? Was brauchen Sie
+	hierfür? Wodurch wird die Genauigkeit begrenzt?
+\end{problem}
+
+Man braucht ADC, die jedoch bei $b$ Bytes pro Messwert nur $2^b$ Stufen
+abbilden können.
+
+\subsection{Aufgabe G}
+
+\begin{problem}
+	Welche Funktionen muss eine ALU erfüllen? Mit welchen Erweiterungen können
+	Sie aus einer ALU einen Akkumulator aufbauen? Ist der Akkumulator ein
+	statisches Netzwerk? Wozu dient der Taktpuls? Können Sie ein Ergebnis
+	abspeichern?
+\end{problem}
+
+Die ALU muss arithmetische und logische Funktionen erfüllen, daher auch der
+Name. Alleine kann sie allerdings noch keine Ergebnisse zwischenspeichern.
+Daher braucht es noch ein Register, mit dem ein Zwischenwert geparkt werden
+kann und wieder geladen werden kann. Da die ALU immer nur ein Bit, also eine
+Binärstelle verarbeiten kann, muss sie jede Stelle einzeln berechnen und in das
+Register schreiben.
+
+\subsection{Aufgabe H}
+
+\begin{problem}
+	Mit welchen zusätzlichen Schaltungsgruppen können Sie aus einem
+	Akkumulator mit Zwischenspeicher einen vollständigen Rechner aufbauen?
+\end{problem}
+
+Es fehlen noch mehr Register und RAM, falls diese getrennt sind. Ansonsten
+einfach nur RAM, wie es hier der Fall zu sein scheint. Außerdem braucht es noch
+einen Programmspeicher, damit der Rechner mehrere Befehle hintereinander
+ausführen kann. Sonst wäre er nicht programmierbar und nur ein Taschenrechner.
+
+\subsection{Aufgabe I}
+
+\begin{problem}
+	Was ist ein Rechner mit Busstruktur? Wie sind die einzelnen Komponenten
+	miteinander verbunden? Mit welchem Zahlensystem arbeitet ein
+	Digitalrechner?
+\end{problem}
+
+Ein Bus ist eine Verbindung zwischen den Komponenten. Ohne Bus müsste jede
+Komponente mit jeder verbunden sein. Dies ist ab einer gewissen Anzahl
+Elementen nicht mehr Skalierbar, da die Anzahl mit $\mathcal O(n^2)$ skaliert.
+Daher werden alle Komponenten mit einem Strang verbunden. Ein weiterer Strang
+regelt, welche Komponente gerade dran ist. Daher gibt es eine Daten- und
+Steuerbus.
+
+Ein Digitalrechner arbeitet, wie im Wort „digital“ schon steckt, mit zwei
+Zuständen. Das ist dann das Dual- oder Binärsystem.
+
+\subsection{Aufgabe J}
+
+\begin{problem}
+	Erklären Sie die Begriffe Takt-, Befehls- und Operationszyklus.
+\end{problem}
+
+Der Taktzyklus gibt einen kleinen Schritt vor. Dieser setzt alle Flip-Flops,
+die in den einzelnen Komponenten drin ist.
+
+Ein Befehlszyklus ist nach der
+vollständigen Abarbeitung eines Befehls, wie einer Addition, beendet. Danach
+springt der Befehlszähler um eins weiter. Dieser Zyklus kann durchaus viele
+Taktzyklen brauchen.
+
+Der Operationszyklus ist für eine Rechen- oder Logikoperation da. Diese kann
+wiederum mehrere Takte brauchen.
+
+\subsection{Aufgabe K}
+
+\begin{problem}
+	Wieviele Befehle kann der 8080-Mikroprozessor maximal haben? Was ist der
+	Operations-Code? Wieviele Befehle hat der 8080?
+\end{problem}
+
+Da er 8-Bit Wörter als Befehle bekommt, sind 256 Befehle möglich. Der
+Operationscode ist der Code, der zu einem Befehl gehört, wie zum Beispiel
+\texttt{HLT}.
+
+Die Befehle des 8080 stehen in der Tabelle und können im Prinzip gezählt
+werden. Es sind aber weniger als 256, glaube ich.
+
+\subsection{Aufgabe L}
+
+\begin{problem}
+	Was versteht man unter einem Zweiweg-Tri-State-Datenbus?
+\end{problem}
+
+Beim Tri-State-Datenbus hat der Datenbus drei Zustände, \thigh, \tlow{} und
+einen nicht gesetzten Zustand. So können alle Bauteile den Bus auf einen
+beliebigen Wert setzen, ihn jedoch auch unbeeinflusst lassen, wenn sie nicht an
+der Reihe sind. \cite{matthes/bus_micro}
+
+\subsection{Aufgabe M}
+
+\begin{problem}
+	Wovon hängt die Länge eines Befehlszyklus ab?
+\end{problem}
+
+Die Länge des Befehlszyklus hängt von der Bearbeitungsdauer ab. So gibt es
+Befehle, die länger brauchen, weil mehr gerechnet werden muss, also der
+Akkumulator mehrere Male befüllt werden muss. So braucht eine Addition länger,
+wenn sie mit zwei Wörtern durchgeführt werden muss, also nur mit einem.
+
+\subsection{Aufgabe N}
+
+\begin{problem}
+	Was versteht man unter DMA-Betrieb? Wann nutzt man ihn aus?
+\end{problem}
+
+Im Direct Memory Access (DMA) können andere Geräte als die CPU direkt in den
+Hauptspeicher schreiben. Die entlasten die CPU bei IO.
+\cite{glossarwiki/direct_memory_access}
+
+Dies zeichnete auch das FireWire von Apple gegenüber USB aus, dass Daten direkt
+in den Speicher geschrieben werden können. Jedoch erzeugte es auch einige
+Sicherheitslücken. \cite{wikipedia/DMA_attack,herman/dma}
+
+\subsection{Aufgabe O}
+
+\begin{problem}
+	Welche Aufgaben haben der Befehlszähler und der Stackpointer?
+\end{problem}
+
+Der Befehlszähler verwaltet die Position im aktuellen Programm. Der
+Stackpointer gibt indirekt an, wie viele Elemente auf dem Stack liegen. Er
+zeigt auf das oberste Element.
+
+\subsection{Aufgabe P}
+
+\begin{problem}
+	Wozu benutzt man einen Stack, welche Eigenschaften hat er.
+\end{problem}
+
+Der Stack wird in C++ dafür benutzt, Parameter für eine Funktion für diese
+bereitzulegen.
+
+Ein Stack ist eine FILO-Datenstruktur, also „First In, Last Out“. Elemente
+werden wie bei einem Stapel oben aufgelegt und von oben abgenommen. Operationen
+sind „pop“ und „push“.
+
+\subsection{Aufgabe Q}
+
+\begin{problem}
+	Welche Adressierungsarten sind Ihnen bekannt? Welche werden vom 8080
+	benutzt? Erklären Sie ihre Funktion.
+\end{problem}
+
+Man kann direkt die Speicheradresse angeben. Man kann eine Speicheradresse
+angeben, in der die Speicheradresse steht (Zeiger, Pointer, einfache
+Indirektion). Dies kann man beliebig weit treiben.
+
+Der 8080 unterstützt die Angabe einer Adresse, wie eines Registers, kann aber
+auch im Speicher nach Adressen schauen.
+
+\subsection{Aufgabe R}
+
+\begin{problem}
+	Welche Operationszyklen gibt es beim 8080? (9 Stück)
+\end{problem}
+
+Die Operationszyken sind
+\begin{itemize}
+    \item
+        Befehlsaufruf
+    \item
+        Speicher lesen (Memory Read)
+    \item
+        Speicher schreiben (Memory Write)
+    \item
+        Stapelspeicher lesen (Stack Read / Stack pop)
+    \item
+        Stapelspeicher einschreiben (Stack Write / Stack push)
+    \item
+        Eingabe (Input)
+    \item
+        Ausgabe (Output)
+    \item
+        Unterbrechung (Interrupt)
+    \item
+        Halt (\textsc{halt})
+\end{itemize}
+
+\subsection{Aufgabe S}
+
+\begin{problem}
+	Welche Aufgabe hat der erste Operationszyklus eines Befehlszyklus?
+\end{problem}
+
+Dieser stellt durch den Bus alle Bauteile auf die geforderte Aktion ein.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                Durchführung                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Durchführung}
+
+\subsection{Versuchsaufgabe 1}
+
+Zuerst benutzen wir das System 0, das einfache Addier- und Subtrahierwerk. In
+\cite[Tabelle~8.1]{physik313-Anleitung} sind dessen Befehle aufgelistet. Wir
+sollen anhand weniger Beispiele die Funktion überprüfen und dabei unsere
+Schritte dokumentieren.
+
+Vorher haben wir uns einige Funktionen (siehe Tabelle~\ref{tab:1}) ausgesucht
+und schon deren Ergebnisse für bestimmte Eingaben berechnet. Dadurch konnten
+wir am Versuchstag schnell sehen, ob die Schaltung das erwartete Ergebnis
+liefert.
+
+Als Eingaben benutzen wir in Register A \texttt{0b00001111} und in Register B
+\texttt{0b00110101}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{lll}
+		Steuerwort C (\texttt{0b}) & Ausgangsfunktion & erwartetes Ergebnis
+		(\texttt{0b}) \\
+		\hline
+		00000 & $0$ & 0000 0000 \\
+		01000 & $B$ & 0011 0101 \\
+		11000 & $A + B$ & 0100 0100 \\
+		11101 & $B - A$ & 0010 0110
+	\end{tabular}
+	\caption{%
+		Steuercodes für die erste Aufgabe
+	}
+	\label{tab:1}
+\end{table}
+
+Unsere Schritte:
+
+\begin{enumerate}
+	\item
+		Wir verbinden das Netzteil mit dem USB-Port und legen somit die
+		benötigte Versorgungsspannung an.
+
+		Die LED leuchtet auf und es wird \texttt{0x00} auf dem Hex-Display
+		angezeigt.
+
+	\item
+		Um unsere Werte einzugeben, drücken wir die Registerwahltaste auf A und
+		geben den Wert \texttt{0b00001111} an der Tastenleiste ein. Somit ist
+		der Wert in Register A gespeichert. Danach stellen wir auf B und und
+		wiederholen das Verfahren für \texttt{0b00001111}.
+
+	\item
+		Nun geben wir den Befehl ein. Dazu stellen wir auf Register C und geben
+		das erste Steuerwort aus der Tabelle~\ref{tab:1} ein.
+
+	\item
+		Das Ergebnis erscheint in der Zeile der LED-Matrix die zu Register R
+		gehört. Dies lesen wir ab und vergleichen mit unserer Tabelle.
+\end{enumerate}
+
+Bei allen getesteten Operationen kommt das erwartete heraus.
+
+\subsection{Versuchsaufgabe 2}
+
+Wir stellen nun den Rechner auf das System 1 ein, die ALU. Dazu wählen wir mit
+dem SYS-Schalter das Systemregister und geben \texttt{0b01} ein.
+
+\subsubsection{Teil a: Überprüfung der Schaltung}
+
+Aus \cite[Tabelle~8.2]{physik313-Anleitung} suchen wir uns, wie schon in der
+ersten Versuchsaufgabe, einige Programmcodes aus und berechnen schon vorher das
+Ergebnis, um schnell vergleichen zu können. Als Werte für A und B sind in der
+Anleitung \texttt{0b01111010} bzw. \texttt{0b10000111}.
+
+\begin{tabular}{lll}
+	Steuerwort C (\texttt{0b}) & Ausgangsfunktion & erwartetes Ergebnis
+	(\texttt{0b}) \\
+	\hline
+	0000 & $A$ & 0111 1010 \\
+	1001 & $A \wedge B$ & 0000 0010 \\
+	0111 & $A \vee B$ & 1111 1111 \\
+	1100 & \num{-1} & 1111 1111 \\
+	0101 & $A + 1$ & 0111 1011
+\end{tabular}
+
+Dabei gehen wir genauso vor, wie in der ersten Aufgabe. Das heißt, dass wir die
+Daten in die Register A, B und C eingeben. Neu ist hier, dass wir mit dem
+Schalter CLK einen Takt ausführen müssen. Danach wird das Register R mit
+unserer Erwartung vergleichen.
+
+Hier kommt auch wieder bei fast allen heraus, was zu erwarten ist. Jedoch ist
+beim Steuerwort \texttt{0b0111} die Ausgabe nur \texttt{0x01}, und das erste
+Flag leuchtet auf.
+
+\subsubsection{Teil b: Existenz des 8. Bits}
+
+Das ROM hat noch ein 8. Bit, mit dem der Übertrag unterdrückt werden kann. Der
+Addierer wird bei der Addition von Zahlen, die einen Überlauf verursachen, das
+Übertragsbit aktivieren. Dies ist bei der Addition wichtig, weil dadurch
+gezeigt wird, dass das Rechenergebnis nicht stimmt. Zum Beispiel ist
+\texttt{0xff} und \texttt{0x01} addiert \texttt{0x00}. Eigentlich sollte jedoch
+\texttt{0x100} herauskommen, was ein 8-Bit-Rechner jedoch nicht darstellen
+kann. Dafür ist dieses 9. Übertragsbit da. Es gibt jedoch Rechenoperationen, in
+denen es irrelevant ist, zum Beispiel bei logischen Operationen. Es könnte
+sinnvoll sein, dass aus einer vorherigen Rechnung das Bit erhalten werden
+sollte, so dass es unterdrückt wird.
+
+\subsection{Versuchsaufgabe 3}
+
+Wir stellen auf System 2 (\texttt{0b10}) um.
+
+\subsubsection{Teil a: Subtraktion}
+
+Es soll \texttt{0xb1 - 0x18} gerechnet werden. Dabei sind die Zahlen ohne
+Vorzeichen zu interpretieren (entspricht \texttt{unsigned char} in C++).
+
+So interpretiert sind sie 177 und 24, die Differenz ist also 153
+(\texttt{0x99}).
+
+Werden die Zahlen jedoch als vorzeichenbehaftet (\texttt{char}) interpretiert,
+sieht die Sache anders aus. Da der erste Summand großer als 127 ist, wird er
+als negative Zahl interpretiert. Der zweite Summand ist jedoch eine positive
+Zahl.
+
+Interpretiert man den ersten Summanden als Zweierkomplement, so ist dies
+\num{-79}. Das Ergebnis der Subtraktion mit 24 ist dann \num{-103}. Das
+Ergebnis stimmt ebenfalls, denn 153 als Zweierkomplement
+interpretiert ergibt gerade einmal \num{-103}.
+
+Wir erwarten also, dass bei dieser Rechnung 153, also \texttt{0b10011001}
+herauskommt.
+
+\subsubsection{Teil b: Schritte}
+
+\begin{enumerate}
+	\item
+		Wir wählen das Register B aus. Dann geben die Zahl \texttt{0xb1}, also
+		\texttt{0b10110001} auf der Tastenreihe ein.
+
+	\item
+		Der erste Wert muss erstmal in den Akkumulator gebracht werden. Dazu
+		stellen wir den \texttt{LDA} Befehl ein, indem wir den Registerschalter
+		auf C stellen und \texttt{0b0011} über die Tasten eingeben.
+
+	\item
+		Wir takten einmal mit dem CLK-Schalter. Der Wert von B wird bitweise in
+		den Akkumulator kopiert.
+
+	\item
+		Nun geben wir den zweiten Wert in das Register B ein. Dieser ist
+		\texttt{0x18}, also \texttt{0b00011000}.
+
+	\item
+		Nachdem wir auf Register C umgeschaltet haben, geben wir den
+		gewünschten Befehl, \texttt{SUB}, \texttt{0b1000}, auf der Tastenleiste
+		ein.
+
+	\item
+		Wir takten erneut mit CLK. Der Wert von B wird von A abgezogen und
+		während der Rechnung bitweise in das Register geschrieben.
+
+	\item
+		Das Ergebnis lesen wir von Register R ab.
+\end{enumerate}
+
+\subsubsection{Teil c: Vier Summanden}
+
+Es soll \texttt{0x22 - 0x08 + 0x01 + 0x10} gerechnet werden. Wir erwarten 43,
+also \texttt{0x2b} oder \texttt{0b101011}.
+
+Die Schritte sind hier analog zur Subtraktion zweiter Zahlen und wird daher
+abgekürzt aufgelistet:
+
+\begin{enumerate}
+	\item
+		Register B wählen. Summand \texttt{0x22}, \texttt{0b100010}, eingeben.
+
+	\item
+		Register C wählen. Operationscode \texttt{LDA}, \texttt{0b11},
+		eingeben.
+
+	\item
+		Takten.
+
+	\item
+		Register B wählen. Zweiten Summanden, \texttt{0x08}, \texttt{0b1000},
+		eingeben.
+
+	\item
+		Register C wählen. Operationscode \texttt{SUB}, \texttt{0b1000},
+		eingeben.
+
+	\item
+		Takten.
+
+	\item
+		Register B wählen. Dritten Summanden, \texttt{0x1}, \texttt{0b1},
+		eingeben.
+
+	\item
+		Register C wählen. Operationscode \texttt{ADD}, \texttt{0b111},
+		eingeben.
+
+	\item
+		Takten.
+
+	\item
+		Register B wählen. Vierten Summanden, \texttt{0x10}, \texttt{0b10000},
+		eingeben.
+
+	\item
+		Erneut \texttt{ADD} in Register C eingeben, falls dies entleert ist.
+
+	\item
+		Takten.
+
+	\item
+		Ergebnis ablesen.
+\end{enumerate}
+
+Wir erhalten das erwartete Ergebnis.
+
+\subsection{Versuchsaufgabe 4}
+
+Es soll die prinzipielle Wirkungsweise der Schaltungen in den
+Abbildungen~\ref{fig:8-8} und \ref{fig:8-9} verstanden werden.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.8\linewidth]{../Anleitung/8-8.png}
+	\caption{%
+		Akkumulator plus Datenspeicher.
+		\cite[Abbildung~8.8]{physik313-Anleitung}
+	}
+	\label{fig:8-8}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.6\linewidth]{../Anleitung/8-9.png}
+	\caption{%
+		Akkumulator plus Datenspeicher plus Programmspeicher.
+		\cite[Abbildung~8.9]{physik313-Anleitung}
+	}
+	\label{fig:8-9}
+\end{figure}
+
+\subsubsection{Schaltung \ref{fig:8-8}}
+
+Um in einem Computer eine große Anzahl Daten zu verarbeiten, braucht man einen
+Platz, in dem man viele Daten ablegen kann. Bisher hatten wir nur einige,
+einzelne Register, in denen Zwischenergebnisse oder weitere Werte für eine
+Rechnung abgelegt werde können. Wie zum Beispiel die Eingabewerte oder die
+Schablone, mit der wir in einer späteren Aufgabe ein Bitmuster suchen werden.
+Jedoch können so keine Arrays mit vielen ($\gtrsim 5$) Einträgen gespeichert
+werden.
+
+Daher ist ein nötig, eine Reihe an Speicherzellen zu haben, die man bei Bedarf
+in Register laden kann. In diesem Praktikumsversuch brauchen wir den RAM jedoch
+nicht für Daten, da ich alle Programme mit den Registern alleine schreiben
+konnte.
+
+Ich bin mir nicht sicher, ob in dieser Aufgabe mehrere Register, oder direkt
+schon viel RAM gemeint ist. Wenn mehrere Register gemeint waren: Die Register
+sind nötig, damit man nicht nur eine Zahl auf eine andere Addieren kann,
+sondern Rechnungen mit mehreren ($\lesssim 5$) Zwischenergebnissen ausführen zu
+können.
+
+\subsubsection{Schaltung \ref{fig:8-9}}
+
+Der Programmspeicher ermöglicht die wirkliche Programmierung des Prozessors.
+Automatisierung zeichnet sich gerade dadurch aus, dass das Gerät dann autonom
+läuft, daher muss es auch Schritte nacheinander abarbeiten können, ohne dass
+ein Benutzer die Befehle nacheinander eingibt. Dies würde auch die Taktrate
+deutlich limitieren.
+
+Aus diesem Grund werden die Befehle vorher zu einem Programm gebündelt und je
+ein Befehl in eine Speicherzelle (bei mehreren Wörtern pro Befehl auch mehere
+Zellen) geschrieben. Der Befehlszähler gibt an, bei welchem Befehl das Programm
+gerade ist. Der Programmspeicher gibt auf seinen Ausgängen den aktuellen Befehl
+an der vorgegebenen Stelle aus. Der Akkumulator mit Datenspeicher sieht diesen
+Befehl auf seinem Befehlseingang und führt ihn aus. Somit wird der Benutzer,
+der sie in Echtzeit eingibt, nicht mehr gebraucht, siehe
+Abbildung~\ref{fig:compiling}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.5\linewidth]{../compiling.png}
+	\caption{%
+		Compiling. \cite{xkcd/303}
+	}
+	\label{fig:compiling}
+\end{figure}
+
+\FloatBarrier
+\subsection{Versuchsaufgabe 5}
+
+\FloatBarrier
+\subsubsection{Beschreiben der Funktionen}
+
+\begin{problem}
+	Beschreiben Sie die Funktionen des Programmes.
+\end{problem}
+
+Um ein Gefühl für das Programm zu bekommen, und um es schon vorher zuhause zu
+testen, habe ich es in C++ nachgebaut. Dabei habe ich ausgenutzt, dass C
+eigentlich nur Assembler mit Makros ist und auch über ein \texttt{goto}
+verfügt. Die Ausgabe erfolgt in eine Textdatei.
+
+\inputminted[fontsize=\small, linenos]{cpp}{../Prototypen/saegezahn.cpp}
+
+Die \texttt{if}-Abfrage musste nur rein, damit das Programm auch terminiert.
+Die Ausgabe ist wie folgt, von oben nach unten, von links nach rechts:
+
+\begin{multicols}{9}
+	\inputminted[fontsize=\footnotesize]{text}{saegezahn.txt}
+\end{multicols}
+
+Zu erkennen ist der Sägezahn, der durch den (hier gewollten) Überlauf zustande
+kommt.
+
+\paragraph{Konvertieren zu Assembly}
+
+Um so richtig zu verstehen und zu dokumentieren, wie ich ein derartiges
+Programm in 8080-Assembly übersetze, übersetze ich dieses Programm, das ich vom
+Assembly abgelesen habe, wieder zurück in Assembly und dokumentiere dabei genau
+die Schritte, die ich gemacht habe.
+
+Zuerst muss die \texttt{0x00} in das Register A geschrieben werden. Dazu
+benutze ich den Befehl \texttt{MVI~r}. Dieser hat einen Maschinencode von
+\texttt{0b00ddd110}. Dabei ist das Ziel („Destination“, „d“) das Register A, der
+Akkumulator. In der letzten Seite ist dessen Adresse mit 0b111 angegeben. Somit
+setze ich meinen Befehl zusammen: \texttt{0b00111110} und noch das \texttt{0x00}.
+Die erste Zahl lasse ich Python nach Hex konvertieren und erhalte
+\texttt{0x3e}. Dies ist meine Zeile \texttt{0x00}.
+
+Als nächstes kommt die Erhöhung von A. Dazu benutze ich den Befehl
+\texttt{INR~r}. Dessen Maschinencode ist \texttt{0b00ddd100}, wobei ich wieder
+\texttt{0b111} als Ziel einsetze. Konvertiert ist das ganze dann \texttt{0x3c}.
+
+Jetzt folgt die Ausgabe auf den DAC-Wandler. Das Ausgabekommando ist
+\texttt{OUT} und bekommt als zweites Byte das Zielregister. Dieses ist
+\texttt{0x04}. Also \texttt{0xd3~0x04}.
+
+Zuletzt kommt der Sprung zurück in Zeile \texttt{0x02}. Dazu benutze ich
+\texttt{JMP}. Warum dieser Befehl zwei Bytes bekommt, und nicht nur ein Byte,
+ist mir (noch) nicht klar. Das erste Byte ist jedenfalls die relevante
+Zieladresse, das Zweite ist im Programm aus der Aufgabenstellung einfach
+\texttt{0x00}. Dann lasse ich das auch so. Ich gehe davon aus, dass beide Bytes
+die Zieladresse sind, und das ganze in Little Endian.
+
+So sieht das fertige Programm aus:
+
+\inputminted[fontsize=\small, linenos]{python}{../Assembly/a.s}
+
+Es ist genau gleich mit der Aufgabenstellung, so dass die obige Erklärung
+wahrscheinlich richtig ist.
+
+\FloatBarrier
+\subsubsection{Bestimmung der Periode}
+
+Wir erhalten tatsächlich einen Sägezahn, siehe Abbildung~\ref{fig:foto1}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.45\linewidth]{../Oszi_Foto/DSC_0001.jpg}
+	\caption{%
+		Oszillogramm des Sägezahns
+	}
+	\label{fig:foto1}
+\end{figure}
+
+Am Oszillographen lesen wir die Periode ab: \SI{270}{\micro\second}.
+
+\FloatBarrier
+\subsubsection{Ändern der Periode}
+
+\begin{problem}
+	Ändern Sie das Programm so, dass die Möglichkeit besteht, über die
+	B-Register die Periodendauer variabel zu verlängern.
+\end{problem}
+
+Um die Periode zu ändern, inkrementieren wir nicht, sondern addieren einen Wert
+aus Register B. Dies habe ich in folgendem, leicht modifiziertem Programm
+gemacht:
+
+\inputminted[fontsize=\small, linenos]{cpp}{../Prototypen/d.cpp}
+
+\begin{multicols}{9}
+	\inputminted[fontsize=\footnotesize]{text}{d.txt}
+\end{multicols}
+
+Dieses Programm habe ich ähnlich der Vorgehensweise aus dem vorherigen
+Abschnitt übersetzt:
+
+\inputminted[fontsize=\small, linenos]{python}{../Assembly/d.s}
+
+\subsubsection{Anderes Signal}
+
+\begin{problem}
+	Versuchen [S]ie nun mit Hilfe des DACs ein anderes Signal, wie z.\,B. ein
+	Dreieck- oder Rechtecksignal zu erzeugen. Lassen Sie dabei Ihrer Phantasie
+	freien Lauf.
+\end{problem}
+
+Für ein Rechtecksignal könnte man einen Zähler verwenden, und dann die Ausgabe
+umschalten, wenn dieser heruntergezählt ist. Ich möchte hier ein wenig binäre
+Logik benutzen und einen überlaufenden Zähler benutzen, jedoch eine der Stellen
+als Ausgabe nutzen.
+
+\inputminted[fontsize=\small, linenos]{cpp}{../Prototypen/e.cpp}
+
+\begin{multicols}{9}
+	\inputminted[fontsize=\footnotesize]{text}{e.txt}
+\end{multicols}
+
+In Assembly:
+
+\inputminted[fontsize=\small, linenos]{python}{../Assembly/e.s}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.45\linewidth]{../Oszi_Foto/DSC_0003.jpg}
+	\caption{%
+		Oszillogramm des Rechtecksignals
+	}
+	\label{fig:foto3}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{Bit überprüfen}
+
+\begin{problem}
+	Überlegen Sie sich ein Programm, welches in der Lage ist zu erkennen, ob
+	das 4te Bit des B-Registers gesetzt ist. Ist das 4te Bit gesetzt (also
+	„1“), so soll das gesamte X-Register der LED Matrix aufleuchten.
+\end{problem}
+
+Um ein Bit zu überprüfen, schaue ich mit einer Art Schablone und \txor, ob das
+entsprechende Bit gesetzt ist. Mit einem Sprungbefehl, der mit 0 vergleicht,
+springe ich an die entsprechende Stelle und setze meine Ausgabe entsprechend.
+
+\inputminted[fontsize=\small, linenos]{cpp}{../Prototypen/f.cpp}
+
+\begin{multicols}{9}
+	\inputminted[fontsize=\footnotesize]{text}{f.txt}
+\end{multicols}
+
+Diese Ausgabe sind binär nur Einsen (also FF), also wurde das entsprechende Bit
+gefunden. Bei FF als Eingabe war dies auch zu erwarten.
+
+In Assembly:
+
+\inputminted[fontsize=\small, linenos]{python}{../Assembly/f.s}
+\subsubsection{Multiplikation}
+
+\begin{problem}
+	Schreiben Sie ein Programm zur Multiplikation zweiter 8-Bit-Zahlen. Der
+	Multiplikand und der Multiplikator sollen an den A- und B-Registern
+	eingegeben werden. Das Ergebnis (16 Bit) soll von zwei Registern der LED
+	Matrix (X und R) angezeigt wwerden. Hinweis: Nutzen Sie die
+	Doppelgenauigkeits-Arithmetikbefehle.
+\end{problem}
+
+Für diese Aufgabe wähle ich einen einfachen Algorithmus, und zwar:
+\[
+	a \cdot b = \sum_{i = 1}^{a} b
+\]
+
+Das Problem ist, dass negative Zahlen so nicht berücksichtigt werden. Ich
+hoffe, dass das hier in Ordnung ist.
+
+Dieser Rechner sieht nach Big Endian aus, so dass H vor L kommt. Für Intel ist
+das aber eigentlich ungewöhnlich. In der C++ Version muss ich etwas basteln,
+um zwei nebeneinander liegende Speicherzellen zu bekommen, die ich dann
+einzeln ansprechen kann. In Assembly brauche ich das nicht, weil die Register
+fest sind.
+
+\inputminted[fontsize=\small, linenos]{cpp}{../Prototypen/g.cpp}
+
+Die Ausgabe in den zwei Registern ist, wie erwartet (jedoch als Little Endian):
+
+\begin{multicols}{3}
+	\inputminted[fontsize=\footnotesize]{text}{g.txt}
+\end{multicols}
+
+Hier ist der Assembly-Quelltext:
+
+\inputminted[fontsize=\small, linenos]{python}{../Assembly/g.s}
+
+Man hätte es sich sparen können, den Zähler aus C nach A zu holen um ihn zu
+dekrementieren. Jedoch hatte ich schon alle anderen Rechenschritte in A, so
+dass ich dies einfach auch so gemacht habe.
+
+Vor dem Sprungbefehl brauche ich hier keinen Vergleich, weil der
+\texttt{DCR}-Befehl schon das Flag \texttt Z setzt.
+
+Dies haben wir mit einigen Zahlen ausprobiert und haben jedes Mal das richtige
+Ergebnis erhalten.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Literatur                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de tw=79
