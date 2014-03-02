@@ -1,0 +1,33 @@
+#!/bin/bash
+# Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+set -e
+set -u
+
+namen=(
+
+F-Widerstand
+F-Diode
+F-seriell
+F-parallel
+F-Stromquelle
+F-Spannungsquelle
+N-Skizze
+I-Schaltungen
+G-einfach
+G-doppelt
+N-Plot
+M-Schaltung_drei
+
+)
+
+rm -f split-*.pdf
+
+pdfseparate Zeichnungen.pdf split-%d.pdf
+
+for (( i = 0; i < ${#namen[@]}; i++ ))
+do
+	pdfcrop "split-$(( i + 1 )).pdf" "${namen[$i]}.pdf"
+done
+
+rm -f split-*.pdf
