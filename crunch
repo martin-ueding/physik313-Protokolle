@@ -1,0 +1,83 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+# Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+# Licensed under The GNU Public License Version 2 (or later)
+
+import jinja2
+import math
+import matplotlib.pyplot as pl
+import numpy as np
+import scipy.optimize as op
+
+def g(value, error=None, digits=3):
+    if error is None:
+        return ("{:."+str(digits)+"g}").format(value)
+    else:
+        value_log = int(math.floor(math.log(np.abs(value), 10)))
+        error_log = int(math.floor(math.log(np.abs(error), 10)))
+
+        difference = value_log - error_log
+        exp = 0
+
+        if difference >= 0:
+            value_dis = value * 10**(difference - value_log)
+            error_dis = error * 10**(- error_log)
+            exp = error_log
+        else:
+            value_dis = value * 10**(- value_log)
+            error_dis = error * 10**(difference - error_log)
+            exp = value_log
+
+        format_string = "{:."+str(digits-1)+"f} +- {:."+str(digits-1)+"f} e{:+d}"
+        return format_string.format(value_dis, error_dis, exp)
+
+def aufgabe_B(T):
+    T["B_U_eff"] = round(10 / np.sqrt(2), 2)
+
+def aufgabe_b(T):
+    # Aus der Anleitung. B ist Frequenzbereich in Hz.
+    B = 100e6
+    Delta_t_Oszi = 0.35 / B
+    
+    Delta_t_gemessen_val = 0.020e-6
+    Delta_t_gemessen_err = 0.005e-6
+
+    Delta_t_Signal_val = np.sqrt(
+        Delta_t_gemessen_val**2 - Delta_t_Oszi**2)
+
+    Delta_t_Signal_err = Delta_t_gemessen_val * Delta_t_gemessen_err / Delta_t_Signal_val
+
+    B_Signal_val = 0.35 / Delta_t_Signal_val
+    B_Signal_err = 0.35 / Delta_t_Signal_val**2 * Delta_t_Signal_err
+
+    T["B"] = g(B)
+    T["Delta_t_Oszi"] = g(Delta_t_Oszi)
+    T["Delta_t_gemessen"] = g(Delta_t_gemessen_val, Delta_t_gemessen_err)
+    T["Delta_t_Signal"] = g(Delta_t_Signal_val, Delta_t_Signal_err)
+    T["B_Signal"] = g(B_Signal_val, B_Signal_err)
+
+def render_template(T):
+    # Setting up Jinja
+    env = jinja2.Environment(
+        "%<", ">%",
+        "<<", ">>",
+        "[§", "§]",
+        loader=jinja2.FileSystemLoader(".")
+    )
+    template = env.get_template("Template.tex")
+
+    # Rendering LaTeX document with values.
+    with open("physik313-0-Ueding_Lemmer.tex", "w") as f:
+        f.write(template.render(**T))
+
+def main():
+    T = {}
+
+    aufgabe_B(T)
+    aufgabe_b(T)
+
+    render_template(T)
+
+if __name__ == "__main__":
+    main()

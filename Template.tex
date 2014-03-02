@@ -1,0 +1,369 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+\input{header.tex}
+
+\ihead{physik313 – Versuch 0}
+\ifoot{Martin Ueding}
+
+\hypersetup{
+	pdftitle={Einführung und Vorversuch}
+}
+
+\subject{Praktikumsprotokoll}
+\title{Einführung und Vorversuch}
+\subtitle{physik313 – Versuch 0}
+\author{
+	Martin Ueding \footnote{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+}
+\publishers{Gruppe 3 -- A -- Brezina}
+
+\begin{document}
+
+\maketitle
+
+Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
+\ref{it:mu} eingesehen werden. Die Quellen für dieses Protokoll können auf
+\ref{it:github/alles} eingesehen werden. Die \LaTeX-Datei wird aus
+\ref{it:github/template} generiert.
+
+\begin{enumerate}
+	\item
+		\label{it:mu}
+		\url{http://martin-ueding.de/de/university/physik313/}
+	\item
+		\label{it:github/alles}
+		\url{https://github.com/martin-ueding/physik313-0/}
+	\item
+		\label{it:github/template}
+		\url{https://github.com/martin-ueding/physik313-0/blob/martin/Template.tex}
+\end{enumerate}
+
+%\newpage
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Einleitung                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Einleitung}
+
+In diesem Versuch wollen wir die grundlegenden Werkzeuge für das
+Elektronikpraktikums kennen lernen und verwenden. Dazu gehört vor allem das
+Oszilloskop.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                   Theorie                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Theorie}
+
+\subsection{Wechselspannungsamplituden}
+
+Amplituden von Wechselspannungen können ganz allgemein durch folgende
+Spannungen charakterisiert werden: $U_\text{SS}$, $U_\text{S}$ und
+$U_\text{eff}$. Diese sind wie folgt definiert:
+
+Spitze-Spitze:
+\[
+	U_\text{SS} = \max_t \{ U(t) \} - \min_t \{ U(t) \}
+\]
+
+Der Scheitelwert $U_\text S(t)$ ist der Maximalwert, dabei ist die Definition
+nicht ganz klar.
+
+Der Effektivwert:
+\[
+	U_\text{eff} = \sqrt{\braket{U^2(t)}}
+\]
+
+\subsection{Messgeräte}
+
+Messgeräte bestehen immer aus einer Messeinheit und einer Anzeigeeinheit. Die
+Messeinheit besteht wiederum aus einem Verstärker, der kleine Messgrößen
+verstärkt, bis es im Arbeitsbereich des Messwandlers ist. Dazwischen gibt es
+noch ein Bereichswahlnetzwerk, mit dem die Messgröße auf den Arbeitsbereich des
+Messwandlers einstellen kann.
+
+Ein einfaches Strommessgerät ist das Drehspulmessgerät. Bei diesem wird eine
+Spule in einem isotropen Magnetfeld an einer Feder positioniert. Der zu
+messende Strom geht durch die Spule und lenkt die Feder aus. Ein Zeiger zeigt
+diese, zum Strom proportionale, Auslenkung dann an.
+
+Digitalmultimeter sind etwas kompilierter aufgebaut, haben allerdings auch
+wieder ein Bereichswahlnetzwerk und einen Wandler. Hier wandelt der Wandler die
+gemessene Spannung in eine Zeit. Die Spannung lädt einen Kondensator auf, der
+anschließend mit einem festen Strom wieder entladen werden. Die Entladungszeit
+ist proportional zur Ladung und somit proportional zur Spannung. Dies nennt man
+einen \emph{Dual-Slope-Wandler}.
+
+\subsection{Oszilloskop}
+
+Ein Oszilloskop ist ein Spannungsmesser für höhere Frequenzen. Ein
+Elektronenstahl wird durch zwei orthogonale Plattenkondensatoren abgelenkt. Die
+$x$-Ablenkung wird in der Regel als Zeitachse benutzt. Auf die $y$-Achse kommt
+dann die eigentliche Messgröße. So kann der zeitliche Verlauf des Vorgangs
+angezeigt werden.
+
+Das Eingangssignal wird wie bei den einfacheren Messgeräten auch verstärkt und
+durch ein Bereichswahlnetzwerk entsprechend an den Anzeigebereich angepasst. Im
+Oszilloskop gibt es entsprechende Drehknöpfe.
+
+Für die Darstellung der Zeit auf der $x$-Achse braucht es die Kippschaltung und
+sinnvollerweise auch den Trigger. Die Kippschaltung sorgt dafür, dass der
+Elektronenstahl wieder auf die linke Seite gebracht wird, nachdem er
+durchgelaufen ist. Damit das Bild eines periodischen Vorgangs statisch ist,
+muss die Periode des Vorgangs ein ganzzahliges Vielfaches der Anzeigeperiode
+sein. Der Elektronenstahl wartet links auf ein bestimmtes Triggerevent, zum
+Beispiel eine aufsteigende Flanke, und läuft erst dann los. So kommen alle
+aufsteigenden Flanken an den gleichen Ort des Schirms, es entsteht ein
+statisches Bild.
+
+Die Bandbreite des Tiefpasses ist gegeben durch die Formel aus der Anleitung:
+\begin{equation}
+	\label{eq:0.3}
+	B = f_\text{grenz} = \frac{1}{2\piup RC}
+	= \frac{1}{2\piup \tau}
+\end{equation}
+
+Die Näherungsformel für Ansteigszeit $\Deltaup t$ und Bandbreite $B$ ist
+gegeben als:
+\begin{equation}
+	\label{eq:0.4}
+	B \Deltaup t = \num{0.35}
+\end{equation}
+
+Die Ansteigszeit, die wir mit dem Oszilloskop bestimmen können, ist noch einmal
+um die Anstiegszeit des Oszilloskops selbst verfälscht. In guter Näherung setzt
+sich diese quadratisch zusammen. Also gilt:
+\begin{equation}
+	\label{eq:0.5}
+	\Deltaup t_\text{gemessen}^2 = \Deltaup t_\text{Signal}^2 + \Deltaup t_\text{Oszi}^2
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Aufgaben                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Aufgaben}
+
+\subsection{Aufgabe A}
+
+\begin{problem}
+	Geben Sie für die Spannung $U(t) = U_0 \sin(\omega t)$ die Größen
+	$U_\text{SS}$, $U_\text{S}$ und $U_\text{eff}$ an.
+\end{problem}
+
+\begin{align*}
+	U_\text{SS}&=2U_0\\
+	U_\text{S}&=U_0
+\end{align*}
+
+Für die effektive Spannung:
+\begin{align*}
+	U_\text{eff}^2
+	&= U_0^2 \frac{\omega}{2\piup/\omega} \int_0^{2\piup} \dif t \, \sin^2(\omega t) \\
+	&= U_0^2 \frac{\omega}{2\piup/\omega} \int_0^{2\piup} \dif t \, \half \del{1- \cos(2\omega t)} \\
+	&= \half U_0^2 \frac{\omega}{2\piup} \eval{\del{1- \frac{1}{2\omega} \sin(2\omega t)}}_0^{2\piup/\omega}  \\
+	&= \half U_0^2
+\end{align*}
+
+Somit folgt:
+\[
+	U_\text{eff} = \frac{U_0}{\sqrt{2}}
+\]
+
+\subsection{Aufgabe B}
+
+\begin{problem}
+	Wie groß ist der Effektivwert eines symmetrischen Rechtecksignals mit
+	$U_\text S = \SI{10}\volt$?
+\end{problem}
+
+Bei der Rechteckspannung müssen wir genauso vorgehen und über eine ganze
+Periode mitteln. Die Periode sei $T$ und die Maximalspannung $U_0$.
+\begin{align*}
+	U_\text{eff}^2
+	&= \frac 1T U_0^2 \int_0^T \dif T \, \Theta^2\del{t - \frac T2} \\
+	&= \frac 1T U_0^2 \int_{T/2}^T \dif T \\
+	&= \frac 1T U_0^2 \frac T/2 \\
+	&= \frac{U_0^2}2
+\end{align*}
+
+Somit folgt:
+\[
+	U_\text{eff} = \frac{U_0}{\sqrt{2}}
+\]
+
+Bei einer Eingangsspannung von $U_0 = \SI{10}\volt$ ist der Effektivwert \SI{<<
+B_U_eff >>}\volt.
+
+\subsection{Aufgabe C}
+
+\begin{problem}
+	Wie groß ist der Innenwiderstand des Generatorausgangs? Betrachten Sie dazu
+	die folgendes [sic!] Ersatzschaltbild der Generator-Spannungsquelle. Es
+	gilt dann die Formel für den Spannungsteiler. Leiten Sie die Formel ab und
+	benutzen Sie die obigen Angaben, um den Innenwiderstand auszurechnen.
+\end{problem}
+
+Aus
+\begin{align}
+	U_1&=U_0\frac{R_1}{R_1+R_\text i}\notag
+	\intertext{folgt}
+	R_\text i&=\frac{\del{U_0-U_1}R_1}{U_1}\notag\\
+	&=\frac{U_0-U_1}{I_1}\label{eq:R_i}
+	\intertext{und aus}
+	U_2&=U_0\frac{R_2}{R_2+R_\text i}\notag
+	\intertext{folgt}
+	U_0&=\frac{\del{R_2+R_\text i}U_2}{R_2}\notag\\
+	&=\del{R_2+R_\text i}I_2\label{eq:U_0}
+	\intertext{Setzt man nun \eqref{eq:U_0} in \eqref{eq:R_i} ein, erhält man}
+	R_i&=\frac{\del{R_2+R_\text i}I_2}{I_1}-\frac{U_1}{I_1}\notag\\
+	\iff\qquad \del{\frac{I_1-I_2}{I_1}}R_\text i&=\frac{U_2-U_1}{I_1}\notag\\
+	\iff\qquad R_\text i&=\frac{U_2-U_1}{I_1-I_2}\notag
+\end{align}
+Dies ist die gesuchte Gleichung.
+
+Mit den gegebenen Spannungen von $U_1 = \SI{20}\volt$, $U_2 = \SI{10}\volt$ und
+den Lastwiderständen von $R_1 = \infty\,\si\ohm$ und $R_2 = \SI{50}\ohm$ können
+wir die Ströme $I_1 = \SI{0}\ampere$ und $I_2 = \SI{200}{\milli\ampere}$
+errechnen. Daraus ergibt sich dann ein Innenwiderstand des Signalgenerators von
+$R_\text i = \SI{50}\ohm$.
+
+\subsection{Aufgabe E}
+
+Es soll $B \Deltaup t \approx \num{0.35}$ hergeleitet werden.
+
+$B$ ist gegeben als $1/(2 \piup \tau)$. In einer normalen $RC$-Schaltung ist
+$\tau$ gerade die Zeit, nach der der Kondensator auf $1/\eup$ entladen ist. Die
+Funktion für die Entladung ist:
+\[
+	U(t) = U_0 \exp\del{- \frac t\tau}
+\]
+
+Interessant ist die Zeit, in der Kondensator von \num{0.9} auf \num{0.1}
+entlädt. Diese Zeit ist gegeben durch:
+\[
+	\frac{\num{0.1}}{\num{0.9}} = \exp\del{- \frac t\tau}
+\]
+
+Umstellen nach $t$ liefert: $t = \num{2.19722} \cdot \tau$. Dies ist nun das
+$\Deltaup t$, in der die Flanke abfällt. Das $\tau$ können wir nun in die
+Formel für das $B$ einsetzen und eliminieren. Nach etwas umstellen erhalten wir
+dann:
+\[
+	B \Deltaup t = \frac{\num{2.19722}}{2 \piup} = \num{0.349699}
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     Versuchsaufbau und -durchführung                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Versuchsaufbau und -durchführung}
+
+\subsection{Bestimmung der Anstiegszeit des Oszillographen}
+
+\subsection{Aufgabe a}
+
+Wie schließen das Oszilloskop mit einem BNC-Kabel an den Frequenzgenerator an,
+dabei setzen wir an beide Anschlüsse ein T-Stück und schließen es mit einem
+\SI{50}{\ohm} Widerstand ab.
+
+Wir wählen verschiedene Signalformen und betrachten das Bild auf dem Oszilloskop. Den Sinus habe ich in Abbildung \ref{fig:0745} skizziert.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Skizzen/IMG_0745-1500.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0745-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Sinus, Frequenz \SI{1}{\kilo\hertz}, Zeitbasis \SI{2}{\milli\second\per\division}, Verstärkung \SI{1}{\volt\per\division}
+	}
+	\label{fig:0745}
+\end{figure}
+
+Das Dreiecksignal sieht analog aus, siehe Abbildung \ref{fig:0746}.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Skizzen/IMG_0746-1500.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0746-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Dreieck, Frequenz \SI{1}{\kilo\hertz}, Zeitbasis \SI{.2}{\milli\second\per\division}, Verstärkung \SI{.1}{\volt\per\division}
+	}
+	\label{fig:0746}
+\end{figure}
+
+\subsection{Aufgabe b}
+
+Aus der Rechteckspannung (Abbildung \ref{fig:0749}) lesen wir die Zeit ab, in der das Signal auf \SI{90}{\percent} steigt und erhalten \SI{<< Delta_t_gemessen >>}{\second}.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Skizzen/IMG_0749-1500.jpg}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+	\includegraphics[width=\linewidth]{Fotos/IMG_0749-1500.jpg}
+	\end{minipage}
+	\caption{%
+		Rechteck, Frequenz \SI{20}{\mega\hertz}, Zeitbasis \SI{.5}{\milli\second\per\division}, Verstärkung \SI{.1}{\volt\per\division}
+	}
+	\label{fig:0749}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Auswertung                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Auswertung}
+
+\subsection{Aufgabe b}
+
+Aus der Anleitung \cite{hameg/HM604} haben wir den Frequenzbereich entnommen,
+dieser wird mit $B = \SI{<< B >>}\hertz$ angegeben. Daraus folgt nach
+\eqref{eq:0.4} für die Anstiegszeit: $\Deltaup t_\text{Oszi} = \SI{<<
+Delta_t_Oszi >>}\second$.
+
+Mit unserer gemessenen Anstiegszeit von $\Deltaup t_\text{gemessen} = \SI{<<
+Delta_t_gemessen >>}\second$ können wir die des Signalgenerators nach
+\eqref{eq:0.5} errechnen:
+\[
+	\Deltaup t_\text{Signal}
+	= \sqrt{\Deltaup t_\text{gemessen} - \Deltaup t_\text{Signal}}
+	= \SI{<< Delta_t_Signal >>}\second
+\]
+
+Die Bandbreite erhalten wir durch \eqref{eq:0.4}:
+\[
+	B_\text{Signal} = \SI{<< B_Signal >>}\hertz
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Ergebnis                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Ergebnis}
+
+Wir haben die Anstiegszeit des Rechteckssignal auf $\SI{<< Delta_t_Signal
+>>}\second$ bestimmt. Die Bandbreite des Funktionsgenerators haben wir auf
+$\SI{<< B_Signal >>}\hertz$ errechnet.
+
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de
