@@ -1,0 +1,868 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+\input{../header.tex}
+
+\usepackage{placeins}
+
+\ihead{physik313 – Versuch 7}
+\ifoot{Lino Lemmer, Martin Ueding}
+
+\subject{Praktikumsprotokoll}
+\title{Logische Schaltungen}
+\subtitle{physik313 – Versuch 7}
+\author{
+	Lino Lemmer
+    \footnote{\href{mailto:s6lilemm@uni-bonn.de}{s6lilemm@uni-bonn.de}}
+	\and
+	Martin Ueding
+    \footnote{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+}
+
+%\setcounter{tocdepth}{2}
+
+\newcommand\fT{f_\text{T}}
+\newcommand\IB{I_\text{B}}
+\newcommand\IC{I_\text{C}}
+\newcommand\ID{I_\text{D}}
+\newcommand\IE{I_\text{E}}
+\newcommand\IS{I_\text{S}}
+\newcommand\RC{R_\text{C}}
+\newcommand\RD{R_\text{D}}
+\newcommand\RE{R_\text{E}}
+\newcommand\UBE{U_\text{BE}}
+\newcommand\UB{U_\text{B}}
+\newcommand\UCE{U_\text{CE}}
+\newcommand\UC{U_\text{C}}
+\newcommand\UD{U_\text{D}}
+\newcommand\UDS{U_\text{DS}}
+\newcommand\UE{U_\text{E}}
+\newcommand\UGS{U_\text{GS}}
+\newcommand\UG{U_\text{G}}
+\newcommand\Uin{U_\text{in}}
+\newcommand\Uout{U_\text{out}}
+
+\newcommand\UEH{U_\text{E H}}
+\newcommand\UEL{U_\text{E L}}
+\newcommand\UH{U_\text{H}}
+\newcommand\UL{U_\text{L}}
+\newcommand\UQH{U_\text{Q H}}
+\newcommand\UQL{U_\text{Q L}}
+
+\newcommand\mand {\wedge}
+\newcommand\mhigh{\top}
+\newcommand\mlow {\bot}
+\newcommand\mnand{\bar\wedge}
+\newcommand\mnor {\bar\vee}
+\newcommand\mnot {\neg}
+\newcommand\mor  {\vee}
+\newcommand\mxor {\veebar}
+\newcommand\tand {\textsc{and}}
+\newcommand\thigh{\textsc{high}}
+\newcommand\tlow {\textsc{low}}
+\newcommand\tnand{\textsc{nand}}
+\newcommand\tnor {\textsc{nor}}
+\newcommand\tnot {\textsc{not}}
+\newcommand\tor  {\textsc{or}}
+\newcommand\txor {\textsc{xor}}
+
+\begin{document}
+
+\maketitle
+
+\vfill
+
+Der \LaTeX-Quelltext zu allen Protokollen in diesem Praktikum kann auf
+\ref{it:mu} eingesehen werden. Die Quellen für dieses Protokoll können auf
+\ref{it:github/alles} eingesehen werden. Die \LaTeX-Datei wird aus
+\ref{it:github/template} generiert.
+
+\begin{enumerate}
+	\item
+		\label{it:mu}
+		\url{http://martin-ueding.de/de/university/physik313/}
+	\item
+		\label{it:github/alles}
+		\url{https://github.com/martin-ueding/physik313-7/}
+	\item
+		\label{it:github/template}
+		\url{https://github.com/martin-ueding/physik313-7/blob/master/Template.tex}
+\end{enumerate}
+
+\newpage
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Einleitung                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Einleitung}
+
+In diesem Versuch betrachten wir einfache logische Gatter und bauen Schaltungen
+damit. Am Ende bauen wir eine vollständige Addiererschaltung mit 3-Bit.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Aufgaben                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\section{Aufgaben}
+
+\FloatBarrier
+\subsection{Aufgaben A}
+
+\begin{problem}
+    Wieviel verschiedene Schaltfunktionen von $n$ Eingangsvariablen gibt es,
+    wenn man nur Schaltfunktionen ohne Redundanzen betrachtet?
+\end{problem}
+
+Mit $n$ Eingangsvariablen gibt es $2^{2^n}$ Schaltfunktionen.
+
+\FloatBarrier
+\subsection{Aufgabe B}
+
+\begin{problem}
+    Prüfen Sie die obigen Ausdrücke anhand einer Funktionstafel nach.
+    \textit{Gemeint sind folgende Ausdrücke:}
+        \begin{align*}
+            a \mor 1 &= 1 \quad a \mor 0 = a \quad a \mor \bar a = 1\\
+            a \mand 1 &= a \quad a \mand 0 = 0 \quad a \mand \bar a = 0
+        \end{align*}
+\end{problem}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{c|cccccc}
+        $a$ & $a \mor 0$ & $a \mor 1$ & $a \mor \bar a$ & $a \mand 0$ & $a
+        \mand 1$ & $a \mand \bar a$ \\
+        \hline
+        0 & 0 & 1 & 1 & 0 & 0 & 0\\
+        1 & 1 & 1 & 1 & 0 & 1 & 0
+    \end{tabular}
+    \caption{%
+        Funktionstafel zu Aufgabe B
+    }
+    \label{tab:Aufgabe_B}
+\end{table}
+
+Wie in Tabelle~\ref{tab:Aufgabe_B} zu sehen ist stimmen die Ausdrücke.
+
+\FloatBarrier
+\subsection{Aufgabe C}
+
+\begin{problem}
+    Prüfen Sie das Distributivgesetz und die Sätze von \textsc{De-Morgan} mit einer
+    Funktionstafel nach.
+\end{problem}
+
+Wie in Tabelle~\ref{tab:Aufgabe_C_dist} und \ref{tab:Aufgabe_C_demo} zu sehen
+ist stimmen die Ausdrücke.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ccc|c|c}
+        $a$ & $b$ & $c$ & $(a + b) \cdot c$ & $(a \cdot c) + (b \cdot c)$
+        \\
+        \hline
+        0 & 0 & 0 & $0 \cdot 0 = 0$ & $0 + 0 = 0$\\
+        1 & 0 & 0 & $1 \cdot 0 = 0$ & $0 + 0 = 0$\\
+        0 & 1 & 0 & $1 \cdot 0 = 0$ & $0 + 0 = 0$\\
+        0 & 0 & 1 & $0 \cdot 1 = 0$ & $0 + 0 = 0$\\
+        1 & 1 & 0 & $1 \cdot 0 = 0$ & $0 + 0 = 0$\\
+        1 & 0 & 1 & $1 \cdot 1 = 1$ & $1 + 0 = 1$\\
+        0 & 1 & 1 & $1 \cdot 1 = 1$ & $0 + 1 = 1$\\
+        1 & 1 & 1 & $1 \cdot 1 = 1$ & $1 + 1 = 1$
+    \end{tabular}
+    \caption{%
+        Funktionstafel zum Distributivgesetz
+    }
+    \label{tab:Aufgabe_C_dist}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{cc|cc|cc}
+        $a$ & $b$ & $\overline{a \cdot b}$ & $\bar a + \bar b$ & $\overline{a +
+        b}$ & $\bar a \cdot \bar b$\\
+        \hline
+        0 & 0 & $\bar 0 = 1$ & $1 + 1 = 1$ & $\bar 0 = 1$ & $1 \cdot 1 = 1$\\
+        1 & 0 & $\bar 0 = 1$ & $0 + 1 = 1$ & $\bar 1 = 0$ & $0 \cdot 1 = 0$\\
+        0 & 1 & $\bar 0 = 1$ & $1 + 0 = 1$ & $\bar 1 = 0$ & $1 \cdot 0 = 0$\\
+        1 & 1 & $\bar 1 = 0$ & $0 + 0 = 0$ & $\bar 1 = 0$ & $0 \cdot 0 = 0$
+    \end{tabular}
+    \caption{%
+        Funktionstafel zu den Sätzen von \sc{De-Morgan}
+    }
+    \label{tab:Aufgabe_C_demo}
+\end{table}
+
+\FloatBarrier
+\subsection{Aufgabe D} 
+
+\begin{problem}
+    Wie lautet der \textsc{boole}sche Ausdruck für die
+    \textsc{exklusiv-oder}-Funktion aus Beispiel 1? Formen Sie den Ausdruck um,
+    bis nur noch die Schaltfunktion $\bar{a \cdot b}$ vorkommt.
+\end{problem}
+
+Der boole'sche Ausdruck ist 
+\[
+    \bar a \cdot b + a \cdot \bar b
+\]
+Durch zweimalige Negation kann man diesen Ausdruck so umformen, dass die
+gewünschte Form entsteht:
+\[
+    \overline{\overline{\bar a \cdot b + a \cdot \bar b}} =
+    \overline{\overline{\bar a \cdot b} \cdot \overline{a \cdot \bar b}} 
+\]
+
+\FloatBarrier
+\subsection{Aufgabe E}
+
+\begin{problem}
+    Schreiben Sie alle Minterme von 3 Eingangsvariablen auf. Vergleichen Sie
+    die Anzahl der verschiedenen Minterme mit der Zeilenzahl einer
+    Funktionstafel für 3 Eingangsvariablen. Wie wird man die Minterme
+    sinnvollerweise nummerieren?
+\end{problem}
+
+\begin{table}[htbp]
+    \centering
+        \begin{tabular}{ccc|ccc|c}
+            $a$ & $b$ & $c$ & 0 & 0 & 0 & 0\\
+            $a$ & $b$ & $\bar c$ & 0 & 0 & 1 & 1\\
+            $a$ & $\bar b$ & $c$ & 0 & 1 & 0 & 2\\
+            $a$ & $\bar b$ & $\bar c$ & 0 & 1 & 1 & 3\\
+            $\bar a$ & $b$ & $c$ & 1 & 0 & 0 & 4\\
+            $\bar a$ & $b$ & $\bar c$ & 1 & 0 & 1 & 5\\
+            $\bar a$ & $\bar b$ & $c$ & 1 & 1 & 0 & 6\\
+            $\bar a$ & $\bar b$ & $\bar c$ & 1 & 1 & 1 & 7\\
+        \end{tabular}
+        \caption{%
+            Mögliche Minterme bei 3 Eingangsvariablen
+        }
+        \label{tab:Aufgabe_E}
+\end{table}
+
+Wie aus Tabelle~\ref{tab:Aufgabe_E} ersichtlich wird, folgt eine mögliche
+Nummerierung aus der binären Kodierung der Eingangsvariablen.
+
+\subsection{Aufgabe F}
+
+\begin{problem}
+    Stellen Sie eine Funktionstafel (Eingänge $a$, $b$, Ausgänge $Q_1$, $Q_2$)
+    dieses Flip-Flops [Abbildung~\ref{fig:7-1}] auf. Für welchen
+    Eingangszustand gibt es mehrere Möglichkeiten für die Ausgänge?
+\end{problem}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../Anleitung/7-1.png}
+    \caption{%
+		\cite[Abbildung~7.1]{physik313-Anleitung}
+    }
+    \label{fig:7-1}
+\end{figure}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{cc|cc}
+        $a$ & $b$ & $Q_1$ & $Q_2$ \\
+        \hline
+        0 & 0 & 1 & 1 \\
+        0 & 1 & 1 & 0 \\
+        1 & 0 & 0 & 1 \\
+        1 & 1 & 1/0 & 0/1
+    \end{tabular}
+    \caption{%
+        Funktionstafel für das in Abbildung~\ref{fig:7-1} gezeigte Flip-Flop 
+    }
+    \label{tab:Aufgabe_F}
+\end{table}
+
+Wie in Tabelle~\ref{tab:Aufgabe_F} zu sehen ist, gibt es für $a = b = 1$ zwei
+mögliche Ausgangseinstellungen.
+
+\FloatBarrier
+\subsection{Aufgabe G}
+
+\begin{problem}
+    Zeichnen Sie ein 4-Bit-Schieberegister auf, das seriell geladen wird.
+\end{problem}
+
+Die Schaltung des seriell geladenen Schieberegisters ist in
+Abbildung~\ref{fig:G-Schieberegister} zu sehen.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{../Zeichnungen/G-Schieberegister.pdf}
+    \caption{%
+        Seriell geladenes Schieberegister
+    }
+    \label{fig:G-Schieberegister}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe H}
+
+\begin{problem}
+    Entwerfen Sie ein 4-Bit-Schieberegister, das parallel geladen werden kann
+    (d.h. alle Bits gleichzeitig, wenn eine Steuerleitung „\textsc{load}“ auf 1
+    ist). Benutzen Sie dazu die unten [Abbildung~\ref{fig:7-H}] abgebildeten
+    kombinierten Schaltelemente, die auch auf dem Schaltbrett zur Verfügung
+    stehen.
+\end{problem}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../Anleitung/7-H.png}
+    \caption{%
+		\cite[Abbildung in Aufgabe~H]{physik313-Anleitung}
+    }
+    \label{fig:7-H}
+\end{figure}
+
+Die Schaltung ist in Abbildung~\ref{fig:H-Schieberegister} zu sehen.
+
+Steht \textsc{load} auf 1 wird beim entsprechenden Takt jedes Bit gleichzeitig
+von $D_i$ aus geladen, da der Multiplexer diese Quelle auswählt. Steht
+\textsc{load} auf 0, wirkt diese Schaltung wie das in
+Abbildung~\ref{fig:G-Schieberegister} gezeigte seriell geladene Schieberegister.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{../Zeichnungen/H-Schieberegister.pdf}
+    \caption{%
+        Parallel und seriell ladbares Schieberegister
+    }
+    \label{fig:H-Schieberegister}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe I}
+
+\begin{problem}
+    Entwerfen Sie einen 4-Bit-Dualzähler, bei dem der Ausgang eines FFs jeweils
+    den Takteingang des nächsten FFs steuert. Tipp: Verbinden Sie bei jedem
+    Flip-Flop $\overline Q$ mit $D$.
+\end{problem}
+
+Der Aufbau des Dualzählers ist in Abbildung~\ref{fig:I-Dualzähler} zu sehen.
+
+Da der Eingang der FFs mit ihrem negierendem Ausgang verbunden sind, wechseln
+alle beim Taktsignal ihr Ausgangssignal. Dabei wechselt jedes FF nur noch halb
+so häufig das Signal wie sein Vorgänger, da das Taktsignal nur beim Wechsel von
+z.B. \textsc{high} zu \textsc{low} ausgelöst wird, daher den anderen Wechsel
+auslässt.
+
+Die Bits schalten hierbei nicht alle gleichzeitig, da das Schaltsignal
+gewissermaßen durchgereicht wird und sich daher interne Schaltzeiten
+Aufsummieren.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{../Zeichnungen/I-Dualzaehler.pdf}
+    \caption{%
+        Asynchroner 4-Bit-Dualzähler
+    }
+    \label{fig:I-Dualzähler}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe J}
+
+\begin{problem}
+    Entwerfen Sie einen Synchronen 3-Bit-Dualzähler. Stellen Sie dazu eine
+    Schalttafel auf, aus der Sie entnehmen können, wann ein bestimmtes FF auf 1
+    und wann es auf 0 springen muss.
+\end{problem}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{c|ccc}
+        Takt & $Q_0$ & $Q_1$ & $Q_2$\\
+        \hline
+        0 & 0 & 0 & 0\\
+        1 & 1 & 0 & 0\\
+        2 & 0 & 1 & 0\\
+        3 & 1 & 1 & 0\\
+        4 & 0 & 0 & 1\\
+        5 & 1 & 0 & 1\\
+        6 & 0 & 1 & 1\\
+        7 & 1 & 1 & 1\\
+    \end{tabular}
+    \caption{%
+        Schalttafel zum 3-Bit-Dualzähler
+    }
+    \label{tab:Aufgabe_J}
+\end{table}
+
+Wie aus Tabelle~\ref{tab:Aufgabe_J} ersichtlich wird, springt ein FF erst dann
+auf 1, wenn alle FFs vor ihm auf 1 stehen. Im gleichen Moment springen alle vor
+ihm zurück auf 0. Daraus folgt die Schaltung, wie sie in
+Abbildung~\ref{fig:J-Dualzähler} zu sehen ist.
+
+Wenn nun z.B. $Q_0 = 1$ und $Q_1 = 0$ übergibt die \textsc{xor}-Schaltung eine
+1 an $Q_1$. Ist  $Q_0 = Q_1 = 1$ gibt die \tand-Schaltung eine 1 weiter. Ist
+nun $Q_2 = 0$ springt dieses aufgrund der zweiten \txor-Schaltung auf 1. Die
+anderen beiden springen auf 0.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{../Zeichnungen/J-Dualzaehler.pdf}
+    \caption{%
+        Synchroner 3-Bit-Dualzähler
+    }
+    \label{fig:J-Dualzähler}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe K}
+
+\begin{problem}
+	Welche logische Funktion wir[d] durch diese Schaltung [in
+	Abbildung~\ref{fig:7-7}] realisiert? Welche Aufgabe haben die Dioden?
+	Überprüfen Sie, ob auch hier noch die Ausgangspegel korrekt sind.
+\end{problem}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.5\linewidth]{../Anleitung/7-7.png}
+	\caption{%
+		\cite[Abbildung~7.7]{physik313-Anleitung}
+	}
+	\label{fig:7-7}
+\end{figure}
+
+Die die logische Funktion des Schaltung ist eine \tnor-Funktion.
+
+Die Dioden
+haben die Funktion die einkommenden Spannungen nur an das Gatter
+weiterzuleiten. Die Eingangsspannung soll von beiden Eingängen auf $\UEH$
+gezogen werden können, jedoch sollen die Eingänge voneinander entkoppelt sein,
+sie sollen ja Eingänge sein.
+
+\paragraph{Spannungslevel}
+
+Wenn nur $\UL$ auf beiden Eingängen ist, liegt eine maximale Spannung von
+\SI{.2}{\volt} an, da die Siliziumdioden schon \SI{.6}{\volt} verschlingen.
+Dies reicht nicht mehr aus, um den Transistor zu schalten, am Ausgang werden
+fast die vollen \SI{5}{\volt} anliegen.
+
+Wenn einer der der Eingänge auf $\UH$ geschaltet ist, dann mindestens
+\SI{2.4}{\volt}. Nach der Diode sind immer noch \SI{1.8}{\volt} da. Dies sollte
+reichen, um den Transistor zu schalten. $\UBE$ ist dann nur noch
+\SI{.7}{\volt}, so dass folgender Strom fließt:
+\[
+	\IB = \frac{\SI{1.8}\volt - 2 \cdot \SI{.7}\volt}{\SI1{\kilo\ohm}}
+	= \SI{.4}{\milli\ampere}
+\]
+
+Mit einer Stromverstärkung von $\beta = 100$ sind dies $\IB =
+\SI{40}{\milli\ampere}$. Dabei würde an $\RC$ eine Spannung von \SI{40}{\volt}
+abfallen. Da nur \SI{5}{\volt} anliegen, wird sicher ein \tlow{} am Ausgang
+anliegen.
+
+\FloatBarrier
+\subsection{Aufgabe L}
+
+\begin{problem}
+    Was passiert, wenn man die Dioden umpolt? Zeichnen Sie die Schaltung auf.
+    Funktioniert die Schaltung sinnvoll? Kann man mit einem \SI{2.2}{\kilo\ohm}
+    Widerstand nach +\SI 5{\volt} etwas erreichen? Begründen Sie, warum es hier
+    ein Problem für $\UE = U_\text{E L max}$ gibt.
+\end{problem}
+
+Die Schaltung ist in Abbildung~\ref{fig:L-NAND} zu sehen. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.45\textwidth]{../Zeichnungen/L-NAND.pdf}
+    \caption{%
+        Schaltung für Aufgabe L
+    }
+    \label{fig:L-NAND}
+\end{figure}
+
+Ohne den \SI{2.2}{\kilo\ohm} Widerstand, wäre der Ausgang konstant \thigh. Mit
+dem Widerstand erhält der Punkt $P$ ein Potenzial $\UE$:
+\[
+    \UE = \frac {\SI{1}{\kilo\ohm} + \SI{1}{\kilo\ohm}} {\SI{2.2}{\kilo\ohm} +
+    \SI{1}{\kilo\ohm} + \SI{1}{\kilo\ohm}}\SI 5{\volt} = \SI{2.4}{\volt}
+\]
+Daraus ergeben sich drei Fälle:
+\begin{itemize}
+    \item
+        $E_1 = E_2 = \UL$: Die Dioden leiten beide. Der verbleibende Basisstrom
+        reicht nicht aus um den Transistor durchzuschalten. Es fließt kein
+        Kollektorstrom, daher ist der Ausgang \thigh.
+    \item
+        $E_1 = \UL$ und $E_2 = \UH$ oder andersherum: Eine Diode leitet, die
+        Folgen sind die Gleichen wie im ersten Fall, der Ausgang ist also
+        \thigh.
+    \item
+        $E_1 = E_2 = \UH$: Die Dioden sperren beide. Der Basisstrom ist groß
+        genug um den Transistor durchzuschalten. Der Ausgang wird \tlow.
+\end{itemize}
+Wäre $\UE$ nicht \SI{2.4}{\volt} sondern \SI{0.8}{\volt} würde beim letzten
+genannten Fall die Spannung nicht ausreichen um den Transistor durchzuschalten.
+Wir hätten auch hier als Ausgang ein \thigh-Signal.
+
+Es handelt sich um eine \tnand-Schaltung.
+
+\FloatBarrier
+\subsection{Aufgabe M}
+
+\begin{problem}
+	Wie funktioniert der CMOS-Inverter (Abbildung~\ref{fig:7-9})? Benutzen Sie
+	die angegebenen Kennlinien.
+\end{problem}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.3\linewidth]{../Anleitung/7-9.png}
+	\caption{%
+		\cite[Abbildung~7.9]{physik313-Anleitung}
+	}
+	\label{fig:7-9}
+\end{figure}
+
+Wenn eine Eingangsspannung anliegt, also ein \thigh, sperrt der obere FET, der
+untere FET wird durchgeschaltet. Somit fällt die Betriebsspannung am oberen FET
+ab, Ausgang ist ein \tlow.
+
+Wenn keine Eingangsspannung anliegt, also ein \tlow, wird der Obere
+durchgeschaltet, der Untere gesperrt. Damit fällt die Betriebsspannung am
+unteren ab, Ausgang ist ein \thigh.
+
+Die Kennlinien sind so extrem, dass sich hier ein digitales Verhalten zeigt.
+
+\FloatBarrier
+\subsection{Aufgabe N}
+
+\begin{problem}
+	Welche logische Funktion ist mit dem Gatter in Abbildung~\ref{fig:7-10}
+	realisiert?
+\end{problem}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.5\linewidth]{../Anleitung/7-10.png}
+	\caption{%
+		\cite[Abbildung~7.10]{physik313-Anleitung}
+	}
+	\label{fig:7-10}
+\end{figure}
+
+Legen wir doch eine Tabelle an. Dazu gehen wir Schritt für Schritt durch:
+
+\paragraph{A und B \tlow}
+
+p-MOS links und rechts sind durchgeschaltet. Daher fällt über ihnen keine
+Spannung ab. Die n-MOS oben und unten sind gesperrt, daher fällt über ihnen
+Spannung ab. Ausgang ist \thigh.
+
+\paragraph{A und B \thigh}
+
+Genau invers, also fällt die Spannung über den ersten MOSFETs ab, womit der
+Ausgang \tlow{} ist.
+
+\paragraph{A \thigh{} und B \tlow}
+
+p-MOS links ist offen, p-MOS rechts ist gesperrt. n-MOS oben ist offen, n-MOS
+unten ist gesperrt.
+
+Somit fällt viel Spannung unten ab, oben ist ein Weg offen. Ausgang ist \thigh.
+
+\paragraph{A \tlow{} und B \thigh}
+
+p-MOS links ist gesperrt, rechts ist offen. n-MOS oben ist gesperrt, unten ist
+offen.
+
+Somit wie oben, \thigh
+
+\paragraph{Zusammenfassung}
+
+Wir erhalten:
+
+\begin{tabular}{c|cc}
+	A \textbackslash{} B & 0 & 1 \\
+	\hline
+	0 & 1 & 1 \\
+	1 & 1 & 0
+\end{tabular}
+
+Somit handelt es sich um ein \tnand-Gatter.
+
+\FloatBarrier
+\subsection{Aufgabe O}
+
+\begin{problem}
+	Wie lauten die Boole'schen Ausdrücke für Summe und Übertrag eines
+	Halbaddierers?
+\end{problem}
+
+Einen Übertrag gibt es nur, wenn beide Summanden \thigh{} sind. Somit ist der
+Übertrag:
+\[
+	U := a \mand b
+\]
+
+Die Summe ist ein \txor. Also:
+\[
+	S := a \mxor b
+\]
+
+\FloatBarrier
+\subsection{Aufgabe P}
+
+\begin{problem}
+	Schreiben Sie die Funktionstafel auf für einen Volladdierer, der auch den
+	Übertrag des vorhergehenden Bits mit verarbeitet.
+\end{problem}
+
+Der Volladdierer bekommt nicht nur die beiden Stellen $a$ und $b$ geliefert,
+sondern auch $\Uin$, den Übertrag der vorherigen Rechnung. Der Volladdierer
+addiert diese drei Zahlen auf. Da sie im Bereich 0 bis 3 liegen, braucht er
+zwei Stellen als Ausgabe. Das ist einmal Summe und $\Uout$, der Übertrag des
+Ergebnisses.
+
+\begin{tabular}{ccc|cc}
+	$a$ & $b$ & $\Uin$ & $\Uout$ & $S$ \\
+	\hline
+	0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 1 & 0 & 1 \\
+	0 & 1 & 0 & 0 & 1 \\
+	0 & 1 & 1 & 1 & 0 \\
+	1 & 0 & 0 & 0 & 1 \\
+	1 & 0 & 1 & 1 & 0 \\
+	1 & 1 & 0 & 1 & 0 \\
+	1 & 1 & 1 & 1 & 1 \\
+\end{tabular}
+
+\begin{small}
+	Für die Bearbeitung dieser Aufgabe habe ich mir
+	\cite{wikipedia/Volladdierer} angeschaut. Die Tabelle habe ich jedoch nicht
+	kopiert, sondern aus der Erklärung im ersten Absatz des Artikels selbst
+	erstellt.
+\end{small}
+
+\FloatBarrier
+\subsection{Aufgabe Q}
+
+\begin{problem}
+	Geben Sie ein Blockschaltbild an für einen Volladdierer, der aus zwei
+	Halbaddierern zusammengesetzt ist.
+\end{problem}
+
+Der Volladdierer soll, wie in der vorherigen Aufgabe beschrieben, drei Zahlen
+addieren. Dazu werden erst einmal $a$ und $b$ addiert, zur Zwischensumme $Z$
+und ihrem Übertrag $U_Z$. Anschließend werden werden der vorherige Übertrag
+$\Uin$ mit der Zwischensumme addiert. Als Ergebnis kommen die Summe $S$ und ein
+weiterer Übertrag $U_S$ heraus. Die beiden Überträge können jedoch nicht beide
+\thigh{} sein. Somit reicht es, sie mit einem \tor-Gatter zu verknüpfen.
+
+Dies ist in Abbildung~\ref{fig:Q-Volladdierer} gezeigt.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics{../Zeichnungen/Q-Volladdierer.pdf}
+	\caption{%
+		Blockschaltbild für den Volladdierer. Mit Denkanstoß von
+		\cite{wikipedia/Volladdierer}.
+	}
+	\label{fig:Q-Volladdierer}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe R}
+
+\begin{problem}
+	Entwerfen Sie ein Schaltschema eines seriellen Addierwekes wie oben
+	beschrieben. Mit den auf dem Schaltbrett vorhandenen Elementen ist es nicht
+	möglich, zwei Register aufzubauen, die man beide parallel laden kann.
+	Füllen Sie deswegen das eine Summandenregister, welches gleichzeitig als
+	Ergebnisregister dient, indem Sie zunächst den ersten Summanden zu Null
+	hinzuaddieren.
+\end{problem}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics{../Zeichnungen/R-Addierer.pdf}
+	\caption{%
+		Blockschaltbild für die vollständige Addiererschaltung.
+	}
+	\label{fig:R-Addierer}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                Durchführung                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\FloatBarrier
+\section{Durchführung}
+
+\FloatBarrier
+\subsection{Aufgabe a}
+
+Wir messen die Übertragungskennlinie eines Inverters bei einer
+Versorgungsspannung von \SI 5{\volt} um Bereich $\UE = \SI 0{\volt}$ bis $\UE =
+\SI 5{\volt}$. Unsere Messung ist in Tabelle~\ref{tab:a} und
+Abbildung~\ref{fig:7-a}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SS}
+		{$U_\text E$} & {$U_\text O$} \\
+		\hline
+		%< for ue, uo in a: >%
+		<< ue >> & << uo >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für die Kennlinie eines Inverters.
+	}
+	\label{tab:a}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{7-a.pdf}
+    \caption{%
+        Übertragungskennlinie eines Inverters
+    }
+    \label{fig:7-a}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe b}
+
+Wir bauen nun ein \tnand-Gatter mit der Schaltung aus Aufgabe L auf. Die
+Hubdioden ersetzen den Vorwiderstand und sorgen dafür, dass die \thigh- und
+\tlow-Level richtig herauskommen.
+
+Die Messwerte für die Übertragungskennlinie beim zweiten Eingang auf \thigh{}
+haben wir in Tabelle~\ref{tab:b-high} aufgelistet und in Abbildung~\ref{fig:b}
+geplottet. Für \tlow{} auf dem zweiten Eingang erhalten wir eine andere
+Kennlinie, siehe Tabelle~\ref{tab:b-low} und Abbildung~\ref{fig:b}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SS}
+		{$U_\text E$} & {$U_\text O$} \\
+		\hline
+		%< for ue, uo in b_high: >%
+		<< ue >> & << uo >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für die Kennlinie eines \tnand-Gatters mit Transistor. Der
+		zweite Eingang ist auf \thigh{} gesetzt.
+	}
+	\label{tab:b-high}
+\end{table}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{SS}
+		{$U_\text E$} & {$U_\text O$} \\
+		\hline
+		%< for ue, uo in b_low: >%
+		<< ue >> & << uo >> \\
+		%< endfor >%
+	\end{tabular}
+	\caption{%
+		Messwerte für die Kennlinie eines \tnand-Gatters mit Transistor. Der
+		zweite Eingang ist auf \tlow{} gesetzt.
+	}
+	\label{tab:b-low}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{7-b.pdf}
+    \caption{%
+        Übertragungskennlinie eines \tnand-Gatters mit Transistor
+    }
+    \label{fig:b}
+\end{figure}
+
+\FloatBarrier
+\subsection{Aufgabe c}
+
+Wir bauen aus \tnand-Gattern ein \txor-Gatter auf. Dies geht nach
+Abbildung~\ref{fig:xor}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.7\linewidth]{../Gatter/XOR.png}
+	\caption{%
+		\txor-Gatter.
+		\cite[Seite~20]{wirsum/experimente_schaltglieder}
+	}
+	\label{fig:xor}
+\end{figure}
+
+Wir haben dies aufgebaut, es funktioniert.
+
+\FloatBarrier
+\subsection{Aufgabe d}
+
+Wir sollen in diesem Versuch einen Halbaddierer aus \tnand-Gattern
+zusammensetzen. Für diesen brauchen wir \tand- und \tor-Gatter. Diese sind in
+Abbildung~\ref{fig:and} und \ref{fig:or} gezeigt.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{../Gatter/AND.png}
+		\caption{%
+			\tand-Gatter.
+			\cite[Seite~20]{wirsum/experimente_schaltglieder}
+		}
+		\label{fig:and}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+		\includegraphics[width=\linewidth]{../Gatter/OR.png}
+		\caption{%
+			\tor-Gatter
+			\cite[Seite~21]{wirsum/experimente_schaltglieder}
+		}
+		\label{fig:or}
+	\end{minipage}
+\end{figure}
+
+Dieser funktionierte. Dann haben wir einen zweiten aufgebaut und mit einen
+weiteren \tor-Gatter zum Volladdierer kombiniert.
+
+\FloatBarrier
+\subsection{Aufgabe e}
+
+Nun bauen wir ein seriell ladbares 4-Bit-Schieberegister auf. Wir konnten es
+mit Daten befüllen und diese durchschieben, es funktionierte also auch.
+
+\FloatBarrier
+\subsection{Aufgabe f}
+
+Mit weiteren drei Flip-Flops bauen wir das parallel ladbare
+3-Bit-Schieberegister auf. Dies funktioniert auch.
+
+\subsection{Aufgabe g}
+
+Wir bauen die vollständige Addiererschaltung mit den beiden Registern und einem
+weiteren Flip-Flop, wie in der Voraufgabe R hergeleitet, auf. Wir testen die
+Addition mit einigen Werten, der Addierer funktioniert.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Literatur                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\FloatBarrier
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de tw=79

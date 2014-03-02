@@ -1,0 +1,93 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+# Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+# Licensed under The GNU Public License Version 2 (or later)
+
+import jinja2
+import math
+import matplotlib.pyplot as pl
+import numpy as np
+import scipy.optimize as op
+import scipy.interpolate
+
+def aufgabe_a(T):
+    data = np.genfromtxt("Daten-a.txt")
+    Uin = data[:, 0]
+    Uout = data[:, 1]
+
+    pl.errorbar(Uin, Uout, xerr=0.25, linestyle="None", marker="x")
+    pl.xlabel(r"$U_\mathrm{E} / \mathrm{V}$")
+    pl.ylabel(r"$U_\mathrm{Q} / \mathrm{V}$")
+    pl.grid(True)
+    pl.savefig("_build/7-a.pdf", bbox_inches='tight')
+    pl.clf()
+
+    T["a"] = np.column_stack([Uin, Uout])
+
+def aufgabe_b(T):
+    data_high = np.genfromtxt("Daten-b-high.txt")
+    Uin_high = data_high[:, 0]
+    Uout_high = data_high[:, 1]
+
+    data_low = np.genfromtxt("Daten-b-low.txt")
+    Uin_low = data_low[:, 0]
+    Uout_low = data_low[:, 1]
+
+    pl.errorbar(Uin_high, Uout_high, xerr=0.25,  linestyle="None", marker="o", label="Eingang B high")
+    pl.errorbar(Uin_low, Uout_low, xerr=0.25, linestyle="-", marker="o", label="Eingang B low")
+    pl.xlabel(r"$U_\mathrm{E} / \mathrm{V}$")
+    pl.ylabel(r"$U_\mathrm{Q} / \mathrm{V}$")
+    pl.legend(loc="best")
+    pl.grid(True)
+    pl.savefig("_build/7-b.pdf", bbox_inches='tight')
+    pl.clf()
+
+    T["b_high"] = np.column_stack([Uin_high, Uout_high])
+    T["b_low"] = np.column_stack([Uin_low, Uout_low])
+
+def g(value, error=None, digits=3):
+    if error is None:
+        return ("{:."+str(digits)+"g}").format(value)
+    else:
+        value_log = int(math.floor(math.log(np.abs(value), 10)))
+        error_log = int(math.floor(math.log(np.abs(error), 10)))
+
+        difference = value_log - error_log
+        exp = 0
+
+        if difference >= 0:
+            value_dis = value * 10**(difference - value_log)
+            error_dis = error * 10**(- error_log)
+            exp = error_log
+        else:
+            value_dis = value * 10**(- value_log)
+            error_dis = error * 10**(difference - error_log)
+            exp = value_log
+
+        format_string = "{:."+str(digits-1)+"f} +- {:."+str(digits-1)+"f} e{:+d}"
+        return format_string.format(value_dis, error_dis, exp)
+
+def render_template(T):
+    # Setting up Jinja
+    env = jinja2.Environment(
+        "%<", ">%",
+        "<<", ">>",
+        "%§", "§%",
+        loader=jinja2.FileSystemLoader(".")
+    )
+    template = env.get_template("Template.tex")
+
+    # Rendering LaTeX document with values.
+    with open("_build/physik313-7-Ueding_Lemmer.tex", "w") as f:
+        f.write(template.render(**T))
+
+def main():
+    T = {}
+
+    aufgabe_a(T)
+    aufgabe_b(T)
+    render_template(T)
+
+if __name__ == "__main__":
+    main()
